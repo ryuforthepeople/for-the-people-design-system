@@ -7,6 +7,7 @@
     <div class="paginator__controls">
       <!-- First page button -->
       <button
+        type="button"
         v-if="showFirstLast"
         class="paginator__nav paginator__nav--first"
         :disabled="isFirstPage"
@@ -22,6 +23,7 @@
 
       <!-- Previous button -->
       <button
+        type="button"
         class="paginator__nav paginator__nav--prev"
         :disabled="isFirstPage"
         :aria-disabled="isFirstPage"
@@ -36,6 +38,7 @@
       <!-- Page numbers -->
       <div class="paginator__pages">
         <button
+          type="button"
           v-for="page in visiblePages"
           :key="page.value"
           class="paginator__page"
@@ -51,6 +54,7 @@
 
       <!-- Next button -->
       <button
+        type="button"
         class="paginator__nav paginator__nav--next"
         :disabled="isLastPage"
         :aria-disabled="isLastPage"
@@ -64,6 +68,7 @@
 
       <!-- Last page button -->
       <button
+        type="button"
         v-if="showFirstLast"
         class="paginator__nav paginator__nav--last"
         :disabled="isLastPage"

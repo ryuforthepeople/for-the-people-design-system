@@ -14,6 +14,8 @@
               class="data-table__th"
               :class="{ 'data-table__th--sortable': col.sortable }"
               :style="col.width ? { width: col.width } : {}"
+              scope="col"
+              :aria-sort="col.sortable && sortField === col.field ? (sortOrder === 1 ? 'ascending' : 'descending') : (col.sortable ? 'none' : undefined)"
               @click="col.sortable ? onSort(col.field) : null"
             >
               <span class="data-table__th-content">
@@ -75,6 +77,7 @@
 
     <div v-if="paginator && totalPages > 1" class="data-table__pagination">
       <button
+        type="button"
         class="data-table__page-btn"
         :disabled="currentPage === 1"
         @click="goToPage(1)"
@@ -85,6 +88,7 @@
         </svg>
       </button>
       <button
+        type="button"
         class="data-table__page-btn"
         :disabled="currentPage === 1"
         @click="goToPage(currentPage - 1)"
@@ -97,6 +101,7 @@
         Page {{ currentPage }} of {{ totalPages }}
       </span>
       <button
+        type="button"
         class="data-table__page-btn"
         :disabled="currentPage === totalPages"
         @click="goToPage(currentPage + 1)"
@@ -106,6 +111,7 @@
         </svg>
       </button>
       <button
+        type="button"
         class="data-table__page-btn"
         :disabled="currentPage === totalPages"
         @click="goToPage(totalPages)"

@@ -18,6 +18,7 @@
             :aria-modal="modal"
             :aria-labelledby="headerId"
             @click.stop
+            @keydown="onKeyDown"
           >
             <div v-if="$slots.header || header || closable" class="dialog__header">
               <slot name="header">
@@ -62,7 +63,26 @@
 <style src="./Dialog.scss"></style>
 
 <script setup>
-import { computed, ref, watch, onMounted, onUnmounted } from "vue";
+import { computed, ref, watch, onMounted, onUnmounted, nextTick } from "vue";
+
+// Bug #2: SSR-safe ID generation (atomic counter instead of Math.random)
+let idCounter = 0;
+const useId = () => 'ftp-' + idCounter++;
+
+// Bug #3: Body scroll lock counter (shared across all Dialog instances)
+let scrollLockCount = 0;
+const lockScroll = () => {
+  scrollLockCount++;
+  if (scrollLockCount === 1) {
+    document.body.style.overflow = "hidden";
+  }
+};
+const unlockScroll = () => {
+  scrollLockCount = Math.max(0, scrollLockCount - 1);
+  if (scrollLockCount === 0) {
+    document.body.style.overflow = "";
+  }
+};
 
 const props = defineProps({
   visible: {
@@ -103,7 +123,7 @@ const props = defineProps({
 const emit = defineEmits(["update:visible", "show", "hide"]);
 
 const dialogRef = ref(null);
-const headerId = `dialog-header-${Math.random().toString(36).substr(2, 9)}`;
+const headerId = useId();
 
 // Drag state
 const isDragging = ref(false);
@@ -131,6 +151,41 @@ const onEscapeKey = (event) => {
     event.preventDefault();
     close();
   }
+};
+
+// Bug #1: Focus trap
+const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+const onKeyDown = (event) => {
+  if (event.key !== 'Tab' || !props.modal || !dialogRef.value) return;
+
+  const focusableElements = [...dialogRef.value.querySelectorAll(FOCUSABLE_SELECTOR)];
+  if (focusableElements.length === 0) {
+    event.preventDefault();
+    return;
+  }
+
+  const firstEl = focusableElements[0];
+  const lastEl = focusableElements[focusableElements.length - 1];
+
+  if (event.shiftKey) {
+    if (document.activeElement === firstEl || !dialogRef.value.contains(document.activeElement)) {
+      event.preventDefault();
+      lastEl.focus();
+    }
+  } else {
+    if (document.activeElement === lastEl || !dialogRef.value.contains(document.activeElement)) {
+      event.preventDefault();
+      firstEl.focus();
+    }
+  }
+};
+
+// Bug #4: Drag cleanup helper
+const removeDragListeners = () => {
+  document.removeEventListener("mousemove", onDragMove);
+  document.removeEventListener("mouseup", onDragEnd);
+  isDragging.value = false;
 };
 
 // Dragging functionality
@@ -164,23 +219,38 @@ const onDragMove = (event) => {
 };
 
 const onDragEnd = () => {
-  isDragging.value = false;
-  document.removeEventListener("mousemove", onDragMove);
-  document.removeEventListener("mouseup", onDragEnd);
+  removeDragListeners();
 };
 
-// Block scroll when modal is open
+// Track whether we locked scroll (for cleanup)
+let didLockScroll = false;
+
 watch(
   () => props.visible,
-  (newValue) => {
+  async (newValue) => {
     if (newValue) {
       emit("show");
       if (props.modal) {
-        document.body.style.overflow = "hidden";
+        lockScroll();
+        didLockScroll = true;
+      }
+      // Focus first focusable element when dialog opens
+      await nextTick();
+      if (dialogRef.value) {
+        const focusable = dialogRef.value.querySelector(FOCUSABLE_SELECTOR);
+        if (focusable) {
+          focusable.focus();
+        } else {
+          dialogRef.value.setAttribute('tabindex', '-1');
+          dialogRef.value.focus();
+        }
       }
     } else {
-      if (props.modal) {
-        document.body.style.overflow = "";
+      // Bug #4: Clean up drag listeners on hide
+      removeDragListeners();
+      if (didLockScroll) {
+        unlockScroll();
+        didLockScroll = false;
       }
     }
   }
@@ -188,8 +258,10 @@ watch(
 
 // Cleanup on unmount
 onUnmounted(() => {
-  document.body.style.overflow = "";
-  document.removeEventListener("mousemove", onDragMove);
-  document.removeEventListener("mouseup", onDragEnd);
+  if (didLockScroll) {
+    unlockScroll();
+    didLockScroll = false;
+  }
+  removeDragListeners();
 });
 </script>

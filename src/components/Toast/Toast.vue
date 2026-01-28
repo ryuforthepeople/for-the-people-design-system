@@ -107,6 +107,7 @@ const props = defineProps({
 
 const toasts = ref([]);
 let toastIdCounter = 0;
+const timeoutIds = new Map();
 
 function add(toast) {
   const id = ++toastIdCounter;
@@ -121,15 +122,22 @@ function add(toast) {
   toasts.value.push(newToast);
 
   if (newToast.life > 0) {
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
+      timeoutIds.delete(id);
       removeToast(id);
     }, newToast.life);
+    timeoutIds.set(id, timeoutId);
   }
 
   return id;
 }
 
 function removeToast(id) {
+  const timeoutId = timeoutIds.get(id);
+  if (timeoutId) {
+    clearTimeout(timeoutId);
+    timeoutIds.delete(id);
+  }
   const index = toasts.value.findIndex((t) => t.id === id);
   if (index > -1) {
     toasts.value.splice(index, 1);
@@ -137,12 +145,26 @@ function removeToast(id) {
 }
 
 function removeGroup(group) {
+  toasts.value.filter((t) => t.group === group).forEach((t) => {
+    const timeoutId = timeoutIds.get(t.id);
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+      timeoutIds.delete(t.id);
+    }
+  });
   toasts.value = toasts.value.filter((t) => t.group !== group);
 }
 
 function removeAllGroups() {
+  timeoutIds.forEach((timeoutId) => clearTimeout(timeoutId));
+  timeoutIds.clear();
   toasts.value = [];
 }
+
+onUnmounted(() => {
+  timeoutIds.forEach((timeoutId) => clearTimeout(timeoutId));
+  timeoutIds.clear();
+});
 
 // Expose methods for external use
 defineExpose({

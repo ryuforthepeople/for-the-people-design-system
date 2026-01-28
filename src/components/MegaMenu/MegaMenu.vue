@@ -7,6 +7,7 @@
     ]"
   >
     <button
+      type="button"
       class="mega-menu__mobile-toggle"
       aria-label="Toggle menu"
       @click="mobileMenuOpen = !mobileMenuOpen"

@@ -61,6 +61,7 @@
 
     <div v-if="paginator && totalPages > 1" class="data-view__pagination">
       <button
+        type="button"
         class="data-view__page-btn"
         :disabled="currentPage === 1"
         @click="goToPage(1)"
@@ -71,6 +72,7 @@
         </svg>
       </button>
       <button
+        type="button"
         class="data-view__page-btn"
         :disabled="currentPage === 1"
         @click="goToPage(currentPage - 1)"
@@ -83,6 +85,7 @@
         Page {{ currentPage }} of {{ totalPages }}
       </span>
       <button
+        type="button"
         class="data-view__page-btn"
         :disabled="currentPage === totalPages"
         @click="goToPage(currentPage + 1)"
@@ -92,6 +95,7 @@
         </svg>
       </button>
       <button
+        type="button"
         class="data-view__page-btn"
         :disabled="currentPage === totalPages"
         @click="goToPage(totalPages)"

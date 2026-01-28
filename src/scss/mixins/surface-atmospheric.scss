@@ -1,5 +1,10 @@
 @use "../../../dist/scss/tokens" as *;
 
+// Navy palette values — not in semantic tokens, hardcoded from design palette
+// navy-950: #0a0e27 (deepest navy), navy-900: #0f1535 (deep navy)
+$navy-950: #0a0e27;
+$navy-900: #0f1535;
+
 /// Atmospheric surface background with layered gradients and warm glow
 /// Creates a rich, deep space-like background with ambient lighting
 ///
