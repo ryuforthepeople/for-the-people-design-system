@@ -172,15 +172,6 @@ const props = withDefaults(defineProps<PanelMenuProps>(), {
   model: () => [],
   expandedKeys: () => ({}),
   multiple: false,
-});,
-  },
-  /**
-   * Allow multiple panels to be expanded simultaneously
-   */
-  multiple: {
-    type: Boolean,
-    default: false,
-  },
 });
 
 const emit = defineEmits(["update:expandedKeys", "panel-open", "panel-close", "item-click"]);

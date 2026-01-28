@@ -67,12 +67,6 @@ defineOptions({ name: 'FtpScrollPanel' });
 const props = withDefaults(defineProps<ScrollPanelProps>(), {
   style: () => ({}),
   step: 40,
-});,
-  },
-  step: {
-    type: Number,
-    default: 40,
-  },
 });
 
 const containerRef = ref(null);
