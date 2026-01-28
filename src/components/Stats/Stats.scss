@@ -1,0 +1,54 @@
+@use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/accent-gradient.scss" as *;
+
+$c: stats;
+
+.#{$c} {
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.#{$c}--cols-2 { grid-template-columns: repeat(2, 1fr); }
+.#{$c}--cols-3 { grid-template-columns: repeat(3, 1fr); }
+.#{$c}--cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 768px) {
+  .#{$c} { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+.#{$c}__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+}
+
+.#{$c}__icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+
+  i {
+    @include accent-gradient-text();
+  }
+}
+
+.#{$c}__value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: $text-heading;
+  line-height: 1.1;
+}
+
+.#{$c}__prefix,
+.#{$c}__suffix {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.#{$c}__label {
+  font-size: 0.9375rem;
+  color: $text-secondary;
+}

@@ -1,0 +1,95 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: site-footer;
+
+.#{$c} {
+  width: 100%;
+  background-color: $surface-panel;
+  border-top: 1px solid $border-subtle;
+  padding: 3rem 2rem 1.5rem;
+}
+
+.#{$c}__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.#{$c}__brand {
+  flex-basis: 100%;
+}
+
+.#{$c}__logo {
+  height: 2rem;
+}
+
+.#{$c}__columns {
+  display: flex;
+  flex: 1;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.#{$c}__column {
+  min-width: 140px;
+}
+
+.#{$c}__column-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $text-heading;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 1rem;
+}
+
+.#{$c}__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.#{$c}__link {
+  font-size: 0.9375rem;
+  color: $text-secondary;
+  text-decoration: none;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: $text-link;
+  }
+}
+
+.#{$c}__social {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.#{$c}__social-link {
+  font-size: 1.25rem;
+  color: $text-muted;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: $text-link;
+  }
+}
+
+.#{$c}__bottom {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid $border-subtle;
+}
+
+.#{$c}__copyright {
+  font-size: 0.8125rem;
+  color: $text-muted;
+  margin: 0;
+}

@@ -1,0 +1,92 @@
+@use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/accent-gradient.scss" as *;
+
+$c: cta;
+
+.#{$c} {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+
+.#{$c}__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.#{$c}__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $text-heading;
+  margin: 0;
+}
+
+.#{$c}__description {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: $text-secondary;
+  margin: 0;
+}
+
+.#{$c}__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+// Banner
+.#{$c}--banner {
+  @include accent-gradient();
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  border-radius: $radius-large;
+
+  .#{$c}__title,
+  .#{$c}__description {
+    color: #fff;
+  }
+
+  .#{$c}__actions {
+    justify-content: center;
+  }
+}
+
+// Card
+.#{$c}--card {
+  flex-direction: column;
+  background-color: $surface-panel;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-large;
+  padding: 3rem;
+}
+
+// Inline
+.#{$c}--inline {
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: $surface-panel;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-large;
+}
+
+// Alignment
+.#{$c}--align-center {
+  text-align: center;
+  .#{$c}__content { align-items: center; }
+  .#{$c}__actions { justify-content: center; }
+}
+
+.#{$c}--align-left {
+  text-align: left;
+  .#{$c}__content { align-items: flex-start; }
+}
+
+.#{$c}--align-right {
+  text-align: right;
+  .#{$c}__content { align-items: flex-end; }
+  .#{$c}__actions { justify-content: flex-end; }
+}

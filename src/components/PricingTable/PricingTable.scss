@@ -1,0 +1,133 @@
+@use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/accent-gradient.scss" as *;
+
+// PricingTable
+$c: pricing-table;
+
+.#{$c} {
+  display: grid;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.#{$c}--cols-2 { grid-template-columns: repeat(2, 1fr); }
+.#{$c}--cols-3 { grid-template-columns: repeat(3, 1fr); }
+.#{$c}--cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 768px) {
+  .#{$c} { grid-template-columns: 1fr !important; }
+}
+
+// PricingCard
+$pc: pricing-card;
+
+.#{$pc} {
+  display: flex;
+  flex-direction: column;
+  background-color: $surface-panel;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-large;
+  padding: 2.5rem 2rem;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: $shadow-s;
+  }
+}
+
+.#{$pc}--highlighted {
+  position: relative;
+  border: none;
+  background: linear-gradient($surface-panel, $surface-panel) padding-box,
+              linear-gradient(135deg, $accent-gradient-start, $accent-gradient-end) border-box;
+  border: 2px solid transparent;
+  box-shadow: $shadow-m;
+  transform: scale(1.03);
+}
+
+.#{$pc}__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.#{$pc}__name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: $text-secondary;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.#{$pc}__price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.#{$pc}__currency {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $text-heading;
+}
+
+.#{$pc}__amount {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: $text-heading;
+}
+
+.#{$pc}__interval {
+  font-size: 1rem;
+  color: $text-muted;
+}
+
+.#{$pc}__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.#{$pc}__feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: $text-secondary;
+}
+
+.#{$pc}__check {
+  @include accent-gradient-text();
+  font-weight: 700;
+}
+
+.#{$pc}__footer {
+  margin-top: auto;
+}
+
+.#{$pc}__cta {
+  @include accent-gradient();
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: $radius-default;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    @include accent-gradient("hover");
+  }
+}
+
+.#{$pc}--highlighted .#{$pc}__cta {
+  box-shadow: $shadow-s;
+}

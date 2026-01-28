@@ -1,0 +1,116 @@
+@use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/accent-gradient.scss" as *;
+
+$c: hero;
+
+.#{$c} {
+  position: relative;
+  width: 100%;
+  padding: 5rem 2rem;
+  overflow: hidden;
+  background-color: $surface-canvas;
+}
+
+.#{$c}--full-height {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.#{$c}--has-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.#{$c}__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.8) 100%);
+  z-index: 1;
+}
+
+.#{$c}__container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.#{$c}__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.#{$c}__title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: $text-heading;
+  margin: 0;
+}
+
+.#{$c}__subtitle {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: $text-secondary;
+  margin: 0;
+  max-width: 600px;
+}
+
+.#{$c}__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.#{$c}__media {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Alignment variants
+.#{$c}--align-center {
+  text-align: center;
+
+  .#{$c}__container {
+    flex-direction: column;
+  }
+
+  .#{$c}__content {
+    align-items: center;
+  }
+
+  .#{$c}__subtitle {
+    max-width: 700px;
+  }
+
+  .#{$c}__actions {
+    justify-content: center;
+  }
+}
+
+.#{$c}--align-left {
+  .#{$c}__container {
+    flex-direction: row;
+  }
+}
+
+.#{$c}--align-right {
+  .#{$c}__container {
+    flex-direction: row-reverse;
+  }
+
+  .#{$c}__content {
+    align-items: flex-end;
+    text-align: right;
+  }
+}

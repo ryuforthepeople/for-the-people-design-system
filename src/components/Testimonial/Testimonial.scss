@@ -1,0 +1,80 @@
+@use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/accent-gradient.scss" as *;
+
+$c: testimonial;
+
+.#{$c} {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.#{$c}--card {
+  background-color: $surface-panel;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-large;
+  padding: 2rem;
+}
+
+.#{$c}--minimal {
+  padding: 1rem 0;
+  border-left: 3px solid;
+  border-image: linear-gradient(180deg, $accent-gradient-start, $accent-gradient-end) 1;
+  padding-left: 1.5rem;
+}
+
+.#{$c}__rating {
+  display: flex;
+  gap: 0.125rem;
+}
+
+.#{$c}__star {
+  font-size: 1.125rem;
+  color: $text-muted;
+}
+
+.#{$c}__star--filled {
+  @include accent-gradient-text();
+}
+
+.#{$c}__quote {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: $text-secondary;
+  margin: 0;
+  font-style: italic;
+
+  &::before { content: "\201C"; }
+  &::after { content: "\201D"; }
+}
+
+.#{$c}__author {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.#{$c}__avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: $radius-pill;
+  object-fit: cover;
+}
+
+.#{$c}__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.#{$c}__name {
+  font-style: normal;
+  font-weight: 600;
+  color: $text-heading;
+  font-size: 0.9375rem;
+}
+
+.#{$c}__role {
+  font-size: 0.8125rem;
+  color: $text-muted;
+}

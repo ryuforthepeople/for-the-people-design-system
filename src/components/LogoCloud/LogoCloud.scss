@@ -1,0 +1,64 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: logo-cloud;
+
+.#{$c} {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.#{$c}__title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.#{$c}__grid {
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+}
+
+.#{$c}__grid--cols-3 { grid-template-columns: repeat(3, 1fr); }
+.#{$c}__grid--cols-4 { grid-template-columns: repeat(4, 1fr); }
+.#{$c}__grid--cols-5 { grid-template-columns: repeat(5, 1fr); }
+.#{$c}__grid--cols-6 { grid-template-columns: repeat(6, 1fr); }
+
+@media (max-width: 768px) {
+  .#{$c}__grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+.#{$c}__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  &:hover { opacity: 1; }
+}
+
+.#{$c}__img {
+  max-height: 2.5rem;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.#{$c}--grayscale .#{$c}__img {
+  filter: grayscale(1) brightness(0.7);
+  opacity: 0.6;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.#{$c}--grayscale .#{$c}__item:hover .#{$c}__img {
+  filter: grayscale(0) brightness(1);
+  opacity: 1;
+}

@@ -1,0 +1,24 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: faq;
+
+.#{$c} {
+  width: 100%;
+  max-width: 800px;
+}
+
+.#{$c}--separated {
+  .accordion-tab {
+    margin-bottom: 0.75rem;
+    background-color: $surface-panel;
+    border-radius: $radius-default;
+    border: 1px solid $border-subtle;
+    overflow: hidden;
+  }
+}
+
+.#{$c}--bordered {
+  border: 1px solid $border-subtle;
+  border-radius: $radius-large;
+  overflow: hidden;
+}

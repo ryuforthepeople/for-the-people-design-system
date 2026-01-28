@@ -1,0 +1,58 @@
+@use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/accent-gradient.scss" as *;
+
+$c: site-section;
+
+.#{$c} {
+  width: 100%;
+}
+
+.#{$c}__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.#{$c}__header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.#{$c}__title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: $text-heading;
+  margin: 0 0 0.75rem;
+}
+
+.#{$c}__subtitle {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: $text-secondary;
+  margin: 0;
+}
+
+// Padding
+.#{$c}--pad-sm { padding: 2rem; }
+.#{$c}--pad-md { padding: 3rem 2rem; }
+.#{$c}--pad-lg { padding: 5rem 2rem; }
+.#{$c}--pad-xl { padding: 7rem 2rem; }
+
+// Variants
+.#{$c}--default { background-color: transparent; }
+.#{$c}--muted { background-color: $surface-muted; }
+
+.#{$c}--accent {
+  @include accent-gradient();
+  .#{$c}__title,
+  .#{$c}__subtitle { color: #fff; }
+}
+
+.#{$c}--dark {
+  background-color: $surface-panel;
+  border-top: 1px solid $border-subtle;
+  border-bottom: 1px solid $border-subtle;
+}
