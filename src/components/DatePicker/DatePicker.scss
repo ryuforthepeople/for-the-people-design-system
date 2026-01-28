@@ -1,0 +1,71 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: date-picker;
+
+.#{$c} {
+  position: relative;
+  display: inline-flex;
+
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.#{$c}__input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.#{$c}__input {
+  width: 100%;
+  min-width: 200px;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+  border: 1px solid var(--surface-border, rgba(255, 255, 255, 0.15));
+  border-radius: 0.5rem;
+  background: var(--surface-ground, rgba(255, 255, 255, 0.05));
+  color: var(--text-primary, #fff);
+  font-size: 0.875rem;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s ease;
+
+  &::placeholder {
+    color: var(--text-muted, rgba(255, 255, 255, 0.4));
+  }
+
+  &:focus,
+  &--active {
+    border-color: var(--color-primary, #6366f1);
+  }
+}
+
+.#{$c}__calendar-icon {
+  position: absolute;
+  right: 0.75rem;
+  width: 1rem;
+  height: 1rem;
+  color: var(--text-muted, rgba(255, 255, 255, 0.5));
+  pointer-events: none;
+}
+
+.#{$c}__dropdown {
+  background: var(--surface-overlay, #1e1e2e);
+  border: 1px solid var(--surface-border, rgba(255, 255, 255, 0.1));
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+// Transition
+.date-picker-dropdown-enter-active,
+.date-picker-dropdown-leave-active {
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.date-picker-dropdown-enter-from,
+.date-picker-dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}

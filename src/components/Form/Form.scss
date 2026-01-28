@@ -1,0 +1,72 @@
+@use "../../../dist/scss/tokens" as *;
+
+// Form
+$c: form;
+
+.#{$c} {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  &--horizontal {
+    .form-field {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .form-field__label {
+      flex-shrink: 0;
+      width: var(--form-label-width, 120px);
+      padding-top: 0.5rem;
+      text-align: right;
+    }
+
+    .form-field__control {
+      flex: 1;
+    }
+  }
+}
+
+// FormField
+$f: form-field;
+
+.#{$f} {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.#{$f}__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary, #fff);
+}
+
+.#{$f}__required {
+  color: var(--color-error, #ef4444);
+}
+
+.#{$f}__control {
+  display: flex;
+  flex-direction: column;
+}
+
+.#{$f}__error {
+  font-size: 0.75rem;
+  color: var(--color-error, #ef4444);
+}
+
+.#{$f}__hint {
+  font-size: 0.75rem;
+  color: var(--text-muted, rgba(255, 255, 255, 0.5));
+}
+
+.#{$f}--error {
+  .#{$f}__label {
+    color: var(--color-error, #ef4444);
+  }
+}

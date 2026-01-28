@@ -30,6 +30,96 @@ export interface TreeNode {
 }
 
 // ============================================================
+// Alert
+// ============================================================
+
+export interface AlertProps {
+  severity?: Severity
+  title?: string
+  closable?: boolean
+  icon?: string
+}
+
+export interface AlertEmits {
+  (e: 'close'): void
+}
+
+// ============================================================
+// AppBar
+// ============================================================
+
+export interface AppBarProps {
+  fixed?: boolean
+  elevated?: boolean
+  transparent?: boolean
+  color?: string
+}
+
+// ============================================================
+// CommandPalette
+// ============================================================
+
+export interface CommandPaletteCommand {
+  id: string
+  label: string
+  icon?: string
+  shortcut?: string
+  group?: string
+  action?: () => void
+}
+
+export interface CommandPaletteProps {
+  commands: CommandPaletteCommand[]
+  placeholder?: string
+  open?: boolean
+}
+
+export interface CommandPaletteEmits {
+  (e: 'select', command: CommandPaletteCommand): void
+  (e: 'close'): void
+  (e: 'update:open', value: boolean): void
+}
+
+// ============================================================
+// DatePicker
+// ============================================================
+
+export interface DatePickerProps {
+  modelValue?: Date | null
+  placeholder?: string
+  format?: string
+  minDate?: Date | null
+  maxDate?: Date | null
+  disabled?: boolean
+  locale?: string
+}
+
+export interface DatePickerEmits {
+  (e: 'update:modelValue', value: Date | null): void
+}
+
+// ============================================================
+// Form
+// ============================================================
+
+export interface FormProps {
+  layout?: 'vertical' | 'horizontal'
+  labelWidth?: string
+}
+
+export interface FormFieldProps {
+  label?: string
+  error?: string
+  hint?: string
+  required?: boolean
+  htmlFor?: string
+}
+
+export interface FormEmits {
+  (e: 'submit', event: Event): void
+}
+
+// ============================================================
 // Accordion
 // ============================================================
 
@@ -1705,4 +1795,139 @@ export interface VirtualScrollerProps {
 export interface VirtualScrollerEmits {
   (e: 'scroll', payload: { originalEvent: Event; scrollPosition: number }): void
   (e: 'scroll-index-change', payload: { first: number; last: number }): void
+}
+
+// ============================================================
+// Website Components
+// ============================================================
+
+// Hero
+export interface HeroProps {
+  title?: string
+  subtitle?: string
+  alignment?: 'left' | 'center' | 'right'
+  backgroundImage?: string
+  overlay?: boolean
+  fullHeight?: boolean
+}
+
+// FeatureGrid
+export interface FeatureItem {
+  icon?: string
+  title: string
+  description: string
+}
+
+export interface FeatureGridProps {
+  columns?: 2 | 3 | 4
+  features?: FeatureItem[]
+  variant?: 'card' | 'minimal' | 'icon-top'
+}
+
+// PricingTable
+export interface PricingCardProps {
+  name: string
+  price: string | number
+  currency?: string
+  interval?: 'month' | 'year'
+  features?: string[]
+  highlighted?: boolean
+  ctaLabel?: string
+  ctaAction?: () => void
+}
+
+export interface PricingTableProps {
+  plans?: PricingCardProps[]
+  columns?: 2 | 3 | 4
+}
+
+// Testimonial
+export interface TestimonialProps {
+  quote: string
+  author: string
+  role?: string
+  company?: string
+  avatar?: string
+  rating?: number
+  variant?: 'card' | 'minimal'
+}
+
+// Footer
+export interface FooterLink {
+  label: string
+  href: string
+}
+
+export interface FooterColumn {
+  title: string
+  links: FooterLink[]
+}
+
+export interface FooterSocialLink {
+  label: string
+  href: string
+  icon: string
+}
+
+export interface FooterProps {
+  columns?: FooterColumn[]
+  logo?: string
+  copyright?: string
+  socialLinks?: FooterSocialLink[]
+}
+
+// Section
+export interface SectionProps {
+  title?: string
+  subtitle?: string
+  variant?: 'default' | 'muted' | 'accent' | 'dark'
+  padding?: 'sm' | 'md' | 'lg' | 'xl'
+  id?: string
+}
+
+// CTA
+export interface CTAProps {
+  title?: string
+  description?: string
+  variant?: 'banner' | 'card' | 'inline'
+  alignment?: 'left' | 'center' | 'right'
+}
+
+// LogoCloud
+export interface LogoItem {
+  src: string
+  alt: string
+  href?: string
+}
+
+export interface LogoCloudProps {
+  logos?: LogoItem[]
+  title?: string
+  grayscale?: boolean
+  columns?: number
+}
+
+// Stats
+export interface StatItem {
+  value: string | number
+  label: string
+  prefix?: string
+  suffix?: string
+  icon?: string
+}
+
+export interface StatsProps {
+  stats?: StatItem[]
+  columns?: 2 | 3 | 4
+}
+
+// FAQ
+export interface FAQItem {
+  question: string
+  answer: string
+}
+
+export interface FAQProps {
+  items?: FAQItem[]
+  variant?: 'default' | 'separated' | 'bordered'
 }
