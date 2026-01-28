@@ -1,10 +1,14 @@
 @use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/elevation" as *;
 
 $c: card;
 
 .#{$c} {
+  @include elevation(1);
+  // Component token overrides
   background-color: var(--card-background, $card-background);
-  border: var(--card-border-width, $card-border-width) solid var(--card-border-color, $card-border-color);
+  border-color: var(--card-border-color, $card-border-color);
+  border-width: var(--card-border-width, $card-border-width);
   border-radius: var(--card-radius, $card-radius);
   box-shadow: var(--card-shadow, $card-shadow);
   overflow: hidden;

@@ -1,10 +1,14 @@
 @use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/elevation" as *;
 
 $c: menu;
 
 .#{$c} {
+  @include elevation(3);
+  // Component token overrides
   background-color: var(--menu-background, $menu-background);
-  border: var(--menu-border-width, $menu-border-width) solid var(--menu-border-color, $menu-border-color);
+  border-color: var(--menu-border-color, $menu-border-color);
+  border-width: var(--menu-border-width, $menu-border-width);
   border-radius: var(--menu-radius, $menu-radius);
   min-width: var(--menu-minWidth, $menu-minWidth);
   max-height: var(--menu-maxHeight, $menu-maxHeight);

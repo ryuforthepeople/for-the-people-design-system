@@ -1,4 +1,5 @@
 @use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/elevation" as *;
 
 $c: tooltip;
 
@@ -8,9 +9,11 @@ $c: tooltip;
 }
 
 .#{$c} {
+  @include elevation(3);
   position: fixed;
   z-index: var(--tooltip-zIndex, $tooltip-zIndex);
   padding: var(--tooltip-padding-y, $tooltip-padding-y) var(--tooltip-padding-x, $tooltip-padding-x);
+  // Component token override (tooltips use inverse surface)
   background-color: var(--tooltip-background, $tooltip-background);
   color: var(--tooltip-text-color, $tooltip-text-color);
   font-size: var(--tooltip-text-fontSize, $tooltip-text-fontSize);

@@ -1,4 +1,5 @@
 @use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/elevation" as *;
 
 $c: dialog;
 
@@ -18,13 +19,16 @@ $c: dialog;
 
 // Dialog container
 .#{$c} {
+  @include elevation(4);
   position: relative;
   display: flex;
   flex-direction: column;
+  // Component token overrides
   background-color: var(--dialog-background-default, $dialog-background-default);
   border-radius: var(--dialog-radius, $dialog-radius);
   box-shadow: var(--dialog-shadow, $dialog-shadow);
-  border: var(--dialog-border-width, $dialog-border-width) solid var(--dialog-border-color, $dialog-border-color);
+  border-color: var(--dialog-border-color, $dialog-border-color);
+  border-width: var(--dialog-border-width, $dialog-border-width);
   max-height: var(--dialog-maxHeight, $dialog-maxHeight);
   max-width: 95vw;
   z-index: var(--dialog-zIndex-dialog, $dialog-zIndex-dialog);

@@ -1,0 +1,43 @@
+// Surface elevation mixin
+// Usage: @include elevation(2) — gives background, border, and shadow for layer 2
+
+@mixin elevation($level: 1) {
+  @if $level == 0 {
+    background: var(--surface-canvas);
+    border: none;
+    box-shadow: none;
+  } @else if $level == 1 {
+    background: var(--surface-panel);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-xs);
+  } @else if $level == 2 {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-default);
+    box-shadow: var(--shadow-s);
+  } @else if $level == 3 {
+    background: var(--surface-raised);
+    border: 1px solid var(--border-strong);
+    box-shadow: var(--shadow-m);
+  } @else if $level == 4 {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-strong);
+    box-shadow: var(--shadow-xl);
+  }
+
+  border-radius: var(--radius-rounded);
+}
+
+// Muted/recessed surface (for inputs inside a card)
+@mixin surface-muted {
+  background: var(--surface-muted);
+  border: 1px solid var(--border-subtle);
+}
+
+// Accent surface (for highlighted cards)
+@mixin surface-accent {
+  background: var(--surface-accent);
+  border: 1px solid transparent;
+  border-image: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end)) 1;
+  // Or use a wrapper approach for border-radius compatibility:
+  // outline: 1px solid var(--border-vibrant-start);
+}

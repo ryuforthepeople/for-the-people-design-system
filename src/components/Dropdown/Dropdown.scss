@@ -1,4 +1,5 @@
 @use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/elevation" as *;
 
 $c: dropdown;
 
@@ -111,8 +112,10 @@ $c: dropdown;
 
 // Panel (dropdown menu)
 .#{$c}__panel {
+  @include elevation(3);
+  // Component token overrides
   background-color: var(--dropdown-panel-background, $dropdown-panel-background);
-  border: 1px solid var(--dropdown-panel-border, $dropdown-panel-border);
+  border-color: var(--dropdown-panel-border, $dropdown-panel-border);
   border-radius: var(--dropdown-panel-radius, $dropdown-panel-radius);
   box-shadow: var(--dropdown-panel-shadow, $dropdown-panel-shadow);
   overflow: hidden;

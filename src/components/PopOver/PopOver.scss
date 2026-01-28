@@ -1,4 +1,5 @@
 @use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/elevation" as *;
 
 $c: popover;
 
@@ -8,13 +9,16 @@ $c: popover;
 }
 
 .#{$c} {
+  @include elevation(3);
   position: fixed;
   z-index: var(--popover-zIndex, $popover-zIndex);
   padding: var(--popover-padding-y, $popover-padding-y) var(--popover-padding-x, $popover-padding-x);
+  // Component token overrides
   background-color: var(--popover-background, $popover-background);
   border-radius: var(--popover-radius, $popover-radius);
   box-shadow: var(--popover-shadow, $popover-shadow);
-  border: var(--popover-border-width, $popover-border-width) solid var(--popover-border-color, $popover-border-color);
+  border-color: var(--popover-border-color, $popover-border-color);
+  border-width: var(--popover-border-width, $popover-border-width);
   max-width: var(--popover-maxWidth, $popover-maxWidth);
 }
 

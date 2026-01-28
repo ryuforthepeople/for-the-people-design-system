@@ -1,15 +1,19 @@
 @use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/elevation" as *;
 
 $c: overlay-panel;
 
 .#{$c} {
+  @include elevation(3);
   position: fixed;
   z-index: var(--overlayPanel-zIndex, $overlayPanel-zIndex);
   padding: var(--overlayPanel-padding-y, $overlayPanel-padding-y) var(--overlayPanel-padding-x, $overlayPanel-padding-x);
+  // Component token overrides
   background-color: var(--overlayPanel-background, $overlayPanel-background);
   border-radius: var(--overlayPanel-radius, $overlayPanel-radius);
   box-shadow: var(--overlayPanel-shadow, $overlayPanel-shadow);
-  border: var(--overlayPanel-border-width, $overlayPanel-border-width) solid var(--overlayPanel-border-color, $overlayPanel-border-color);
+  border-color: var(--overlayPanel-border-color, $overlayPanel-border-color);
+  border-width: var(--overlayPanel-border-width, $overlayPanel-border-width);
   max-width: var(--overlayPanel-maxWidth, $overlayPanel-maxWidth);
 }
 
