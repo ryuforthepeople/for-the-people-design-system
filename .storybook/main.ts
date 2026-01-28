@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/vue3-vite';
+import vue from '@vitejs/plugin-vue';
 
 const config: StorybookConfig = {
   stories: [
@@ -16,6 +17,12 @@ const config: StorybookConfig = {
     autodocs: 'tag',
   },
   viteFinal: async (config) => {
+    // Ensure Vue plugin is present
+    const hasVuePlugin = config.plugins?.some((p: any) => p && (p.name === 'vite:vue' || (Array.isArray(p) && p[0]?.name === 'vite:vue')));
+    if (!hasVuePlugin) {
+      config.plugins = config.plugins || [];
+      config.plugins.push(vue());
+    }
     return config;
   },
 };
