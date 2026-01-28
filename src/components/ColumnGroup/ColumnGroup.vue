@@ -1,4 +1,6 @@
-<script setup>
+<script setup lang="ts">
+import type { ColumnGroupProps } from '../../types';
+
 /**
  * ColumnGroup component for DataTable
  *
@@ -7,16 +9,10 @@
  * Like Column, it's a configuration component used by DataTable.
  */
 
-defineOptions({
-  name: "ColumnGroup"
-});
+defineOptions({ name: 'FtpColumnGroup' });
 
-const props = defineProps({
-  type: {
-    type: String,
-    default: "header",
-    validator: (v) => ["header", "footer"].includes(v)
-  }
+const props = withDefaults(defineProps<ColumnGroupProps>(), {
+  type: "header",
 });
 
 // Expose props for parent DataTable to access

@@ -88,34 +88,19 @@
 
 <style src="./ContextMenu.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { ContextMenuProps, ContextMenuEmits } from '../../types';
 import { ref, computed, onMounted, onUnmounted, nextTick } from "vue";
 
-const props = defineProps({
-  model: {
-    type: Array,
-    default: () => [],
-  },
-  global: {
-    type: Boolean,
-    default: false,
-  },
-  popup: {
-    type: Boolean,
-    default: false,
-  },
-  showArrow: {
-    type: Boolean,
-    default: false,
-  },
-  highlightTrigger: {
-    type: Boolean,
-    default: false,
-  },
-  appendTo: {
-    type: String,
-    default: "body",
-  },
+defineOptions({ name: 'FtpContextMenu' });
+
+const props = withDefaults(defineProps<ContextMenuProps>(), {
+  model: () => [],
+  global: false,
+  popup: false,
+  showArrow: false,
+  highlightTrigger: false,
+  appendTo: "body",
 });
 
 const emit = defineEmits(["show", "hide", "item-click"]);

@@ -68,45 +68,18 @@
 
 <style src="./FileUpload.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { FileUploadProps, FileUploadEmits } from '../../types';
 import { computed, ref } from "vue";
 
-const props = defineProps({
-  /**
-   * Accepted file types (MIME types or extensions)
-   */
-  accept: {
-    type: String,
-    default: null,
-  },
-  /**
-   * Allow multiple file selection
-   */
-  multiple: {
-    type: Boolean,
-    default: false,
-  },
-  /**
-   * Maximum file size in bytes
-   */
-  maxFileSize: {
-    type: Number,
-    default: null,
-  },
-  /**
-   * Maximum number of files
-   */
-  maxFiles: {
-    type: Number,
-    default: null,
-  },
-  /**
-   * Disable the upload component
-   */
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpFileUpload' });
+
+const props = withDefaults(defineProps<FileUploadProps>(), {
+  accept: null,
+  multiple: false,
+  maxFileSize: null,
+  maxFiles: null,
+  isDisabled: false,
 });
 
 const emit = defineEmits(["select", "remove", "error"]);

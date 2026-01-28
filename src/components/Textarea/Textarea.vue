@@ -16,42 +16,20 @@
 
 <style src="./Textarea.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { TextareaProps, TextareaEmits } from '../../types';
 import { computed, ref, watch, onMounted, onUpdated, onBeforeUnmount, nextTick } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: String,
-    default: "",
-  },
-  rows: {
-    type: [Number, String],
-    default: 3,
-  },
-  cols: {
-    type: [Number, String],
-    default: null,
-  },
-  placeholder: {
-    type: String,
-    default: "",
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isInvalid: {
-    type: Boolean,
-    default: false,
-  },
-  autoResize: {
-    type: Boolean,
-    default: false,
-  },
-  ariaDescribedby: {
-    type: String,
-    default: undefined,
-  },
+defineOptions({ name: 'FtpTextarea' });
+
+const props = withDefaults(defineProps<TextareaProps>(), {
+  modelValue: "",
+  rows: 3,
+  cols: null,
+  placeholder: "",
+  isDisabled: false,
+  isInvalid: false,
+  autoResize: false,
 });
 
 const emit = defineEmits(["update:modelValue", "input"]);

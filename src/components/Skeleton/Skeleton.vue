@@ -9,32 +9,18 @@
 
 <style src="./Skeleton.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { SkeletonProps } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  shape: {
-    type: String,
-    default: "rectangle",
-    validator: (v) => ["rectangle", "circle"].includes(v),
-  },
-  width: {
-    type: String,
-    default: null,
-  },
-  height: {
-    type: String,
-    default: null,
-  },
-  borderRadius: {
-    type: String,
-    default: null,
-  },
-  animation: {
-    type: String,
-    default: "wave",
-    validator: (v) => ["wave", "none"].includes(v),
-  },
+defineOptions({ name: 'FtpSkeleton' });
+
+const props = withDefaults(defineProps<SkeletonProps>(), {
+  shape: "rectangle",
+  width: null,
+  height: null,
+  borderRadius: null,
+  animation: "wave",
 });
 
 const additionalClasses = computed(() => {

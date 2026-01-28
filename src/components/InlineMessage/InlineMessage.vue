@@ -28,25 +28,15 @@
 
 <style src="./InlineMessage.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { InlineMessageProps } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  /**
-   * Severity level of the message
-   */
-  severity: {
-    type: String,
-    default: "info",
-    validator: (v) => ["success", "info", "warn", "error"].includes(v),
-  },
-  /**
-   * Whether to show the severity icon
-   */
-  icon: {
-    type: Boolean,
-    default: true,
-  },
+defineOptions({ name: 'FtpInlineMessage' });
+
+const props = withDefaults(defineProps<InlineMessageProps>(), {
+  severity: "info",
+  icon: true,
 });
 
 const hasIcon = computed(() => props.icon);

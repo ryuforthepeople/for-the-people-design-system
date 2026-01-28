@@ -77,36 +77,17 @@
 
 <style src="./SplitButton.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { SplitButtonProps, SplitButtonEmits } from '../../types';
 import { computed, ref, onMounted, onBeforeUnmount, nextTick, watch } from "vue";
 
-const props = defineProps({
-  label: {
-    type: String,
-    default: undefined,
-  },
-  icon: {
-    type: String,
-    default: undefined,
-  },
-  model: {
-    type: Array,
-    default: () => [],
-  },
-  severity: {
-    type: String,
-    default: "primary",
-    validator: (v) => ["primary", "secondary", "outlined"].includes(v),
-  },
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpSplitButton' });
+
+const props = withDefaults(defineProps<SplitButtonProps>(), {
+  model: () => [],
+  severity: "primary",
+  size: "md",
+  isDisabled: false,
 });
 
 const emit = defineEmits(["click"]);

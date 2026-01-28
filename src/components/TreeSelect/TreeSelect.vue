@@ -68,8 +68,11 @@
 
 <style src="./TreeSelect.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { TreeSelectProps, TreeSelectEmits } from '../../types';
 import { computed, ref, watch, onMounted, onBeforeUnmount, nextTick, h } from "vue";
+
+defineOptions({ name: 'FtpTreeSelect' });
 
 // TreeNode subcomponent
 const TreeNode = {
@@ -178,53 +181,18 @@ const TreeNode = {
   }
 };
 
-const props = defineProps({
-  modelValue: {
-    type: [String, Number, Array, Object],
-    default: null,
-  },
-  options: {
-    type: Array,
-    default: () => [],
-  },
-  selectionMode: {
-    type: String,
-    default: "single",
-    validator: (v) => ["single", "checkbox"].includes(v),
-  },
-  placeholder: {
-    type: String,
-    default: "Select...",
-  },
-  filter: {
-    type: Boolean,
-    default: false,
-  },
-  labelField: {
-    type: String,
-    default: "label",
-  },
-  keyField: {
-    type: String,
-    default: "key",
-  },
-  childrenField: {
-    type: String,
-    default: "children",
-  },
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isInvalid: {
-    type: Boolean,
-    default: false,
-  },
+const props = withDefaults(defineProps<TreeSelectProps>(), {
+  modelValue: null,
+  options: () => [],
+  selectionMode: "single",
+  placeholder: "Select...",
+  filter: false,
+  labelField: "label",
+  keyField: "key",
+  childrenField: "children",
+  size: "md",
+  isDisabled: false,
+  isInvalid: false,
 });
 
 const emit = defineEmits(["update:modelValue", "change"]);

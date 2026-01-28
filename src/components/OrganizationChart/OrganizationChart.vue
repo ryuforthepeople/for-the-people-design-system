@@ -27,32 +27,17 @@
 
 <style src="./OrganizationChart.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { OrganizationChartProps, OrganizationChartEmits } from '../../types';
 import { ref, watch, h, defineComponent } from "vue";
 
-const props = defineProps({
-  /**
-   * Hierarchical data object representing the organization structure.
-   * Each node should have: label, type (optional), children (optional array).
-   */
-  value: {
-    type: Object,
-    default: null,
-  },
-  /**
-   * Selection mode: 'single' or 'multiple' or null (no selection).
-   */
-  selectionMode: {
-    type: String,
-    default: null,
-    validator: (val) => val === null || ["single", "multiple"].includes(val),
-  },
-  /**
-   * Object of selected node keys. Keys should match node.key property.
-   */
-  selectedKeys: {
-    type: Object,
-    default: () => ({}),
+const props = withDefaults(defineProps<OrganizationChartProps>(), {
+  value: null,
+  selectionMode: null,
+  selectedKeys: () => ({}),
+  expandedKeys: () => ({}),
+  collapsible: false,
+});,
   },
   /**
    * Object of expanded node keys.
@@ -80,7 +65,7 @@ const emit = defineEmits([
 ]);
 
 defineOptions({
-  name: "OrganizationChart",
+  name: "FtpOrganizationChart",
 });
 
 const internalExpandedKeys = ref({ ...props.expandedKeys });

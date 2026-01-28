@@ -27,31 +27,17 @@
 
 <style src="./Tooltip.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { TooltipProps } from '../../types';
 import { ref, computed, onMounted, onUnmounted, nextTick } from "vue";
 
-const props = defineProps({
-  content: {
-    type: String,
-    required: true,
-  },
-  position: {
-    type: String,
-    default: "top",
-    validator: (v) => ["top", "bottom", "left", "right"].includes(v),
-  },
-  showDelay: {
-    type: Number,
-    default: 0,
-  },
-  hideDelay: {
-    type: Number,
-    default: 0,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpTooltip' });
+
+const props = withDefaults(defineProps<TooltipProps>(), {
+  position: "top",
+  showDelay: 0,
+  hideDelay: 0,
+  disabled: false,
 });
 
 const isVisible = ref(false);

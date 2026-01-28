@@ -52,35 +52,19 @@
 
 <style src="./ConfirmPopup.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { ConfirmPopupProps, ConfirmPopupEmits } from '../../types';
 import { ref, computed, watch, nextTick, onMounted, onUnmounted } from "vue";
 
-const props = defineProps({
-  target: {
-    type: [Object, String],
-    default: null,
-  },
-  message: {
-    type: String,
-    default: "Are you sure?",
-  },
-  acceptLabel: {
-    type: String,
-    default: "Yes",
-  },
-  rejectLabel: {
-    type: String,
-    default: "No",
-  },
-  showIcon: {
-    type: Boolean,
-    default: true,
-  },
-  position: {
-    type: String,
-    default: "top",
-    validator: (v) => ["top", "bottom", "left", "right"].includes(v),
-  },
+defineOptions({ name: 'FtpConfirmPopup' });
+
+const props = withDefaults(defineProps<ConfirmPopupProps>(), {
+  target: null,
+  message: "Are you sure?",
+  acceptLabel: "Yes",
+  rejectLabel: "No",
+  showIcon: true,
+  position: "top",
 });
 
 const emit = defineEmits(["accept", "reject"]);

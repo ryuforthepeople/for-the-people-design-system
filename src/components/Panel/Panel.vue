@@ -47,31 +47,16 @@
 
 <style src="./Panel.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { PanelProps, PanelEmits } from '../../types';
 import { computed, ref, watch } from "vue";
 
-const props = defineProps({
-  /**
-   * Header text displayed in the panel header.
-   */
-  header: {
-    type: String,
-    default: "",
-  },
-  /**
-   * Makes the panel collapsible via the header.
-   */
-  toggleable: {
-    type: Boolean,
-    default: false,
-  },
-  /**
-   * Whether the panel is collapsed (only when toggleable).
-   */
-  collapsed: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpPanel' });
+
+const props = withDefaults(defineProps<PanelProps>(), {
+  header: "",
+  toggleable: false,
+  collapsed: false,
 });
 
 const emit = defineEmits(["update:collapsed", "toggle"]);

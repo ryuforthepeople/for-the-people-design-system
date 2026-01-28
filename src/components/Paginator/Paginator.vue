@@ -101,38 +101,19 @@
 
 <style src="./Paginator.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { PaginatorProps, PaginatorEmits } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  totalRecords: {
-    type: Number,
-    required: true,
-  },
-  rows: {
-    type: Number,
-    default: 10,
-  },
-  first: {
-    type: Number,
-    default: 0,
-  },
-  rowsPerPageOptions: {
-    type: Array,
-    default: () => [],
-  },
-  pageLinkSize: {
-    type: Number,
-    default: 5,
-  },
-  showFirstLast: {
-    type: Boolean,
-    default: true,
-  },
-  showInfo: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpPaginator' });
+
+const props = withDefaults(defineProps<PaginatorProps>(), {
+  rows: 10,
+  first: 0,
+  rowsPerPageOptions: () => [],
+  pageLinkSize: 5,
+  showFirstLast: true,
+  showInfo: false,
 });
 
 const emit = defineEmits(["update:first", "update:rows", "page"]);

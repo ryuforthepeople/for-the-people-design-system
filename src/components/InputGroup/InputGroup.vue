@@ -6,14 +6,14 @@
 
 <style src="./InputGroup.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { InputGroupProps } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  fluid: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpInputGroup' });
+
+const props = withDefaults(defineProps<InputGroupProps>(), {
+  fluid: false,
 });
 
 const additionalClasses = computed(() =>

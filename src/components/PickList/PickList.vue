@@ -114,38 +114,20 @@
 
 <style src="./PickList.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { PickListProps, PickListEmits } from '../../types';
 import { ref, computed } from "vue";
 
-const props = defineProps({
-  source: {
-    type: Array,
-    default: () => [],
-  },
-  target: {
-    type: Array,
-    default: () => [],
-  },
-  sourceHeader: {
-    type: String,
-    default: "",
-  },
-  targetHeader: {
-    type: String,
-    default: "",
-  },
-  dataKey: {
-    type: String,
-    default: null,
-  },
-  labelKey: {
-    type: String,
-    default: "label",
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpPickList' });
+
+const props = withDefaults(defineProps<PickListProps>(), {
+  source: () => [],
+  target: () => [],
+  sourceHeader: "",
+  targetHeader: "",
+  dataKey: null,
+  labelKey: "label",
+  isDisabled: false,
 });
 
 const emit = defineEmits(["update:source", "update:target", "move-to-target", "move-to-source"]);

@@ -21,33 +21,18 @@
 
 <style src="./Slider.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { SliderProps, SliderEmits } from '../../types';
 import { computed, ref } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: Number,
-    default: 0,
-  },
-  min: {
-    type: Number,
-    default: 0,
-  },
-  max: {
-    type: Number,
-    default: 100,
-  },
-  step: {
-    type: Number,
-    default: 1,
-  },
-  name: String,
-  ariaLabel: String,
-  ariaDescribedby: String,
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpSlider' });
+
+const props = withDefaults(defineProps<SliderProps>(), {
+  modelValue: 0,
+  min: 0,
+  max: 100,
+  step: 1,
+  isDisabled: false,
 });
 
 const emit = defineEmits(["update:modelValue", "change"]);

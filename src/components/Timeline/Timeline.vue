@@ -34,25 +34,15 @@
 
 <style src="./Timeline.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { TimelineProps } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  value: {
-    type: Array,
-    required: true,
-    validator: (arr) => arr.every((item) => typeof item === "object"),
-  },
-  align: {
-    type: String,
-    default: "left",
-    validator: (v) => ["left", "right", "alternate"].includes(v),
-  },
-  layout: {
-    type: String,
-    default: "vertical",
-    validator: (v) => ["vertical", "horizontal"].includes(v),
-  },
+defineOptions({ name: 'FtpTimeline' });
+
+const props = withDefaults(defineProps<TimelineProps>(), {
+  align: "left",
+  layout: "vertical",
 });
 
 const colorMap = {

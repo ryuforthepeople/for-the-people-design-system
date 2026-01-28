@@ -62,8 +62,11 @@
 
 <style src="./Dialog.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { DialogProps, DialogEmits } from '../../types';
 import { computed, ref, watch, onMounted, onUnmounted, nextTick } from "vue";
+
+defineOptions({ name: 'FtpDialog' });
 
 // Bug #2: SSR-safe ID generation (atomic counter instead of Math.random)
 let idCounter = 0;
@@ -84,40 +87,15 @@ const unlockScroll = () => {
   }
 };
 
-const props = defineProps({
-  visible: {
-    type: Boolean,
-    default: false,
-  },
-  header: {
-    type: String,
-    default: "",
-  },
-  closable: {
-    type: Boolean,
-    default: true,
-  },
-  modal: {
-    type: Boolean,
-    default: true,
-  },
-  draggable: {
-    type: Boolean,
-    default: false,
-  },
-  dismissableMask: {
-    type: Boolean,
-    default: false,
-  },
-  closeOnEscape: {
-    type: Boolean,
-    default: true,
-  },
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg", "xl"].includes(v),
-  },
+const props = withDefaults(defineProps<DialogProps>(), {
+  visible: false,
+  header: "",
+  closable: true,
+  modal: true,
+  draggable: false,
+  dismissableMask: false,
+  closeOnEscape: true,
+  size: "md",
 });
 
 const emit = defineEmits(["update:visible", "show", "hide"]);

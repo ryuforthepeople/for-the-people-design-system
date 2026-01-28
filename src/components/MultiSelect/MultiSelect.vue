@@ -99,52 +99,23 @@
 
 <style src="./MultiSelect.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { MultiSelectProps, MultiSelectEmits } from '../../types';
 import { computed, ref, watch, onMounted, onBeforeUnmount, nextTick } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: Array,
-    default: () => [],
-  },
-  options: {
-    type: Array,
-    default: () => [],
-  },
-  optionLabel: {
-    type: String,
-    default: "label",
-  },
-  optionValue: {
-    type: String,
-    default: "value",
-  },
-  placeholder: {
-    type: String,
-    default: "Select...",
-  },
-  filter: {
-    type: Boolean,
-    default: false,
-  },
-  display: {
-    type: String,
-    default: "comma",
-    validator: (v) => ["comma", "chip"].includes(v),
-  },
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isInvalid: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpMultiSelect' });
+
+const props = withDefaults(defineProps<MultiSelectProps>(), {
+  modelValue: () => [],
+  options: () => [],
+  optionLabel: "label",
+  optionValue: "value",
+  placeholder: "Select...",
+  filter: false,
+  display: "comma",
+  size: "md",
+  isDisabled: false,
+  isInvalid: false,
 });
 
 const emit = defineEmits(["update:modelValue", "change"]);

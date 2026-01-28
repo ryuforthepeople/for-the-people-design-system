@@ -40,26 +40,16 @@
 
 <style src="./OverlayPanel.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { OverlayPanelProps, OverlayPanelEmits } from '../../types';
 import { ref, computed, watch, nextTick, onMounted, onUnmounted } from "vue";
 
-const props = defineProps({
-  visible: {
-    type: Boolean,
-    default: undefined,
-  },
-  appendTo: {
-    type: String,
-    default: "body",
-  },
-  dismissable: {
-    type: Boolean,
-    default: true,
-  },
-  showCloseIcon: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpOverlayPanel' });
+
+const props = withDefaults(defineProps<OverlayPanelProps>(), {
+  appendTo: "body",
+  dismissable: true,
+  showCloseIcon: false,
 });
 
 const emit = defineEmits(["update:visible", "show", "hide"]);

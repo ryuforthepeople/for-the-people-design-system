@@ -50,29 +50,15 @@
 
 <style src="./TabMenu.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { TabMenuProps, TabMenuEmits } from '../../types';
 import { ref, computed, watch, onMounted, nextTick } from "vue";
 
-const props = defineProps({
-  /**
-   * Array of menu items to display as tabs
-   */
-  model: {
-    type: Array,
-    default: () => [],
-    validator: (value) =>
-      value.every(
-        (item) =>
-          typeof item === "object" && (item.label !== undefined || item.icon !== undefined)
-      ),
-  },
-  /**
-   * Index of the currently active tab
-   */
-  activeIndex: {
-    type: Number,
-    default: 0,
-  },
+defineOptions({ name: 'FtpTabMenu' });
+
+const props = withDefaults(defineProps<TabMenuProps>(), {
+  model: () => [],
+  activeIndex: 0,
 });
 
 const emit = defineEmits(["update:activeIndex", "tab-change"]);

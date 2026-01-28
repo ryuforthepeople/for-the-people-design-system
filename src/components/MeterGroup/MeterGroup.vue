@@ -31,33 +31,16 @@
 
 <style src="./MeterGroup.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { MeterGroupProps } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  values: {
-    type: Array,
-    required: true,
-    validator: (arr) =>
-      arr.every(
-        (item) =>
-          typeof item.value === "number" &&
-          item.value >= 0
-      ),
-  },
-  max: {
-    type: Number,
-    default: 100,
-  },
-  orientation: {
-    type: String,
-    default: "horizontal",
-    validator: (v) => ["horizontal", "vertical"].includes(v),
-  },
-  showLabels: {
-    type: Boolean,
-    default: true,
-  },
+defineOptions({ name: 'FtpMeterGroup' });
+
+const props = withDefaults(defineProps<MeterGroupProps>(), {
+  max: 100,
+  orientation: "horizontal",
+  showLabels: true,
 });
 
 const colorMap = {

@@ -6,15 +6,14 @@
 
 <style src="./InputGroupAddon.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { InputGroupAddonProps } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
+defineOptions({ name: 'FtpInputGroupAddon' });
+
+const props = withDefaults(defineProps<InputGroupAddonProps>(), {
+  size: "md",
 });
 
 const additionalClasses = computed(() =>

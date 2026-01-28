@@ -51,28 +51,16 @@
 
 <style src="./Steps.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { StepsProps, StepsEmits } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  model: {
-    type: Array,
-    default: () => [],
-    validator: (value) =>
-      value.every(
-        (item) =>
-          typeof item === "object" &&
-          item.label !== undefined
-      ),
-  },
-  activeIndex: {
-    type: Number,
-    default: 0,
-  },
-  isReadonly: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpSteps' });
+
+const props = withDefaults(defineProps<StepsProps>(), {
+  model: () => [],
+  activeIndex: 0,
+  isReadonly: false,
 });
 
 const emit = defineEmits(["update:activeIndex", "step-click"]);

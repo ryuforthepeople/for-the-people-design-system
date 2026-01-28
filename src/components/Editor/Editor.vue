@@ -140,26 +140,17 @@
 
 <style src="./Editor.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { EditorProps, EditorEmits } from '../../types';
 import { computed, ref, watch, onMounted, nextTick } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: String,
-    default: "",
-  },
-  placeholder: {
-    type: String,
-    default: "Enter text...",
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isInvalid: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpEditor' });
+
+const props = withDefaults(defineProps<EditorProps>(), {
+  modelValue: "",
+  placeholder: "Enter text...",
+  isDisabled: false,
+  isInvalid: false,
 });
 
 const emit = defineEmits(["update:modelValue", "focus", "blur", "change"]);

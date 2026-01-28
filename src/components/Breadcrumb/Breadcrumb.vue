@@ -130,25 +130,12 @@
 
 <style src="./Breadcrumb.scss"></style>
 
-<script setup>
-defineProps({
-  model: {
-    type: Array,
-    default: () => [],
-    validator: (value) =>
-      value.every(
-        (item) =>
-          typeof item === "object" &&
-          (item.label !== undefined || item.icon !== undefined)
-      ),
-  },
-  home: {
-    type: Object,
-    default: undefined,
-    validator: (value) =>
-      value === undefined ||
-      (typeof value === "object" &&
-        (value.label !== undefined || value.icon !== undefined || value.url !== undefined)),
-  },
+<script setup lang="ts">
+import type { BreadcrumbProps } from '../../types';
+
+defineOptions({ name: 'FtpBreadcrumb' });
+
+const props = withDefaults(defineProps<BreadcrumbProps>(), {
+  model: () => [],
 });
 </script>

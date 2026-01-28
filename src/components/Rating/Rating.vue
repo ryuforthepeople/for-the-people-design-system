@@ -60,35 +60,18 @@
 
 <style src="./Rating.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { RatingProps, RatingEmits } from '../../types';
 import { computed, ref } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: Number,
-    default: null,
-  },
-  stars: {
-    type: Number,
-    default: 5,
-    validator: (value) => value >= 1,
-  },
-  readonly: {
-    type: Boolean,
-    default: false,
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  cancel: {
-    type: Boolean,
-    default: true,
-  },
-  ariaLabel: {
-    type: String,
-    default: undefined,
-  },
+defineOptions({ name: 'FtpRating' });
+
+const props = withDefaults(defineProps<RatingProps>(), {
+  modelValue: null,
+  stars: 5,
+  readonly: false,
+  isDisabled: false,
+  cancel: true,
 });
 
 const emit = defineEmits(["update:modelValue", "change"]);

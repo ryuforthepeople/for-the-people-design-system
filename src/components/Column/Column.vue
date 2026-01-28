@@ -1,4 +1,6 @@
-<script setup>
+<script setup lang="ts">
+import type { ColumnProps } from '../../types';
+
 /**
  * Column component for DataTable
  *
@@ -7,91 +9,28 @@
  * its props and slots to configure column rendering.
  */
 
-defineOptions({
-  name: "Column"
-});
+defineOptions({ name: 'FtpColumn' });
 
-const props = defineProps({
-  field: {
-    type: String,
-    default: null
-  },
-  header: {
-    type: String,
-    default: null
-  },
-  footer: {
-    type: String,
-    default: null
-  },
-  sortable: {
-    type: Boolean,
-    default: false
-  },
-  sortField: {
-    type: String,
-    default: null
-  },
-  filterField: {
-    type: String,
-    default: null
-  },
-  filterable: {
-    type: Boolean,
-    default: false
-  },
-  width: {
-    type: String,
-    default: null
-  },
-  minWidth: {
-    type: String,
-    default: null
-  },
-  maxWidth: {
-    type: String,
-    default: null
-  },
-  align: {
-    type: String,
-    default: "left",
-    validator: (v) => ["left", "center", "right"].includes(v)
-  },
-  headerAlign: {
-    type: String,
-    default: null,
-    validator: (v) => v === null || ["left", "center", "right"].includes(v)
-  },
-  footerAlign: {
-    type: String,
-    default: null,
-    validator: (v) => v === null || ["left", "center", "right"].includes(v)
-  },
-  frozen: {
-    type: Boolean,
-    default: false
-  },
-  hidden: {
-    type: Boolean,
-    default: false
-  },
-  expander: {
-    type: Boolean,
-    default: false
-  },
-  selectionMode: {
-    type: String,
-    default: null,
-    validator: (v) => v === null || ["single", "multiple"].includes(v)
-  },
-  rowspan: {
-    type: Number,
-    default: 1
-  },
-  colspan: {
-    type: Number,
-    default: 1
-  }
+const props = withDefaults(defineProps<ColumnProps>(), {
+  field: null,
+  header: null,
+  footer: null,
+  sortable: false,
+  sortField: null,
+  filterField: null,
+  filterable: false,
+  width: null,
+  minWidth: null,
+  maxWidth: null,
+  align: "left",
+  headerAlign: null,
+  footerAlign: null,
+  frozen: false,
+  hidden: false,
+  expander: false,
+  selectionMode: null,
+  rowspan: 1,
+  colspan: 1,
 });
 
 // Expose props for parent DataTable to access

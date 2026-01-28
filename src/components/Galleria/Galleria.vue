@@ -140,82 +140,23 @@
 
 <style src="./Galleria.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { GalleriaProps, GalleriaEmits } from '../../types';
 import { computed, ref, watch, onMounted, onUnmounted } from "vue";
 
-const props = defineProps({
-  /**
-   * Array of images to display
-   * Each item can be a string (URL) or object with src, thumbnail, alt, title, description
-   */
-  items: {
-    type: Array,
-    default: () => [],
-  },
-  /**
-   * Index of the active/visible image
-   */
-  activeIndex: {
-    type: Number,
-    default: 0,
-  },
-  /**
-   * Enable fullscreen mode on preview click
-   */
-  fullscreen: {
-    type: Boolean,
-    default: false,
-  },
-  /**
-   * Show thumbnail strip
-   */
-  showThumbnails: {
-    type: Boolean,
-    default: true,
-  },
-  /**
-   * Show navigation arrows on preview
-   */
-  showItemNavigators: {
-    type: Boolean,
-    default: true,
-  },
-  /**
-   * Show indicator dots
-   */
-  showIndicators: {
-    type: Boolean,
-    default: false,
-  },
-  /**
-   * Enable circular navigation
-   */
-  circular: {
-    type: Boolean,
-    default: false,
-  },
-  /**
-   * Auto-play through images
-   */
-  autoplay: {
-    type: Boolean,
-    default: false,
-  },
-  /**
-   * Auto-play interval in milliseconds
-   */
-  autoplayInterval: {
-    type: Number,
-    default: 4000,
-  },
-  /**
-   * Position of thumbnails
-   */
-  thumbnailsPosition: {
-    type: String,
-    default: "bottom",
-    validator: (v) => ["bottom", "top", "left", "right"].includes(v),
-  },
+defineOptions({ name: 'FtpGalleria' });
+
+const props = withDefaults(defineProps<GalleriaProps>(), {
+  items: () => [],
+  activeIndex: 0,
+  fullscreen: false,
+  showThumbnails: true,
+  showItemNavigators: true,
+  showIndicators: false,
+  circular: false,
+  autoplay: false,
+  autoplayInterval: 4000,
+  thumbnailsPosition: "bottom",
 });
 
 const emit = defineEmits(["update:activeIndex", "show", "hide"]);

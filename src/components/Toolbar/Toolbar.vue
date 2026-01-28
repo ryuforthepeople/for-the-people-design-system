@@ -15,7 +15,9 @@
 
 <style src="./Toolbar.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+
+defineOptions({ name: 'FtpToolbar' });
 // Toolbar is a simple layout component with slots
 // No props needed for basic functionality
 </script>

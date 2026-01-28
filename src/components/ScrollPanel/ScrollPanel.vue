@@ -58,13 +58,16 @@
 
 <style src="./ScrollPanel.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { ScrollPanelProps } from '../../types';
 import { ref, computed, onMounted, onUnmounted, nextTick } from "vue";
 
-const props = defineProps({
-  style: {
-    type: [Object, String],
-    default: () => ({}),
+defineOptions({ name: 'FtpScrollPanel' });
+
+const props = withDefaults(defineProps<ScrollPanelProps>(), {
+  style: () => ({}),
+  step: 40,
+});,
   },
   step: {
     type: Number,

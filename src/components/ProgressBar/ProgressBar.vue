@@ -24,24 +24,16 @@
 
 <style src="./ProgressBar.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { ProgressBarProps } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  value: {
-    type: Number,
-    default: 0,
-    validator: (val) => val >= 0 && val <= 100,
-  },
-  showValue: {
-    type: Boolean,
-    default: true,
-  },
-  mode: {
-    type: String,
-    default: "determinate",
-    validator: (val) => ["determinate", "indeterminate"].includes(val),
-  },
+defineOptions({ name: 'FtpProgressBar' });
+
+const props = withDefaults(defineProps<ProgressBarProps>(), {
+  value: 0,
+  showValue: true,
+  mode: "determinate",
 });
 
 const fillStyle = computed(() => ({

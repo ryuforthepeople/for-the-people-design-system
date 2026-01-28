@@ -20,39 +20,20 @@
 
 <style src="./ToggleButton.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { ToggleButtonProps, ToggleButtonEmits } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    default: false,
-  },
-  onLabel: {
-    type: String,
-    default: "",
-  },
-  offLabel: {
-    type: String,
-    default: "",
-  },
-  onIcon: {
-    type: String,
-    default: "",
-  },
-  offIcon: {
-    type: String,
-    default: "",
-  },
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpToggleButton' });
+
+const props = withDefaults(defineProps<ToggleButtonProps>(), {
+  modelValue: false,
+  onLabel: "",
+  offLabel: "",
+  onIcon: "",
+  offIcon: "",
+  size: "md",
+  isDisabled: false,
 });
 
 const emit = defineEmits(["update:modelValue", "change"]);

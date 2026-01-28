@@ -41,24 +41,15 @@
 
 <style src="./Menu.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { MenuProps, MenuEmits } from '../../types';
 import { computed, ref, onMounted, onBeforeUnmount, watch, nextTick } from "vue";
 
-const props = defineProps({
-  model: {
-    type: Array,
-    default: () => [],
-    validator: (value) =>
-      value.every(
-        (item) =>
-          typeof item === "object" &&
-          (item.separator === true || item.label !== undefined)
-      ),
-  },
-  popup: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpMenu' });
+
+const props = withDefaults(defineProps<MenuProps>(), {
+  model: () => [],
+  popup: false,
 });
 
 const emit = defineEmits(["item-click", "show", "hide"]);

@@ -33,8 +33,11 @@
 
 <style src="./Tree.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { TreeProps, TreeEmits } from '../../types';
 import { computed, ref, watch, h } from "vue";
+
+defineOptions({ name: 'FtpTree' });
 
 // TreeNode subcomponent
 const TreeNode = {
@@ -158,44 +161,16 @@ const TreeNode = {
   }
 };
 
-const props = defineProps({
-  modelValue: {
-    type: [String, Number, Array],
-    default: null,
-  },
-  nodes: {
-    type: Array,
-    default: () => [],
-  },
-  expandedKeys: {
-    type: Array,
-    default: () => [],
-  },
-  selectionMode: {
-    type: String,
-    default: "single",
-    validator: (v) => ["single", "multiple", "checkbox", null].includes(v),
-  },
-  filter: {
-    type: Boolean,
-    default: false,
-  },
-  labelField: {
-    type: String,
-    default: "label",
-  },
-  keyField: {
-    type: String,
-    default: "key",
-  },
-  childrenField: {
-    type: String,
-    default: "children",
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
+const props = withDefaults(defineProps<TreeProps>(), {
+  modelValue: null,
+  nodes: () => [],
+  expandedKeys: () => [],
+  selectionMode: "single",
+  filter: false,
+  labelField: "label",
+  keyField: "key",
+  childrenField: "children",
+  isDisabled: false,
 });
 
 const emit = defineEmits(["update:modelValue", "update:expandedKeys", "node-select", "node-expand", "node-collapse", "filter"]);

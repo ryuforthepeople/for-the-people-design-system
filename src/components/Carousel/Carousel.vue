@@ -70,78 +70,22 @@
 
 <style src="./Carousel.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { CarouselProps, CarouselEmits } from '../../types';
 import { computed, ref, watch, onMounted, onUnmounted } from "vue";
 
-const props = defineProps({
-  /**
-   * Array of items to display in the carousel
-   */
-  items: {
-    type: Array,
-    default: () => [],
-  },
-  /**
-   * Number of items visible at once
-   */
-  numVisible: {
-    type: Number,
-    default: 1,
-  },
-  /**
-   * Number of items to scroll at once
-   */
-  numScroll: {
-    type: Number,
-    default: 1,
-  },
-  /**
-   * Enable circular/infinite scrolling
-   */
-  circular: {
-    type: Boolean,
-    default: false,
-  },
-  /**
-   * Auto-play slides
-   */
-  autoplay: {
-    type: Boolean,
-    default: false,
-  },
-  /**
-   * Auto-play interval in milliseconds
-   */
-  autoplayInterval: {
-    type: Number,
-    default: 3000,
-  },
-  /**
-   * Show navigation arrows
-   */
-  showNavigators: {
-    type: Boolean,
-    default: true,
-  },
-  /**
-   * Show indicator dots
-   */
-  showIndicators: {
-    type: Boolean,
-    default: true,
-  },
-  ariaLabel: {
-    type: String,
-    default: undefined,
-  },
-  /**
-   * Orientation of the carousel
-   */
-  orientation: {
-    type: String,
-    default: "horizontal",
-    validator: (v) => ["horizontal", "vertical"].includes(v),
-  },
+defineOptions({ name: 'FtpCarousel' });
+
+const props = withDefaults(defineProps<CarouselProps>(), {
+  items: () => [],
+  numVisible: 1,
+  numScroll: 1,
+  circular: false,
+  autoplay: false,
+  autoplayInterval: 3000,
+  showNavigators: true,
+  showIndicators: true,
+  orientation: "horizontal",
 });
 
 const emit = defineEmits(["update:page"]);

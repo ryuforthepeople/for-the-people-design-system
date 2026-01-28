@@ -44,45 +44,20 @@
 
 <style src="./Select.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { SelectProps, SelectEmits } from '../../types';
 import { computed, ref } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: [String, Number, Boolean, Object],
-    default: null,
-  },
-  options: {
-    type: Array,
-    default: () => [],
-  },
-  optionLabel: {
-    type: String,
-    default: "label",
-  },
-  optionValue: {
-    type: String,
-    default: "value",
-  },
-  placeholder: String,
-  name: String,
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isInvalid: {
-    type: Boolean,
-    default: false,
-  },
-  ariaDescribedby: {
-    type: String,
-    default: undefined,
-  },
+defineOptions({ name: 'FtpSelect' });
+
+const props = withDefaults(defineProps<SelectProps>(), {
+  modelValue: null,
+  options: () => [],
+  optionLabel: "label",
+  optionValue: "value",
+  size: "md",
+  isDisabled: false,
+  isInvalid: false,
 });
 
 const emit = defineEmits(["update:modelValue", "change"]);

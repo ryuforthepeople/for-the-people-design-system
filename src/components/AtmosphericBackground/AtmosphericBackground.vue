@@ -20,52 +20,22 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { AtmosphericBackgroundProps } from '../../types';
 import { computed } from "vue";
 import ParticleBackground from "../ParticleBackground/ParticleBackground.vue";
 
-const props = defineProps({
-  // Variant: 'default', 'vibrant', 'dark', 'subtle'
-  variant: {
-    type: String,
-    default: "default",
-    validator: (v) => ["default", "vibrant", "dark", "subtle"].includes(v),
-  },
-  // Enable particle effect
-  particles: {
-    type: Boolean,
-    default: true,
-  },
-  // Number of moving particles
-  particleCount: {
-    type: Number,
-    default: 100,
-  },
-  // Number of static stars
-  staticStarCount: {
-    type: Number,
-    default: 400,
-  },
-  // Number of star clusters
-  clusterCount: {
-    type: Number,
-    default: 12,
-  },
-  // Stars per cluster
-  starsPerCluster: {
-    type: Number,
-    default: 20,
-  },
-  // Particle color
-  particleColor: {
-    type: String,
-    default: "rgba(255, 255, 255, 0.8)",
-  },
-  // Enable parallax effect on particles
-  parallax: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpAtmosphericBackground' });
+
+const props = withDefaults(defineProps<AtmosphericBackgroundProps>(), {
+  variant: "default",
+  particles: true,
+  particleCount: 100,
+  staticStarCount: 400,
+  clusterCount: 12,
+  starsPerCluster: 20,
+  particleColor: "rgba(255, 255, 255, 0.8)",
+  parallax: false,
 });
 
 const variantClass = computed(() => `atmospheric-background--${props.variant}`);

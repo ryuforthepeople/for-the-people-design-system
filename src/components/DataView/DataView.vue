@@ -115,59 +115,23 @@
 
 <style src="./DataView.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { DataViewProps, DataViewEmits } from '../../types';
 import { ref, computed, watch } from "vue";
 
-const props = defineProps({
-  /**
-   * Array of data objects to display.
-   */
-  value: {
-    type: Array,
-    default: () => [],
-  },
-  /**
-   * Layout mode: 'list' or 'grid'.
-   */
-  layout: {
-    type: String,
-    default: "list",
-    validator: (val) => ["list", "grid"].includes(val),
-  },
-  /**
-   * Number of columns in grid layout.
-   */
-  gridColumns: {
-    type: Number,
-    default: 3,
-  },
-  /**
-   * Enable pagination.
-   */
-  paginator: {
-    type: Boolean,
-    default: false,
-  },
-  /**
-   * Number of items per page when paginator is enabled.
-   */
-  rows: {
-    type: Number,
-    default: 9,
-  },
-  /**
-   * Show layout switcher buttons.
-   */
-  showLayoutSwitcher: {
-    type: Boolean,
-    default: true,
-  },
+const props = withDefaults(defineProps<DataViewProps>(), {
+  value: () => [],
+  layout: "list",
+  gridColumns: 3,
+  paginator: false,
+  rows: 9,
+  showLayoutSwitcher: true,
 });
 
 const emit = defineEmits(["update:layout", "page"]);
 
 defineOptions({
-  name: "DataView",
+  name: "FtpDataView",
 });
 
 const currentPage = ref(1);

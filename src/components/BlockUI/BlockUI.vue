@@ -33,30 +33,18 @@
 
 <style src="./BlockUI.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { BlockUIProps, BlockUIEmits } from '../../types';
 import { computed, watch, onMounted, onUnmounted } from "vue";
 
-const props = defineProps({
-  blocked: {
-    type: Boolean,
-    default: false,
-  },
-  fullScreen: {
-    type: Boolean,
-    default: false,
-  },
-  showSpinner: {
-    type: Boolean,
-    default: true,
-  },
-  autoZIndex: {
-    type: Boolean,
-    default: true,
-  },
-  baseZIndex: {
-    type: Number,
-    default: 1000,
-  },
+defineOptions({ name: 'FtpBlockUI' });
+
+const props = withDefaults(defineProps<BlockUIProps>(), {
+  blocked: false,
+  fullScreen: false,
+  showSpinner: true,
+  autoZIndex: true,
+  baseZIndex: 1000,
 });
 
 const emit = defineEmits(["block", "unblock"]);

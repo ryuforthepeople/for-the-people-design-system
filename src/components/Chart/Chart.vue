@@ -44,69 +44,23 @@
 
 <style src="./Chart.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { ChartProps, ChartEmits } from '../../types';
 import { computed, ref, watch, onMounted, onUnmounted, nextTick } from "vue";
+
+defineOptions({ name: 'FtpChart' });
 
 const emit = defineEmits(["select", "loaded"]);
 
-const props = defineProps({
-  /**
-   * Chart type (bar, line, pie, doughnut, radar, polarArea, scatter, bubble)
-   */
-  type: {
-    type: String,
-    default: "bar",
-    validator: (v) => ["bar", "line", "pie", "doughnut", "radar", "polarArea", "scatter", "bubble"].includes(v),
-  },
-  /**
-   * Chart.js data object
-   */
-  data: {
-    type: Object,
-    default: null,
-  },
-  /**
-   * Chart.js options object
-   */
-  options: {
-    type: Object,
-    default: null,
-  },
-  /**
-   * Chart.js plugins array
-   */
-  plugins: {
-    type: Array,
-    default: () => [],
-  },
-  /**
-   * Chart title displayed above the chart
-   */
-  title: {
-    type: String,
-    default: null,
-  },
-  /**
-   * Show loading spinner
-   */
-  isLoading: {
-    type: Boolean,
-    default: false,
-  },
-  /**
-   * Chart width
-   */
-  width: {
-    type: [Number, String],
-    default: null,
-  },
-  /**
-   * Chart height
-   */
-  height: {
-    type: [Number, String],
-    default: null,
-  },
+const props = withDefaults(defineProps<ChartProps>(), {
+  type: "bar",
+  data: null,
+  options: null,
+  plugins: () => [],
+  title: null,
+  isLoading: false,
+  width: null,
+  height: null,
 });
 
 const canvasRef = ref(null);

@@ -145,71 +145,27 @@
 
 <style src="./AutoComplete.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { AutoCompleteProps, AutoCompleteEmits } from '../../types';
 import { computed, ref, watch, nextTick, onMounted, onUnmounted } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: [String, Number, Object, Array],
-    default: null,
-  },
-  suggestions: {
-    type: Array,
-    default: () => [],
-  },
-  optionLabel: {
-    type: String,
-    default: "label",
-  },
-  optionValue: {
-    type: String,
-    default: "value",
-  },
-  placeholder: {
-    type: String,
-    default: "",
-  },
-  multiple: {
-    type: Boolean,
-    default: false,
-  },
-  minLength: {
-    type: Number,
-    default: 1,
-  },
-  delay: {
-    type: Number,
-    default: 300,
-  },
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isInvalid: {
-    type: Boolean,
-    default: false,
-  },
-  isLoading: {
-    type: Boolean,
-    default: false,
-  },
-  ariaDescribedby: {
-    type: String,
-    default: undefined,
-  },
-  dropdown: {
-    type: Boolean,
-    default: false,
-  },
-  completeOnFocus: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpAutoComplete' });
+
+const props = withDefaults(defineProps<AutoCompleteProps>(), {
+  modelValue: null,
+  suggestions: () => [],
+  optionLabel: "label",
+  optionValue: "value",
+  placeholder: "",
+  multiple: false,
+  minLength: 1,
+  delay: 300,
+  size: "md",
+  isDisabled: false,
+  isInvalid: false,
+  isLoading: false,
+  dropdown: false,
+  completeOnFocus: false,
 });
 
 const emit = defineEmits([

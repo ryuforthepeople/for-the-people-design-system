@@ -37,27 +37,13 @@
 
 <style src="./Chip.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { ChipProps, ChipEmits } from '../../types';
 import { computed, ref } from "vue";
 
-const props = defineProps({
-  label: {
-    type: String,
-    default: undefined,
-  },
-  icon: {
-    type: String,
-    default: undefined,
-  },
-  image: {
-    type: String,
-    default: undefined,
-  },
-  removable: {
-    type: Boolean,
-    default: false,
-  },
-});
+defineOptions({ name: 'FtpChip' });
+
+const props = defineProps<ChipProps>();
 
 const emit = defineEmits(["remove"]);
 

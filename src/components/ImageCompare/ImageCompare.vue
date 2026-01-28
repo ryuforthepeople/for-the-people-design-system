@@ -33,27 +33,16 @@
 
 <style src="./ImageCompare.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { ImageCompareProps, ImageCompareEmits } from '../../types';
 import { ref, computed } from "vue";
 
-defineOptions({
-  name: "ImageCompare"
-});
+defineOptions({ name: 'FtpImageCompare' });
 
-const props = defineProps({
-  initialPosition: {
-    type: Number,
-    default: 50,
-    validator: (v) => v >= 0 && v <= 100
-  },
-  ariaLabel: {
-    type: String,
-    default: "Image comparison slider"
-  },
-  ariaLabelledBy: {
-    type: String,
-    default: null
-  }
+const props = withDefaults(defineProps<ImageCompareProps>(), {
+  initialPosition: 50,
+  ariaLabel: "Image comparison slider",
+  ariaLabelledBy: null,
 });
 
 const emit = defineEmits(["change"]);

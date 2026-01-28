@@ -6,65 +6,24 @@
   />
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { ParticleBackgroundProps } from '../../types';
 import { ref, onMounted, onUnmounted, watch, nextTick } from "vue";
 
-const props = defineProps({
-  // Number of moving particles
-  particleCount: {
-    type: Number,
-    default: 150,
-  },
-  // Number of static stars (non-moving)
-  staticStarCount: {
-    type: Number,
-    default: 300,
-  },
-  // Number of star clusters
-  clusterCount: {
-    type: Number,
-    default: 8,
-  },
-  // Stars per cluster (range)
-  starsPerCluster: {
-    type: Number,
-    default: 15,
-  },
-  // Particle color (CSS color string)
-  particleColor: {
-    type: String,
-    default: "rgba(255, 255, 255, 0.8)",
-  },
-  // Minimum particle size in pixels
-  minSize: {
-    type: Number,
-    default: 0.5,
-  },
-  // Maximum particle size in pixels
-  maxSize: {
-    type: Number,
-    default: 2,
-  },
-  // Particle movement speed multiplier
-  speed: {
-    type: Number,
-    default: 0.2,
-  },
-  // Enable twinkling effect
-  twinkle: {
-    type: Boolean,
-    default: true,
-  },
-  // Enable parallax on mouse move
-  parallax: {
-    type: Boolean,
-    default: false,
-  },
-  // Fixed position (covers viewport)
-  fixed: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpParticleBackground' });
+
+const props = withDefaults(defineProps<ParticleBackgroundProps>(), {
+  particleCount: 150,
+  staticStarCount: 300,
+  clusterCount: 8,
+  starsPerCluster: 15,
+  particleColor: "rgba(255, 255, 255, 0.8)",
+  minSize: 0.5,
+  maxSize: 2,
+  speed: 0.2,
+  twinkle: true,
+  parallax: false,
+  fixed: false,
 });
 
 const canvasRef = ref(null);

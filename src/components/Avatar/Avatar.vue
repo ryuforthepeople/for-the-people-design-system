@@ -15,24 +15,15 @@
 
 <style src="./Avatar.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { AvatarProps, AvatarEmits } from '../../types';
 import { computed, ref } from "vue";
 
-const props = defineProps({
-  label: String,
-  icon: String,
-  image: String,
-  size: {
-    type: String,
-    default: "medium",
-    validator: (v) => ["small", "medium", "large", "xlarge"].includes(v),
-  },
-  shape: {
-    type: String,
-    default: "square",
-    validator: (v) => ["square", "circle"].includes(v),
-  },
-  ariaLabel: String,
+defineOptions({ name: 'FtpAvatar' });
+
+const props = withDefaults(defineProps<AvatarProps>(), {
+  size: "medium",
+  shape: "square",
 });
 
 const emit = defineEmits(["error"]);

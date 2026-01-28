@@ -111,31 +111,16 @@
 
 <style src="./TieredMenu.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { TieredMenuProps, TieredMenuEmits } from '../../types';
 import { ref, computed, onMounted, onUnmounted, watch } from "vue";
 import TieredMenuSub from "./TieredMenuSub.vue";
 
-const props = defineProps({
-  /**
-   * Array of menu items with nested items
-   */
-  model: {
-    type: Array,
-    default: () => [],
-    validator: (value) =>
-      value.every(
-        (item) =>
-          item.separator === true ||
-          (typeof item === "object" && (item.label !== undefined || item.icon !== undefined))
-      ),
-  },
-  /**
-   * Display as popup overlay
-   */
-  popup: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpTieredMenu' });
+
+const props = withDefaults(defineProps<TieredMenuProps>(), {
+  model: () => [],
+  popup: false,
 });
 
 const emit = defineEmits(["item-click", "show", "hide"]);

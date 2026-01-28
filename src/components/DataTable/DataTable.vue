@@ -135,73 +135,25 @@
 
 <style src="./DataTable.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { DataTableProps, DataTableEmits } from '../../types';
 import { ref, computed, watch } from "vue";
 
-const props = defineProps({
-  /**
-   * Array of data objects to display in the table.
-   */
-  value: {
-    type: Array,
-    default: () => [],
-  },
-  /**
-   * Array of column definitions with field, header, sortable, and width properties.
-   */
-  columns: {
-    type: Array,
-    default: () => [],
-    validator: (cols) => cols.every((c) => c.field && c.header),
-  },
-  /**
-   * Whether to show striped rows.
-   */
-  striped: {
-    type: Boolean,
-    default: false,
-  },
-  /**
-   * Whether to show hover effect on rows.
-   */
-  hoverable: {
-    type: Boolean,
-    default: true,
-  },
-  /**
-   * Enable pagination.
-   */
-  paginator: {
-    type: Boolean,
-    default: false,
-  },
-  /**
-   * Number of rows per page when paginator is enabled.
-   */
-  rows: {
-    type: Number,
-    default: 10,
-  },
-  /**
-   * Default sort field.
-   */
-  sortField: {
-    type: String,
-    default: null,
-  },
-  /**
-   * Default sort order: 1 for ascending, -1 for descending.
-   */
-  sortOrder: {
-    type: Number,
-    default: 1,
-  },
+const props = withDefaults(defineProps<DataTableProps>(), {
+  value: () => [],
+  columns: () => [],
+  striped: false,
+  hoverable: true,
+  paginator: false,
+  rows: 10,
+  sortField: null,
+  sortOrder: 1,
 });
 
 const emit = defineEmits(["sort", "page"]);
 
 defineOptions({
-  name: "DataTable",
+  name: "FtpDataTable",
 });
 
 const currentPage = ref(1);

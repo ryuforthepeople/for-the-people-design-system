@@ -21,25 +21,16 @@
 
 <style src="./InputSwitch.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { InputSwitchProps, InputSwitchEmits } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    default: false,
-  },
-  label: String,
-  name: String,
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpInputSwitch' });
+
+const props = withDefaults(defineProps<InputSwitchProps>(), {
+  modelValue: false,
+  size: "md",
+  isDisabled: false,
 });
 
 const emit = defineEmits(["update:modelValue", "change"]);

@@ -53,27 +53,17 @@
 
 <style src="./Message.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { MessageProps, MessageEmits } from '../../types';
 import { computed, ref, onMounted, onUnmounted } from "vue";
 
-const props = defineProps({
-  severity: {
-    type: String,
-    default: "info",
-    validator: (v) => ["success", "info", "warn", "error"].includes(v),
-  },
-  closable: {
-    type: Boolean,
-    default: false,
-  },
-  icon: {
-    type: Boolean,
-    default: true,
-  },
-  life: {
-    type: Number,
-    default: null,
-  },
+defineOptions({ name: 'FtpMessage' });
+
+const props = withDefaults(defineProps<MessageProps>(), {
+  severity: "info",
+  closable: false,
+  icon: true,
+  life: null,
 });
 
 const emit = defineEmits(["close", "life-end"]);

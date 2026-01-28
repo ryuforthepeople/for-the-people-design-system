@@ -21,33 +21,17 @@
 
 <style src="./RadioButton.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { RadioButtonProps, RadioButtonEmits } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: [String, Number, Boolean, Object],
-    default: null,
-  },
-  value: {
-    type: [String, Number, Boolean, Object],
-    required: true,
-  },
-  label: String,
-  name: String,
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isInvalid: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpRadioButton' });
+
+const props = withDefaults(defineProps<RadioButtonProps>(), {
+  modelValue: null,
+  size: "md",
+  isDisabled: false,
+  isInvalid: false,
 });
 
 const emit = defineEmits(["update:modelValue", "change"]);

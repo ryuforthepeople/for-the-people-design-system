@@ -19,18 +19,14 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { SplitterPanelProps } from '../../types';
 import { computed, inject, onMounted, onBeforeUnmount, ref, watch, nextTick } from "vue";
 
-const props = defineProps({
-  size: {
-    type: Number,
-    default: undefined,
-  },
-  minSize: {
-    type: Number,
-    default: 5,
-  },
+defineOptions({ name: 'FtpSplitterPanel' });
+
+const props = withDefaults(defineProps<SplitterPanelProps>(), {
+  minSize: 5,
 });
 
 const splitterContext = inject("splitter");

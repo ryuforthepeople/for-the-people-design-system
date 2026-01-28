@@ -42,37 +42,19 @@
 
 <style src="./Checkbox.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { CheckboxProps, CheckboxEmits } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    default: false,
-  },
-  label: String,
-  name: String,
-  value: {
-    type: [String, Number, Boolean, Object],
-    default: true,
-  },
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isInvalid: {
-    type: Boolean,
-    default: false,
-  },
-  indeterminate: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpCheckbox' });
+
+const props = withDefaults(defineProps<CheckboxProps>(), {
+  modelValue: false,
+  value: true,
+  size: "md",
+  isDisabled: false,
+  isInvalid: false,
+  indeterminate: false,
 });
 
 const emit = defineEmits(["update:modelValue", "change"]);

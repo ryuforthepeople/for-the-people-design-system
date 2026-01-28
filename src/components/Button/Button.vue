@@ -39,45 +39,19 @@
 
 <style src="./Button.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { ButtonProps } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  label: {
-    type: String,
-    default: undefined,
-  },
-  icon: {
-    type: String,
-    default: undefined,
-  },
-  iconPos: {
-    type: String,
-    default: "left",
-    validator: (v) => ["left", "right"].includes(v),
-  },
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  variant: {
-    type: String,
-    default: "primary",
-    validator: (v) => ["primary", "secondary", "outlined", "text"].includes(v),
-  },
-  pill: {
-    type: Boolean,
-    default: false,
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isLoading: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpButton' });
+
+const props = withDefaults(defineProps<ButtonProps>(), {
+  iconPos: "left",
+  size: "md",
+  variant: "primary",
+  pill: false,
+  isDisabled: false,
+  isLoading: false,
 });
 
 const additionalClasses = computed(() =>

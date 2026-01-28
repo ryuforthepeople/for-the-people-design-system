@@ -11,18 +11,14 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { TabPanelProps } from '../../types';
 import { computed, inject, onMounted, onBeforeUnmount, ref } from "vue";
 
-const props = defineProps({
-  header: {
-    type: String,
-    required: true,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpTabPanel' });
+
+const props = withDefaults(defineProps<TabPanelProps>(), {
+  disabled: false,
 });
 
 const tabsContext = inject("tabs");

@@ -92,43 +92,21 @@
 
 <style src="./ConfirmDialog.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { ConfirmDialogProps, ConfirmDialogEmits } from '../../types';
 import { computed, watch, onUnmounted } from "vue";
 
-const props = defineProps({
-  visible: {
-    type: Boolean,
-    default: false,
-  },
-  header: {
-    type: String,
-    default: "Confirmation",
-  },
-  message: {
-    type: String,
-    default: "Are you sure you want to proceed?",
-  },
-  icon: {
-    type: String,
-    default: "warning",
-    validator: (v) => ["warning", "danger", "info", ""].includes(v),
-  },
-  acceptLabel: {
-    type: String,
-    default: "Yes",
-  },
-  rejectLabel: {
-    type: String,
-    default: "No",
-  },
-  dismissableMask: {
-    type: Boolean,
-    default: false,
-  },
-  closeOnEscape: {
-    type: Boolean,
-    default: true,
-  },
+defineOptions({ name: 'FtpConfirmDialog' });
+
+const props = withDefaults(defineProps<ConfirmDialogProps>(), {
+  visible: false,
+  header: "Confirmation",
+  message: "Are you sure you want to proceed?",
+  icon: "warning",
+  acceptLabel: "Yes",
+  rejectLabel: "No",
+  dismissableMask: false,
+  closeOnEscape: true,
 });
 
 const emit = defineEmits(["update:visible", "accept", "reject"]);

@@ -162,29 +162,17 @@
 
 <style src="./PanelMenu.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { PanelMenuProps, PanelMenuEmits } from '../../types';
 import { ref, computed, watch } from "vue";
 
-const props = defineProps({
-  /**
-   * Array of menu panels with items
-   */
-  model: {
-    type: Array,
-    default: () => [],
-    validator: (value) =>
-      value.every(
-        (panel) =>
-          typeof panel === "object" &&
-          (panel.label !== undefined || panel.icon !== undefined)
-      ),
-  },
-  /**
-   * Object of expanded panel keys
-   */
-  expandedKeys: {
-    type: Object,
-    default: () => ({}),
+defineOptions({ name: 'FtpPanelMenu' });
+
+const props = withDefaults(defineProps<PanelMenuProps>(), {
+  model: () => [],
+  expandedKeys: () => ({}),
+  multiple: false,
+});,
   },
   /**
    * Allow multiple panels to be expanded simultaneously

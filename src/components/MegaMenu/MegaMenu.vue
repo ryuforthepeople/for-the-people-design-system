@@ -108,19 +108,15 @@
 
 <style src="./MegaMenu.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { MegaMenuProps, MegaMenuEmits } from '../../types';
 import { ref, onMounted, onUnmounted } from "vue";
 
-const props = defineProps({
-  model: {
-    type: Array,
-    default: () => [],
-  },
-  orientation: {
-    type: String,
-    default: "horizontal",
-    validator: (v) => ["horizontal", "vertical"].includes(v),
-  },
+defineOptions({ name: 'FtpMegaMenu' });
+
+const props = withDefaults(defineProps<MegaMenuProps>(), {
+  model: () => [],
+  orientation: "horizontal",
 });
 
 const emit = defineEmits(["item-click"]);

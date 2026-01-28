@@ -30,23 +30,16 @@
 
 <style src="./ScrollTop.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { ScrollTopProps, ScrollTopEmits } from '../../types';
 import { ref, onMounted, onUnmounted, computed } from "vue";
 
-const props = defineProps({
-  threshold: {
-    type: Number,
-    default: 400,
-  },
-  behavior: {
-    type: String,
-    default: "smooth",
-    validator: (v) => ["smooth", "auto", "instant"].includes(v),
-  },
-  target: {
-    type: String,
-    default: "window",
-  },
+defineOptions({ name: 'FtpScrollTop' });
+
+const props = withDefaults(defineProps<ScrollTopProps>(), {
+  threshold: 400,
+  behavior: "smooth",
+  target: "window",
 });
 
 const emit = defineEmits(["click"]);

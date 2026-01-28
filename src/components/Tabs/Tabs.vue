@@ -34,18 +34,15 @@
 
 <style src="./Tabs.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { TabsProps, TabsEmits } from '../../types';
 import { ref, computed, provide, onMounted, nextTick, watch } from "vue";
 
-const props = defineProps({
-  activeIndex: {
-    type: Number,
-    default: 0,
-  },
-  ariaLabel: {
-    type: String,
-    default: "Tabs",
-  },
+defineOptions({ name: 'FtpTabs' });
+
+const props = withDefaults(defineProps<TabsProps>(), {
+  activeIndex: 0,
+  ariaLabel: "Tabs",
 });
 
 const emit = defineEmits(["update:activeIndex", "tabChange", "tabClick"]);

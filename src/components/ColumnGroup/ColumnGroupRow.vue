@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 /**
  * Row component for ColumnGroup
  *
@@ -6,9 +6,7 @@
  * to define multi-row headers and footers with spanning columns.
  */
 
-defineOptions({
-  name: "Row"
-});
+defineOptions({ name: 'FtpColumnGroupRow' });
 
 // Expose for parent ColumnGroup to access
 defineExpose({});

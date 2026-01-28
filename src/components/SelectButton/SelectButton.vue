@@ -28,47 +28,22 @@
 
 <style src="./SelectButton.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { SelectButtonProps, SelectButtonEmits } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: [String, Number, Object, Array],
-    default: null,
-  },
-  options: {
-    type: Array,
-    required: true,
-    default: () => [],
-  },
-  optionLabel: {
-    type: [String, Function],
-    default: null,
-  },
-  optionValue: {
-    type: [String, Function],
-    default: null,
-  },
-  optionDisabled: {
-    type: [String, Function],
-    default: null,
-  },
-  multiple: {
-    type: Boolean,
-    default: false,
-  },
-  allowEmpty: {
-    type: Boolean,
-    default: true,
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  ariaLabel: {
-    type: String,
-    default: "Select button group",
-  },
+defineOptions({ name: 'FtpSelectButton' });
+
+const props = withDefaults(defineProps<SelectButtonProps>(), {
+  modelValue: null,
+  options: () => [],
+  optionLabel: null,
+  optionValue: null,
+  optionDisabled: null,
+  multiple: false,
+  allowEmpty: true,
+  isDisabled: false,
+  ariaLabel: "Select button group",
 });
 
 const emit = defineEmits(["update:modelValue", "change"]);

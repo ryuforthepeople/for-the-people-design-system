@@ -50,43 +50,21 @@
 
 <style src="./InputChips.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { InputChipsProps, InputChipsEmits } from '../../types';
 import { computed, ref, nextTick } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: Array,
-    default: () => [],
-  },
-  separator: {
-    type: [String, RegExp],
-    default: null,
-  },
-  allowDuplicate: {
-    type: Boolean,
-    default: false,
-  },
-  max: {
-    type: Number,
-    default: null,
-  },
-  placeholder: {
-    type: String,
-    default: "",
-  },
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isInvalid: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpInputChips' });
+
+const props = withDefaults(defineProps<InputChipsProps>(), {
+  modelValue: () => [],
+  separator: null,
+  allowDuplicate: false,
+  max: null,
+  placeholder: "",
+  size: "md",
+  isDisabled: false,
+  isInvalid: false,
 });
 
 const emit = defineEmits(["update:modelValue", "add", "remove", "focus", "blur"]);

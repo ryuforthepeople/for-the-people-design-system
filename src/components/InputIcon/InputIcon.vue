@@ -6,20 +6,15 @@
 
 <style src="./InputIcon.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { InputIconProps } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  position: {
-    type: String,
-    default: "left",
-    validator: (v) => ["left", "right"].includes(v),
-  },
+defineOptions({ name: 'FtpInputIcon' });
+
+const props = withDefaults(defineProps<InputIconProps>(), {
+  size: "md",
+  position: "left",
 });
 
 const additionalClasses = computed(() =>

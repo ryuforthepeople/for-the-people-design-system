@@ -29,31 +29,16 @@
 
 <style src="./FieldSet.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { FieldSetProps, FieldSetEmits } from '../../types';
 import { computed, ref, watch } from "vue";
 
-const props = defineProps({
-  /**
-   * Legend text for the fieldset
-   */
-  legend: {
-    type: String,
-    default: "",
-  },
-  /**
-   * Whether the fieldset can be collapsed
-   */
-  toggleable: {
-    type: Boolean,
-    default: false,
-  },
-  /**
-   * Whether the fieldset is collapsed (when toggleable)
-   */
-  collapsed: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpFieldSet' });
+
+const props = withDefaults(defineProps<FieldSetProps>(), {
+  legend: "",
+  toggleable: false,
+  collapsed: false,
 });
 
 const emit = defineEmits(["update:collapsed", "toggle"]);

@@ -214,23 +214,14 @@
 
 <style src="./MenuBar.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { MenuBarProps, MenuBarEmits } from '../../types';
 import { ref, computed } from "vue";
 
-const props = defineProps({
-  /**
-   * Array of menu items to display
-   */
-  model: {
-    type: Array,
-    default: () => [],
-    validator: (value) =>
-      value.every(
-        (item) =>
-          item.separator === true ||
-          (typeof item === "object" && (item.label !== undefined || item.icon !== undefined))
-      ),
-  },
+defineOptions({ name: 'FtpMenuBar' });
+
+const props = withDefaults(defineProps<MenuBarProps>(), {
+  model: () => [],
 });
 
 const emit = defineEmits(["item-click"]);

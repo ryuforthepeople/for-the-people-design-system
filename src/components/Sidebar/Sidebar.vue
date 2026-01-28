@@ -60,67 +60,21 @@
 
 <style src="./Sidebar.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { SidebarProps, SidebarEmits } from '../../types';
 import { computed, ref, watch, onUnmounted } from "vue";
 
-const props = defineProps({
-  /**
-   * Controls sidebar visibility.
-   */
-  visible: {
-    type: Boolean,
-    default: false,
-  },
-  /**
-   * Header text displayed in the sidebar header.
-   */
-  header: {
-    type: String,
-    default: "",
-  },
-  /**
-   * Position of the sidebar (left or right).
-   */
-  position: {
-    type: String,
-    default: "left",
-    validator: (v) => ["left", "right"].includes(v),
-  },
-  /**
-   * Whether the sidebar takes full screen width.
-   */
-  fullScreen: {
-    type: Boolean,
-    default: false,
-  },
-  /**
-   * Whether to show the close button.
-   */
-  closable: {
-    type: Boolean,
-    default: true,
-  },
-  /**
-   * Closes sidebar when clicking the overlay.
-   */
-  dismissable: {
-    type: Boolean,
-    default: true,
-  },
-  /**
-   * Closes sidebar when pressing Escape key.
-   */
-  closeOnEscape: {
-    type: Boolean,
-    default: true,
-  },
-  /**
-   * Whether to block body scroll when sidebar is open.
-   */
-  blockScroll: {
-    type: Boolean,
-    default: true,
-  },
+defineOptions({ name: 'FtpSidebar' });
+
+const props = withDefaults(defineProps<SidebarProps>(), {
+  visible: false,
+  header: "",
+  position: "left",
+  fullScreen: false,
+  closable: true,
+  dismissable: true,
+  closeOnEscape: true,
+  blockScroll: true,
 });
 
 const emit = defineEmits(["update:visible", "show", "hide"]);

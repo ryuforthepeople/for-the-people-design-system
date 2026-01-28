@@ -54,36 +54,19 @@
 
 <style src="./SpeedDial.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { SpeedDialProps, SpeedDialEmits } from '../../types';
 import { computed, ref } from "vue";
 
-const props = defineProps({
-  model: {
-    type: Array,
-    default: () => [],
-  },
-  direction: {
-    type: String,
-    default: "up",
-    validator: (v) => ["up", "down", "left", "right"].includes(v),
-  },
-  type: {
-    type: String,
-    default: "linear",
-    validator: (v) => ["linear", "circle", "semi-circle", "quarter-circle"].includes(v),
-  },
-  radius: {
-    type: Number,
-    default: 80,
-  },
-  showLabels: {
-    type: Boolean,
-    default: true,
-  },
-  openOnHover: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpSpeedDial' });
+
+const props = withDefaults(defineProps<SpeedDialProps>(), {
+  model: () => [],
+  direction: "up",
+  type: "linear",
+  radius: 80,
+  showLabels: true,
+  openOnHover: false,
 });
 
 const emit = defineEmits(["click", "show", "hide"]);

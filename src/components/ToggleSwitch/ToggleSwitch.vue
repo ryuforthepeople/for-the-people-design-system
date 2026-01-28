@@ -18,19 +18,15 @@
 
 <style src="./ToggleSwitch.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { ToggleSwitchProps, ToggleSwitchEmits } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    default: false,
-  },
-  name: String,
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpToggleSwitch' });
+
+const props = withDefaults(defineProps<ToggleSwitchProps>(), {
+  modelValue: false,
+  isDisabled: false,
 });
 
 const emit = defineEmits(["update:modelValue", "change"]);

@@ -41,8 +41,11 @@
 
 <style src="./TreeTable.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { TreeTableProps, TreeTableEmits } from '../../types';
 import { computed, ref, watch, h } from "vue";
+
+defineOptions({ name: 'FtpTreeTable' });
 
 // TreeTableRow subcomponent
 const TreeTableRow = {
@@ -199,44 +202,16 @@ const TreeTableRow = {
   }
 };
 
-const props = defineProps({
-  modelValue: {
-    type: [String, Number, Array],
-    default: null,
-  },
-  nodes: {
-    type: Array,
-    default: () => [],
-  },
-  columns: {
-    type: Array,
-    default: () => [],
-  },
-  expandedKeys: {
-    type: Array,
-    default: () => [],
-  },
-  selectionMode: {
-    type: String,
-    default: null,
-    validator: (v) => ["single", "multiple", "checkbox", null].includes(v),
-  },
-  keyField: {
-    type: String,
-    default: "key",
-  },
-  childrenField: {
-    type: String,
-    default: "children",
-  },
-  striped: {
-    type: Boolean,
-    default: false,
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
+const props = withDefaults(defineProps<TreeTableProps>(), {
+  modelValue: null,
+  nodes: () => [],
+  columns: () => [],
+  expandedKeys: () => [],
+  selectionMode: null,
+  keyField: "key",
+  childrenField: "children",
+  striped: false,
+  isDisabled: false,
 });
 
 const emit = defineEmits(["update:modelValue", "update:expandedKeys", "node-select", "node-expand", "node-collapse"]);

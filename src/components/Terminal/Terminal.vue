@@ -38,26 +38,16 @@
 
 <style src="./Terminal.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { TerminalProps, TerminalEmits } from '../../types';
 import { ref, nextTick, onMounted } from "vue";
 
-defineOptions({
-  name: "Terminal"
-});
+defineOptions({ name: 'FtpTerminal' });
 
-const props = defineProps({
-  prompt: {
-    type: String,
-    default: "$"
-  },
-  welcomeMessage: {
-    type: String,
-    default: null
-  },
-  ariaLabel: {
-    type: String,
-    default: "Terminal input"
-  }
+const props = withDefaults(defineProps<TerminalProps>(), {
+  prompt: "$",
+  welcomeMessage: null,
+  ariaLabel: "Terminal input",
 });
 
 const emit = defineEmits(["command"]);

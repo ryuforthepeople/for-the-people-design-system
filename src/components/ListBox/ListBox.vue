@@ -84,38 +84,20 @@
 
 <style src="./ListBox.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { ListBoxProps, ListBoxEmits } from '../../types';
 import { computed, ref } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: [String, Number, Object, Array],
-    default: null,
-  },
-  options: {
-    type: Array,
-    default: () => [],
-  },
-  optionLabel: {
-    type: String,
-    default: "label",
-  },
-  optionValue: {
-    type: String,
-    default: "value",
-  },
-  multiple: {
-    type: Boolean,
-    default: false,
-  },
-  filter: {
-    type: Boolean,
-    default: false,
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpListBox' });
+
+const props = withDefaults(defineProps<ListBoxProps>(), {
+  modelValue: null,
+  options: () => [],
+  optionLabel: "label",
+  optionValue: "value",
+  multiple: false,
+  filter: false,
+  isDisabled: false,
 });
 
 const emit = defineEmits(["update:modelValue", "change", "filter"]);

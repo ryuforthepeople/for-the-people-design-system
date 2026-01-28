@@ -78,31 +78,17 @@
 
 <style src="./Toast.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { ToastProps } from '../../types';
 import { ref, onMounted, onUnmounted } from "vue";
 
-const props = defineProps({
-  position: {
-    type: String,
-    default: "top-right",
-    validator: (v) => [
-      "top-left", "top-center", "top-right",
-      "bottom-left", "bottom-center", "bottom-right",
-      "center"
-    ].includes(v),
-  },
-  group: {
-    type: String,
-    default: null,
-  },
-  showIcon: {
-    type: Boolean,
-    default: true,
-  },
-  showProgress: {
-    type: Boolean,
-    default: true,
-  },
+defineOptions({ name: 'FtpToast' });
+
+const props = withDefaults(defineProps<ToastProps>(), {
+  position: "top-right",
+  group: null,
+  showIcon: true,
+  showProgress: true,
 });
 
 const toasts = ref([]);

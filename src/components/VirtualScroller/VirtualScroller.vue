@@ -34,47 +34,22 @@
 
 <style src="./VirtualScroller.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { VirtualScrollerProps, VirtualScrollerEmits } from '../../types';
 import { ref, computed, onMounted, onBeforeUnmount, watch, nextTick } from "vue";
 
-const props = defineProps({
-  items: {
-    type: Array,
-    default: () => [],
-  },
-  itemSize: {
-    type: Number,
-    default: 40,
-  },
-  scrollHeight: {
-    type: String,
-    default: "400px",
-  },
-  orientation: {
-    type: String,
-    default: "vertical",
-    validator: (v) => ["vertical", "horizontal"].includes(v),
-  },
-  numToleratedItems: {
-    type: Number,
-    default: 5,
-  },
-  loading: {
-    type: Boolean,
-    default: false,
-  },
-  striped: {
-    type: Boolean,
-    default: false,
-  },
-  showBorder: {
-    type: Boolean,
-    default: true,
-  },
-  dataKey: {
-    type: String,
-    default: null,
-  },
+defineOptions({ name: 'FtpVirtualScroller' });
+
+const props = withDefaults(defineProps<VirtualScrollerProps>(), {
+  items: () => [],
+  itemSize: 40,
+  scrollHeight: "400px",
+  orientation: "vertical",
+  numToleratedItems: 5,
+  loading: false,
+  striped: false,
+  showBorder: true,
+  dataKey: null,
 });
 
 const emit = defineEmits(["scroll", "scroll-index-change"]);

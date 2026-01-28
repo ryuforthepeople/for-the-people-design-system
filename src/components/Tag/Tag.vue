@@ -11,27 +11,17 @@
 
 <style src="./Tag.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { TagProps } from '../../types';
 import { computed, useSlots } from "vue";
 
-const props = defineProps({
-  value: {
-    type: String,
-    default: null,
-  },
-  color: {
-    type: String,
-    default: "neutral",
-    validator: (v) => ["brand", "accent", "neutral", "success", "warning", "danger", "info"].includes(v),
-  },
-  icon: {
-    type: String,
-    default: null,
-  },
-  rounded: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpTag' });
+
+const props = withDefaults(defineProps<TagProps>(), {
+  value: null,
+  color: "neutral",
+  icon: null,
+  rounded: false,
 });
 
 const $slots = useSlots();

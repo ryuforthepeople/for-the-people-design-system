@@ -18,44 +18,19 @@
 
 <style src="./InputMask.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { InputMaskProps, InputMaskEmits } from '../../types';
 import { computed, ref, watch, onMounted } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: String,
-    default: "",
-  },
-  mask: {
-    type: String,
-    required: true,
-  },
-  slotChar: {
-    type: String,
-    default: "_",
-  },
-  autoClear: {
-    type: Boolean,
-    default: true,
-  },
-  placeholder: {
-    type: String,
-    default: undefined,
-  },
-  name: String,
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isInvalid: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpInputMask' });
+
+const props = withDefaults(defineProps<InputMaskProps>(), {
+  modelValue: "",
+  slotChar: "_",
+  autoClear: true,
+  size: "md",
+  isDisabled: false,
+  isInvalid: false,
 });
 
 const emit = defineEmits(["update:modelValue", "complete", "focus", "blur"]);

@@ -42,31 +42,18 @@
 
 <style src="./Dock.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { DockProps, DockEmits } from '../../types';
 import { ref, computed } from "vue";
 
-const props = defineProps({
-  model: {
-    type: Array,
-    default: () => [],
-  },
-  position: {
-    type: String,
-    default: "bottom",
-    validator: (v) => ["top", "bottom", "left", "right"].includes(v),
-  },
-  magnification: {
-    type: Boolean,
-    default: true,
-  },
-  magnificationScale: {
-    type: Number,
-    default: 1.5,
-  },
-  showTooltips: {
-    type: Boolean,
-    default: true,
-  },
+defineOptions({ name: 'FtpDock' });
+
+const props = withDefaults(defineProps<DockProps>(), {
+  model: () => [],
+  position: "bottom",
+  magnification: true,
+  magnificationScale: 1.5,
+  showTooltips: true,
 });
 
 const emit = defineEmits(["item-click"]);

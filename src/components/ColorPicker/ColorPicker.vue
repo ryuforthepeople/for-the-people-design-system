@@ -98,34 +98,18 @@
 
 <style src="./ColorPicker.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { ColorPickerProps, ColorPickerEmits } from '../../types';
 import { computed, ref, watch, onMounted, onUnmounted } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: String,
-    default: "#000000",
-  },
-  presetColors: {
-    type: Array,
-    default: () => [
-      "#ef4444", "#f97316", "#eab308", "#22c55e", "#06b6d4",
-      "#3b82f6", "#8b5cf6", "#ec4899", "#000000", "#ffffff"
-    ],
-  },
-  inline: {
-    type: Boolean,
-    default: false,
-  },
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpColorPicker' });
+
+const props = withDefaults(defineProps<ColorPickerProps>(), {
+  modelValue: "#000000",
+  presetColors: () => ["#ef4444", "#f97316", "#eab308", "#22c55e", "#06b6d4", "#3b82f6", "#8b5cf6", "#ec4899", "#000000", "#ffffff"],
+  inline: false,
+  size: "md",
+  isDisabled: false,
 });
 
 const emit = defineEmits(["update:modelValue", "change"]);

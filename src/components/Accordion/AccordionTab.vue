@@ -36,24 +36,15 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { AccordionTabProps } from '../../types';
 import { computed, inject, onMounted, ref } from "vue";
 
-const props = defineProps({
-  /**
-   * Header text for the accordion tab.
-   */
-  header: {
-    type: String,
-    default: "",
-  },
-  /**
-   * Whether the tab is disabled.
-   */
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpAccordionTab' });
+
+const props = withDefaults(defineProps<AccordionTabProps>(), {
+  header: "",
+  isDisabled: false,
 });
 
 const accordion = inject("accordion");

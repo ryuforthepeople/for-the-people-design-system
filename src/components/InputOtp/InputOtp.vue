@@ -36,48 +36,22 @@
 
 <style src="./InputOtp.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { InputOtpProps, InputOtpEmits } from '../../types';
 import { computed, ref, watch, nextTick, onMounted } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: String,
-    default: "",
-  },
-  length: {
-    type: Number,
-    default: 4,
-    validator: (v) => v > 0 && v <= 12,
-  },
-  mask: {
-    type: Boolean,
-    default: false,
-  },
-  maskChar: {
-    type: String,
-    default: "*",
-  },
-  integerOnly: {
-    type: Boolean,
-    default: true,
-  },
-  separator: {
-    type: Number,
-    default: 0,
-    validator: (v) => v >= 0,
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isInvalid: {
-    type: Boolean,
-    default: false,
-  },
-  autoFocus: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpInputOtp' });
+
+const props = withDefaults(defineProps<InputOtpProps>(), {
+  modelValue: "",
+  length: 4,
+  mask: false,
+  maskChar: "*",
+  integerOnly: true,
+  separator: 0,
+  isDisabled: false,
+  isInvalid: false,
+  autoFocus: false,
 });
 
 const emit = defineEmits(["update:modelValue", "change", "complete"]);

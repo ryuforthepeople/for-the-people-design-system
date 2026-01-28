@@ -19,38 +19,18 @@
 
 <style src="./InputText.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { InputTextProps, InputTextEmits } from '../../types';
 import { computed, ref } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: [String, Number],
-    default: "",
-  },
-  type: {
-    type: String,
-    default: "text",
-    validator: (v) => ["text", "password", "email", "tel", "url", "search", "number"].includes(v),
-  },
-  placeholder: String,
-  name: String,
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isInvalid: {
-    type: Boolean,
-    default: false,
-  },
-  ariaDescribedby: {
-    type: String,
-    default: undefined,
-  },
+defineOptions({ name: 'FtpInputText' });
+
+const props = withDefaults(defineProps<InputTextProps>(), {
+  modelValue: "",
+  type: "text",
+  size: "md",
+  isDisabled: false,
+  isInvalid: false,
 });
 
 const emit = defineEmits(["update:modelValue", "input", "change", "focus", "blur"]);

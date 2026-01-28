@@ -6,22 +6,16 @@
 
 <style src="./Row.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { RowProps } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  isSelected: {
-    type: Boolean,
-    default: false,
-  },
-  isStriped: {
-    type: Boolean,
-    default: false,
-  },
-  isHoverable: {
-    type: Boolean,
-    default: true,
-  },
+defineOptions({ name: 'FtpRow' });
+
+const props = withDefaults(defineProps<RowProps>(), {
+  isSelected: false,
+  isStriped: false,
+  isHoverable: true,
 });
 
 const additionalClasses = computed(() =>

@@ -135,56 +135,24 @@
 
 <style src="./Calendar.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { CalendarProps, CalendarEmits } from '../../types';
 import { computed, ref, watch, onMounted, onUnmounted } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: [Date, Array],
-    default: null,
-  },
-  placeholder: {
-    type: String,
-    default: "Select date",
-  },
-  dateFormat: {
-    type: String,
-    default: "dd/mm/yyyy",
-  },
-  selectionMode: {
-    type: String,
-    default: "single",
-    validator: (v) => ["single", "range"].includes(v),
-  },
-  minDate: {
-    type: Date,
-    default: null,
-  },
-  maxDate: {
-    type: Date,
-    default: null,
-  },
-  inline: {
-    type: Boolean,
-    default: false,
-  },
-  showTodayButton: {
-    type: Boolean,
-    default: false,
-  },
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isInvalid: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpCalendar' });
+
+const props = withDefaults(defineProps<CalendarProps>(), {
+  modelValue: null,
+  placeholder: "Select date",
+  dateFormat: "dd/mm/yyyy",
+  selectionMode: "single",
+  minDate: null,
+  maxDate: null,
+  inline: false,
+  showTodayButton: false,
+  size: "md",
+  isDisabled: false,
+  isInvalid: false,
 });
 
 const emit = defineEmits(["update:modelValue", "select", "show", "hide"]);

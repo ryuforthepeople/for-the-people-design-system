@@ -32,36 +32,18 @@
 
 <style src="./PopOver.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { PopOverProps, PopOverEmits } from '../../types';
 import { ref, computed, watch, nextTick, onMounted, onUnmounted } from "vue";
 
-const props = defineProps({
-  visible: {
-    type: Boolean,
-    default: undefined,
-  },
-  trigger: {
-    type: String,
-    default: "hover",
-    validator: (v) => ["hover", "click"].includes(v),
-  },
-  position: {
-    type: String,
-    default: "top",
-    validator: (v) => ["top", "bottom", "left", "right"].includes(v),
-  },
-  showDelay: {
-    type: Number,
-    default: 0,
-  },
-  hideDelay: {
-    type: Number,
-    default: 0,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpPopOver' });
+
+const props = withDefaults(defineProps<PopOverProps>(), {
+  trigger: "hover",
+  position: "top",
+  showDelay: 0,
+  hideDelay: 0,
+  disabled: false,
 });
 
 const emit = defineEmits(["update:visible", "show", "hide"]);

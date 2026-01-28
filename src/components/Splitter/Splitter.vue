@@ -10,28 +10,17 @@
 
 <style src="./Splitter.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { SplitterProps, SplitterEmits } from '../../types';
 import { computed, provide, ref, onMounted, onUnmounted } from "vue";
 
-const props = defineProps({
-  layout: {
-    type: String,
-    default: "horizontal",
-    validator: (v) => ["horizontal", "vertical"].includes(v),
-  },
-  gutterSize: {
-    type: Number,
-    default: 10,
-  },
-  stateKey: {
-    type: String,
-    default: null,
-  },
-  stateStorage: {
-    type: String,
-    default: "session",
-    validator: (v) => ["local", "session"].includes(v),
-  },
+defineOptions({ name: 'FtpSplitter' });
+
+const props = withDefaults(defineProps<SplitterProps>(), {
+  layout: "horizontal",
+  gutterSize: 10,
+  stateKey: null,
+  stateStorage: "session",
 });
 
 const emit = defineEmits(["resizestart", "resize", "resizeend"]);

@@ -51,45 +51,17 @@
 
 <style src="./Image.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { ImageProps, ImageEmits } from '../../types';
 import { computed, ref, watch, onUnmounted } from "vue";
 
-const props = defineProps({
-  /**
-   * Image source URL
-   */
-  src: {
-    type: String,
-    required: true,
-  },
-  /**
-   * Alternative text for the image
-   */
-  alt: {
-    type: String,
-    default: "",
-  },
-  /**
-   * Image width
-   */
-  width: {
-    type: [Number, String],
-    default: null,
-  },
-  /**
-   * Image height
-   */
-  height: {
-    type: [Number, String],
-    default: null,
-  },
-  /**
-   * Enable preview/lightbox on click
-   */
-  preview: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpImage' });
+
+const props = withDefaults(defineProps<ImageProps>(), {
+  alt: "",
+  width: null,
+  height: null,
+  preview: false,
 });
 
 const emit = defineEmits(["show", "hide", "error", "load"]);

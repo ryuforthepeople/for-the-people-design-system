@@ -6,24 +6,15 @@
 
 <style src="./Accordion.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { AccordionProps, AccordionEmits } from '../../types';
 import { computed, provide, ref, watch } from "vue";
 
-const props = defineProps({
-  /**
-   * Index(es) of the active tab(s). Use array when multiple is true.
-   */
-  activeIndex: {
-    type: [Number, Array],
-    default: null,
-  },
-  /**
-   * Allow multiple tabs to be open simultaneously.
-   */
-  multiple: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpAccordion' });
+
+const props = withDefaults(defineProps<AccordionProps>(), {
+  activeIndex: null,
+  multiple: false,
 });
 
 const emit = defineEmits(["update:activeIndex", "tab-open", "tab-close"]);

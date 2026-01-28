@@ -93,14 +93,14 @@
   </template>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { TieredMenuSubProps, TieredMenuSubEmits } from '../../types';
 import { ref } from "vue";
 
-defineProps({
-  items: {
-    type: Array,
-    default: () => [],
-  },
+defineOptions({ name: 'FtpTieredMenuSub' });
+
+const props = withDefaults(defineProps<TieredMenuSubProps>(), {
+  items: () => [],
 });
 
 const emit = defineEmits(["item-click"]);

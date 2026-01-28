@@ -41,57 +41,24 @@
 
 <style src="./InputNumber.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { InputNumberProps, InputNumberEmits } from '../../types';
 import { computed, ref } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: Number,
-    default: null,
-  },
-  min: {
-    type: Number,
-    default: null,
-  },
-  max: {
-    type: Number,
-    default: null,
-  },
-  step: {
-    type: Number,
-    default: 1,
-  },
-  placeholder: String,
-  name: String,
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  showButtons: {
-    type: Boolean,
-    default: true,
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isInvalid: {
-    type: Boolean,
-    default: false,
-  },
-  locale: {
-    type: String,
-    default: "nl-NL",
-  },
-  minFractionDigits: {
-    type: Number,
-    default: 0,
-  },
-  maxFractionDigits: {
-    type: Number,
-    default: 2,
-  },
+defineOptions({ name: 'FtpInputNumber' });
+
+const props = withDefaults(defineProps<InputNumberProps>(), {
+  modelValue: null,
+  min: null,
+  max: null,
+  step: 1,
+  size: "md",
+  showButtons: true,
+  isDisabled: false,
+  isInvalid: false,
+  locale: "nl-NL",
+  minFractionDigits: 0,
+  maxFractionDigits: 2,
 });
 
 const emit = defineEmits(["update:modelValue", "change"]);

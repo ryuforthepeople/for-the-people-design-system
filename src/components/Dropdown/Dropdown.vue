@@ -106,51 +106,22 @@
 
 <style src="./Dropdown.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { DropdownProps, DropdownEmits } from '../../types';
 import { computed, ref, watch, nextTick, onMounted, onUnmounted } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: [String, Number, Object],
-    default: null,
-  },
-  options: {
-    type: Array,
-    default: () => [],
-  },
-  optionLabel: {
-    type: String,
-    default: "label",
-  },
-  optionValue: {
-    type: String,
-    default: "value",
-  },
-  filter: {
-    type: Boolean,
-    default: false,
-  },
-  placeholder: {
-    type: String,
-    default: "Select an option",
-  },
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isInvalid: {
-    type: Boolean,
-    default: false,
-  },
-  ariaDescribedby: {
-    type: String,
-    default: undefined,
-  },
+defineOptions({ name: 'FtpDropdown' });
+
+const props = withDefaults(defineProps<DropdownProps>(), {
+  modelValue: null,
+  options: () => [],
+  optionLabel: "label",
+  optionValue: "value",
+  filter: false,
+  placeholder: "Select an option",
+  size: "md",
+  isDisabled: false,
+  isInvalid: false,
 });
 
 const emit = defineEmits(["update:modelValue", "change", "show", "hide", "filter"]);

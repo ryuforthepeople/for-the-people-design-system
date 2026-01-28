@@ -26,21 +26,16 @@
 
 <style src="./Card.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { CardProps } from '../../types';
 import { computed } from "vue";
 
-defineOptions({
-  name: 'Card'
-});
+defineOptions({ name: 'FtpCard' });
 
 const cardTitleId = `card-title-${Math.random().toString(36).substring(2, 9)}`;
 
-const props = defineProps({
-  variant: {
-    type: String,
-    default: "default",
-    validator: (v) => ["default", "highlighted"].includes(v),
-  },
+const props = withDefaults(defineProps<CardProps>(), {
+  variant: "default",
 });
 
 const additionalClasses = computed(() =>

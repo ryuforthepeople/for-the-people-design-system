@@ -100,51 +100,22 @@
 
 <style src="./OrderList.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { OrderListProps, OrderListEmits } from '../../types';
 import { ref, computed, watch } from "vue";
 
-const props = defineProps({
-  /**
-   * Array of items to display and reorder.
-   */
-  modelValue: {
-    type: Array,
-    default: () => [],
-  },
-  /**
-   * Header text displayed above the list.
-   */
-  header: {
-    type: String,
-    default: "",
-  },
-  /**
-   * Property name to use as the display value when items are objects.
-   */
-  dataKey: {
-    type: String,
-    default: null,
-  },
-  /**
-   * Property name to use as a unique key for items.
-   */
-  itemKey: {
-    type: String,
-    default: null,
-  },
-  /**
-   * Allow multiple item selection.
-   */
-  multiple: {
-    type: Boolean,
-    default: false,
-  },
+const props = withDefaults(defineProps<OrderListProps>(), {
+  modelValue: () => [],
+  header: "",
+  dataKey: null,
+  itemKey: null,
+  multiple: false,
 });
 
 const emit = defineEmits(["update:modelValue", "reorder", "selection-change"]);
 
 defineOptions({
-  name: "OrderList",
+  name: "FtpOrderList",
 });
 
 const internalValue = ref([...props.modelValue]);

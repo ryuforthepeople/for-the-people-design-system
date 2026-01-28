@@ -33,31 +33,16 @@
 
 <style src="./ProgressSpinner.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { ProgressSpinnerProps } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  /**
-   * Width of the spinner stroke
-   */
-  strokeWidth: {
-    type: [Number, String],
-    default: 4,
-  },
-  /**
-   * Fill color for the spinner circle
-   */
-  fill: {
-    type: String,
-    default: "transparent",
-  },
-  /**
-   * Duration of the animation cycle
-   */
-  animationDuration: {
-    type: String,
-    default: "2s",
-  },
+defineOptions({ name: 'FtpProgressSpinner' });
+
+const props = withDefaults(defineProps<ProgressSpinnerProps>(), {
+  strokeWidth: 4,
+  fill: "transparent",
+  animationDuration: "2s",
 });
 
 const spinnerStyle = computed(() => ({

@@ -60,68 +60,21 @@
 
 <style src="./Drawer.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { DrawerProps, DrawerEmits } from '../../types';
 import { computed, ref, watch, onUnmounted } from "vue";
 
-const props = defineProps({
-  /**
-   * Controls drawer visibility.
-   */
-  visible: {
-    type: Boolean,
-    default: false,
-  },
-  /**
-   * Header text displayed in the drawer header.
-   */
-  header: {
-    type: String,
-    default: "",
-  },
-  /**
-   * Position of the drawer.
-   */
-  position: {
-    type: String,
-    default: "right",
-    validator: (v) => ["left", "right", "top", "bottom"].includes(v),
-  },
-  /**
-   * Size of the drawer.
-   */
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg", "xl"].includes(v),
-  },
-  /**
-   * Whether to show the close button.
-   */
-  closable: {
-    type: Boolean,
-    default: true,
-  },
-  /**
-   * Closes drawer when clicking the overlay.
-   */
-  dismissable: {
-    type: Boolean,
-    default: true,
-  },
-  /**
-   * Closes drawer when pressing Escape key.
-   */
-  closeOnEscape: {
-    type: Boolean,
-    default: true,
-  },
-  /**
-   * Whether to block body scroll when drawer is open.
-   */
-  blockScroll: {
-    type: Boolean,
-    default: true,
-  },
+defineOptions({ name: 'FtpDrawer' });
+
+const props = withDefaults(defineProps<DrawerProps>(), {
+  visible: false,
+  header: "",
+  position: "right",
+  size: "md",
+  closable: true,
+  dismissable: true,
+  closeOnEscape: true,
+  blockScroll: true,
 });
 
 const emit = defineEmits(["update:visible", "show", "hide"]);

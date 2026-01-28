@@ -53,47 +53,21 @@
 
 <style src="./Knob.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { KnobProps, KnobEmits } from '../../types';
 import { computed, ref } from "vue";
 
-const props = defineProps({
-  modelValue: {
-    type: Number,
-    default: 0,
-  },
-  min: {
-    type: Number,
-    default: 0,
-  },
-  max: {
-    type: Number,
-    default: 100,
-  },
-  step: {
-    type: Number,
-    default: 1,
-  },
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  strokeWidth: {
-    type: Number,
-    default: undefined,
-  },
-  showValue: {
-    type: Boolean,
-    default: true,
-  },
-  valueTemplate: {
-    type: String,
-    default: "{value}",
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
+defineOptions({ name: 'FtpKnob' });
+
+const props = withDefaults(defineProps<KnobProps>(), {
+  modelValue: 0,
+  min: 0,
+  max: 100,
+  step: 1,
+  size: "md",
+  showValue: true,
+  valueTemplate: "{value}",
+  isDisabled: false,
 });
 
 const emit = defineEmits(["update:modelValue", "change"]);

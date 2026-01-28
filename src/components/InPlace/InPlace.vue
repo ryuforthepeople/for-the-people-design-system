@@ -53,22 +53,16 @@
 
 <style src="./InPlace.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { InPlaceProps, InPlaceEmits } from '../../types';
 import { computed, ref, watch, nextTick } from "vue";
 
-const props = defineProps({
-  active: {
-    type: Boolean,
-    default: false,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  closable: {
-    type: Boolean,
-    default: true,
-  },
+defineOptions({ name: 'FtpInPlace' });
+
+const props = withDefaults(defineProps<InPlaceProps>(), {
+  active: false,
+  disabled: false,
+  closable: true,
 });
 
 const emit = defineEmits(["update:active", "open", "close"]);

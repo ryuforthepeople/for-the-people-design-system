@@ -6,28 +6,16 @@
 
 <style src="./Badge.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { BadgeProps } from '../../types';
 import { computed } from "vue";
 
-const props = defineProps({
-  value: {
-    type: [String, Number],
-    default: null,
-  },
-  size: {
-    type: String,
-    default: "md",
-    validator: (v) => ["sm", "md", "lg"].includes(v),
-  },
-  severity: {
-    type: String,
-    default: "primary",
-    validator: (v) => ["primary", "success", "warning", "danger", "info"].includes(v),
-  },
-  ariaLabel: {
-    type: String,
-    default: undefined,
-  },
+defineOptions({ name: 'FtpBadge' });
+
+const props = withDefaults(defineProps<BadgeProps>(), {
+  value: null,
+  size: "md",
+  severity: "primary",
 });
 
 const slots = defineSlots();

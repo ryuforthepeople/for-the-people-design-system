@@ -13,25 +13,16 @@
 
 <style src="./Divider.scss"></style>
 
-<script setup>
+<script setup lang="ts">
+import type { DividerProps } from '../../types';
 import { computed, useSlots } from "vue";
 
-const props = defineProps({
-  layout: {
-    type: String,
-    default: "horizontal",
-    validator: (v) => ["horizontal", "vertical"].includes(v),
-  },
-  align: {
-    type: String,
-    default: "center",
-    validator: (v) => ["left", "center", "right", "top", "bottom"].includes(v),
-  },
-  type: {
-    type: String,
-    default: "solid",
-    validator: (v) => ["solid", "dashed", "dotted"].includes(v),
-  },
+defineOptions({ name: 'FtpDivider' });
+
+const props = withDefaults(defineProps<DividerProps>(), {
+  layout: "horizontal",
+  type: "solid",
+  align: "center",
 });
 
 const slots = useSlots();
