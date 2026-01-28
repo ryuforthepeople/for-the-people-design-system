@@ -1,0 +1,395 @@
+{
+  "button": {
+    "background": {
+      "primary": {
+        "default": {
+          "value": "{intent.action.default}",
+          "type": "color",
+          "description": "Primary button background"
+        },
+        "hover": {
+          "value": "{intent.action.hover}",
+          "type": "color",
+          "description": "Primary button hover background"
+        },
+        "active": {
+          "value": "{intent.action.active}",
+          "type": "color",
+          "description": "Primary button active/pressed background"
+        },
+        "disabled": {
+          "value": "{navy.700}",
+          "type": "color",
+          "description": "Primary button disabled background"
+        }
+      },
+      "secondary": {
+        "default": {
+          "value": "{navy.800}",
+          "type": "color",
+          "description": "Secondary button background"
+        },
+        "hover": {
+          "value": "{navy.700}",
+          "type": "color",
+          "description": "Secondary button hover background"
+        },
+        "active": {
+          "value": "{navy.600}",
+          "type": "color",
+          "description": "Secondary button active background"
+        },
+        "disabled": {
+          "value": "{navy.800}",
+          "type": "color",
+          "description": "Secondary button disabled background"
+        }
+      },
+      "outlined": {
+        "default": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Outlined button background"
+        },
+        "hover": {
+          "value": "{navy.800}",
+          "type": "color",
+          "description": "Outlined button hover background"
+        },
+        "active": {
+          "value": "{navy.700}",
+          "type": "color",
+          "description": "Outlined button active/pressed background"
+        },
+        "disabled": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Outlined button disabled background"
+        }
+      },
+      "text": {
+        "default": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Text button background"
+        },
+        "hover": {
+          "value": "{navy.700}",
+          "type": "color",
+          "description": "Text button hover background"
+        },
+        "active": {
+          "value": "{navy.600}",
+          "type": "color",
+          "description": "Text button active/pressed background"
+        },
+        "disabled": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Text button disabled background"
+        }
+      },
+      "gradient": {
+        "activeStart": {
+          "value": "{orange.600}",
+          "type": "color",
+          "description": "Primary button active gradient start color"
+        },
+        "activeEnd": {
+          "value": "{amber.600}",
+          "type": "color",
+          "description": "Primary button active gradient end color"
+        }
+      }
+    },
+    "text": {
+      "primary": {
+        "default": {
+          "value": "{neutral.0}",
+          "type": "color",
+          "description": "Primary button text color - white"
+        },
+        "shadow": {
+          "value": "0 0 2px rgba(0, 0, 0, 0.3)",
+          "type": "shadow",
+          "description": "Primary button text shadow glow"
+        },
+        "disabled": {
+          "value": "{neutral.400}",
+          "type": "color",
+          "description": "Primary button disabled text color"
+        }
+      },
+      "secondary": {
+        "default": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Secondary button text color"
+        },
+        "disabled": {
+          "value": "{navy.500}",
+          "type": "color",
+          "description": "Secondary button disabled text color"
+        }
+      },
+      "outlined": {
+        "default": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Outlined button text color"
+        },
+        "disabled": {
+          "value": "{navy.500}",
+          "type": "color",
+          "description": "Outlined button disabled text color"
+        }
+      },
+      "text": {
+        "default": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Text button text color"
+        },
+        "disabled": {
+          "value": "{navy.500}",
+          "type": "color",
+          "description": "Text button disabled text color"
+        }
+      }
+    },
+    "border": {
+      "primary": {
+        "default": {
+          "value": "{intent.action.default}",
+          "type": "color",
+          "description": "Primary button border"
+        },
+        "hover": {
+          "value": "{intent.action.hover}",
+          "type": "color",
+          "description": "Primary button hover border"
+        },
+        "active": {
+          "value": "{intent.action.active}",
+          "type": "color",
+          "description": "Primary button active border"
+        },
+        "disabled": {
+          "value": "{neutral.200}",
+          "type": "color",
+          "description": "Primary button disabled border"
+        }
+      },
+      "secondary": {
+        "default": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Secondary button border (gradient via pseudo-element)"
+        },
+        "hover": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Secondary button hover border"
+        },
+        "active": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Secondary button active border"
+        },
+        "disabled": {
+          "value": "{navy.600}",
+          "type": "color",
+          "description": "Secondary button disabled border"
+        }
+      },
+      "outlined": {
+        "default": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Outlined button border"
+        },
+        "hover": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Outlined button hover border"
+        },
+        "active": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Outlined button active border"
+        },
+        "disabled": {
+          "value": "{neutral.300}",
+          "type": "color",
+          "description": "Outlined button disabled border"
+        }
+      },
+      "text": {
+        "default": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Text button border"
+        },
+        "hover": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Text button hover border"
+        },
+        "active": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Text button active border"
+        },
+        "disabled": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Text button disabled border"
+        }
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Button border width"
+      }
+    },
+    "radius": {
+      "default": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Button border radius"
+      },
+      "pill": {
+        "value": "9999px",
+        "type": "dimension",
+        "description": "Pill button border radius"
+      }
+    },
+    "size": {
+      "sm": {
+        "height": {
+          "value": "32px",
+          "type": "dimension",
+          "description": "Small button height"
+        },
+        "paddingX": {
+          "value": "{inset.s}",
+          "type": "dimension",
+          "description": "Small button horizontal padding"
+        },
+        "paddingY": {
+          "value": "{inset.2xs}",
+          "type": "dimension",
+          "description": "Small button vertical padding"
+        },
+        "fontSize": {
+          "value": "14px",
+          "type": "dimension",
+          "description": "Small button font size"
+        },
+        "iconSize": {
+          "value": "16px",
+          "type": "dimension",
+          "description": "Small button icon size"
+        },
+        "gap": {
+          "value": "{inline.2xs}",
+          "type": "dimension",
+          "description": "Small button gap between icon and label"
+        }
+      },
+      "md": {
+        "height": {
+          "value": "40px",
+          "type": "dimension",
+          "description": "Medium button height"
+        },
+        "paddingX": {
+          "value": "{inset.m}",
+          "type": "dimension",
+          "description": "Medium button horizontal padding"
+        },
+        "paddingY": {
+          "value": "{inset.xs}",
+          "type": "dimension",
+          "description": "Medium button vertical padding"
+        },
+        "fontSize": {
+          "value": "16px",
+          "type": "dimension",
+          "description": "Medium button font size"
+        },
+        "iconSize": {
+          "value": "18px",
+          "type": "dimension",
+          "description": "Medium button icon size"
+        },
+        "gap": {
+          "value": "{inline.xs}",
+          "type": "dimension",
+          "description": "Medium button gap between icon and label"
+        }
+      },
+      "lg": {
+        "height": {
+          "value": "48px",
+          "type": "dimension",
+          "description": "Large button height"
+        },
+        "paddingX": {
+          "value": "{inset.l}",
+          "type": "dimension",
+          "description": "Large button horizontal padding"
+        },
+        "paddingY": {
+          "value": "{inset.s}",
+          "type": "dimension",
+          "description": "Large button vertical padding"
+        },
+        "fontSize": {
+          "value": "18px",
+          "type": "dimension",
+          "description": "Large button font size"
+        },
+        "iconSize": {
+          "value": "20px",
+          "type": "dimension",
+          "description": "Large button icon size"
+        },
+        "gap": {
+          "value": "{inline.s}",
+          "type": "dimension",
+          "description": "Large button gap between icon and label"
+        }
+      }
+    },
+    "fontWeight": {
+      "value": "600",
+      "type": "fontWeight",
+      "description": "Button font weight"
+    },
+    "focus": {
+      "ringColor": {
+        "value": "{focus.ring}",
+        "type": "color",
+        "description": "Button focus ring color"
+      },
+      "ringWidth": {
+        "value": "2px",
+        "type": "dimension",
+        "description": "Button focus ring width"
+      },
+      "ringOffset": {
+        "value": "2px",
+        "type": "dimension",
+        "description": "Button focus ring offset"
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "150ms",
+        "type": "duration",
+        "description": "Button transition duration"
+      }
+    }
+  }
+}

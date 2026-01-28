@@ -1,0 +1,156 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: editor;
+
+.#{$c} {
+  display: flex;
+  flex-direction: column;
+  min-height: var(--editor-minHeight, $editor-minHeight);
+  background-color: var(--editor-background-default, $editor-background-default);
+  border: var(--editor-border-width, $editor-border-width) solid var(--editor-border-color-default, $editor-border-color-default);
+  border-radius: var(--editor-radius, $editor-radius);
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+
+  &:hover:not(.#{$c}--disabled) {
+    border-color: var(--editor-border-color-hover, $editor-border-color-hover);
+  }
+}
+
+// Toolbar
+.#{$c}__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--editor-toolbar-gap, $editor-toolbar-gap);
+  padding: var(--editor-toolbar-padding-y, $editor-toolbar-padding-y) var(--editor-toolbar-padding-x, $editor-toolbar-padding-x);
+  background-color: var(--editor-toolbar-background, $editor-toolbar-background);
+  border-bottom: 1px solid var(--editor-toolbar-border-color, $editor-toolbar-border-color);
+}
+
+.#{$c}__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--editor-button-size, $editor-button-size);
+  height: var(--editor-button-size, $editor-button-size);
+  padding: 0;
+  background-color: var(--editor-button-background-default, $editor-button-background-default);
+  border: none;
+  border-radius: var(--editor-button-radius, $editor-button-radius);
+  color: var(--editor-button-color-default, $editor-button-color-default);
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover:not(:disabled) {
+    background-color: var(--editor-button-background-hover, $editor-button-background-hover);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--editor-button-color-disabled, $editor-button-color-disabled);
+  }
+}
+
+.#{$c}__button--active {
+  background-color: var(--editor-button-background-active, $editor-button-background-active);
+  color: var(--editor-button-color-active, $editor-button-color-active);
+}
+
+.#{$c}__separator {
+  width: var(--editor-separator-width, $editor-separator-width);
+  height: 20px;
+  margin: 0 var(--editor-separator-margin, $editor-separator-margin);
+  background-color: var(--editor-separator-color, $editor-separator-color);
+}
+
+// Content area
+.#{$c}__content {
+  flex: 1;
+  min-height: 150px;
+  padding: var(--editor-content-padding, $editor-content-padding);
+  color: var(--editor-content-text-default, $editor-content-text-default);
+  font-size: var(--editor-content-fontSize, $editor-content-fontSize);
+  line-height: var(--editor-content-lineHeight, $editor-content-lineHeight);
+  outline: none;
+  overflow-y: auto;
+
+  &:empty::before {
+    content: attr(data-placeholder);
+    color: var(--editor-content-text-placeholder, $editor-content-text-placeholder);
+    pointer-events: none;
+  }
+
+  // Basic content styling
+  p {
+    margin: 0 0 1em 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul,
+  ol {
+    margin: 0 0 1em 0;
+    padding-left: 1.5em;
+  }
+
+  li {
+    margin-bottom: 0.25em;
+  }
+
+  a {
+    color: var(--editor-button-color-active, $editor-button-color-active);
+    text-decoration: underline;
+  }
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+
+  em,
+  i {
+    font-style: italic;
+  }
+
+  u {
+    text-decoration: underline;
+  }
+
+  s,
+  strike {
+    text-decoration: line-through;
+  }
+}
+
+// States
+.#{$c}--focused {
+  outline: var(--editor-focus-ringWidth, $editor-focus-ringWidth) solid var(--editor-focus-ringColor, $editor-focus-ringColor);
+  outline-offset: var(--editor-focus-ringOffset, $editor-focus-ringOffset);
+  border-color: var(--editor-border-color-focus, $editor-border-color-focus);
+}
+
+.#{$c}--disabled {
+  background-color: var(--editor-background-disabled, $editor-background-disabled);
+  border-color: var(--editor-border-color-disabled, $editor-border-color-disabled);
+  cursor: not-allowed;
+
+  .#{$c}__content {
+    color: var(--editor-content-text-disabled, $editor-content-text-disabled);
+    pointer-events: none;
+  }
+
+  .#{$c}__toolbar {
+    opacity: 0.6;
+  }
+}
+
+.#{$c}--invalid {
+  border-color: var(--editor-border-color-error, $editor-border-color-error);
+
+  &.#{$c}--focused {
+    border-color: var(--editor-border-color-error, $editor-border-color-error);
+  }
+}

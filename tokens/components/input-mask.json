@@ -1,0 +1,136 @@
+{
+  "input-mask": {
+    "height": {
+      "sm": {
+        "value": "32px",
+        "type": "dimension",
+        "description": "Small input height"
+      },
+      "md": {
+        "value": "40px",
+        "type": "dimension",
+        "description": "Medium input height (default)"
+      },
+      "lg": {
+        "value": "48px",
+        "type": "dimension",
+        "description": "Large input height"
+      }
+    },
+    "padding": {
+      "x": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Horizontal padding"
+      },
+      "y": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Vertical padding"
+      }
+    },
+    "fontSize": {
+      "sm": {
+        "value": "14px",
+        "type": "dimension"
+      },
+      "md": {
+        "value": "15px",
+        "type": "dimension"
+      },
+      "lg": {
+        "value": "16px",
+        "type": "dimension"
+      }
+    },
+    "radius": {
+      "value": "{radius.default}",
+      "type": "dimension",
+      "description": "Input border radius"
+    },
+    "border": {
+      "width": {
+        "value": "1px",
+        "type": "dimension"
+      },
+      "color": {
+        "default": {
+          "value": "{neutral.300}",
+          "type": "color",
+          "description": "Default border color"
+        },
+        "hover": {
+          "value": "{neutral.400}",
+          "type": "color",
+          "description": "Hover border color"
+        },
+        "focus": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Focus border color"
+        },
+        "disabled": {
+          "value": "{neutral.200}",
+          "type": "color",
+          "description": "Disabled border color"
+        },
+        "error": {
+          "value": "{feedback.error}",
+          "type": "color",
+          "description": "Error/invalid border color"
+        }
+      }
+    },
+    "background": {
+      "default": {
+        "value": "{surface.canvas}",
+        "type": "color",
+        "description": "Default background"
+      },
+      "disabled": {
+        "value": "{neutral.100}",
+        "type": "color",
+        "description": "Disabled background"
+      },
+      "hover": {
+        "value": "{surface.canvas}",
+        "type": "color",
+        "description": "Hover background"
+      }
+    },
+    "text": {
+      "default": {
+        "value": "{text.default}",
+        "type": "color",
+        "description": "Default text color"
+      },
+      "placeholder": {
+        "value": "{text.muted}",
+        "type": "color",
+        "description": "Placeholder/slot character color"
+      },
+      "disabled": {
+        "value": "{text.muted}",
+        "type": "color",
+        "description": "Disabled text color"
+      }
+    },
+    "focus": {
+      "ringWidth": {
+        "value": "2px",
+        "type": "dimension",
+        "description": "Focus ring width"
+      },
+      "ringColor": {
+        "value": "{brand.primary}",
+        "type": "color",
+        "description": "Focus ring color"
+      },
+      "ringOffset": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Focus ring offset"
+      }
+    }
+  }
+}

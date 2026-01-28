@@ -1,0 +1,141 @@
+{
+  "confirmDialog": {
+    "padding": {
+      "header": {
+        "value": "{inset.l}",
+        "type": "dimension",
+        "description": "Header section padding"
+      },
+      "content": {
+        "value": "{inset.l}",
+        "type": "dimension",
+        "description": "Content area padding"
+      },
+      "footer": {
+        "value": "{inset.l}",
+        "type": "dimension",
+        "description": "Footer section padding"
+      }
+    },
+    "background": {
+      "default": {
+        "value": "{surface.canvas}",
+        "type": "color",
+        "description": "Dialog background color"
+      }
+    },
+    "radius": {
+      "value": "{radius.large}",
+      "type": "dimension",
+      "description": "Dialog border radius"
+    },
+    "shadow": {
+      "value": "{shadow.l}",
+      "type": "shadow",
+      "description": "Dialog elevation shadow"
+    },
+    "border": {
+      "color": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Dialog border color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Dialog border width"
+      }
+    },
+    "header": {
+      "background": {
+        "value": "{surface.canvas}",
+        "type": "color",
+        "description": "Header background"
+      },
+      "borderColor": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Header bottom border color"
+      },
+      "title": {
+        "color": {
+          "value": "{text.heading}",
+          "type": "color",
+          "description": "Header title text color"
+        }
+      }
+    },
+    "icon": {
+      "size": {
+        "value": "48px",
+        "type": "dimension",
+        "description": "Icon size"
+      },
+      "color": {
+        "warning": {
+          "value": "{feedback.warning}",
+          "type": "color",
+          "description": "Warning icon color"
+        },
+        "danger": {
+          "value": "{feedback.error}",
+          "type": "color",
+          "description": "Danger icon color"
+        },
+        "info": {
+          "value": "{feedback.info}",
+          "type": "color",
+          "description": "Info icon color"
+        }
+      }
+    },
+    "message": {
+      "color": {
+        "value": "{text.default}",
+        "type": "color",
+        "description": "Message text color"
+      },
+      "fontSize": {
+        "value": "16px",
+        "type": "dimension",
+        "description": "Message font size"
+      }
+    },
+    "overlay": {
+      "background": {
+        "value": "{surface.overlay}",
+        "type": "color",
+        "description": "Modal overlay backdrop color"
+      }
+    },
+    "width": {
+      "value": "450px",
+      "type": "dimension",
+      "description": "Dialog width"
+    },
+    "zIndex": {
+      "overlay": {
+        "value": "1000",
+        "type": "number",
+        "description": "Overlay z-index"
+      },
+      "dialog": {
+        "value": "1001",
+        "type": "number",
+        "description": "Dialog z-index"
+      }
+    },
+    "gap": {
+      "content": {
+        "value": "{stack.m}",
+        "type": "dimension",
+        "description": "Gap between icon and message"
+      },
+      "buttons": {
+        "value": "{inline.s}",
+        "type": "dimension",
+        "description": "Gap between footer buttons"
+      }
+    }
+  }
+}

@@ -1,0 +1,152 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: listbox;
+
+.#{$c} {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--listbox-background-default, $listbox-background-default);
+  border: var(--listbox-border-width, $listbox-border-width) solid var(--listbox-border-color-default, $listbox-border-color-default);
+  border-radius: var(--listbox-radius, $listbox-radius);
+  overflow: hidden;
+}
+
+.#{$c}--disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  background-color: var(--listbox-background-disabled, $listbox-background-disabled);
+  border-color: var(--listbox-border-color-disabled, $listbox-border-color-disabled);
+}
+
+// Filter
+.#{$c}__filter {
+  position: relative;
+  padding: var(--listbox-padding, $listbox-padding);
+  border-bottom: 1px solid var(--listbox-filter-border, $listbox-filter-border);
+}
+
+.#{$c}__filter-input {
+  width: 100%;
+  height: var(--listbox-filter-height, $listbox-filter-height);
+  padding: 0 var(--listbox-filter-padding-x, $listbox-filter-padding-x);
+  padding-left: 32px;
+  background-color: var(--listbox-filter-background, $listbox-filter-background);
+  border: 1px solid var(--listbox-filter-border, $listbox-filter-border);
+  border-radius: var(--listbox-filter-radius, $listbox-filter-radius);
+  font-size: 14px;
+  color: var(--listbox-filter-text, $listbox-filter-text);
+
+  &::placeholder {
+    color: var(--listbox-filter-placeholder, $listbox-filter-placeholder);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--listbox-border-color-focus, $listbox-border-color-focus);
+  }
+}
+
+.#{$c}__filter-icon {
+  position: absolute;
+  left: calc(var(--listbox-padding, $listbox-padding) + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--listbox-filter-placeholder, $listbox-filter-placeholder);
+  pointer-events: none;
+}
+
+// List container
+.#{$c}__list {
+  max-height: var(--listbox-maxHeight, $listbox-maxHeight);
+  overflow-y: auto;
+  padding: var(--listbox-padding, $listbox-padding);
+}
+
+// Option
+.#{$c}__option {
+  display: flex;
+  align-items: center;
+  padding: var(--listbox-option-padding-y, $listbox-option-padding-y) var(--listbox-option-padding-x, $listbox-option-padding-x);
+  background-color: var(--listbox-option-background-default, $listbox-option-background-default);
+  border-radius: var(--listbox-option-radius, $listbox-option-radius);
+  font-size: var(--listbox-option-fontSize, $listbox-option-fontSize);
+  color: var(--listbox-option-text-default, $listbox-option-text-default);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  user-select: none;
+
+  &:hover:not(.#{$c}__option--disabled) {
+    background-color: var(--listbox-option-background-hover, $listbox-option-background-hover);
+  }
+
+  &:focus {
+    outline: none;
+    background-color: var(--listbox-option-background-focus, $listbox-option-background-focus);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--listbox-focus-ringColor, $listbox-focus-ringColor);
+    outline-offset: -2px;
+  }
+}
+
+.#{$c}__option--selected {
+  background-color: var(--listbox-option-background-selected, $listbox-option-background-selected);
+  color: var(--listbox-option-text-selected, $listbox-option-text-selected);
+
+  &:hover {
+    background-color: var(--listbox-option-background-selected, $listbox-option-background-selected);
+    filter: brightness(0.95);
+  }
+}
+
+.#{$c}__option--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  color: var(--listbox-option-text-disabled, $listbox-option-text-disabled);
+}
+
+.#{$c}__option--focused {
+  background-color: var(--listbox-option-background-focus, $listbox-option-background-focus);
+}
+
+// Checkbox for multiple selection
+.#{$c}__checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--listbox-checkbox-size, $listbox-checkbox-size);
+  height: var(--listbox-checkbox-size, $listbox-checkbox-size);
+  margin-right: var(--listbox-checkbox-marginRight, $listbox-checkbox-marginRight);
+  border: 1.5px solid currentColor;
+  border-radius: 3px;
+  flex-shrink: 0;
+
+  svg {
+    display: block;
+  }
+}
+
+.#{$c}__option--selected .#{$c}__checkbox {
+  background-color: currentColor;
+
+  svg {
+    color: var(--listbox-background-default, $listbox-background-default);
+  }
+}
+
+.#{$c}__option-label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Empty state
+.#{$c}__empty {
+  padding: var(--listbox-option-padding-y, $listbox-option-padding-y) var(--listbox-option-padding-x, $listbox-option-padding-x);
+  color: var(--listbox-option-text-disabled, $listbox-option-text-disabled);
+  text-align: center;
+  font-size: 14px;
+}

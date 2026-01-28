@@ -1,0 +1,21 @@
+{
+  "input-group": {
+    "display": {
+      "value": "flex",
+      "type": "string",
+      "description": "Display type for input group container"
+    },
+    "border": {
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Border radius for grouped elements"
+      }
+    },
+    "gap": {
+      "value": "0",
+      "type": "dimension",
+      "description": "Gap between input group items (none for seamless grouping)"
+    }
+  }
+}

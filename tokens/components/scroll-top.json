@@ -1,0 +1,84 @@
+{
+  "scroll-top": {
+    "size": {
+      "value": "40px",
+      "type": "dimension",
+      "description": "Size of the scroll top button"
+    },
+    "background": {
+      "default": {
+        "value": "{brand.primary}",
+        "type": "color",
+        "description": "Default background color"
+      },
+      "hover": {
+        "value": "{intent.action.hover}",
+        "type": "color",
+        "description": "Hover background color"
+      },
+      "active": {
+        "value": "{intent.action.active}",
+        "type": "color",
+        "description": "Active background color"
+      }
+    },
+    "icon": {
+      "color": {
+        "value": "{text.inverse}",
+        "type": "color",
+        "description": "Icon color"
+      },
+      "size": {
+        "value": "20px",
+        "type": "dimension",
+        "description": "Icon size"
+      }
+    },
+    "radius": {
+      "value": "{radius.pill}",
+      "type": "dimension",
+      "description": "Border radius (circular by default)"
+    },
+    "shadow": {
+      "value": "{shadow.m}",
+      "type": "shadow",
+      "description": "Box shadow for elevation"
+    },
+    "position": {
+      "bottom": {
+        "value": "{inset.l}",
+        "type": "dimension",
+        "description": "Distance from bottom of viewport"
+      },
+      "right": {
+        "value": "{inset.l}",
+        "type": "dimension",
+        "description": "Distance from right of viewport"
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "200ms",
+        "type": "duration",
+        "description": "Transition duration for visibility"
+      }
+    },
+    "focus": {
+      "ringColor": {
+        "value": "{focus.ring}",
+        "type": "color",
+        "description": "Focus ring color"
+      },
+      "ringWidth": {
+        "value": "2px",
+        "type": "dimension",
+        "description": "Focus ring width"
+      },
+      "ringOffset": {
+        "value": "2px",
+        "type": "dimension",
+        "description": "Focus ring offset"
+      }
+    }
+  }
+}

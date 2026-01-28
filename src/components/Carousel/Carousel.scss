@@ -1,0 +1,121 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: carousel;
+
+.#{$c} {
+  display: flex;
+  flex-direction: column;
+  background: var(--carousel-container-background, $carousel-container-background);
+  border-radius: var(--carousel-container-radius, $carousel-container-radius);
+}
+
+.#{$c}__container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.#{$c}__viewport {
+  flex: 1;
+  overflow: hidden;
+  padding: var(--carousel-content-padding, $carousel-content-padding);
+}
+
+.#{$c}__track {
+  display: flex;
+  gap: var(--carousel-content-gap, $carousel-content-gap);
+  transition: transform var(--carousel-transition-duration, $carousel-transition-duration) ease;
+}
+
+.#{$c}--orientation-vertical {
+  .#{$c}__container {
+    flex-direction: column;
+  }
+
+  .#{$c}__track {
+    flex-direction: column;
+  }
+
+  .#{$c}__navigator--prev {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: rotate(90deg);
+  }
+
+  .#{$c}__navigator--next {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    transform: rotate(90deg);
+  }
+}
+
+.#{$c}__item {
+  flex: 0 0 100%;
+  min-width: 0;
+  background: var(--carousel-item-background, $carousel-item-background);
+  border-radius: var(--carousel-item-radius, $carousel-item-radius);
+  padding: var(--carousel-item-padding, $carousel-item-padding);
+}
+
+.#{$c}__navigator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--carousel-navigator-size, $carousel-navigator-size);
+  height: var(--carousel-navigator-size, $carousel-navigator-size);
+  padding: 0;
+  border: var(--carousel-navigator-border-width, $carousel-navigator-border-width) solid
+          var(--carousel-navigator-border-color, $carousel-navigator-border-color);
+  border-radius: var(--carousel-navigator-radius, $carousel-navigator-radius);
+  background: var(--carousel-navigator-background-default, $carousel-navigator-background-default);
+  color: var(--carousel-navigator-color-default, $carousel-navigator-color-default);
+  cursor: pointer;
+  transition: all 150ms ease;
+  z-index: 1;
+  flex-shrink: 0;
+
+  &:hover:not(:disabled) {
+    background: var(--carousel-navigator-background-hover, $carousel-navigator-background-hover);
+    color: var(--carousel-navigator-color-hover, $carousel-navigator-color-hover);
+  }
+
+  &:disabled {
+    background: var(--carousel-navigator-background-disabled, $carousel-navigator-background-disabled);
+    color: var(--carousel-navigator-color-disabled, $carousel-navigator-color-disabled);
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  svg {
+    width: var(--carousel-navigator-iconSize, $carousel-navigator-iconSize);
+    height: var(--carousel-navigator-iconSize, $carousel-navigator-iconSize);
+  }
+}
+
+.#{$c}__indicators {
+  display: flex;
+  justify-content: center;
+  gap: var(--carousel-indicator-gap, $carousel-indicator-gap);
+  margin-top: var(--carousel-indicator-marginTop, $carousel-indicator-marginTop);
+}
+
+.#{$c}__indicator {
+  width: var(--carousel-indicator-size, $carousel-indicator-size);
+  height: var(--carousel-indicator-size, $carousel-indicator-size);
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--carousel-indicator-background-default, $carousel-indicator-background-default);
+  cursor: pointer;
+  transition: background-color 150ms ease;
+
+  &:hover {
+    background: var(--carousel-indicator-background-hover, $carousel-indicator-background-hover);
+  }
+}
+
+.#{$c}__indicator--active {
+  background: var(--carousel-indicator-background-active, $carousel-indicator-background-active);
+}

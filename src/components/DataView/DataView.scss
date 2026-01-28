@@ -1,0 +1,149 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: data-view;
+
+.#{$c} {
+  background-color: var(--dataView-background, $dataView-background);
+  border: var(--dataView-border-width, $dataView-border-width) solid var(--dataView-border-color, $dataView-border-color);
+  border-radius: var(--dataView-radius, $dataView-radius);
+  overflow: hidden;
+}
+
+.#{$c}__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--inset-m, $inset-m);
+  padding: var(--dataView-header-padding, $dataView-header-padding);
+  background-color: var(--dataView-header-background, $dataView-header-background);
+  border-bottom: var(--dataView-border-width, $dataView-border-width) solid var(--dataView-header-borderColor, $dataView-header-borderColor);
+}
+
+.#{$c}__header-content {
+  flex: 1;
+}
+
+.#{$c}__layout-switcher {
+  display: flex;
+  gap: var(--dataView-layoutSwitcher-gap, $dataView-layoutSwitcher-gap);
+}
+
+.#{$c}__layout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--dataView-layoutSwitcher-button-size, $dataView-layoutSwitcher-button-size);
+  height: var(--dataView-layoutSwitcher-button-size, $dataView-layoutSwitcher-button-size);
+  padding: 0;
+  border: none;
+  background-color: var(--dataView-layoutSwitcher-button-background-default, $dataView-layoutSwitcher-button-background-default);
+  border-radius: var(--dataView-layoutSwitcher-button-radius, $dataView-layoutSwitcher-button-radius);
+  cursor: pointer;
+  transition: background-color var(--dataView-transition-duration, $dataView-transition-duration) ease,
+              color var(--dataView-transition-duration, $dataView-transition-duration) ease;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    color: var(--dataView-layoutSwitcher-button-color-default, $dataView-layoutSwitcher-button-color-default);
+  }
+
+  &:hover {
+    background-color: var(--dataView-layoutSwitcher-button-background-hover, $dataView-layoutSwitcher-button-background-hover);
+  }
+
+  &--active {
+    background-color: var(--dataView-layoutSwitcher-button-background-active, $dataView-layoutSwitcher-button-background-active);
+
+    svg {
+      color: var(--dataView-layoutSwitcher-button-color-active, $dataView-layoutSwitcher-button-color-active);
+    }
+  }
+}
+
+.#{$c}__content {
+  padding: var(--dataView-content-padding, $dataView-content-padding);
+}
+
+.#{$c}__content--list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dataView-list-gap, $dataView-list-gap);
+}
+
+.#{$c}__content--grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--dataView-grid-gap, $dataView-grid-gap);
+}
+
+.#{$c}--layout-list .#{$c}__item {
+  padding: var(--dataView-list-item-padding, $dataView-list-item-padding);
+  background-color: var(--dataView-list-item-background-default, $dataView-list-item-background-default);
+  border: 1px solid var(--dataView-list-item-borderColor, $dataView-list-item-borderColor);
+  border-radius: var(--dataView-list-item-radius, $dataView-list-item-radius);
+  transition: background-color var(--dataView-transition-duration, $dataView-transition-duration) ease;
+
+  &:hover {
+    background-color: var(--dataView-list-item-background-hover, $dataView-list-item-background-hover);
+  }
+}
+
+.#{$c}--layout-grid .#{$c}__item {
+  // Grid items are typically styled by the slot content
+}
+
+.#{$c}__empty {
+  padding: var(--dataView-empty-padding, $dataView-empty-padding);
+  text-align: center;
+  color: var(--dataView-empty-color, $dataView-empty-color);
+}
+
+.#{$c}__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--inset-xs, $inset-xs);
+  padding: var(--dataView-pagination-padding, $dataView-pagination-padding);
+  border-top: var(--dataView-border-width, $dataView-border-width) solid var(--dataView-pagination-borderColor, $dataView-pagination-borderColor);
+}
+
+.#{$c}__page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--dataView-layoutSwitcher-button-radius, $dataView-layoutSwitcher-button-radius);
+  transition: background-color var(--dataView-transition-duration, $dataView-transition-duration) ease;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    color: var(--text-default, $text-default);
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--dataView-list-item-background-hover, $dataView-list-item-background-hover);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.#{$c}__page-info {
+  font-size: 14px;
+  color: var(--text-default, $text-default);
+}
+
+.#{$c}__footer {
+  padding: var(--dataView-header-padding, $dataView-header-padding);
+  background-color: var(--dataView-header-background, $dataView-header-background);
+  border-top: var(--dataView-border-width, $dataView-border-width) solid var(--dataView-header-borderColor, $dataView-header-borderColor);
+}

@@ -1,0 +1,186 @@
+{
+  "paginator": {
+    "background": {
+      "value": "{surface.canvas}",
+      "type": "color",
+      "description": "Paginator container background"
+    },
+    "padding": {
+      "value": "{inset.s}",
+      "type": "dimension",
+      "description": "Paginator container padding"
+    },
+    "gap": {
+      "value": "{inline.xs}",
+      "type": "dimension",
+      "description": "Gap between paginator elements"
+    },
+    "border": {
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Border width"
+      },
+      "color": {
+        "value": "{neutral.200}",
+        "type": "color",
+        "description": "Border color"
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Border radius"
+      }
+    },
+    "page": {
+      "size": {
+        "value": "36px",
+        "type": "dimension",
+        "description": "Page button size"
+      },
+      "background": {
+        "default": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Page button default background"
+        },
+        "hover": {
+          "value": "{neutral.100}",
+          "type": "color",
+          "description": "Page button hover background"
+        },
+        "active": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Active page button background"
+        }
+      },
+      "text": {
+        "default": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Page button default text color"
+        },
+        "hover": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Page button hover text color"
+        },
+        "active": {
+          "value": "{text.inverse}",
+          "type": "color",
+          "description": "Active page button text color"
+        },
+        "disabled": {
+          "value": "{neutral.400}",
+          "type": "color",
+          "description": "Disabled page button text color"
+        }
+      },
+      "fontSize": {
+        "value": "14px",
+        "type": "dimension",
+        "description": "Page button font size"
+      },
+      "fontWeight": {
+        "value": "500",
+        "type": "fontWeight",
+        "description": "Page button font weight"
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Page button border radius"
+      }
+    },
+    "nav": {
+      "size": {
+        "value": "36px",
+        "type": "dimension",
+        "description": "Navigation button size"
+      },
+      "background": {
+        "default": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Nav button default background"
+        },
+        "hover": {
+          "value": "{neutral.100}",
+          "type": "color",
+          "description": "Nav button hover background"
+        },
+        "disabled": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Nav button disabled background"
+        }
+      },
+      "icon": {
+        "color": {
+          "default": {
+            "value": "{text.muted}",
+            "type": "color",
+            "description": "Nav icon default color"
+          },
+          "hover": {
+            "value": "{text.default}",
+            "type": "color",
+            "description": "Nav icon hover color"
+          },
+          "disabled": {
+            "value": "{neutral.400}",
+            "type": "color",
+            "description": "Nav icon disabled color"
+          }
+        },
+        "size": {
+          "value": "18px",
+          "type": "dimension",
+          "description": "Nav icon size"
+        }
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Nav button border radius"
+      }
+    },
+    "info": {
+      "color": {
+        "value": "{text.muted}",
+        "type": "color",
+        "description": "Info text color"
+      },
+      "fontSize": {
+        "value": "14px",
+        "type": "dimension",
+        "description": "Info text font size"
+      }
+    },
+    "focus": {
+      "ringColor": {
+        "value": "{focus.ring}",
+        "type": "color",
+        "description": "Focus ring color"
+      },
+      "ringWidth": {
+        "value": "2px",
+        "type": "dimension",
+        "description": "Focus ring width"
+      },
+      "ringOffset": {
+        "value": "2px",
+        "type": "dimension",
+        "description": "Focus ring offset"
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "150ms",
+        "type": "duration",
+        "description": "Transition duration"
+      }
+    }
+  }
+}

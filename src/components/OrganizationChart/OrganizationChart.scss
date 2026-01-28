@@ -1,0 +1,145 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: organization-chart;
+
+.#{$c} {
+  display: flex;
+  justify-content: center;
+  padding: var(--organizationChart-padding, $organizationChart-padding);
+  background-color: var(--organizationChart-background, $organizationChart-background);
+  overflow: auto;
+}
+
+.#{$c}__node-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.#{$c}__node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: var(--organizationChart-node-minWidth, $organizationChart-node-minWidth);
+  padding: var(--organizationChart-node-padding, $organizationChart-node-padding);
+  background-color: var(--organizationChart-node-background-default, $organizationChart-node-background-default);
+  border: var(--organizationChart-node-border-width, $organizationChart-node-border-width) solid var(--organizationChart-node-border-color-default, $organizationChart-node-border-color-default);
+  border-radius: var(--organizationChart-node-radius, $organizationChart-node-radius);
+  box-shadow: var(--organizationChart-node-shadow-default, $organizationChart-node-shadow-default);
+  transition: background-color var(--organizationChart-transition-duration, $organizationChart-transition-duration) ease,
+              border-color var(--organizationChart-transition-duration, $organizationChart-transition-duration) ease,
+              box-shadow var(--organizationChart-transition-duration, $organizationChart-transition-duration) ease;
+
+  &:hover {
+    background-color: var(--organizationChart-node-background-hover, $organizationChart-node-background-hover);
+    border-color: var(--organizationChart-node-border-color-hover, $organizationChart-node-border-color-hover);
+    box-shadow: var(--organizationChart-node-shadow-hover, $organizationChart-node-shadow-hover);
+  }
+
+  &--selectable {
+    cursor: pointer;
+  }
+
+  &--selected {
+    background-color: var(--organizationChart-node-background-selected, $organizationChart-node-background-selected);
+    border-color: var(--organizationChart-node-border-color-selected, $organizationChart-node-border-color-selected);
+  }
+}
+
+.#{$c}__node-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--organizationChart-nodeContent-gap, $organizationChart-nodeContent-gap);
+  text-align: center;
+}
+
+.#{$c}__node-title {
+  font-size: var(--organizationChart-nodeContent-title-fontSize, $organizationChart-nodeContent-title-fontSize);
+  font-weight: var(--organizationChart-nodeContent-title-fontWeight, $organizationChart-nodeContent-title-fontWeight);
+  color: var(--organizationChart-nodeContent-title-color, $organizationChart-nodeContent-title-color);
+}
+
+.#{$c}__node-subtitle {
+  font-size: var(--organizationChart-nodeContent-subtitle-fontSize, $organizationChart-nodeContent-subtitle-fontSize);
+  font-weight: var(--organizationChart-nodeContent-subtitle-fontWeight, $organizationChart-nodeContent-subtitle-fontWeight);
+  color: var(--organizationChart-nodeContent-subtitle-color, $organizationChart-nodeContent-subtitle-color);
+}
+
+.#{$c}__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--organizationChart-toggleButton-size, $organizationChart-toggleButton-size);
+  height: var(--organizationChart-toggleButton-size, $organizationChart-toggleButton-size);
+  margin-top: var(--inset-xs, $inset-xs);
+  padding: 0;
+  border: 1px solid var(--organizationChart-toggleButton-borderColor, $organizationChart-toggleButton-borderColor);
+  background-color: var(--organizationChart-toggleButton-background, $organizationChart-toggleButton-background);
+  border-radius: var(--organizationChart-toggleButton-radius, $organizationChart-toggleButton-radius);
+  cursor: pointer;
+  transition: background-color var(--organizationChart-transition-duration, $organizationChart-transition-duration) ease;
+
+  svg {
+    width: 12px;
+    height: 12px;
+    color: var(--organizationChart-toggleButton-color, $organizationChart-toggleButton-color);
+  }
+
+  &:hover {
+    background-color: var(--surface-muted, $surface-muted);
+  }
+}
+
+.#{$c}__children {
+  display: flex;
+  justify-content: center;
+  gap: var(--organizationChart-spacing-horizontal, $organizationChart-spacing-horizontal);
+  padding-top: var(--organizationChart-spacing-vertical, $organizationChart-spacing-vertical);
+  position: relative;
+
+  // Vertical connector from parent to horizontal line
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: var(--organizationChart-connector-width, $organizationChart-connector-width);
+    height: calc(var(--organizationChart-spacing-vertical, $organizationChart-spacing-vertical) / 2);
+    background-color: var(--organizationChart-connector-color, $organizationChart-connector-color);
+    transform: translateX(-50%);
+  }
+
+  // Horizontal connector line
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(var(--organizationChart-spacing-vertical, $organizationChart-spacing-vertical) / 2);
+    left: calc(50% / var(--organizationChart-children-count, 1));
+    right: calc(50% / var(--organizationChart-children-count, 1));
+    height: var(--organizationChart-connector-width, $organizationChart-connector-width);
+    background-color: var(--organizationChart-connector-color, $organizationChart-connector-color);
+  }
+}
+
+// Child nodes vertical connectors
+.#{$c}__children > .#{$c}__node-wrapper {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: calc(-1 * var(--organizationChart-spacing-vertical, $organizationChart-spacing-vertical) / 2);
+    left: 50%;
+    width: var(--organizationChart-connector-width, $organizationChart-connector-width);
+    height: calc(var(--organizationChart-spacing-vertical, $organizationChart-spacing-vertical) / 2);
+    background-color: var(--organizationChart-connector-color, $organizationChart-connector-color);
+    transform: translateX(-50%);
+  }
+}
+
+// Single child - no horizontal line needed
+.#{$c}__children:has(> .#{$c}__node-wrapper:only-child)::after {
+  display: none;
+}

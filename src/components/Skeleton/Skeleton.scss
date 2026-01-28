@@ -1,0 +1,43 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: skeleton;
+
+.#{$c} {
+  display: block;
+  background-color: var(--skeleton-background, $skeleton-background);
+  border-radius: var(--skeleton-radius, $skeleton-radius);
+  width: 100%;
+  height: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.#{$c}--circle {
+  border-radius: 9999px;
+  width: 3rem;
+  height: 3rem;
+}
+
+.#{$c}--animated {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--skeleton-highlight, $skeleton-highlight) 50%,
+      transparent 100%
+    );
+    animation: skeleton-wave var(--skeleton-animation-duration, $skeleton-animation-duration) ease-in-out infinite;
+  }
+}
+
+@keyframes skeleton-wave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

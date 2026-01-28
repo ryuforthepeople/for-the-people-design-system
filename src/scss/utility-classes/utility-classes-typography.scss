@@ -1,0 +1,114 @@
+@use "../fonts.scss" as *;
+@use "../mixins/typography.scss" as *;
+
+.pzh-heading-xs {
+  @include typography("heading", "xs");
+}
+
+.pzh-heading-s {
+  @include typography("heading", "s");
+}
+
+.pzh-heading-m {
+  @include typography("heading", "m");
+}
+
+.pzh-heading-l {
+  @include typography("heading", "l");
+}
+
+.pzh-heading-xl {
+  @include typography("heading", "xl");
+}
+
+.pzh-heading-2xl {
+  @include typography("heading", "2xl");
+}
+
+.pzh-text-3xs {
+  @include typography("text", "3xs");
+}
+
+.pzh-text-2xs {
+  @include typography("text", "2xs");
+}
+
+.pzh-text-xs {
+  @include typography("text", "xs");
+}
+
+.pzh-text-s {
+  @include typography("text", "s");
+}
+
+.pzh-text-m {
+  @include typography("text", "m");
+}
+
+.pzh-text-l {
+  @include typography("text", "l");
+}
+
+.pzh-text-xl {
+  @include typography("text", "xl");
+}
+
+.pzh-text-2xl {
+  @include typography("text", "2xl");
+}
+
+.pzh-heading-static-xs {
+  @include static-typography("heading", "xs");
+}
+
+.pzh-heading-static-s {
+  @include static-typography("heading", "s");
+}
+
+.pzh-heading-static-m {
+  @include static-typography("heading", "m");
+}
+
+.pzh-heading-static-l {
+  @include static-typography("heading", "l");
+}
+
+.pzh-heading-static-xl {
+  @include static-typography("heading", "xl");
+}
+
+.pzh-heading-static-2xl {
+  @include static-typography("heading", "2xl");
+}
+
+.pzh-text-static-3xs {
+  @include static-typography("text", "3xs");
+}
+
+.pzh-text-static-2xs {
+  @include static-typography("text", "2xs");
+}
+
+.pzh-text-static-xs {
+  @include static-typography("text", "xs");
+}
+
+.pzh-text-static-s {
+  @include static-typography("text", "s");
+}
+
+.pzh-text-static-m {
+  @include static-typography("text", "m");
+}
+
+.pzh-text-static-l {
+  @include static-typography("text", "l");
+}
+
+.pzh-text-static-xl {
+  @include static-typography("text", "xl");
+}
+
+.pzh-text-static-2xl {
+  @include static-typography("text", "2xl");
+}

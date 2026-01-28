@@ -1,0 +1,238 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: tree-select;
+
+.#{$c} {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+}
+
+.#{$c}__trigger {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: var(--tree-select-background-default, $tree-select-background-default);
+  border: var(--tree-select-border-width, $tree-select-border-width) solid var(--tree-select-border-color-default, $tree-select-border-color-default);
+  border-radius: var(--tree-select-radius, $tree-select-radius);
+  padding: var(--tree-select-padding-y, $tree-select-padding-y) var(--tree-select-padding-x, $tree-select-padding-x);
+  padding-right: calc(var(--tree-select-padding-x, $tree-select-padding-x) + 24px);
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover:not([aria-disabled="true"]) {
+    border-color: var(--tree-select-border-color-hover, $tree-select-border-color-hover);
+  }
+
+  &:focus {
+    outline: var(--tree-select-focus-ringWidth, $tree-select-focus-ringWidth) solid var(--tree-select-focus-ringColor, $tree-select-focus-ringColor);
+    outline-offset: var(--tree-select-focus-ringOffset, $tree-select-focus-ringOffset);
+    border-color: var(--tree-select-border-color-focus, $tree-select-border-color-focus);
+  }
+}
+
+.#{$c}__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.#{$c}__placeholder {
+  color: var(--tree-select-text-placeholder, $tree-select-text-placeholder);
+}
+
+.#{$c}__label {
+  color: var(--tree-select-text-default, $tree-select-text-default);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.#{$c}__icon {
+  position: absolute;
+  right: var(--tree-select-padding-x, $tree-select-padding-x);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--tree-select-icon-color-default, $tree-select-icon-color-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+
+  &--open {
+    transform: translateY(-50%) rotate(180deg);
+  }
+}
+
+.#{$c}__dropdown {
+  background-color: var(--tree-select-dropdown-background, $tree-select-dropdown-background);
+  border: 1px solid var(--tree-select-dropdown-border, $tree-select-dropdown-border);
+  border-radius: var(--tree-select-dropdown-radius, $tree-select-dropdown-radius);
+  box-shadow: var(--tree-select-dropdown-shadow, $tree-select-dropdown-shadow);
+  overflow: hidden;
+}
+
+.#{$c}__filter {
+  padding: var(--tree-select-filter-padding, $tree-select-filter-padding);
+  border-bottom: 1px solid var(--tree-select-filter-borderColor, $tree-select-filter-borderColor);
+}
+
+.#{$c}__filter-input {
+  width: 100%;
+  padding: var(--tree-select-padding-y, $tree-select-padding-y) var(--tree-select-padding-x, $tree-select-padding-x);
+  border: var(--tree-select-border-width, $tree-select-border-width) solid var(--tree-select-border-color-default, $tree-select-border-color-default);
+  border-radius: var(--tree-select-radius, $tree-select-radius);
+  font-size: inherit;
+
+  &:focus {
+    outline: none;
+    border-color: var(--tree-select-border-color-focus, $tree-select-border-color-focus);
+  }
+}
+
+.#{$c}__tree {
+  max-height: var(--tree-select-dropdown-maxHeight, $tree-select-dropdown-maxHeight);
+  overflow-y: auto;
+  padding: var(--tree-select-node-padding-y, $tree-select-node-padding-y) 0;
+}
+
+.#{$c}__node-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.#{$c}__node {
+  display: flex;
+  align-items: center;
+  gap: var(--tree-select-node-gap, $tree-select-node-gap);
+  padding: var(--tree-select-node-padding-y, $tree-select-node-padding-y) var(--tree-select-node-padding-x, $tree-select-node-padding-x);
+  background-color: var(--tree-select-node-background-default, $tree-select-node-background-default);
+  color: var(--tree-select-node-text-default, $tree-select-node-text-default);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: var(--tree-select-node-background-hover, $tree-select-node-background-hover);
+  }
+
+  &--selected {
+    background-color: var(--tree-select-node-background-selected, $tree-select-node-background-selected);
+    color: var(--tree-select-node-text-selected, $tree-select-node-text-selected);
+
+    &:hover {
+      background-color: var(--tree-select-node-background-selected, $tree-select-node-background-selected);
+    }
+  }
+}
+
+.#{$c}__toggler {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tree-select-toggler-size, $tree-select-toggler-size);
+  height: var(--tree-select-toggler-size, $tree-select-toggler-size);
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: var(--tree-select-toggler-color-default, $tree-select-toggler-color-default);
+  cursor: pointer;
+  transition: transform 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    color: var(--tree-select-toggler-color-hover, $tree-select-toggler-color-hover);
+  }
+
+  &--expanded {
+    transform: rotate(90deg);
+  }
+}
+
+.#{$c}__toggler-spacer {
+  width: var(--tree-select-toggler-size, $tree-select-toggler-size);
+  flex-shrink: 0;
+}
+
+.#{$c}__checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--tree-select-border-color-default, $tree-select-border-color-default);
+  border-radius: 3px;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+
+  svg {
+    width: 12px;
+    height: 12px;
+    color: white;
+  }
+
+  &--checked {
+    background-color: var(--tree-select-focus-ringColor, $tree-select-focus-ringColor);
+    border-color: var(--tree-select-focus-ringColor, $tree-select-focus-ringColor);
+  }
+}
+
+.#{$c}__node-label {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.#{$c}__empty {
+  padding: var(--tree-select-node-padding-y, $tree-select-node-padding-y) var(--tree-select-node-padding-x, $tree-select-node-padding-x);
+  color: var(--tree-select-text-placeholder, $tree-select-text-placeholder);
+  text-align: center;
+}
+
+// Disabled state
+.#{$c}--disabled {
+  .#{$c}__trigger {
+    cursor: not-allowed;
+    background-color: var(--tree-select-background-disabled, $tree-select-background-disabled);
+    border-color: var(--tree-select-border-color-disabled, $tree-select-border-color-disabled);
+    color: var(--tree-select-text-disabled, $tree-select-text-disabled);
+  }
+
+  .#{$c}__icon {
+    color: var(--tree-select-icon-color-disabled, $tree-select-icon-color-disabled);
+  }
+}
+
+// Invalid state
+.#{$c}--invalid {
+  .#{$c}__trigger {
+    border-color: var(--tree-select-border-color-error, $tree-select-border-color-error);
+
+    &:focus {
+      border-color: var(--tree-select-border-color-error, $tree-select-border-color-error);
+    }
+  }
+}
+
+// Sizes
+.#{$c}--size-sm {
+  .#{$c}__trigger {
+    height: var(--tree-select-height-sm, $tree-select-height-sm);
+    font-size: var(--tree-select-fontSize-sm, $tree-select-fontSize-sm);
+  }
+}
+
+.#{$c}--size-md {
+  .#{$c}__trigger {
+    height: var(--tree-select-height-md, $tree-select-height-md);
+    font-size: var(--tree-select-fontSize-md, $tree-select-fontSize-md);
+  }
+}
+
+.#{$c}--size-lg {
+  .#{$c}__trigger {
+    height: var(--tree-select-height-lg, $tree-select-height-lg);
+    font-size: var(--tree-select-fontSize-lg, $tree-select-fontSize-lg);
+  }
+}

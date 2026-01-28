@@ -1,0 +1,177 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: confirm-dialog;
+
+// Overlay backdrop
+.#{$c}__overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--confirmDialog-zIndex-overlay, $confirmDialog-zIndex-overlay);
+  background-color: var(--confirmDialog-overlay-background, $confirmDialog-overlay-background);
+}
+
+// Dialog container
+.#{$c} {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--confirmDialog-background-default, $confirmDialog-background-default);
+  border-radius: var(--confirmDialog-radius, $confirmDialog-radius);
+  box-shadow: var(--confirmDialog-shadow, $confirmDialog-shadow);
+  border: var(--confirmDialog-border-width, $confirmDialog-border-width) solid var(--confirmDialog-border-color, $confirmDialog-border-color);
+  width: var(--confirmDialog-width, $confirmDialog-width);
+  max-width: 95vw;
+  z-index: var(--confirmDialog-zIndex-dialog, $confirmDialog-zIndex-dialog);
+  overflow: hidden;
+}
+
+// Header section
+.#{$c}__header {
+  display: flex;
+  align-items: center;
+  padding: var(--confirmDialog-padding-header, $confirmDialog-padding-header);
+  background-color: var(--confirmDialog-header-background, $confirmDialog-header-background);
+  border-bottom: 1px solid var(--confirmDialog-header-borderColor, $confirmDialog-header-borderColor);
+}
+
+.#{$c}__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--confirmDialog-header-title-color, $confirmDialog-header-title-color);
+  margin: 0;
+  line-height: 1.4;
+}
+
+// Content section
+.#{$c}__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--confirmDialog-gap-content, $confirmDialog-gap-content);
+  padding: var(--confirmDialog-padding-content, $confirmDialog-padding-content);
+  text-align: center;
+}
+
+// Icon
+.#{$c}__icon {
+  width: var(--confirmDialog-icon-size, $confirmDialog-icon-size);
+  height: var(--confirmDialog-icon-size, $confirmDialog-icon-size);
+  flex-shrink: 0;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.#{$c}__icon--warning {
+  color: var(--confirmDialog-icon-color-warning, $confirmDialog-icon-color-warning);
+}
+
+.#{$c}__icon--danger {
+  color: var(--confirmDialog-icon-color-danger, $confirmDialog-icon-color-danger);
+}
+
+.#{$c}__icon--info {
+  color: var(--confirmDialog-icon-color-info, $confirmDialog-icon-color-info);
+}
+
+// Message
+.#{$c}__message {
+  margin: 0;
+  color: var(--confirmDialog-message-color, $confirmDialog-message-color);
+  font-size: var(--confirmDialog-message-fontSize, $confirmDialog-message-fontSize);
+  line-height: 1.5;
+}
+
+// Footer section
+.#{$c}__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--confirmDialog-gap-buttons, $confirmDialog-gap-buttons);
+  padding: var(--confirmDialog-padding-footer, $confirmDialog-padding-footer);
+  border-top: 1px solid var(--confirmDialog-header-borderColor, $confirmDialog-header-borderColor);
+}
+
+// Buttons
+.#{$c}__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--inset-xs, $inset-xs) var(--inset-m, $inset-m);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-default, $radius-default);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  min-width: 80px;
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring, $focus-ring);
+    outline-offset: 2px;
+  }
+}
+
+.#{$c}__button--reject {
+  background-color: transparent;
+  border-color: var(--border-default, $border-default);
+  color: var(--text-default, $text-default);
+
+  &:hover {
+    background-color: var(--surface-muted, $surface-muted);
+  }
+
+  &:active {
+    background-color: var(--surface-muted, $surface-muted);
+  }
+}
+
+.#{$c}__button--accept {
+  background-color: var(--intent-action-default, $intent-action-default);
+  border-color: var(--intent-action-default, $intent-action-default);
+  color: var(--text-inverse, $text-inverse);
+
+  &:hover {
+    background-color: var(--intent-action-hover, $intent-action-hover);
+    border-color: var(--intent-action-hover, $intent-action-hover);
+  }
+
+  &:active {
+    background-color: var(--intent-action-active, $intent-action-active);
+    border-color: var(--intent-action-active, $intent-action-active);
+  }
+}
+
+// Transition animations
+.#{$c}-fade-enter-active,
+.#{$c}-fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.#{$c}-fade-enter-from,
+.#{$c}-fade-leave-to {
+  opacity: 0;
+}
+
+.#{$c}-scale-enter-active {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.#{$c}-scale-leave-active {
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.#{$c}-scale-enter-from {
+  transform: scale(0.95);
+  opacity: 0;
+}
+
+.#{$c}-scale-leave-to {
+  transform: scale(0.95);
+  opacity: 0;
+}

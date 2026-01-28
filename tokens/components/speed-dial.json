@@ -1,0 +1,144 @@
+{
+  "speed-dial": {
+    "button": {
+      "size": {
+        "value": "56px",
+        "type": "dimension"
+      },
+      "background": {
+        "default": {
+          "value": "{intent.action.default}",
+          "type": "color"
+        },
+        "hover": {
+          "value": "{intent.action.hover}",
+          "type": "color"
+        },
+        "active": {
+          "value": "{intent.action.active}",
+          "type": "color"
+        }
+      },
+      "color": {
+        "value": "{text.inverse}",
+        "type": "color"
+      },
+      "radius": {
+        "value": "9999px",
+        "type": "dimension"
+      },
+      "shadow": {
+        "value": "{shadow.m}",
+        "type": "shadow"
+      },
+      "iconSize": {
+        "value": "24px",
+        "type": "dimension"
+      }
+    },
+    "action": {
+      "size": {
+        "value": "48px",
+        "type": "dimension"
+      },
+      "background": {
+        "default": {
+          "value": "{surface.canvas}",
+          "type": "color"
+        },
+        "hover": {
+          "value": "{neutral.100}",
+          "type": "color"
+        }
+      },
+      "color": {
+        "default": {
+          "value": "{text.default}",
+          "type": "color"
+        },
+        "hover": {
+          "value": "{brand.primary}",
+          "type": "color"
+        }
+      },
+      "border": {
+        "width": {
+          "value": "1px",
+          "type": "dimension"
+        },
+        "color": {
+          "value": "{neutral.200}",
+          "type": "color"
+        }
+      },
+      "radius": {
+        "value": "9999px",
+        "type": "dimension"
+      },
+      "shadow": {
+        "value": "{shadow.s}",
+        "type": "shadow"
+      },
+      "iconSize": {
+        "value": "20px",
+        "type": "dimension"
+      },
+      "gap": {
+        "value": "{stack.s}",
+        "type": "dimension"
+      }
+    },
+    "label": {
+      "background": {
+        "value": "{neutral.800}",
+        "type": "color"
+      },
+      "color": {
+        "value": "{neutral.0}",
+        "type": "color"
+      },
+      "padding": {
+        "x": {
+          "value": "{inset.s}",
+          "type": "dimension"
+        },
+        "y": {
+          "value": "{inset.2xs}",
+          "type": "dimension"
+        }
+      },
+      "radius": {
+        "value": "{radius.subtle}",
+        "type": "dimension"
+      },
+      "fontSize": {
+        "value": "13px",
+        "type": "dimension"
+      },
+      "offset": {
+        "value": "{inset.s}",
+        "type": "dimension"
+      }
+    },
+    "focus": {
+      "ringColor": {
+        "value": "{focus.ring}",
+        "type": "color"
+      },
+      "ringWidth": {
+        "value": "2px",
+        "type": "dimension"
+      },
+      "ringOffset": {
+        "value": "2px",
+        "type": "dimension"
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "200ms",
+        "type": "duration"
+      }
+    }
+  }
+}

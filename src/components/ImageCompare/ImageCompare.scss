@@ -1,0 +1,97 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: image-compare;
+
+.#{$c} {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--image-compare-border-radius, $image-compare-border-radius);
+  border: var(--image-compare-border-width, $image-compare-border-width) solid var(--image-compare-border-color, $image-compare-border-color);
+  background-color: var(--image-compare-background, $image-compare-background);
+  user-select: none;
+}
+
+.#{$c}__before,
+.#{$c}__after {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+
+  img,
+  picture,
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.#{$c}__after {
+  z-index: 1;
+}
+
+.#{$c}__before {
+  z-index: 2;
+}
+
+.#{$c}__handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.#{$c}__handle-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--image-compare-handle-width, $image-compare-handle-width);
+  background-color: var(--image-compare-handle-color-default, $image-compare-handle-color-default);
+  box-shadow: var(--image-compare-handle-shadow, $image-compare-handle-shadow);
+  transition: background-color var(--image-compare-transition-duration, $image-compare-transition-duration) ease;
+}
+
+.#{$c}__handle-icon {
+  position: relative;
+  width: var(--image-compare-icon-size, $image-compare-icon-size);
+  height: var(--image-compare-icon-size, $image-compare-icon-size);
+  border-radius: 9999px;
+  background-color: var(--image-compare-icon-background, $image-compare-icon-background);
+  color: var(--image-compare-icon-color, $image-compare-icon-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--image-compare-handle-shadow, $image-compare-handle-shadow);
+  transition: transform var(--image-compare-transition-duration, $image-compare-transition-duration) ease;
+}
+
+.#{$c}__slider {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 4;
+
+  &:focus-visible + .#{$c}__handle .#{$c}__handle-line {
+    background-color: var(--image-compare-handle-color-hover, $image-compare-handle-color-hover);
+  }
+}
+
+.#{$c}:hover {
+  .#{$c}__handle-line {
+    background-color: var(--image-compare-handle-color-hover, $image-compare-handle-color-hover);
+  }
+
+  .#{$c}__handle-icon {
+    transform: scale(1.1);
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "input-chips": {
+    "height": {
+      "sm": {
+        "value": "32px",
+        "type": "dimension",
+        "description": "Small container min-height"
+      },
+      "md": {
+        "value": "40px",
+        "type": "dimension",
+        "description": "Medium container min-height (default)"
+      },
+      "lg": {
+        "value": "48px",
+        "type": "dimension",
+        "description": "Large container min-height"
+      }
+    },
+    "padding": {
+      "x": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Horizontal padding"
+      },
+      "y": {
+        "value": "{inset.xs}",
+        "type": "dimension",
+        "description": "Vertical padding"
+      }
+    },
+    "gap": {
+      "value": "{inline.xs}",
+      "type": "dimension",
+      "description": "Gap between chips and input"
+    },
+    "radius": {
+      "value": "{radius.default}",
+      "type": "dimension",
+      "description": "Container border radius"
+    },
+    "border": {
+      "width": {
+        "value": "1px",
+        "type": "dimension"
+      },
+      "color": {
+        "default": {
+          "value": "{neutral.300}",
+          "type": "color",
+          "description": "Default border color"
+        },
+        "hover": {
+          "value": "{neutral.400}",
+          "type": "color",
+          "description": "Hover border color"
+        },
+        "focus": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Focus border color"
+        },
+        "disabled": {
+          "value": "{neutral.200}",
+          "type": "color",
+          "description": "Disabled border color"
+        },
+        "error": {
+          "value": "{feedback.error}",
+          "type": "color",
+          "description": "Error/invalid border color"
+        }
+      }
+    },
+    "background": {
+      "default": {
+        "value": "{surface.canvas}",
+        "type": "color",
+        "description": "Default background"
+      },
+      "disabled": {
+        "value": "{neutral.100}",
+        "type": "color",
+        "description": "Disabled background"
+      }
+    },
+    "text": {
+      "default": {
+        "value": "{text.default}",
+        "type": "color",
+        "description": "Default text color"
+      },
+      "placeholder": {
+        "value": "{text.muted}",
+        "type": "color",
+        "description": "Placeholder text color"
+      },
+      "disabled": {
+        "value": "{text.muted}",
+        "type": "color",
+        "description": "Disabled text color"
+      }
+    },
+    "fontSize": {
+      "sm": {
+        "value": "14px",
+        "type": "dimension"
+      },
+      "md": {
+        "value": "15px",
+        "type": "dimension"
+      },
+      "lg": {
+        "value": "16px",
+        "type": "dimension"
+      }
+    },
+    "chip": {
+      "padding": {
+        "x": {
+          "value": "{inset.s}",
+          "type": "dimension"
+        },
+        "y": {
+          "value": "{inset.2xs}",
+          "type": "dimension"
+        }
+      },
+      "gap": {
+        "value": "{inline.2xs}",
+        "type": "dimension"
+      },
+      "radius": {
+        "value": "{radius.pill}",
+        "type": "dimension"
+      },
+      "background": {
+        "default": {
+          "value": "{surface.muted}",
+          "type": "color"
+        },
+        "hover": {
+          "value": "{neutral.200}",
+          "type": "color"
+        }
+      },
+      "text": {
+        "value": "{text.default}",
+        "type": "color"
+      },
+      "fontSize": {
+        "value": "13px",
+        "type": "dimension"
+      }
+    },
+    "remove": {
+      "size": {
+        "value": "14px",
+        "type": "dimension"
+      },
+      "color": {
+        "default": {
+          "value": "{text.muted}",
+          "type": "color"
+        },
+        "hover": {
+          "value": "{text.default}",
+          "type": "color"
+        }
+      }
+    },
+    "focus": {
+      "ringWidth": {
+        "value": "2px",
+        "type": "dimension"
+      },
+      "ringColor": {
+        "value": "{brand.primary}",
+        "type": "color"
+      },
+      "ringOffset": {
+        "value": "1px",
+        "type": "dimension"
+      }
+    }
+  }
+}

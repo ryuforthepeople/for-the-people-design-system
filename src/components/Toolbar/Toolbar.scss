@@ -1,0 +1,37 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: toolbar;
+
+.#{$c} {
+  display: flex;
+  align-items: center;
+  gap: var(--toolbar-gap, $toolbar-gap);
+  min-height: var(--toolbar-minHeight, $toolbar-minHeight);
+  padding: var(--toolbar-padding, $toolbar-padding);
+  background-color: var(--toolbar-background, $toolbar-background);
+  border: var(--toolbar-border-width, $toolbar-border-width) solid var(--toolbar-border-color, $toolbar-border-color);
+  border-radius: var(--toolbar-radius, $toolbar-radius);
+}
+
+.#{$c}__start {
+  display: flex;
+  align-items: center;
+  gap: var(--toolbar-gap, $toolbar-gap);
+  flex-shrink: 0;
+}
+
+.#{$c}__center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--toolbar-gap, $toolbar-gap);
+  flex: 1;
+}
+
+.#{$c}__end {
+  display: flex;
+  align-items: center;
+  gap: var(--toolbar-gap, $toolbar-gap);
+  flex-shrink: 0;
+  margin-left: auto;
+}

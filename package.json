@@ -1,0 +1,62 @@
+{
+  "name": "for-the-people-design-system",
+  "private": false,
+  "version": "1.1.1",
+  "type": "module",
+  "description": "Design system with design tokens, SCSS utilities, and Vue 3 components",
+  "author": "For The People",
+  "license": "MIT",
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "scss",
+    "vue",
+    "vue3",
+    "components"
+  ],
+  "files": [
+    "dist",
+    "src/scss",
+    "src/components",
+    "tokens"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/ts/tokens.ts",
+      "import": "./dist/ts/tokens.ts"
+    },
+    "./css": "./dist/css/tokens.css",
+    "./css/tokens.css": "./dist/css/tokens.css",
+    "./css/theme-dark.css": "./dist/css/theme-dark.css",
+    "./scss": "./dist/scss/_tokens.scss",
+    "./scss/tokens": "./dist/scss/_tokens.scss",
+    "./scss/mixins/*": "./src/scss/mixins/*",
+    "./components/*": "./src/components/*"
+  },
+  "main": "./dist/ts/tokens.ts",
+  "scripts": {
+    "build:tokens": "tsx scripts/build-tokens.ts",
+    "dev": "npm run build:tokens && npm --prefix server run dev",
+    "build": "npm run build:tokens && npm --prefix server install && npm --prefix server run build",
+    "preview": "npm --prefix server run preview",
+    "prepublishOnly": "npm run build:tokens",
+    "publish-all": "npm run build:tokens && npm publish && node ./workflow/DeploymentCDN/preprocessUtilityClasses.cjs && node ./workflow/DeploymentCDN/deployUtilityClassesToCDN.cjs",
+    "process-utility-classes": "node ./workflow/DeploymentCDN/preprocessUtilityClasses.cjs",
+    "deploy-utility-classes": "node ./workflow/DeploymentCDN/deployUtilityClassesToCDN.cjs"
+  },
+  "devDependencies": {
+    "@azure/storage-blob": "^12.16.0",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "basic-ftp": "^5.0.3",
+    "consola": "^3.2.3",
+    "dotenv": "^16.4.5",
+    "glob-promise": "^6.0.7",
+    "lodash": "^4.17.21",
+    "sass": "^1.64.2",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "uglifycss": "^0.0.29",
+    "vite": "^4.4.5",
+    "vue": "^3.5.0"
+  }
+}

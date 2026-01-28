@@ -1,0 +1,94 @@
+{
+  "overlayPanel": {
+    "padding": {
+      "x": {
+        "value": "{inset.l}",
+        "type": "dimension",
+        "description": "Horizontal padding"
+      },
+      "y": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Vertical padding"
+      }
+    },
+    "background": {
+      "value": "{surface.canvas}",
+      "type": "color",
+      "description": "Panel background color"
+    },
+    "radius": {
+      "value": "{radius.default}",
+      "type": "dimension",
+      "description": "Panel border radius"
+    },
+    "shadow": {
+      "value": "{shadow.l}",
+      "type": "shadow",
+      "description": "Panel elevation shadow"
+    },
+    "border": {
+      "color": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Panel border color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Panel border width"
+      }
+    },
+    "closeButton": {
+      "size": {
+        "value": "28px",
+        "type": "dimension",
+        "description": "Close button size"
+      },
+      "iconSize": {
+        "value": "14px",
+        "type": "dimension",
+        "description": "Close icon size"
+      },
+      "color": {
+        "default": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Close button icon color"
+        },
+        "hover": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Close button hover color"
+        }
+      },
+      "background": {
+        "hover": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Close button hover background"
+        }
+      },
+      "radius": {
+        "value": "{radius.subtle}",
+        "type": "dimension",
+        "description": "Close button border radius"
+      }
+    },
+    "offset": {
+      "value": "10px",
+      "type": "dimension",
+      "description": "Distance from trigger element"
+    },
+    "maxWidth": {
+      "value": "400px",
+      "type": "dimension",
+      "description": "Maximum width"
+    },
+    "zIndex": {
+      "value": "1100",
+      "type": "number",
+      "description": "Z-index for stacking"
+    }
+  }
+}

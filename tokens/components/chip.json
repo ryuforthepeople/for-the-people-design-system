@@ -1,0 +1,100 @@
+{
+  "chip": {
+    "padding": {
+      "x": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Horizontal padding"
+      },
+      "y": {
+        "value": "{inset.2xs}",
+        "type": "dimension",
+        "description": "Vertical padding"
+      }
+    },
+    "gap": {
+      "value": "{inline.2xs}",
+      "type": "dimension",
+      "description": "Gap between chip elements"
+    },
+    "radius": {
+      "value": "{radius.pill}",
+      "type": "dimension",
+      "description": "Border radius (pill shape)"
+    },
+    "background": {
+      "default": {
+        "value": "{surface.muted}",
+        "type": "color",
+        "description": "Default chip background"
+      },
+      "hover": {
+        "value": "{neutral.200}",
+        "type": "color",
+        "description": "Hover background for removable chips"
+      }
+    },
+    "text": {
+      "color": {
+        "value": "{text.default}",
+        "type": "color",
+        "description": "Chip text color"
+      },
+      "fontSize": {
+        "value": "14px",
+        "type": "dimension",
+        "description": "Chip text size"
+      }
+    },
+    "icon": {
+      "size": {
+        "value": "16px",
+        "type": "dimension",
+        "description": "Icon size"
+      },
+      "color": {
+        "value": "{text.muted}",
+        "type": "color",
+        "description": "Icon color"
+      }
+    },
+    "image": {
+      "size": {
+        "value": "24px",
+        "type": "dimension",
+        "description": "Avatar/image size"
+      }
+    },
+    "remove": {
+      "size": {
+        "value": "16px",
+        "type": "dimension",
+        "description": "Remove button size"
+      },
+      "color": {
+        "default": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Remove icon default color"
+        },
+        "hover": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Remove icon hover color"
+        }
+      },
+      "background": {
+        "hover": {
+          "value": "{neutral.300}",
+          "type": "color",
+          "description": "Remove button hover background"
+        }
+      },
+      "radius": {
+        "value": "{radius.pill}",
+        "type": "dimension",
+        "description": "Remove button border radius"
+      }
+    }
+  }
+}

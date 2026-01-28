@@ -1,0 +1,137 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: file-upload;
+
+.#{$c} {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fileUpload-fileList-gap, $fileUpload-fileList-gap);
+}
+
+.#{$c}__dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--fileUpload-dropzone-padding, $fileUpload-dropzone-padding);
+  background: var(--fileUpload-dropzone-background-default, $fileUpload-dropzone-background-default);
+  border: var(--fileUpload-dropzone-border-width, $fileUpload-dropzone-border-width)
+          var(--fileUpload-dropzone-border-style, dashed)
+          var(--fileUpload-dropzone-border-color-default, $fileUpload-dropzone-border-color-default);
+  border-radius: var(--fileUpload-dropzone-radius, $fileUpload-dropzone-radius);
+  cursor: pointer;
+  transition: all var(--fileUpload-transition-duration, $fileUpload-transition-duration) ease;
+
+  &:hover {
+    background: var(--fileUpload-dropzone-background-hover, $fileUpload-dropzone-background-hover);
+    border-color: var(--fileUpload-dropzone-border-color-hover, $fileUpload-dropzone-border-color-hover);
+  }
+}
+
+.#{$c}__dropzone--active {
+  background: var(--fileUpload-dropzone-background-active, $fileUpload-dropzone-background-active);
+  border-color: var(--fileUpload-dropzone-border-color-active, $fileUpload-dropzone-border-color-active);
+
+  .#{$c}__icon {
+    color: var(--fileUpload-icon-color-active, $fileUpload-icon-color-active);
+  }
+}
+
+.#{$c}__input {
+  display: none;
+}
+
+.#{$c}__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.#{$c}__icon {
+  width: var(--fileUpload-icon-size, $fileUpload-icon-size);
+  height: var(--fileUpload-icon-size, $fileUpload-icon-size);
+  color: var(--fileUpload-icon-color-default, $fileUpload-icon-color-default);
+  transition: color var(--fileUpload-transition-duration, $fileUpload-transition-duration) ease;
+}
+
+.#{$c}__text-primary {
+  margin: 0;
+  font-size: var(--fileUpload-text-primary-size, $fileUpload-text-primary-size);
+  color: var(--fileUpload-text-primary-color, $fileUpload-text-primary-color);
+  font-weight: 500;
+}
+
+.#{$c}__text-secondary {
+  margin: 0;
+  font-size: var(--fileUpload-text-secondary-size, $fileUpload-text-secondary-size);
+  color: var(--fileUpload-text-secondary-color, $fileUpload-text-secondary-color);
+}
+
+.#{$c}__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fileUpload-fileList-gap, $fileUpload-fileList-gap);
+}
+
+.#{$c}__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--fileUpload-fileList-item-padding, $fileUpload-fileList-item-padding);
+  background: var(--fileUpload-fileList-item-background, $fileUpload-fileList-item-background);
+  border: var(--fileUpload-fileList-item-border-width, $fileUpload-fileList-item-border-width) solid
+          var(--fileUpload-fileList-item-border-color, $fileUpload-fileList-item-border-color);
+  border-radius: var(--fileUpload-fileList-item-radius, $fileUpload-fileList-item-radius);
+}
+
+.#{$c}__file-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.#{$c}__file-name {
+  font-size: var(--fileUpload-fileList-fileName-size, $fileUpload-fileList-fileName-size);
+  color: var(--fileUpload-fileList-fileName-color, $fileUpload-fileList-fileName-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.#{$c}__file-size {
+  font-size: var(--fileUpload-fileList-fileSize-size, $fileUpload-fileList-fileSize-size);
+  color: var(--fileUpload-fileList-fileSize-color, $fileUpload-fileList-fileSize-color);
+}
+
+.#{$c}__remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: none;
+  background: transparent;
+  color: var(--fileUpload-fileList-removeButton-color-default, $fileUpload-fileList-removeButton-color-default);
+  cursor: pointer;
+  transition: color var(--fileUpload-transition-duration, $fileUpload-transition-duration) ease;
+
+  &:hover {
+    color: var(--fileUpload-fileList-removeButton-color-hover, $fileUpload-fileList-removeButton-color-hover);
+  }
+
+  svg {
+    width: var(--fileUpload-fileList-removeButton-size, $fileUpload-fileList-removeButton-size);
+    height: var(--fileUpload-fileList-removeButton-size, $fileUpload-fileList-removeButton-size);
+  }
+}
+
+// Disabled state
+.#{$c}--disabled {
+  .#{$c}__dropzone {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}

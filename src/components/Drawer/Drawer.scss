@@ -1,0 +1,220 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: drawer;
+
+// Overlay backdrop
+.#{$c}__overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--drawer-overlay-background, $drawer-overlay-background);
+  z-index: var(--drawer-zIndex-overlay, $drawer-zIndex-overlay);
+}
+
+// Drawer container
+.#{$c} {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--drawer-background, $drawer-background);
+  box-shadow: var(--drawer-shadow, $drawer-shadow);
+  z-index: var(--drawer-zIndex-drawer, $drawer-zIndex-drawer);
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+// Position variants
+.#{$c}--position-left {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  border-right: var(--drawer-border-width, $drawer-border-width) solid var(--drawer-border-color, $drawer-border-color);
+}
+
+.#{$c}--position-right {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-left: var(--drawer-border-width, $drawer-border-width) solid var(--drawer-border-color, $drawer-border-color);
+}
+
+.#{$c}--position-top {
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: var(--drawer-border-width, $drawer-border-width) solid var(--drawer-border-color, $drawer-border-color);
+}
+
+.#{$c}--position-bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: var(--drawer-border-width, $drawer-border-width) solid var(--drawer-border-color, $drawer-border-color);
+}
+
+// Size variants for horizontal drawers (left/right)
+.#{$c}--position-left,
+.#{$c}--position-right {
+  &.#{$c}--size-sm {
+    width: var(--drawer-size-sm, $drawer-size-sm);
+  }
+
+  &.#{$c}--size-md {
+    width: var(--drawer-size-md, $drawer-size-md);
+  }
+
+  &.#{$c}--size-lg {
+    width: var(--drawer-size-lg, $drawer-size-lg);
+  }
+
+  &.#{$c}--size-xl {
+    width: var(--drawer-size-xl, $drawer-size-xl);
+  }
+}
+
+// Size variants for vertical drawers (top/bottom)
+.#{$c}--position-top,
+.#{$c}--position-bottom {
+  &.#{$c}--size-sm {
+    height: var(--drawer-size-sm, $drawer-size-sm);
+  }
+
+  &.#{$c}--size-md {
+    height: var(--drawer-size-md, $drawer-size-md);
+  }
+
+  &.#{$c}--size-lg {
+    height: var(--drawer-size-lg, $drawer-size-lg);
+  }
+
+  &.#{$c}--size-xl {
+    height: var(--drawer-size-xl, $drawer-size-xl);
+  }
+}
+
+// Header section
+.#{$c}__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--inset-m, $inset-m);
+  padding: var(--drawer-header-padding, $drawer-header-padding);
+  background-color: var(--drawer-header-background, $drawer-header-background);
+  border-bottom: 1px solid var(--drawer-header-borderColor, $drawer-header-borderColor);
+  flex-shrink: 0;
+}
+
+.#{$c}__title {
+  font-size: var(--drawer-header-title-fontSize, $drawer-header-title-fontSize);
+  font-weight: var(--drawer-header-title-fontWeight, $drawer-header-title-fontWeight);
+  color: var(--drawer-header-title-color, $drawer-header-title-color);
+  margin: 0;
+  line-height: 1.4;
+}
+
+// Close button
+.#{$c}__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--drawer-closeButton-size, $drawer-closeButton-size);
+  height: var(--drawer-closeButton-size, $drawer-closeButton-size);
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  border-radius: var(--drawer-closeButton-radius, $drawer-closeButton-radius);
+  color: var(--drawer-closeButton-color-default, $drawer-closeButton-color-default);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    background-color: var(--drawer-closeButton-background-hover, $drawer-closeButton-background-hover);
+    color: var(--drawer-closeButton-color-hover, $drawer-closeButton-color-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring, $focus-ring);
+    outline-offset: 2px;
+  }
+}
+
+.#{$c}__close-icon {
+  width: var(--drawer-closeButton-iconSize, $drawer-closeButton-iconSize);
+  height: var(--drawer-closeButton-iconSize, $drawer-closeButton-iconSize);
+}
+
+// Content section
+.#{$c}__content {
+  flex: 1 1 auto;
+  padding: var(--drawer-content-padding, $drawer-content-padding);
+  overflow-y: auto;
+}
+
+// Footer section
+.#{$c}__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--inset-s, $inset-s);
+  padding: var(--drawer-footer-padding, $drawer-footer-padding);
+  border-top: 1px solid var(--drawer-footer-borderColor, $drawer-footer-borderColor);
+  flex-shrink: 0;
+}
+
+// Transition animations
+
+// Overlay fade
+.drawer-fade-enter-active,
+.drawer-fade-leave-active {
+  transition: opacity var(--drawer-transition-duration, $drawer-transition-duration) ease;
+}
+
+.drawer-fade-enter-from,
+.drawer-fade-leave-to {
+  opacity: 0;
+}
+
+// Slide from left
+.drawer-slide-left-enter-active,
+.drawer-slide-left-leave-active {
+  transition: transform var(--drawer-transition-duration, $drawer-transition-duration) ease;
+}
+
+.drawer-slide-left-enter-from,
+.drawer-slide-left-leave-to {
+  transform: translateX(-100%);
+}
+
+// Slide from right
+.drawer-slide-right-enter-active,
+.drawer-slide-right-leave-active {
+  transition: transform var(--drawer-transition-duration, $drawer-transition-duration) ease;
+}
+
+.drawer-slide-right-enter-from,
+.drawer-slide-right-leave-to {
+  transform: translateX(100%);
+}
+
+// Slide from top
+.drawer-slide-top-enter-active,
+.drawer-slide-top-leave-active {
+  transition: transform var(--drawer-transition-duration, $drawer-transition-duration) ease;
+}
+
+.drawer-slide-top-enter-from,
+.drawer-slide-top-leave-to {
+  transform: translateY(-100%);
+}
+
+// Slide from bottom
+.drawer-slide-bottom-enter-active,
+.drawer-slide-bottom-leave-active {
+  transition: transform var(--drawer-transition-duration, $drawer-transition-duration) ease;
+}
+
+.drawer-slide-bottom-enter-from,
+.drawer-slide-bottom-leave-to {
+  transform: translateY(100%);
+}

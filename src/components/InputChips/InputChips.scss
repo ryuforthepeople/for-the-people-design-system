@@ -1,0 +1,165 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: input-chips;
+
+.#{$c} {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--input-chips-gap, $input-chips-gap);
+  width: 100%;
+  min-height: var(--input-chips-height-md, $input-chips-height-md);
+  padding: var(--input-chips-padding-y, $input-chips-padding-y) var(--input-chips-padding-x, $input-chips-padding-x);
+  background-color: var(--input-chips-background-default, $input-chips-background-default);
+  border: var(--input-chips-border-width, $input-chips-border-width) solid var(--input-chips-border-color-default, $input-chips-border-color-default);
+  border-radius: var(--input-chips-radius, $input-chips-radius);
+  cursor: text;
+  transition: border-color 0.15s ease;
+
+  &:hover:not(.#{$c}--disabled) {
+    border-color: var(--input-chips-border-color-hover, $input-chips-border-color-hover);
+  }
+}
+
+.#{$c}--focused {
+  outline: var(--input-chips-focus-ringWidth, $input-chips-focus-ringWidth) solid var(--input-chips-focus-ringColor, $input-chips-focus-ringColor);
+  outline-offset: var(--input-chips-focus-ringOffset, $input-chips-focus-ringOffset);
+  border-color: var(--input-chips-border-color-focus, $input-chips-border-color-focus);
+}
+
+.#{$c}--disabled {
+  cursor: not-allowed;
+  background-color: var(--input-chips-background-disabled, $input-chips-background-disabled);
+  border-color: var(--input-chips-border-color-disabled, $input-chips-border-color-disabled);
+}
+
+.#{$c}--invalid {
+  border-color: var(--input-chips-border-color-error, $input-chips-border-color-error);
+
+  &.#{$c}--focused {
+    border-color: var(--input-chips-border-color-error, $input-chips-border-color-error);
+  }
+}
+
+// Sizes
+.#{$c}--size-sm {
+  min-height: var(--input-chips-height-sm, $input-chips-height-sm);
+
+  .#{$c}__input {
+    font-size: var(--input-chips-fontSize-sm, $input-chips-fontSize-sm);
+  }
+
+  .#{$c}__chip {
+    font-size: 12px;
+  }
+}
+
+.#{$c}--size-md {
+  min-height: var(--input-chips-height-md, $input-chips-height-md);
+
+  .#{$c}__input {
+    font-size: var(--input-chips-fontSize-md, $input-chips-fontSize-md);
+  }
+}
+
+.#{$c}--size-lg {
+  min-height: var(--input-chips-height-lg, $input-chips-height-lg);
+
+  .#{$c}__input {
+    font-size: var(--input-chips-fontSize-lg, $input-chips-fontSize-lg);
+  }
+
+  .#{$c}__chip {
+    font-size: 14px;
+    padding: 4px 8px;
+  }
+}
+
+// Chip
+.#{$c}__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--input-chips-chip-gap, $input-chips-chip-gap);
+  padding: var(--input-chips-chip-padding-y, $input-chips-chip-padding-y) var(--input-chips-chip-padding-x, $input-chips-chip-padding-x);
+  background-color: var(--input-chips-chip-background-default, $input-chips-chip-background-default);
+  border-radius: var(--input-chips-chip-radius, $input-chips-chip-radius);
+  font-size: var(--input-chips-chip-fontSize, $input-chips-chip-fontSize);
+  color: var(--input-chips-chip-text, $input-chips-chip-text);
+  line-height: 1.4;
+  user-select: none;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: var(--input-chips-chip-background-hover, $input-chips-chip-background-hover);
+  }
+}
+
+.#{$c}__chip-label {
+  white-space: nowrap;
+}
+
+.#{$c}__chip-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--input-chips-remove-size, $input-chips-remove-size);
+  height: var(--input-chips-remove-size, $input-chips-remove-size);
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: var(--input-chips-remove-color-default, $input-chips-remove-color-default);
+  cursor: pointer;
+  transition: color 0.15s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    color: var(--input-chips-remove-color-hover, $input-chips-remove-color-hover);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--input-chips-focus-ringColor, $input-chips-focus-ringColor);
+    outline-offset: 1px;
+  }
+}
+
+.#{$c}__chip-remove-icon {
+  width: 12px;
+  height: 12px;
+}
+
+// Input
+.#{$c}__input {
+  flex: 1;
+  min-width: 80px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: var(--input-chips-text-default, $input-chips-text-default);
+  font-size: var(--input-chips-fontSize-md, $input-chips-fontSize-md);
+  line-height: 1.5;
+
+  &::placeholder {
+    color: var(--input-chips-text-placeholder, $input-chips-text-placeholder);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--input-chips-text-disabled, $input-chips-text-disabled);
+  }
+}
+
+// Disabled chip styling
+.#{$c}--disabled {
+  .#{$c}__chip {
+    opacity: 0.6;
+  }
+}

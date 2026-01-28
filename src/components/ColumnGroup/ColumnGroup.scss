@@ -1,0 +1,41 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: column-group;
+
+// ColumnGroup styles for DataTable header/footer grouping
+
+.#{$c} {
+  // Base group container
+}
+
+.#{$c}--header {
+  background-color: var(--column-group-header-background, $column-group-header-background);
+
+  tr {
+    border-bottom: var(--column-group-header-borderWidth, $column-group-header-borderWidth) solid var(--column-group-header-borderColor, $column-group-header-borderColor);
+
+    &:last-child {
+      border-bottom-width: 2px;
+    }
+  }
+}
+
+.#{$c}--footer {
+  background-color: var(--column-group-footer-background, $column-group-footer-background);
+
+  tr {
+    border-top: var(--column-group-footer-borderWidth, $column-group-footer-borderWidth) solid var(--column-group-footer-borderColor, $column-group-footer-borderColor);
+
+    &:first-child {
+      border-top-width: 2px;
+    }
+  }
+}
+
+.#{$c}__row {
+  border-bottom: 1px solid var(--column-group-row-borderColor, $column-group-row-borderColor);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}

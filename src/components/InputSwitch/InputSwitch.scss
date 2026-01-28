@@ -1,0 +1,131 @@
+@use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/accent-gradient.scss" as *;
+
+$c: input-switch;
+
+.#{$c} {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--inputSwitch-label-gap, $inputSwitch-label-gap);
+  cursor: pointer;
+  user-select: none;
+}
+
+.#{$c}__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.#{$c}__track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  background-color: var(--inputSwitch-track-background-off, $inputSwitch-track-background-off);
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+.#{$c}__thumb {
+  position: absolute;
+  left: var(--inputSwitch-thumb-offset, $inputSwitch-thumb-offset);
+  background-color: var(--inputSwitch-thumb-color-default, $inputSwitch-thumb-color-default);
+  border-radius: 50%;
+  box-shadow: var(--inputSwitch-thumb-shadow, $inputSwitch-thumb-shadow);
+  transition: transform 0.2s ease;
+}
+
+.#{$c}__label {
+  color: var(--inputSwitch-label-color-default, $inputSwitch-label-color-default);
+  line-height: 1.4;
+}
+
+// Focus state
+.#{$c}__input:focus-visible ~ .#{$c}__track {
+  outline: var(--inputSwitch-focus-ringWidth, $inputSwitch-focus-ringWidth) solid var(--inputSwitch-focus-ringColor, $inputSwitch-focus-ringColor);
+  outline-offset: var(--inputSwitch-focus-ringOffset, $inputSwitch-focus-ringOffset);
+}
+
+// Checked state
+.#{$c}--checked {
+  .#{$c}__track {
+    @include accent-gradient($angle: 90deg);
+  }
+}
+
+// Disabled state
+.#{$c}--disabled {
+  cursor: not-allowed;
+
+  .#{$c}__track {
+    background-color: var(--inputSwitch-track-background-disabled, $inputSwitch-track-background-disabled);
+  }
+
+  .#{$c}__label {
+    color: var(--inputSwitch-label-color-disabled, $inputSwitch-label-color-disabled);
+  }
+}
+
+// Sizes
+.#{$c}--size-sm {
+  .#{$c}__track {
+    width: var(--inputSwitch-width-sm, $inputSwitch-width-sm);
+    height: var(--inputSwitch-height-sm, $inputSwitch-height-sm);
+  }
+
+  .#{$c}__thumb {
+    width: var(--inputSwitch-thumb-size-sm, $inputSwitch-thumb-size-sm);
+    height: var(--inputSwitch-thumb-size-sm, $inputSwitch-thumb-size-sm);
+  }
+
+  &.#{$c}--checked .#{$c}__thumb {
+    transform: translateX(calc(var(--inputSwitch-width-sm, $inputSwitch-width-sm) - var(--inputSwitch-thumb-size-sm, $inputSwitch-thumb-size-sm) - var(--inputSwitch-thumb-offset, $inputSwitch-thumb-offset) * 2));
+  }
+
+  .#{$c}__label {
+    font-size: 14px;
+  }
+}
+
+.#{$c}--size-md {
+  .#{$c}__track {
+    width: var(--inputSwitch-width-md, $inputSwitch-width-md);
+    height: var(--inputSwitch-height-md, $inputSwitch-height-md);
+  }
+
+  .#{$c}__thumb {
+    width: var(--inputSwitch-thumb-size-md, $inputSwitch-thumb-size-md);
+    height: var(--inputSwitch-thumb-size-md, $inputSwitch-thumb-size-md);
+  }
+
+  &.#{$c}--checked .#{$c}__thumb {
+    transform: translateX(calc(var(--inputSwitch-width-md, $inputSwitch-width-md) - var(--inputSwitch-thumb-size-md, $inputSwitch-thumb-size-md) - var(--inputSwitch-thumb-offset, $inputSwitch-thumb-offset) * 2));
+  }
+
+  .#{$c}__label {
+    font-size: 15px;
+  }
+}
+
+.#{$c}--size-lg {
+  .#{$c}__track {
+    width: var(--inputSwitch-width-lg, $inputSwitch-width-lg);
+    height: var(--inputSwitch-height-lg, $inputSwitch-height-lg);
+  }
+
+  .#{$c}__thumb {
+    width: var(--inputSwitch-thumb-size-lg, $inputSwitch-thumb-size-lg);
+    height: var(--inputSwitch-thumb-size-lg, $inputSwitch-thumb-size-lg);
+  }
+
+  &.#{$c}--checked .#{$c}__thumb {
+    transform: translateX(calc(var(--inputSwitch-width-lg, $inputSwitch-width-lg) - var(--inputSwitch-thumb-size-lg, $inputSwitch-thumb-size-lg) - var(--inputSwitch-thumb-offset, $inputSwitch-thumb-offset) * 2));
+  }
+
+  .#{$c}__label {
+    font-size: 16px;
+  }
+}

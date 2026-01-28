@@ -1,0 +1,108 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: popover;
+
+.#{$c}-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.#{$c} {
+  position: fixed;
+  z-index: var(--popover-zIndex, $popover-zIndex);
+  padding: var(--popover-padding-y, $popover-padding-y) var(--popover-padding-x, $popover-padding-x);
+  background-color: var(--popover-background, $popover-background);
+  border-radius: var(--popover-radius, $popover-radius);
+  box-shadow: var(--popover-shadow, $popover-shadow);
+  border: var(--popover-border-width, $popover-border-width) solid var(--popover-border-color, $popover-border-color);
+  max-width: var(--popover-maxWidth, $popover-maxWidth);
+}
+
+.#{$c}__content {
+  display: block;
+}
+
+// Arrow
+.#{$c}__arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+$arrow-size: var(--popover-arrow-size, $popover-arrow-size);
+
+// Position: Top (arrow points down)
+.#{$c}--top {
+  .#{$c}__arrow {
+    bottom: calc(-1 * #{$arrow-size});
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: #{$arrow-size} #{$arrow-size} 0 #{$arrow-size};
+    border-color: var(--popover-background, $popover-background) transparent transparent transparent;
+  }
+}
+
+// Position: Bottom (arrow points up)
+.#{$c}--bottom {
+  .#{$c}__arrow {
+    top: calc(-1 * #{$arrow-size});
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 #{$arrow-size} #{$arrow-size} #{$arrow-size};
+    border-color: transparent transparent var(--popover-background, $popover-background) transparent;
+  }
+}
+
+// Position: Left (arrow points right)
+.#{$c}--left {
+  .#{$c}__arrow {
+    right: calc(-1 * #{$arrow-size});
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: #{$arrow-size} 0 #{$arrow-size} #{$arrow-size};
+    border-color: transparent transparent transparent var(--popover-background, $popover-background);
+  }
+}
+
+// Position: Right (arrow points left)
+.#{$c}--right {
+  .#{$c}__arrow {
+    left: calc(-1 * #{$arrow-size});
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: #{$arrow-size} #{$arrow-size} #{$arrow-size} 0;
+    border-color: transparent var(--popover-background, $popover-background) transparent transparent;
+  }
+}
+
+// Transition animation
+.#{$c}-fade-enter-active,
+.#{$c}-fade-leave-active {
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.#{$c}-fade-enter-from,
+.#{$c}-fade-leave-to {
+  opacity: 0;
+}
+
+.#{$c}-fade-enter-from.#{$c}--top,
+.#{$c}-fade-leave-to.#{$c}--top {
+  transform: translateY(4px);
+}
+
+.#{$c}-fade-enter-from.#{$c}--bottom,
+.#{$c}-fade-leave-to.#{$c}--bottom {
+  transform: translateY(-4px);
+}
+
+.#{$c}-fade-enter-from.#{$c}--left,
+.#{$c}-fade-leave-to.#{$c}--left {
+  transform: translateX(4px);
+}
+
+.#{$c}-fade-enter-from.#{$c}--right,
+.#{$c}-fade-leave-to.#{$c}--right {
+  transform: translateX(-4px);
+}

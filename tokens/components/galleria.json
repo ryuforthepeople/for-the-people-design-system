@@ -1,0 +1,235 @@
+{
+  "galleria": {
+    "container": {
+      "background": {
+        "value": "{surface.panel}",
+        "type": "color",
+        "description": "Galleria container background"
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Galleria container border radius"
+      },
+      "border": {
+        "color": {
+          "value": "{border.subtle}",
+          "type": "color",
+          "description": "Container border color"
+        },
+        "width": {
+          "value": "1px",
+          "type": "dimension",
+          "description": "Container border width"
+        }
+      }
+    },
+    "preview": {
+      "background": {
+        "value": "{surface.canvas}",
+        "type": "color",
+        "description": "Preview area background"
+      },
+      "padding": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Preview area padding"
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Preview image border radius"
+      }
+    },
+    "thumbnail": {
+      "container": {
+        "gap": {
+          "value": "{inline.xs}",
+          "type": "dimension",
+          "description": "Gap between thumbnails"
+        },
+        "padding": {
+          "value": "{inset.s}",
+          "type": "dimension",
+          "description": "Thumbnail container padding"
+        }
+      },
+      "item": {
+        "width": {
+          "value": "80px",
+          "type": "dimension",
+          "description": "Thumbnail width"
+        },
+        "height": {
+          "value": "60px",
+          "type": "dimension",
+          "description": "Thumbnail height"
+        },
+        "radius": {
+          "value": "{radius.subtle}",
+          "type": "dimension",
+          "description": "Thumbnail border radius"
+        },
+        "opacity": {
+          "default": {
+            "value": "0.6",
+            "type": "number",
+            "description": "Thumbnail opacity"
+          },
+          "hover": {
+            "value": "0.8",
+            "type": "number",
+            "description": "Thumbnail hover opacity"
+          },
+          "active": {
+            "value": "1",
+            "type": "number",
+            "description": "Active thumbnail opacity"
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "value": "transparent",
+              "type": "color",
+              "description": "Thumbnail border color"
+            },
+            "active": {
+              "value": "{brand.primary}",
+              "type": "color",
+              "description": "Active thumbnail border color"
+            }
+          },
+          "width": {
+            "value": "2px",
+            "type": "dimension",
+            "description": "Thumbnail border width"
+          }
+        }
+      }
+    },
+    "navigator": {
+      "size": {
+        "value": "40px",
+        "type": "dimension",
+        "description": "Navigator button size"
+      },
+      "iconSize": {
+        "value": "20px",
+        "type": "dimension",
+        "description": "Navigator icon size"
+      },
+      "background": {
+        "default": {
+          "value": "rgba(0, 0, 0, 0.3)",
+          "type": "color",
+          "description": "Navigator background"
+        },
+        "hover": {
+          "value": "rgba(0, 0, 0, 0.5)",
+          "type": "color",
+          "description": "Navigator hover background"
+        }
+      },
+      "color": {
+        "value": "{text.inverse}",
+        "type": "color",
+        "description": "Navigator icon color"
+      },
+      "radius": {
+        "value": "50%",
+        "type": "dimension",
+        "description": "Navigator border radius"
+      }
+    },
+    "indicator": {
+      "size": {
+        "value": "10px",
+        "type": "dimension",
+        "description": "Indicator dot size"
+      },
+      "gap": {
+        "value": "{inline.xs}",
+        "type": "dimension",
+        "description": "Gap between indicators"
+      },
+      "background": {
+        "default": {
+          "value": "rgba(255, 255, 255, 0.5)",
+          "type": "color",
+          "description": "Indicator background"
+        },
+        "active": {
+          "value": "{text.inverse}",
+          "type": "color",
+          "description": "Active indicator background"
+        }
+      }
+    },
+    "fullscreen": {
+      "background": {
+        "value": "{surface.overlay}",
+        "type": "color",
+        "description": "Fullscreen overlay background"
+      },
+      "zIndex": {
+        "value": "1100",
+        "type": "number",
+        "description": "Fullscreen z-index"
+      },
+      "closeButton": {
+        "size": {
+          "value": "40px",
+          "type": "dimension",
+          "description": "Close button size"
+        },
+        "color": {
+          "value": "{text.inverse}",
+          "type": "color",
+          "description": "Close button color"
+        },
+        "background": {
+          "default": {
+            "value": "rgba(0, 0, 0, 0.3)",
+            "type": "color",
+            "description": "Close button background"
+          },
+          "hover": {
+            "value": "rgba(0, 0, 0, 0.5)",
+            "type": "color",
+            "description": "Close button hover background"
+          }
+        }
+      }
+    },
+    "caption": {
+      "background": {
+        "value": "rgba(0, 0, 0, 0.5)",
+        "type": "color",
+        "description": "Caption background"
+      },
+      "color": {
+        "value": "{text.inverse}",
+        "type": "color",
+        "description": "Caption text color"
+      },
+      "padding": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Caption padding"
+      },
+      "fontSize": {
+        "value": "14px",
+        "type": "dimension",
+        "description": "Caption font size"
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "300ms",
+        "type": "duration",
+        "description": "Transition duration"
+      }
+    }
+  }
+}

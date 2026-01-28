@@ -1,0 +1,97 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: in-place;
+
+.#{$c} {
+  display: inline-block;
+}
+
+// Display mode
+.#{$c}__display {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--in-place-display-paddingY, $in-place-display-paddingY) var(--in-place-display-paddingX, $in-place-display-paddingX);
+  background-color: var(--in-place-display-background-default, $in-place-display-background-default);
+  color: var(--in-place-display-color-default, $in-place-display-color-default);
+  border-radius: var(--in-place-display-border-radius, $in-place-display-border-radius);
+  cursor: pointer;
+  transition: background-color var(--in-place-transition-duration, $in-place-transition-duration) ease,
+              color var(--in-place-transition-duration, $in-place-transition-duration) ease;
+
+  &:hover {
+    background-color: var(--in-place-display-background-hover, $in-place-display-background-hover);
+    color: var(--in-place-display-color-hover, $in-place-display-color-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring, $focus-ring);
+    outline-offset: 2px;
+  }
+
+  &[data-disabled] {
+    cursor: not-allowed;
+    color: var(--in-place-display-color-disabled, $in-place-display-color-disabled);
+
+    &:hover {
+      background-color: var(--in-place-display-background-default, $in-place-display-background-default);
+    }
+  }
+}
+
+.#{$c}__display-text {
+  opacity: 0.7;
+  font-style: italic;
+}
+
+// Content mode
+.#{$c}__content {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--in-place-closeButton-gap, $in-place-closeButton-gap);
+}
+
+// Close button
+.#{$c}__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--in-place-closeButton-size, $in-place-closeButton-size);
+  height: var(--in-place-closeButton-size, $in-place-closeButton-size);
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  border-radius: var(--in-place-closeButton-radius, $in-place-closeButton-radius);
+  color: var(--in-place-closeButton-color-default, $in-place-closeButton-color-default);
+  cursor: pointer;
+  transition: background-color var(--in-place-transition-duration, $in-place-transition-duration) ease,
+              color var(--in-place-transition-duration, $in-place-transition-duration) ease;
+  flex-shrink: 0;
+
+  &:hover {
+    background-color: var(--in-place-closeButton-background-hover, $in-place-closeButton-background-hover);
+    color: var(--in-place-closeButton-color-hover, $in-place-closeButton-color-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring, $focus-ring);
+    outline-offset: 2px;
+  }
+}
+
+.#{$c}__close-icon {
+  width: var(--in-place-closeButton-iconSize, $in-place-closeButton-iconSize);
+  height: var(--in-place-closeButton-iconSize, $in-place-closeButton-iconSize);
+}
+
+// Disabled state
+.#{$c}--disabled {
+  .#{$c}__display {
+    cursor: not-allowed;
+    color: var(--in-place-display-color-disabled, $in-place-display-color-disabled);
+
+    &:hover {
+      background-color: var(--in-place-display-background-default, $in-place-display-background-default);
+    }
+  }
+}

@@ -1,0 +1,85 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: block-ui;
+
+.#{$c} {
+  position: relative;
+}
+
+.#{$c}--fullscreen {
+  // Container doesn't need special styling for fullscreen
+}
+
+// Overlay
+.#{$c}__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--block-ui-overlay-background, $block-ui-overlay-background);
+  z-index: var(--block-ui-overlay-zIndex, $block-ui-overlay-zIndex);
+  border-radius: inherit;
+}
+
+.#{$c}__overlay--fullscreen {
+  position: fixed;
+  border-radius: 0;
+}
+
+// Spinner
+.#{$c}__spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.#{$c}__spinner-icon {
+  width: var(--block-ui-spinner-size, $block-ui-spinner-size);
+  height: var(--block-ui-spinner-size, $block-ui-spinner-size);
+  animation: block-ui-spin 1.5s linear infinite;
+}
+
+.#{$c}__spinner-circle {
+  stroke: var(--block-ui-spinner-color, $block-ui-spinner-color);
+  stroke-linecap: round;
+  stroke-dasharray: 90, 150;
+  stroke-dashoffset: 0;
+  animation: block-ui-dash 1.5s ease-in-out infinite;
+}
+
+// Animations
+@keyframes block-ui-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes block-ui-dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+// Transition
+.block-ui-fade-enter-active,
+.block-ui-fade-leave-active {
+  transition: opacity var(--block-ui-transition-duration, $block-ui-transition-duration) ease;
+}
+
+.block-ui-fade-enter-from,
+.block-ui-fade-leave-to {
+  opacity: 0;
+}

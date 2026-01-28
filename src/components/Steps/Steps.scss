@@ -1,0 +1,164 @@
+@use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/accent-gradient.scss" as *;
+
+$c: steps;
+
+.#{$c} {
+  width: 100%;
+}
+
+.#{$c}__list {
+  display: flex;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.#{$c}__item {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  position: relative;
+
+  &:first-child {
+    flex: 0 0 auto;
+  }
+}
+
+.#{$c}__connector {
+  flex: 1;
+  height: var(--steps-connector-height, $steps-connector-height);
+  background-color: var(--steps-connector-color-incomplete, $steps-connector-color-incomplete);
+  margin: 0 var(--steps-gap, $steps-gap);
+  transition: background-color 200ms ease;
+}
+
+.#{$c}__connector--complete {
+  @include accent-gradient($angle: 90deg);
+}
+
+.#{$c}__marker-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--steps-label-gap, $steps-label-gap);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 150ms ease;
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible .#{$c}__marker {
+    outline: var(--steps-focus-ringWidth, $steps-focus-ringWidth) solid var(--steps-focus-ringColor, $steps-focus-ringColor);
+    outline-offset: var(--steps-focus-ringOffset, $steps-focus-ringOffset);
+  }
+}
+
+.#{$c}__marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--steps-marker-size, $steps-marker-size);
+  height: var(--steps-marker-size, $steps-marker-size);
+  border-radius: 50%;
+  border: var(--steps-marker-border-width, $steps-marker-border-width) solid;
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+}
+
+.#{$c}__number {
+  font-size: var(--steps-marker-fontSize, $steps-marker-fontSize);
+  font-weight: var(--steps-marker-fontWeight, $steps-marker-fontWeight);
+  line-height: 1;
+}
+
+.#{$c}__check-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.#{$c}__label {
+  font-size: var(--steps-label-fontSize, $steps-label-fontSize);
+  font-weight: var(--steps-label-fontWeight, $steps-label-fontWeight);
+  white-space: nowrap;
+  transition: color 200ms ease;
+}
+
+// Incomplete state
+.#{$c}__item--incomplete {
+  .#{$c}__marker {
+    background-color: var(--steps-marker-background-incomplete, $steps-marker-background-incomplete);
+    border-color: var(--steps-marker-border-color-incomplete, $steps-marker-border-color-incomplete);
+    color: var(--steps-marker-text-incomplete, $steps-marker-text-incomplete);
+  }
+
+  .#{$c}__label {
+    color: var(--steps-label-color-incomplete, $steps-label-color-incomplete);
+  }
+
+  .#{$c}__marker-wrapper:hover:not(:disabled) {
+    opacity: 0.8;
+  }
+}
+
+// Active state
+.#{$c}__item--active {
+  .#{$c}__marker {
+    @include accent-gradient();
+    border-color: var(--accent-gradient-start, $accent-gradient-start);
+    color: var(--steps-marker-text-active, $steps-marker-text-active);
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .#{$c}__label {
+    color: var(--steps-label-color-active, $steps-label-color-active);
+  }
+}
+
+// Complete state
+.#{$c}__item--complete {
+  .#{$c}__marker {
+    @include accent-gradient();
+    border-color: var(--accent-gradient-start, $accent-gradient-start);
+    color: var(--steps-marker-text-complete, $steps-marker-text-complete);
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .#{$c}__label {
+    color: var(--steps-label-color-complete, $steps-label-color-complete);
+  }
+
+  .#{$c}__marker-wrapper:hover:not(:disabled) {
+    opacity: 0.8;
+  }
+}
+
+// Disabled state
+.#{$c}__item--disabled {
+  .#{$c}__marker-wrapper {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+// Readonly mode
+.#{$c}--readonly {
+  .#{$c}__marker-wrapper {
+    cursor: default;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

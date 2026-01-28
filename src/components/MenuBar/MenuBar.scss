@@ -1,0 +1,208 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: menubar;
+
+.#{$c} {
+  display: flex;
+  align-items: center;
+  background-color: var(--menubar-background, $menubar-background);
+  padding: var(--menubar-padding, $menubar-padding);
+  border: var(--menubar-border-width, $menubar-border-width) solid var(--menubar-border-color, $menubar-border-color);
+  border-radius: var(--menubar-border-radius, $menubar-border-radius);
+}
+
+.#{$c}__list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: var(--menubar-item-gap, 2px);
+}
+
+.#{$c}__item {
+  position: relative;
+}
+
+.#{$c}__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--menubar-item-gap, $menubar-item-gap);
+  padding: var(--menubar-item-padding, $menubar-item-padding);
+  background-color: var(--menubar-item-background-default, $menubar-item-background-default);
+  color: var(--menubar-item-color-default, $menubar-item-color-default);
+  border: none;
+  border-radius: var(--menubar-item-borderRadius, $menubar-item-borderRadius);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  transition: background-color var(--menubar-transition-duration, $menubar-transition-duration) ease,
+              color var(--menubar-transition-duration, $menubar-transition-duration) ease;
+
+  &:hover {
+    background-color: var(--menubar-item-background-hover, $menubar-item-background-hover);
+    color: var(--menubar-item-color-hover, $menubar-item-color-hover);
+
+    .#{$c}__icon {
+      color: var(--menubar-icon-color-hover, $menubar-icon-color-hover);
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--menubar-item-color-active, $menubar-item-color-active);
+    outline-offset: 2px;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    cursor: not-allowed;
+    color: var(--menubar-item-color-disabled, $menubar-item-color-disabled);
+    pointer-events: none;
+  }
+}
+
+.#{$c}__item--active > .#{$c}__link {
+  background-color: var(--menubar-item-background-active, $menubar-item-background-active);
+  color: var(--menubar-item-color-active, $menubar-item-color-active);
+}
+
+.#{$c}__item--disabled > .#{$c}__link {
+  cursor: not-allowed;
+  color: var(--menubar-item-color-disabled, $menubar-item-color-disabled);
+  pointer-events: none;
+}
+
+.#{$c}__icon {
+  width: var(--menubar-icon-size, $menubar-icon-size);
+  height: var(--menubar-icon-size, $menubar-icon-size);
+  color: var(--menubar-icon-color-default, $menubar-icon-color-default);
+  flex-shrink: 0;
+  transition: color var(--menubar-transition-duration, $menubar-transition-duration) ease;
+}
+
+.#{$c}__label {
+  white-space: nowrap;
+}
+
+.#{$c}__submenu-icon {
+  width: 12px;
+  height: 12px;
+  margin-left: auto;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.#{$c}__chevron-right {
+  width: 12px;
+  height: 12px;
+  margin-left: auto;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+// Submenu (dropdown)
+.#{$c}__submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: var(--menubar-submenu-minWidth, $menubar-submenu-minWidth);
+  margin: 0;
+  padding: var(--menubar-submenu-padding, $menubar-submenu-padding);
+  list-style: none;
+  background-color: var(--menubar-submenu-background, $menubar-submenu-background);
+  border-radius: var(--menubar-submenu-borderRadius, $menubar-submenu-borderRadius);
+  box-shadow: var(--menubar-submenu-shadow, $menubar-submenu-shadow);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity var(--menubar-transition-duration, $menubar-transition-duration) ease,
+              visibility var(--menubar-transition-duration, $menubar-transition-duration) ease,
+              transform var(--menubar-transition-duration, $menubar-transition-duration) ease;
+}
+
+.#{$c}__submenu--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.#{$c}__submenu--nested {
+  top: 0;
+  left: 100%;
+  margin-left: 2px;
+}
+
+.#{$c}__submenu-item {
+  position: relative;
+}
+
+.#{$c}__submenu-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: var(--menubar-item-gap, $menubar-item-gap);
+  padding: var(--menubar-item-padding, $menubar-item-padding);
+  background-color: transparent;
+  color: var(--menubar-item-color-default, $menubar-item-color-default);
+  border: none;
+  border-radius: var(--menubar-item-borderRadius, $menubar-item-borderRadius);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--menubar-transition-duration, $menubar-transition-duration) ease,
+              color var(--menubar-transition-duration, $menubar-transition-duration) ease;
+
+  &:hover {
+    background-color: var(--menubar-item-background-hover, $menubar-item-background-hover);
+    color: var(--menubar-item-color-hover, $menubar-item-color-hover);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--menubar-item-color-active, $menubar-item-color-active);
+    outline-offset: -2px;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    cursor: not-allowed;
+    color: var(--menubar-item-color-disabled, $menubar-item-color-disabled);
+    pointer-events: none;
+  }
+}
+
+.#{$c}__submenu-item--disabled > .#{$c}__submenu-link {
+  cursor: not-allowed;
+  color: var(--menubar-item-color-disabled, $menubar-item-color-disabled);
+  pointer-events: none;
+}
+
+.#{$c}__submenu-item--has-submenu:hover > .#{$c}__submenu.#{$c}__submenu--nested {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+// Separator
+.#{$c}__separator {
+  height: 1px;
+  margin: var(--menubar-separator-margin, $menubar-separator-margin) 0;
+  background-color: var(--menubar-separator-color, $menubar-separator-color);
+}
+
+.#{$c}__list > .#{$c}__separator {
+  width: 1px;
+  height: 20px;
+  margin: 0 var(--menubar-separator-margin, $menubar-separator-margin);
+}

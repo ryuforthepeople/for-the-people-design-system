@@ -1,0 +1,76 @@
+{
+  "rating": {
+    "star": {
+      "size": {
+        "value": "24px",
+        "type": "dimension",
+        "description": "Size of each star icon"
+      },
+      "gap": {
+        "value": "{inline.2xs}",
+        "type": "dimension",
+        "description": "Gap between stars"
+      },
+      "color": {
+        "default": {
+          "value": "{neutral.300}",
+          "type": "color",
+          "description": "Empty star color"
+        },
+        "active": {
+          "value": "{amber.400}",
+          "type": "color",
+          "description": "Filled/active star color"
+        },
+        "hover": {
+          "value": "{amber.500}",
+          "type": "color",
+          "description": "Star hover color"
+        },
+        "disabled": {
+          "value": "{neutral.200}",
+          "type": "color",
+          "description": "Disabled star color"
+        },
+        "disabledActive": {
+          "value": "{neutral.400}",
+          "type": "color",
+          "description": "Disabled active star color"
+        }
+      }
+    },
+    "cancel": {
+      "size": {
+        "value": "20px",
+        "type": "dimension",
+        "description": "Size of cancel button icon"
+      },
+      "color": {
+        "default": {
+          "value": "{neutral.400}",
+          "type": "color",
+          "description": "Cancel button default color"
+        },
+        "hover": {
+          "value": "{red.500}",
+          "type": "color",
+          "description": "Cancel button hover color"
+        }
+      }
+    },
+    "focus": {
+      "ringWidth": {
+        "value": "2px",
+        "type": "dimension"
+      },
+      "ringColor": {
+        "value": "{brand.primary}",
+        "type": "color"
+      },
+      "ringOffset": {
+        "value": "2px",
+        "type": "dimension"
+      }
+    }
+  }
+}

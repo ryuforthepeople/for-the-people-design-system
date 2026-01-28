@@ -1,0 +1,148 @@
+@use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/accent-gradient.scss" as *;
+
+$c: radio;
+
+.#{$c} {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--radio-label-gap, $radio-label-gap);
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.#{$c}__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.#{$c}__circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-color: var(--radio-background-default, $radio-background-default);
+  border: var(--radio-border-width, $radio-border-width) solid var(--radio-border-color-default, $radio-border-color-default);
+  border-radius: 50%;
+  transition: all 0.15s ease;
+}
+
+.#{$c}__dot {
+  border-radius: 50%;
+  background-color: var(--radio-dot-color, $radio-dot-color);
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.15s ease;
+}
+
+.#{$c}__label {
+  color: var(--radio-label-color-default, $radio-label-color-default);
+  line-height: 1.4;
+}
+
+// Hover state
+.#{$c}:hover:not(.#{$c}--disabled) {
+  .#{$c}__circle {
+    border-color: var(--radio-border-color-hover, $radio-border-color-hover);
+    background-color: var(--radio-background-hover, $radio-background-hover);
+  }
+}
+
+// Focus state
+.#{$c}__input:focus-visible ~ .#{$c}__circle {
+  outline: var(--radio-focus-ringWidth, $radio-focus-ringWidth) solid var(--radio-focus-ringColor, $radio-focus-ringColor);
+  outline-offset: var(--radio-focus-ringOffset, $radio-focus-ringOffset);
+}
+
+// Checked state
+.#{$c}--checked {
+  .#{$c}__circle {
+    @include accent-gradient();
+    border-color: var(--accent-gradient-start, $accent-gradient-start);
+  }
+
+  .#{$c}__dot {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Disabled state
+.#{$c}--disabled {
+  cursor: not-allowed;
+
+  .#{$c}__circle {
+    background-color: var(--radio-background-disabled, $radio-background-disabled);
+    border-color: var(--radio-border-color-disabled, $radio-border-color-disabled);
+  }
+
+  .#{$c}__label {
+    color: var(--radio-label-color-disabled, $radio-label-color-disabled);
+  }
+}
+
+.#{$c}--disabled.#{$c}--checked {
+  .#{$c}__circle {
+    background-color: var(--radio-border-color-disabled, $radio-border-color-disabled);
+  }
+}
+
+// Invalid state
+.#{$c}--invalid {
+  .#{$c}__circle {
+    border-color: var(--radio-border-color-error, $radio-border-color-error);
+  }
+}
+
+// Sizes
+.#{$c}--size-sm {
+  .#{$c}__circle {
+    width: var(--radio-size-sm, $radio-size-sm);
+    height: var(--radio-size-sm, $radio-size-sm);
+  }
+
+  .#{$c}__dot {
+    width: var(--radio-dotSize-sm, $radio-dotSize-sm);
+    height: var(--radio-dotSize-sm, $radio-dotSize-sm);
+  }
+
+  .#{$c}__label {
+    font-size: 14px;
+  }
+}
+
+.#{$c}--size-md {
+  .#{$c}__circle {
+    width: var(--radio-size-md, $radio-size-md);
+    height: var(--radio-size-md, $radio-size-md);
+  }
+
+  .#{$c}__dot {
+    width: var(--radio-dotSize-md, $radio-dotSize-md);
+    height: var(--radio-dotSize-md, $radio-dotSize-md);
+  }
+
+  .#{$c}__label {
+    font-size: 15px;
+  }
+}
+
+.#{$c}--size-lg {
+  .#{$c}__circle {
+    width: var(--radio-size-lg, $radio-size-lg);
+    height: var(--radio-size-lg, $radio-size-lg);
+  }
+
+  .#{$c}__dot {
+    width: var(--radio-dotSize-lg, $radio-dotSize-lg);
+    height: var(--radio-dotSize-lg, $radio-dotSize-lg);
+  }
+
+  .#{$c}__label {
+    font-size: 16px;
+  }
+}

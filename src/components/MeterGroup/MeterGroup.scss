@@ -1,0 +1,105 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: meter-group;
+
+.#{$c} {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.#{$c}__header {
+  margin-bottom: var(--meter-group-label-gap, $meter-group-label-gap);
+}
+
+.#{$c}__labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--meter-group-legend-gap, $meter-group-legend-gap);
+}
+
+.#{$c}__label-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--meter-group-legend-gap, $meter-group-legend-gap);
+}
+
+.#{$c}__marker {
+  width: var(--meter-group-legend-marker-size, $meter-group-legend-marker-size);
+  height: var(--meter-group-legend-marker-size, $meter-group-legend-marker-size);
+  border-radius: var(--meter-group-legend-marker-radius, $meter-group-legend-marker-radius);
+  flex-shrink: 0;
+}
+
+.#{$c}__label-text {
+  font-size: var(--meter-group-label-fontSize, $meter-group-label-fontSize);
+  font-weight: var(--meter-group-label-fontWeight, $meter-group-label-fontWeight);
+  color: var(--meter-group-label-color, $meter-group-label-color);
+}
+
+.#{$c}__label-value {
+  font-size: var(--meter-group-valueText-fontSize, $meter-group-valueText-fontSize);
+  color: var(--meter-group-valueText-color, $meter-group-valueText-color);
+}
+
+.#{$c}__track {
+  display: flex;
+  width: 100%;
+  height: var(--meter-group-track-height, $meter-group-track-height);
+  background-color: var(--meter-group-track-background, $meter-group-track-background);
+  border-radius: var(--meter-group-track-radius, $meter-group-track-radius);
+  overflow: hidden;
+}
+
+.#{$c}__meter {
+  height: 100%;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.#{$c}__meter:first-child {
+  border-top-left-radius: var(--meter-group-meter-radius, $meter-group-meter-radius);
+  border-bottom-left-radius: var(--meter-group-meter-radius, $meter-group-meter-radius);
+}
+
+.#{$c}__meter:last-child {
+  border-top-right-radius: var(--meter-group-meter-radius, $meter-group-meter-radius);
+  border-bottom-right-radius: var(--meter-group-meter-radius, $meter-group-meter-radius);
+}
+
+.#{$c}__meter + .#{$c}__meter {
+  margin-left: var(--meter-group-meter-gap, $meter-group-meter-gap);
+}
+
+// Vertical orientation
+.#{$c}--vertical {
+  height: 200px;
+  width: auto;
+
+  .#{$c}__track {
+    flex-direction: column-reverse;
+    width: var(--meter-group-track-height, $meter-group-track-height);
+    height: 100%;
+  }
+
+  .#{$c}__meter {
+    width: 100%;
+    height: auto;
+  }
+
+  .#{$c}__meter:first-child {
+    border-radius: 0;
+    border-bottom-left-radius: var(--meter-group-meter-radius, $meter-group-meter-radius);
+    border-bottom-right-radius: var(--meter-group-meter-radius, $meter-group-meter-radius);
+  }
+
+  .#{$c}__meter:last-child {
+    border-radius: 0;
+    border-top-left-radius: var(--meter-group-meter-radius, $meter-group-meter-radius);
+    border-top-right-radius: var(--meter-group-meter-radius, $meter-group-meter-radius);
+  }
+
+  .#{$c}__meter + .#{$c}__meter {
+    margin-left: 0;
+    margin-bottom: var(--meter-group-meter-gap, $meter-group-meter-gap);
+  }
+}

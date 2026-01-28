@@ -1,0 +1,95 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: splitter;
+
+.#{$c} {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: var(--splitter-background, $splitter-background);
+  border: var(--splitter-border-width, $splitter-border-width) solid var(--splitter-border-color, $splitter-border-color);
+  border-radius: var(--splitter-border-radius, $splitter-border-radius);
+  overflow: hidden;
+}
+
+// Layout variants
+.#{$c}--horizontal {
+  flex-direction: row;
+
+  .#{$c}__gutter {
+    cursor: col-resize;
+    width: var(--splitter-gutter-size, var(--splitter-gutter-size, $splitter-gutter-size));
+    height: auto;
+  }
+
+  .#{$c}__gutter-handle {
+    width: 4px;
+    height: var(--splitter-gutter-handle-size, $splitter-gutter-handle-size);
+  }
+}
+
+.#{$c}--vertical {
+  flex-direction: column;
+
+  .#{$c}__gutter {
+    cursor: row-resize;
+    width: auto;
+    height: var(--splitter-gutter-size, var(--splitter-gutter-size, $splitter-gutter-size));
+  }
+
+  .#{$c}__gutter-handle {
+    width: var(--splitter-gutter-handle-size, $splitter-gutter-handle-size);
+    height: 4px;
+  }
+}
+
+// Resizing state
+.#{$c}--resizing {
+  user-select: none;
+}
+
+// Panel
+.#{$c}__panel {
+  flex-grow: 0;
+  flex-shrink: 0;
+  overflow: auto;
+  min-width: 0;
+  min-height: 0;
+}
+
+// Gutter
+.#{$c}__gutter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-color: var(--splitter-gutter-background-default, $splitter-gutter-background-default);
+  transition: background-color var(--splitter-transition-duration, $splitter-transition-duration) ease;
+
+  &:hover {
+    background-color: var(--splitter-gutter-background-hover, $splitter-gutter-background-hover);
+
+    .#{$c}__gutter-handle {
+      background-color: var(--splitter-gutter-handle-color-hover, $splitter-gutter-handle-color-hover);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring, $focus-ring);
+    outline-offset: -2px;
+  }
+}
+
+.#{$c}__gutter--active {
+  background-color: var(--splitter-gutter-background-active, $splitter-gutter-background-active);
+
+  .#{$c}__gutter-handle {
+    background-color: var(--splitter-gutter-handle-color-active, $splitter-gutter-handle-color-active);
+  }
+}
+
+// Gutter handle indicator
+.#{$c}__gutter-handle {
+  background-color: var(--splitter-gutter-handle-color-default, $splitter-gutter-handle-color-default);
+  border-radius: 9999px;
+  transition: background-color var(--splitter-transition-duration, $splitter-transition-duration) ease;
+}

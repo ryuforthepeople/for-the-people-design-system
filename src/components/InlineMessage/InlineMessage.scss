@@ -1,0 +1,69 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: inline-message;
+
+.#{$c} {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--inline-message-gap, $inline-message-gap);
+  padding: var(--inline-message-padding-y, $inline-message-padding-y) var(--inline-message-padding-x, $inline-message-padding-x);
+  border-radius: var(--inline-message-radius, $inline-message-radius);
+  font-size: var(--inline-message-fontSize, $inline-message-fontSize);
+  font-weight: var(--inline-message-fontWeight, $inline-message-fontWeight);
+  line-height: 1.4;
+}
+
+.#{$c}__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--inline-message-iconSize, $inline-message-iconSize);
+  height: var(--inline-message-iconSize, $inline-message-iconSize);
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.#{$c}__text {
+  flex: 1;
+}
+
+// Severity variants
+.#{$c}--success {
+  background-color: var(--inline-message-background-success, $inline-message-background-success);
+  color: var(--inline-message-text-success, $inline-message-text-success);
+
+  .#{$c}__icon {
+    color: var(--inline-message-icon-success, $inline-message-icon-success);
+  }
+}
+
+.#{$c}--info {
+  background-color: var(--inline-message-background-info, $inline-message-background-info);
+  color: var(--inline-message-text-info, $inline-message-text-info);
+
+  .#{$c}__icon {
+    color: var(--inline-message-icon-info, $inline-message-icon-info);
+  }
+}
+
+.#{$c}--warn {
+  background-color: var(--inline-message-background-warn, $inline-message-background-warn);
+  color: var(--inline-message-text-warn, $inline-message-text-warn);
+
+  .#{$c}__icon {
+    color: var(--inline-message-icon-warn, $inline-message-icon-warn);
+  }
+}
+
+.#{$c}--error {
+  background-color: var(--inline-message-background-error, $inline-message-background-error);
+  color: var(--inline-message-text-error, $inline-message-text-error);
+
+  .#{$c}__icon {
+    color: var(--inline-message-icon-error, $inline-message-icon-error);
+  }
+}

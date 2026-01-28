@@ -1,0 +1,88 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: input-otp;
+
+.#{$c} {
+  display: inline-block;
+}
+
+.#{$c}__container {
+  display: flex;
+  align-items: center;
+  gap: var(--input-otp-gap, $input-otp-gap);
+}
+
+.#{$c}__cell {
+  width: var(--input-otp-cell-size, $input-otp-cell-size);
+  height: var(--input-otp-cell-size, $input-otp-cell-size);
+  text-align: center;
+  font-size: var(--input-otp-cell-fontSize, $input-otp-cell-fontSize);
+  font-weight: var(--input-otp-cell-fontWeight, $input-otp-cell-fontWeight);
+  color: var(--input-otp-cell-text-default, $input-otp-cell-text-default);
+  background-color: var(--input-otp-cell-background-default, $input-otp-cell-background-default);
+  border: var(--input-otp-cell-border-width, $input-otp-cell-border-width) solid var(--input-otp-cell-border-color-default, $input-otp-cell-border-color-default);
+  border-radius: var(--input-otp-cell-radius, $input-otp-cell-radius);
+  appearance: none;
+  -moz-appearance: textfield;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    box-shadow 150ms ease;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:hover:not(:disabled):not(:focus) {
+    border-color: var(--input-otp-cell-border-color-hover, $input-otp-cell-border-color-hover);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--input-otp-cell-border-color-focus, $input-otp-cell-border-color-focus);
+    background-color: var(--input-otp-cell-background-focus, $input-otp-cell-background-focus);
+    box-shadow: 0 0 0 var(--input-otp-focus-ringWidth, $input-otp-focus-ringWidth) var(--input-otp-focus-ringColor, $input-otp-focus-ringColor);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--input-otp-cell-background-disabled, $input-otp-cell-background-disabled);
+    border-color: var(--input-otp-cell-border-color-disabled, $input-otp-cell-border-color-disabled);
+    color: var(--input-otp-cell-text-disabled, $input-otp-cell-text-disabled);
+  }
+}
+
+.#{$c}__cell--filled {
+  background-color: var(--input-otp-cell-background-filled, $input-otp-cell-background-filled);
+  border-color: var(--input-otp-cell-border-color-filled, $input-otp-cell-border-color-filled);
+}
+
+.#{$c}__separator {
+  display: block;
+  width: var(--input-otp-separator-width, $input-otp-separator-width);
+  height: 2px;
+  background-color: var(--input-otp-separator-color, $input-otp-separator-color);
+  border-radius: 1px;
+}
+
+// Invalid state
+.#{$c}--invalid {
+  .#{$c}__cell {
+    border-color: var(--input-otp-cell-border-color-error, $input-otp-cell-border-color-error);
+
+    &:focus {
+      border-color: var(--input-otp-cell-border-color-error, $input-otp-cell-border-color-error);
+    }
+  }
+}
+
+// Disabled state
+.#{$c}--disabled {
+  opacity: 0.6;
+}

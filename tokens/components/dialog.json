@@ -1,0 +1,151 @@
+{
+  "dialog": {
+    "padding": {
+      "header": {
+        "value": "{inset.l}",
+        "type": "dimension",
+        "description": "Header section padding"
+      },
+      "content": {
+        "value": "{inset.l}",
+        "type": "dimension",
+        "description": "Content area padding"
+      },
+      "footer": {
+        "value": "{inset.l}",
+        "type": "dimension",
+        "description": "Footer section padding"
+      }
+    },
+    "background": {
+      "default": {
+        "value": "{surface.canvas}",
+        "type": "color",
+        "description": "Dialog background color"
+      }
+    },
+    "radius": {
+      "value": "{radius.large}",
+      "type": "dimension",
+      "description": "Dialog border radius"
+    },
+    "shadow": {
+      "value": "{shadow.l}",
+      "type": "shadow",
+      "description": "Dialog elevation shadow"
+    },
+    "border": {
+      "color": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Dialog border color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Dialog border width"
+      }
+    },
+    "header": {
+      "background": {
+        "value": "{surface.canvas}",
+        "type": "color",
+        "description": "Header background"
+      },
+      "borderColor": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Header bottom border color"
+      },
+      "title": {
+        "color": {
+          "value": "{text.heading}",
+          "type": "color",
+          "description": "Header title text color"
+        }
+      }
+    },
+    "closeButton": {
+      "size": {
+        "value": "32px",
+        "type": "dimension",
+        "description": "Close button size"
+      },
+      "iconSize": {
+        "value": "16px",
+        "type": "dimension",
+        "description": "Close icon size"
+      },
+      "color": {
+        "default": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Close button icon color"
+        },
+        "hover": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Close button hover color"
+        }
+      },
+      "background": {
+        "hover": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Close button hover background"
+        }
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Close button border radius"
+      }
+    },
+    "overlay": {
+      "background": {
+        "value": "{surface.overlay}",
+        "type": "color",
+        "description": "Modal overlay backdrop color"
+      }
+    },
+    "width": {
+      "sm": {
+        "value": "400px",
+        "type": "dimension",
+        "description": "Small dialog width"
+      },
+      "md": {
+        "value": "560px",
+        "type": "dimension",
+        "description": "Medium dialog width (default)"
+      },
+      "lg": {
+        "value": "720px",
+        "type": "dimension",
+        "description": "Large dialog width"
+      },
+      "xl": {
+        "value": "960px",
+        "type": "dimension",
+        "description": "Extra large dialog width"
+      }
+    },
+    "maxHeight": {
+      "value": "90vh",
+      "type": "dimension",
+      "description": "Maximum dialog height"
+    },
+    "zIndex": {
+      "overlay": {
+        "value": "1000",
+        "type": "number",
+        "description": "Overlay z-index"
+      },
+      "dialog": {
+        "value": "1001",
+        "type": "number",
+        "description": "Dialog z-index"
+      }
+    }
+  }
+}

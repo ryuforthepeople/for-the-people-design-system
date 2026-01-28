@@ -1,0 +1,280 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: toast;
+
+.#{$c}-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: var(--toast-container-gap, $toast-container-gap);
+  padding: var(--toast-container-padding, $toast-container-padding);
+  max-width: var(--toast-container-maxWidth, $toast-container-maxWidth);
+  z-index: var(--toast-container-zIndex, $toast-container-zIndex);
+  pointer-events: none;
+
+  > * {
+    pointer-events: auto;
+  }
+}
+
+// Position variants
+.#{$c}-container--top-left {
+  top: 0;
+  left: 0;
+  align-items: flex-start;
+}
+
+.#{$c}-container--top-center {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+}
+
+.#{$c}-container--top-right {
+  top: 0;
+  right: 0;
+  align-items: flex-end;
+}
+
+.#{$c}-container--bottom-left {
+  bottom: 0;
+  left: 0;
+  align-items: flex-start;
+  flex-direction: column-reverse;
+}
+
+.#{$c}-container--bottom-center {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  flex-direction: column-reverse;
+}
+
+.#{$c}-container--bottom-right {
+  bottom: 0;
+  right: 0;
+  align-items: flex-end;
+  flex-direction: column-reverse;
+}
+
+.#{$c}-container--center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+}
+
+.#{$c} {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--toast-icon-gap, $toast-icon-gap);
+  width: 100%;
+  padding: var(--toast-padding-y, $toast-padding-y) var(--toast-padding-x, $toast-padding-x);
+  background-color: var(--toast-background-default, $toast-background-default);
+  border: var(--toast-border-width, $toast-border-width) solid var(--toast-border-color-default, $toast-border-color-default);
+  border-radius: var(--toast-radius, $toast-radius);
+  box-shadow: var(--toast-shadow, $toast-shadow);
+  overflow: hidden;
+}
+
+.#{$c}--closable {
+  padding-right: calc(var(--toast-padding-x, $toast-padding-x) + var(--toast-closeButton-size, $toast-closeButton-size) + var(--toast-icon-gap, $toast-icon-gap));
+}
+
+// Severity variants
+.#{$c}--success {
+  background-color: var(--toast-background-success, $toast-background-success);
+  border-color: var(--toast-border-color-success, $toast-border-color-success);
+
+  .#{$c}__icon {
+    color: var(--toast-icon-color-success, $toast-icon-color-success);
+  }
+
+  .#{$c}__summary {
+    color: var(--toast-summary-color-success, $toast-summary-color-success);
+  }
+}
+
+.#{$c}--info {
+  background-color: var(--toast-background-info, $toast-background-info);
+  border-color: var(--toast-border-color-info, $toast-border-color-info);
+
+  .#{$c}__icon {
+    color: var(--toast-icon-color-info, $toast-icon-color-info);
+  }
+
+  .#{$c}__summary {
+    color: var(--toast-summary-color-info, $toast-summary-color-info);
+  }
+}
+
+.#{$c}--warning {
+  background-color: var(--toast-background-warning, $toast-background-warning);
+  border-color: var(--toast-border-color-warning, $toast-border-color-warning);
+
+  .#{$c}__icon {
+    color: var(--toast-icon-color-warning, $toast-icon-color-warning);
+  }
+
+  .#{$c}__summary {
+    color: var(--toast-summary-color-warning, $toast-summary-color-warning);
+  }
+}
+
+.#{$c}--error {
+  background-color: var(--toast-background-error, $toast-background-error);
+  border-color: var(--toast-border-color-error, $toast-border-color-error);
+
+  .#{$c}__icon {
+    color: var(--toast-icon-color-error, $toast-icon-color-error);
+  }
+
+  .#{$c}__summary {
+    color: var(--toast-summary-color-error, $toast-summary-color-error);
+  }
+}
+
+.#{$c}__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--toast-icon-size, $toast-icon-size);
+  height: var(--toast-icon-size, $toast-icon-size);
+  color: var(--toast-icon-color-default, $toast-icon-color-default);
+  flex-shrink: 0;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.#{$c}__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--toast-content-gap, $toast-content-gap);
+  flex: 1;
+  min-width: 0;
+}
+
+.#{$c}__summary {
+  font-size: var(--toast-summary-fontSize, $toast-summary-fontSize);
+  font-weight: var(--toast-summary-fontWeight, $toast-summary-fontWeight);
+  color: var(--toast-summary-color-default, $toast-summary-color-default);
+  line-height: 1.4;
+}
+
+.#{$c}__detail {
+  font-size: var(--toast-detail-fontSize, $toast-detail-fontSize);
+  color: var(--toast-detail-color, $toast-detail-color);
+  line-height: 1.4;
+}
+
+.#{$c}__close {
+  position: absolute;
+  top: var(--toast-padding-y, $toast-padding-y);
+  right: var(--toast-padding-x, $toast-padding-x);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--toast-closeButton-size, $toast-closeButton-size);
+  height: var(--toast-closeButton-size, $toast-closeButton-size);
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--toast-closeButton-color-default, $toast-closeButton-color-default);
+  border-radius: var(--toast-closeButton-radius, $toast-closeButton-radius);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background-color: var(--toast-closeButton-background-hover, $toast-closeButton-background-hover);
+    color: var(--toast-closeButton-color-hover, $toast-closeButton-color-hover);
+  }
+
+  svg {
+    width: var(--toast-closeButton-iconSize, $toast-closeButton-iconSize);
+    height: var(--toast-closeButton-iconSize, $toast-closeButton-iconSize);
+  }
+}
+
+.#{$c}__progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--toast-progress-height, $toast-progress-height);
+  background-color: var(--toast-progress-background, $toast-progress-background);
+  overflow: hidden;
+}
+
+.#{$c}__progress-bar {
+  height: 100%;
+  background-color: var(--toast-progress-fill-default, $toast-progress-fill-default);
+  animation: toast-progress-shrink linear forwards;
+}
+
+.#{$c}__progress-bar--success {
+  background-color: var(--toast-progress-fill-success, $toast-progress-fill-success);
+}
+
+.#{$c}__progress-bar--info {
+  background-color: var(--toast-progress-fill-info, $toast-progress-fill-info);
+}
+
+.#{$c}__progress-bar--warning {
+  background-color: var(--toast-progress-fill-warning, $toast-progress-fill-warning);
+}
+
+.#{$c}__progress-bar--error {
+  background-color: var(--toast-progress-fill-error, $toast-progress-fill-error);
+}
+
+@keyframes toast-progress-shrink {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+// Transition animations
+.#{$c}-slide-enter-active,
+.#{$c}-slide-leave-active {
+  transition: all 0.3s ease;
+}
+
+.#{$c}-slide-enter-from {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.#{$c}-slide-leave-to {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+// Adjust slide direction based on position
+.#{$c}-container--top-left,
+.#{$c}-container--bottom-left {
+  .#{$c}-slide-enter-from,
+  .#{$c}-slide-leave-to {
+    transform: translateX(-100%);
+  }
+}
+
+.#{$c}-container--top-center,
+.#{$c}-container--bottom-center,
+.#{$c}-container--center {
+  .#{$c}-slide-enter-from {
+    transform: translateY(-20px);
+  }
+
+  .#{$c}-slide-leave-to {
+    transform: translateY(-20px);
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "dataView": {
+    "background": {
+      "value": "{surface.panel}",
+      "type": "color",
+      "description": "DataView container background"
+    },
+    "border": {
+      "color": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Container border color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Container border width"
+      }
+    },
+    "radius": {
+      "value": "{radius.default}",
+      "type": "dimension",
+      "description": "Container border radius"
+    },
+    "header": {
+      "background": {
+        "value": "{surface.muted}",
+        "type": "color",
+        "description": "Header background color"
+      },
+      "padding": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Header padding"
+      },
+      "borderColor": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Header border color"
+      }
+    },
+    "content": {
+      "padding": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Content area padding"
+      }
+    },
+    "grid": {
+      "gap": {
+        "value": "{stack.m}",
+        "type": "dimension",
+        "description": "Gap between grid items"
+      }
+    },
+    "list": {
+      "gap": {
+        "value": "{stack.s}",
+        "type": "dimension",
+        "description": "Gap between list items"
+      },
+      "item": {
+        "padding": {
+          "value": "{inset.m}",
+          "type": "dimension",
+          "description": "List item padding"
+        },
+        "background": {
+          "default": {
+            "value": "transparent",
+            "type": "color",
+            "description": "List item background"
+          },
+          "hover": {
+            "value": "{surface.muted}",
+            "type": "color",
+            "description": "List item hover background"
+          }
+        },
+        "borderColor": {
+          "value": "{border.subtle}",
+          "type": "color",
+          "description": "List item border color"
+        },
+        "radius": {
+          "value": "{radius.subtle}",
+          "type": "dimension",
+          "description": "List item border radius"
+        }
+      }
+    },
+    "layoutSwitcher": {
+      "gap": {
+        "value": "{stack.2xs}",
+        "type": "dimension",
+        "description": "Gap between layout buttons"
+      },
+      "button": {
+        "size": {
+          "value": "32px",
+          "type": "dimension",
+          "description": "Layout button size"
+        },
+        "background": {
+          "default": {
+            "value": "transparent",
+            "type": "color",
+            "description": "Button default background"
+          },
+          "active": {
+            "value": "{surface.muted}",
+            "type": "color",
+            "description": "Button active background"
+          },
+          "hover": {
+            "value": "{neutral.100}",
+            "type": "color",
+            "description": "Button hover background"
+          }
+        },
+        "color": {
+          "default": {
+            "value": "{text.muted}",
+            "type": "color",
+            "description": "Button icon default color"
+          },
+          "active": {
+            "value": "{text.default}",
+            "type": "color",
+            "description": "Button icon active color"
+          }
+        },
+        "radius": {
+          "value": "{radius.subtle}",
+          "type": "dimension",
+          "description": "Button border radius"
+        }
+      }
+    },
+    "pagination": {
+      "padding": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Pagination padding"
+      },
+      "borderColor": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Pagination border color"
+      }
+    },
+    "empty": {
+      "padding": {
+        "value": "{inset.xl}",
+        "type": "dimension",
+        "description": "Empty state padding"
+      },
+      "color": {
+        "value": "{text.muted}",
+        "type": "color",
+        "description": "Empty state text color"
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "150ms",
+        "type": "duration",
+        "description": "Animation duration"
+      }
+    }
+  }
+}

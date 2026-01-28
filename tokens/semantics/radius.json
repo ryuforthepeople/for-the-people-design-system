@@ -1,0 +1,10 @@
+{
+  "radius": {
+    "none": { "value": "{radius.0}", "type": "dimension", "description": "No rounding" },
+    "subtle": { "value": "{radius.1}", "type": "dimension", "description": "Subtle rounding" },
+    "default": { "value": "{radius.3}", "type": "dimension", "description": "Default border radius" },
+    "rounded": { "value": "{radius.4}", "type": "dimension", "description": "More rounded corners" },
+    "large": { "value": "{radius.5}", "type": "dimension", "description": "Large radius for cards" },
+    "pill": { "value": "{radius.full}", "type": "dimension", "description": "Fully rounded (pills, circles)" }
+  }
+}

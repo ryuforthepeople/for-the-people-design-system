@@ -1,0 +1,59 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: scroll-top;
+
+.#{$c} {
+  position: fixed;
+  bottom: var(--scroll-top-position-bottom, $scroll-top-position-bottom);
+  right: var(--scroll-top-position-right, $scroll-top-position-right);
+  width: var(--scroll-top-size, $scroll-top-size);
+  height: var(--scroll-top-size, $scroll-top-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--scroll-top-background-default, $scroll-top-background-default);
+  border: none;
+  border-radius: var(--scroll-top-radius, $scroll-top-radius);
+  box-shadow: var(--scroll-top-shadow, $scroll-top-shadow);
+  color: var(--scroll-top-icon-color, $scroll-top-icon-color);
+  cursor: pointer;
+  z-index: 1000;
+  transition:
+    background-color var(--scroll-top-transition-duration, $scroll-top-transition-duration) ease,
+    transform var(--scroll-top-transition-duration, $scroll-top-transition-duration) ease;
+
+  &:hover {
+    background-color: var(--scroll-top-background-hover, $scroll-top-background-hover);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    background-color: var(--scroll-top-background-active, $scroll-top-background-active);
+    transform: translateY(0);
+  }
+
+  &:focus-visible {
+    outline: var(--scroll-top-focus-ringWidth, $scroll-top-focus-ringWidth) solid var(--scroll-top-focus-ringColor, $scroll-top-focus-ringColor);
+    outline-offset: var(--scroll-top-focus-ringOffset, $scroll-top-focus-ringOffset);
+  }
+}
+
+.#{$c}__icon {
+  width: var(--scroll-top-icon-size, $scroll-top-icon-size);
+  height: var(--scroll-top-icon-size, $scroll-top-icon-size);
+  flex-shrink: 0;
+}
+
+// Transition styles
+.scroll-top-fade-enter-active,
+.scroll-top-fade-leave-active {
+  transition:
+    opacity var(--scroll-top-transition-duration, $scroll-top-transition-duration) ease,
+    transform var(--scroll-top-transition-duration, $scroll-top-transition-duration) ease;
+}
+
+.scroll-top-fade-enter-from,
+.scroll-top-fade-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}

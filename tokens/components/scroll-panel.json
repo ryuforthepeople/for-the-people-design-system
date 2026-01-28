@@ -1,0 +1,69 @@
+{
+  "scroll-panel": {
+    "background": {
+      "value": "transparent",
+      "type": "color",
+      "description": "Scroll panel container background"
+    },
+    "scrollbar": {
+      "size": {
+        "value": "{inset.xs}",
+        "type": "dimension",
+        "description": "Scrollbar track width/height"
+      },
+      "padding": {
+        "value": "{inset.3xs}",
+        "type": "dimension",
+        "description": "Padding around scrollbar"
+      },
+      "track": {
+        "background": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Scrollbar track background"
+        },
+        "radius": {
+          "value": "9999px",
+          "type": "dimension",
+          "description": "Scrollbar track border radius"
+        }
+      },
+      "thumb": {
+        "background": {
+          "default": {
+            "value": "{neutral.300}",
+            "type": "color",
+            "description": "Scrollbar thumb background"
+          },
+          "hover": {
+            "value": "{neutral.400}",
+            "type": "color",
+            "description": "Scrollbar thumb hover background"
+          },
+          "active": {
+            "value": "{neutral.500}",
+            "type": "color",
+            "description": "Scrollbar thumb active background"
+          }
+        },
+        "radius": {
+          "value": "9999px",
+          "type": "dimension",
+          "description": "Scrollbar thumb border radius"
+        },
+        "minSize": {
+          "value": "24px",
+          "type": "dimension",
+          "description": "Minimum scrollbar thumb size"
+        }
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "150ms",
+        "type": "duration",
+        "description": "Scrollbar visibility transition"
+      }
+    }
+  }
+}

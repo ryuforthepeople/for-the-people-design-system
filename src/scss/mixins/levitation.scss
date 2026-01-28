@@ -1,0 +1,15 @@
+@use "../../dist/scss/tokens" as *;
+
+@mixin levitate($level: "m") {
+  @if ($level == "xs") {
+    box-shadow: $shadow-xs;
+  } @else if ($level == "s") {
+    box-shadow: $shadow-s;
+  } @else if ($level == "m") {
+    box-shadow: $shadow-m;
+  } @else if ($level == "l") {
+    box-shadow: $shadow-l;
+  } @else if ($level == "xl") {
+    box-shadow: $shadow-xl;
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "fileUpload": {
+    "dropzone": {
+      "background": {
+        "default": {
+          "value": "{surface.panel}",
+          "type": "color",
+          "description": "Dropzone background color"
+        },
+        "hover": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Dropzone hover background"
+        },
+        "active": {
+          "value": "{surface.accent}",
+          "type": "color",
+          "description": "Dropzone active/dragging background"
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "value": "{border.subtle}",
+            "type": "color",
+            "description": "Dropzone border color"
+          },
+          "hover": {
+            "value": "{border.default}",
+            "type": "color",
+            "description": "Dropzone hover border color"
+          },
+          "active": {
+            "value": "{brand.primary}",
+            "type": "color",
+            "description": "Dropzone active border color"
+          }
+        },
+        "width": {
+          "value": "2px",
+          "type": "dimension",
+          "description": "Dropzone border width"
+        },
+        "style": {
+          "value": "dashed",
+          "type": "string",
+          "description": "Dropzone border style"
+        }
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Dropzone border radius"
+      },
+      "padding": {
+        "value": "{inset.xl}",
+        "type": "dimension",
+        "description": "Dropzone padding"
+      }
+    },
+    "icon": {
+      "size": {
+        "value": "48px",
+        "type": "dimension",
+        "description": "Upload icon size"
+      },
+      "color": {
+        "default": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Upload icon color"
+        },
+        "active": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Upload icon color when dragging"
+        }
+      }
+    },
+    "text": {
+      "primary": {
+        "color": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Primary text color"
+        },
+        "size": {
+          "value": "16px",
+          "type": "dimension",
+          "description": "Primary text font size"
+        }
+      },
+      "secondary": {
+        "color": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Secondary text color"
+        },
+        "size": {
+          "value": "14px",
+          "type": "dimension",
+          "description": "Secondary text font size"
+        }
+      }
+    },
+    "fileList": {
+      "gap": {
+        "value": "{stack.s}",
+        "type": "dimension",
+        "description": "Gap between file items"
+      },
+      "item": {
+        "background": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "File item background"
+        },
+        "padding": {
+          "value": "{inset.s}",
+          "type": "dimension",
+          "description": "File item padding"
+        },
+        "radius": {
+          "value": "{radius.default}",
+          "type": "dimension",
+          "description": "File item border radius"
+        },
+        "border": {
+          "color": {
+            "value": "{border.subtle}",
+            "type": "color",
+            "description": "File item border color"
+          },
+          "width": {
+            "value": "1px",
+            "type": "dimension",
+            "description": "File item border width"
+          }
+        }
+      },
+      "fileName": {
+        "color": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "File name color"
+        },
+        "size": {
+          "value": "14px",
+          "type": "dimension",
+          "description": "File name font size"
+        }
+      },
+      "fileSize": {
+        "color": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "File size color"
+        },
+        "size": {
+          "value": "12px",
+          "type": "dimension",
+          "description": "File size font size"
+        }
+      },
+      "removeButton": {
+        "color": {
+          "default": {
+            "value": "{text.muted}",
+            "type": "color",
+            "description": "Remove button color"
+          },
+          "hover": {
+            "value": "{feedback.error}",
+            "type": "color",
+            "description": "Remove button hover color"
+          }
+        },
+        "size": {
+          "value": "20px",
+          "type": "dimension",
+          "description": "Remove button icon size"
+        }
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "200ms",
+        "type": "duration",
+        "description": "Transition duration"
+      }
+    }
+  }
+}

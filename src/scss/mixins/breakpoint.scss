@@ -1,0 +1,80 @@
+// Defined based on statcounter stats end 2023
+// Phone - https://gs.statcounter.com/screen-resolution-stats/mobile/netherlands#monthly-202210-202310
+// Tablet - https://gs.statcounter.com/screen-resolution-stats/tablet/netherlands#monthly-202210-202310
+// Desktop - https://gs.statcounter.com/screen-resolution-stats/tablet/netherlands#monthly-202210-202310
+
+@use "sass:map";
+
+$breakpoints: (
+  phone: (
+    from: 0px,
+    to: 767px,
+  ),
+  phone-portrait: (
+    from: 0px,
+    to: 429px,
+  ),
+  phone-landscape: (
+    from: 430px,
+    to: 767px,
+  ),
+  tablet: (
+    from: 768px,
+    to: 1280px,
+  ),
+  tablet-portrait: (
+    from: 768px,
+    to: 1023px,
+  ),
+  tablet-landscape: (
+    from: 1024px,
+    to: 1280px,
+  ),
+  laptop: (
+    from: 1281px,
+    to: 1919px,
+  ),
+  desktop: (
+    from: 1920px,
+    to: 2559px,
+  ),
+  wide-screen: (
+    from: 2560px,
+    to: 10000px,
+  ),
+);
+
+@mixin breakpoint-from($bp) {
+  $from: map.get(map.get($breakpoints, $bp), from);
+
+  @media (min-width: $from) {
+    @content;
+  }
+}
+
+@mixin breakpoint-to($bp) {
+  $from: map.get(map.get($breakpoints, $bp), from);
+  $max-width: $from - 1;
+
+  @media (max-width: $max-width) {
+    @content;
+  }
+}
+
+@mixin breakpoint-on($bp) {
+  $from: map.get(map.get($breakpoints, $bp), from);
+  $to: map.get(map.get($breakpoints, $bp), to);
+
+  @media (max-width: $to) and (min-width: $from) {
+    @content;
+  }
+}
+
+@mixin breakpoint-from-to($bp-from, $bp-to) {
+  $from: map.get(map.get($breakpoints, $bp-from), from);
+  $to: map.get(map.get($breakpoints, $bp-to), to);
+
+  @media (max-width: $to) and (min-width: $from) {
+    @content;
+  }
+}

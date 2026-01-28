@@ -1,0 +1,100 @@
+{
+  "terminal": {
+    "background": {
+      "value": "{neutral.900}",
+      "type": "color",
+      "description": "Terminal background color"
+    },
+    "border": {
+      "color": {
+        "value": "{neutral.700}",
+        "type": "color",
+        "description": "Terminal border color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Terminal border width"
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Terminal border radius"
+      }
+    },
+    "padding": {
+      "value": "{inset.m}",
+      "type": "dimension",
+      "description": "Terminal content padding"
+    },
+    "font": {
+      "family": {
+        "value": "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace",
+        "type": "fontFamily",
+        "description": "Terminal font family"
+      },
+      "size": {
+        "value": "14px",
+        "type": "dimension",
+        "description": "Terminal font size"
+      },
+      "lineHeight": {
+        "value": "1.5",
+        "type": "number",
+        "description": "Terminal line height"
+      }
+    },
+    "text": {
+      "color": {
+        "value": "{neutral.100}",
+        "type": "color",
+        "description": "Terminal text color"
+      }
+    },
+    "prompt": {
+      "color": {
+        "value": "{brand.primary}",
+        "type": "color",
+        "description": "Prompt text color"
+      },
+      "gap": {
+        "value": "{inline.s}",
+        "type": "dimension",
+        "description": "Gap between prompt and input"
+      }
+    },
+    "response": {
+      "color": {
+        "value": "{neutral.300}",
+        "type": "color",
+        "description": "Response text color"
+      }
+    },
+    "welcome": {
+      "color": {
+        "value": "{neutral.400}",
+        "type": "color",
+        "description": "Welcome message color"
+      },
+      "marginBottom": {
+        "value": "{stack.m}",
+        "type": "dimension",
+        "description": "Space below welcome message"
+      }
+    },
+    "command": {
+      "gap": {
+        "value": "{stack.xs}",
+        "type": "dimension",
+        "description": "Gap between commands"
+      }
+    },
+    "input": {
+      "caretColor": {
+        "value": "{brand.primary}",
+        "type": "color",
+        "description": "Input caret color"
+      }
+    }
+  }
+}

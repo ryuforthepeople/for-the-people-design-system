@@ -1,0 +1,45 @@
+{
+  "divider": {
+    "border": {
+      "color": {
+        "value": "{neutral.200}",
+        "type": "color",
+        "description": "Default divider border color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Default divider border width"
+      }
+    },
+    "margin": {
+      "horizontal": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Vertical margin for horizontal dividers"
+      },
+      "vertical": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Horizontal margin for vertical dividers"
+      }
+    },
+    "content": {
+      "gap": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Gap between divider line and content"
+      },
+      "color": {
+        "value": "{neutral.500}",
+        "type": "color",
+        "description": "Color of content text within divider"
+      },
+      "background": {
+        "value": "{neutral.0}",
+        "type": "color",
+        "description": "Background behind content to cover the line"
+      }
+    }
+  }
+}

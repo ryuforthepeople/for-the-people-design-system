@@ -1,0 +1,115 @@
+{
+  "field-set": {
+    "padding": {
+      "value": "{inset.l}",
+      "type": "dimension",
+      "description": "Content padding"
+    },
+    "background": {
+      "value": "{surface.canvas}",
+      "type": "color",
+      "description": "FieldSet background color"
+    },
+    "border": {
+      "color": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Border color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Border width"
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Border radius"
+      }
+    },
+    "legend": {
+      "padding": {
+        "x": {
+          "value": "{inset.m}",
+          "type": "dimension",
+          "description": "Legend horizontal padding"
+        },
+        "y": {
+          "value": "{inset.s}",
+          "type": "dimension",
+          "description": "Legend vertical padding"
+        }
+      },
+      "background": {
+        "value": "{surface.panel}",
+        "type": "color",
+        "description": "Legend background"
+      },
+      "color": {
+        "value": "{text.heading}",
+        "type": "color",
+        "description": "Legend text color"
+      },
+      "fontSize": {
+        "value": "14px",
+        "type": "dimension",
+        "description": "Legend font size"
+      },
+      "fontWeight": {
+        "value": "600",
+        "type": "fontWeight",
+        "description": "Legend font weight"
+      },
+      "border": {
+        "color": {
+          "value": "{border.subtle}",
+          "type": "color",
+          "description": "Legend border color"
+        },
+        "width": {
+          "value": "1px",
+          "type": "dimension",
+          "description": "Legend border width"
+        },
+        "radius": {
+          "value": "{radius.default}",
+          "type": "dimension",
+          "description": "Legend border radius"
+        }
+      }
+    },
+    "toggle": {
+      "icon": {
+        "size": {
+          "value": "16px",
+          "type": "dimension",
+          "description": "Toggle icon size"
+        },
+        "color": {
+          "default": {
+            "value": "{text.muted}",
+            "type": "color",
+            "description": "Toggle icon color"
+          },
+          "hover": {
+            "value": "{text.default}",
+            "type": "color",
+            "description": "Toggle icon hover color"
+          }
+        }
+      },
+      "gap": {
+        "value": "{inline.s}",
+        "type": "dimension",
+        "description": "Gap between legend text and toggle icon"
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "200ms",
+        "type": "duration",
+        "description": "Collapse/expand transition duration"
+      }
+    }
+  }
+}

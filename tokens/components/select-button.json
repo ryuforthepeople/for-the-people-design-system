@@ -1,0 +1,145 @@
+{
+  "selectButton": {
+    "gap": {
+      "value": "{inline.2xs}",
+      "type": "dimension",
+      "description": "Gap between option buttons"
+    },
+    "padding": {
+      "x": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Horizontal padding for option buttons"
+      },
+      "y": {
+        "value": "{inset.xs}",
+        "type": "dimension",
+        "description": "Vertical padding for option buttons"
+      }
+    },
+    "radius": {
+      "value": "{radius.default}",
+      "type": "dimension",
+      "description": "Border radius for option buttons"
+    },
+    "border": {
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Border width for option buttons"
+      },
+      "color": {
+        "default": {
+          "value": "{neutral.300}",
+          "type": "color",
+          "description": "Default border color"
+        },
+        "hover": {
+          "value": "{neutral.400}",
+          "type": "color",
+          "description": "Hover border color"
+        },
+        "selected": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Selected border color"
+        },
+        "disabled": {
+          "value": "{neutral.200}",
+          "type": "color",
+          "description": "Disabled border color"
+        }
+      }
+    },
+    "background": {
+      "default": {
+        "value": "{surface.canvas}",
+        "type": "color",
+        "description": "Default background color"
+      },
+      "hover": {
+        "value": "{neutral.50}",
+        "type": "color",
+        "description": "Hover background color"
+      },
+      "selected": {
+        "value": "{brand.primary}",
+        "type": "color",
+        "description": "Selected background color"
+      },
+      "disabled": {
+        "value": "{neutral.100}",
+        "type": "color",
+        "description": "Disabled background color"
+      }
+    },
+    "text": {
+      "default": {
+        "value": "{text.default}",
+        "type": "color",
+        "description": "Default text color"
+      },
+      "hover": {
+        "value": "{text.default}",
+        "type": "color",
+        "description": "Hover text color"
+      },
+      "selected": {
+        "value": "{text.inverse}",
+        "type": "color",
+        "description": "Selected text color"
+      },
+      "disabled": {
+        "value": "{text.muted}",
+        "type": "color",
+        "description": "Disabled text color"
+      }
+    },
+    "focus": {
+      "ringWidth": {
+        "value": "2px",
+        "type": "dimension",
+        "description": "Focus ring width"
+      },
+      "ringColor": {
+        "value": "{focus.ring}",
+        "type": "color",
+        "description": "Focus ring color"
+      },
+      "ringOffset": {
+        "value": "2px",
+        "type": "dimension",
+        "description": "Focus ring offset"
+      }
+    },
+    "fontSize": {
+      "value": "14px",
+      "type": "dimension",
+      "description": "Font size for option text"
+    },
+    "fontWeight": {
+      "default": {
+        "value": "500",
+        "type": "fontWeight",
+        "description": "Default font weight"
+      },
+      "selected": {
+        "value": "600",
+        "type": "fontWeight",
+        "description": "Selected font weight"
+      }
+    },
+    "minHeight": {
+      "value": "36px",
+      "type": "dimension",
+      "description": "Minimum height of option buttons"
+    },
+    "transition": {
+      "duration": {
+        "value": "150ms",
+        "type": "duration",
+        "description": "Transition duration for state changes"
+      }
+    }
+  }
+}

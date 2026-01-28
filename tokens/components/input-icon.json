@@ -1,0 +1,38 @@
+{
+  "input-icon": {
+    "color": {
+      "default": {
+        "value": "{text.muted}",
+        "type": "color",
+        "description": "Default icon color"
+      },
+      "focus": {
+        "value": "{text.default}",
+        "type": "color",
+        "description": "Icon color when input is focused"
+      }
+    },
+    "size": {
+      "sm": {
+        "value": "16px",
+        "type": "dimension",
+        "description": "Small icon size"
+      },
+      "md": {
+        "value": "18px",
+        "type": "dimension",
+        "description": "Medium icon size"
+      },
+      "lg": {
+        "value": "20px",
+        "type": "dimension",
+        "description": "Large icon size"
+      }
+    },
+    "offset": {
+      "value": "{inset.m}",
+      "type": "dimension",
+      "description": "Horizontal offset from input edge"
+    }
+  }
+}

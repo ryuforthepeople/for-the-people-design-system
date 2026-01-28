@@ -1,0 +1,101 @@
+{
+  "confirmPopup": {
+    "padding": {
+      "x": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Horizontal padding"
+      },
+      "y": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Vertical padding"
+      }
+    },
+    "background": {
+      "value": "{surface.canvas}",
+      "type": "color",
+      "description": "Popup background color"
+    },
+    "radius": {
+      "value": "{radius.default}",
+      "type": "dimension",
+      "description": "Popup border radius"
+    },
+    "shadow": {
+      "value": "{shadow.m}",
+      "type": "shadow",
+      "description": "Popup elevation shadow"
+    },
+    "border": {
+      "color": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Popup border color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Popup border width"
+      }
+    },
+    "message": {
+      "color": {
+        "value": "{text.default}",
+        "type": "color",
+        "description": "Message text color"
+      },
+      "fontSize": {
+        "value": "14px",
+        "type": "dimension",
+        "description": "Message font size"
+      }
+    },
+    "icon": {
+      "size": {
+        "value": "20px",
+        "type": "dimension",
+        "description": "Icon size"
+      },
+      "color": {
+        "value": "{feedback.warning}",
+        "type": "color",
+        "description": "Icon color"
+      }
+    },
+    "arrow": {
+      "size": {
+        "value": "8px",
+        "type": "dimension",
+        "description": "Arrow/pointer size"
+      }
+    },
+    "offset": {
+      "value": "10px",
+      "type": "dimension",
+      "description": "Distance from target element"
+    },
+    "maxWidth": {
+      "value": "300px",
+      "type": "dimension",
+      "description": "Maximum width"
+    },
+    "zIndex": {
+      "value": "1100",
+      "type": "number",
+      "description": "Z-index for stacking"
+    },
+    "gap": {
+      "content": {
+        "value": "{stack.s}",
+        "type": "dimension",
+        "description": "Gap between icon/message and buttons"
+      },
+      "buttons": {
+        "value": "{inline.xs}",
+        "type": "dimension",
+        "description": "Gap between buttons"
+      }
+    }
+  }
+}

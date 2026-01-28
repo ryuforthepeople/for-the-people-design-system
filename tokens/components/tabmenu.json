@@ -1,0 +1,103 @@
+{
+  "tabmenu": {
+    "background": {
+      "value": "transparent",
+      "type": "color",
+      "description": "TabMenu container background"
+    },
+    "border": {
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Bottom border width"
+      },
+      "color": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Bottom border color"
+      }
+    },
+    "item": {
+      "padding": {
+        "value": "{inset.s} {inset.m}",
+        "type": "dimension",
+        "description": "Tab item padding"
+      },
+      "gap": {
+        "value": "{inline.2xs}",
+        "type": "dimension",
+        "description": "Gap between icon and label"
+      },
+      "color": {
+        "default": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Tab text color"
+        },
+        "hover": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Tab text color on hover"
+        },
+        "active": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Active tab text color"
+        },
+        "disabled": {
+          "value": "{neutral.400}",
+          "type": "color",
+          "description": "Disabled tab text color"
+        }
+      },
+      "background": {
+        "default": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Tab background"
+        },
+        "hover": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Tab background on hover"
+        },
+        "active": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Active tab background"
+        }
+      }
+    },
+    "icon": {
+      "size": {
+        "value": "16px",
+        "type": "dimension",
+        "description": "Icon size"
+      }
+    },
+    "inkbar": {
+      "height": {
+        "value": "2px",
+        "type": "dimension",
+        "description": "Active indicator height"
+      },
+      "color": {
+        "value": "{brand.primary}",
+        "type": "color",
+        "description": "Active indicator color"
+      },
+      "borderRadius": {
+        "value": "2px",
+        "type": "dimension",
+        "description": "Active indicator border radius"
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "200ms",
+        "type": "duration",
+        "description": "Animation duration"
+      }
+    }
+  }
+}

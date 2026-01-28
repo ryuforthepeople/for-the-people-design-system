@@ -1,0 +1,125 @@
+{
+  "radio": {
+    "size": {
+      "sm": {
+        "value": "16px",
+        "type": "dimension",
+        "description": "Small radio"
+      },
+      "md": {
+        "value": "20px",
+        "type": "dimension",
+        "description": "Medium radio (default)"
+      },
+      "lg": {
+        "value": "24px",
+        "type": "dimension",
+        "description": "Large radio"
+      }
+    },
+    "dotSize": {
+      "sm": {
+        "value": "6px",
+        "type": "dimension"
+      },
+      "md": {
+        "value": "8px",
+        "type": "dimension"
+      },
+      "lg": {
+        "value": "10px",
+        "type": "dimension"
+      }
+    },
+    "border": {
+      "width": {
+        "value": "2px",
+        "type": "dimension"
+      },
+      "color": {
+        "default": {
+          "value": "{navy.500}",
+          "type": "color",
+          "description": "Visible on dark backgrounds"
+        },
+        "hover": {
+          "value": "{navy.400}",
+          "type": "color"
+        },
+        "checked": {
+          "value": "{orange.500}",
+          "type": "color",
+          "description": "Accent color when checked"
+        },
+        "focus": {
+          "value": "{orange.500}",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "{navy.700}",
+          "type": "color"
+        },
+        "error": {
+          "value": "{feedback.error}",
+          "type": "color"
+        }
+      }
+    },
+    "background": {
+      "default": {
+        "value": "transparent",
+        "type": "color",
+        "description": "Transparent to show dark page background"
+      },
+      "checked": {
+        "value": "{orange.500}",
+        "type": "color",
+        "description": "Bright accent for visibility on dark backgrounds"
+      },
+      "disabled": {
+        "value": "{navy.800}",
+        "type": "color"
+      },
+      "hover": {
+        "value": "{navy.800}",
+        "type": "color"
+      }
+    },
+    "dot": {
+      "color": {
+        "value": "{neutral.0}",
+        "type": "color"
+      }
+    },
+    "label": {
+      "gap": {
+        "value": "{inset.s}",
+        "type": "dimension"
+      },
+      "color": {
+        "default": {
+          "value": "{text.default}",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "{text.muted}",
+          "type": "color"
+        }
+      }
+    },
+    "focus": {
+      "ringWidth": {
+        "value": "2px",
+        "type": "dimension"
+      },
+      "ringColor": {
+        "value": "{orange.500}",
+        "type": "color"
+      },
+      "ringOffset": {
+        "value": "2px",
+        "type": "dimension"
+      }
+    }
+  }
+}

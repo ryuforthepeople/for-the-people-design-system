@@ -1,0 +1,120 @@
+{
+  "panel": {
+    "background": {
+      "value": "{surface.panel}",
+      "type": "color",
+      "description": "Panel background color"
+    },
+    "border": {
+      "color": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Panel border color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Panel border width"
+      }
+    },
+    "radius": {
+      "value": "{radius.default}",
+      "type": "dimension",
+      "description": "Panel border radius"
+    },
+    "header": {
+      "padding": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Header section padding"
+      },
+      "background": {
+        "default": {
+          "value": "{navy.800}",
+          "type": "color",
+          "description": "Header background"
+        },
+        "hover": {
+          "value": "{navy.700}",
+          "type": "color",
+          "description": "Header hover background when toggleable"
+        }
+      },
+      "color": {
+        "value": "{text.heading}",
+        "type": "color",
+        "description": "Header text color"
+      },
+      "borderColor": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Header bottom border color"
+      },
+      "fontSize": {
+        "value": "16px",
+        "type": "dimension",
+        "description": "Header font size"
+      },
+      "fontWeight": {
+        "value": "600",
+        "type": "fontWeight",
+        "description": "Header font weight"
+      }
+    },
+    "content": {
+      "padding": {
+        "value": "{inset.l}",
+        "type": "dimension",
+        "description": "Content area padding"
+      },
+      "background": {
+        "value": "{surface.canvas}",
+        "type": "color",
+        "description": "Content background"
+      },
+      "color": {
+        "value": "{text.default}",
+        "type": "color",
+        "description": "Content text color"
+      }
+    },
+    "icon": {
+      "size": {
+        "value": "16px",
+        "type": "dimension",
+        "description": "Toggle icon size"
+      },
+      "color": {
+        "default": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Icon color"
+        },
+        "hover": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Icon color on hover"
+        }
+      },
+      "rotation": {
+        "collapsed": {
+          "value": "-90deg",
+          "type": "dimension",
+          "description": "Icon rotation when collapsed"
+        },
+        "expanded": {
+          "value": "0deg",
+          "type": "dimension",
+          "description": "Icon rotation when expanded"
+        }
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "200ms",
+        "type": "duration",
+        "description": "Animation duration"
+      }
+    }
+  }
+}

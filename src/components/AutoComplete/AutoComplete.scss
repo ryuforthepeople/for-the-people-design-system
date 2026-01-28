@@ -1,0 +1,282 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: autocomplete;
+
+.#{$c} {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+}
+
+.#{$c}__input-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--autocomplete-gap, $autocomplete-gap);
+  width: 100%;
+  min-height: var(--autocomplete-height-md, $autocomplete-height-md);
+  padding: var(--autocomplete-padding-y, $autocomplete-padding-y) var(--autocomplete-padding-x, $autocomplete-padding-x);
+  padding-right: calc(var(--autocomplete-padding-x, $autocomplete-padding-x) + 40px);
+  background-color: var(--autocomplete-background-default, $autocomplete-background-default);
+  border: var(--autocomplete-border-width, $autocomplete-border-width) solid var(--autocomplete-border-color-default, $autocomplete-border-color-default);
+  border-radius: var(--autocomplete-radius, $autocomplete-radius);
+  cursor: text;
+  transition: border-color 0.15s ease;
+
+  &:hover:not(.#{$c}--disabled &) {
+    border-color: var(--autocomplete-border-color-hover, $autocomplete-border-color-hover);
+  }
+}
+
+.#{$c}__input {
+  flex: 1;
+  min-width: 80px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: var(--autocomplete-text-default, $autocomplete-text-default);
+  font-size: var(--autocomplete-fontSize-md, $autocomplete-fontSize-md);
+  line-height: 1.5;
+
+  &::placeholder {
+    color: var(--autocomplete-text-placeholder, $autocomplete-text-placeholder);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--autocomplete-text-disabled, $autocomplete-text-disabled);
+  }
+}
+
+.#{$c}__icon {
+  position: absolute;
+  right: var(--autocomplete-padding-x, $autocomplete-padding-x);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--autocomplete-text-placeholder, $autocomplete-text-placeholder);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.#{$c}__clear {
+  position: absolute;
+  right: calc(var(--autocomplete-padding-x, $autocomplete-padding-x) + 20px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--autocomplete-text-placeholder, $autocomplete-text-placeholder);
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: var(--autocomplete-text-default, $autocomplete-text-default);
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.#{$c}__loader {
+  position: absolute;
+  right: calc(var(--autocomplete-padding-x, $autocomplete-padding-x) + 20px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--autocomplete-loader-size, $autocomplete-loader-size);
+  height: var(--autocomplete-loader-size, $autocomplete-loader-size);
+  color: var(--autocomplete-loader-color, $autocomplete-loader-color);
+}
+
+.#{$c}__loader-icon {
+  width: 100%;
+  height: 100%;
+  animation: autocomplete-spin 1s linear infinite;
+}
+
+@keyframes autocomplete-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Chip styles for multiple mode
+.#{$c}__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--autocomplete-chip-gap, $autocomplete-chip-gap);
+  padding: var(--autocomplete-chip-padding-y, $autocomplete-chip-padding-y) var(--autocomplete-chip-padding-x, $autocomplete-chip-padding-x);
+  background-color: var(--autocomplete-chip-background-default, $autocomplete-chip-background-default);
+  border-radius: var(--autocomplete-chip-radius, $autocomplete-chip-radius);
+  font-size: var(--autocomplete-chip-fontSize, $autocomplete-chip-fontSize);
+  color: var(--autocomplete-chip-text, $autocomplete-chip-text);
+  line-height: 1.4;
+  user-select: none;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: var(--autocomplete-chip-background-hover, $autocomplete-chip-background-hover);
+  }
+}
+
+.#{$c}__chip-label {
+  white-space: nowrap;
+}
+
+.#{$c}__chip-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--autocomplete-remove-size, $autocomplete-remove-size);
+  height: var(--autocomplete-remove-size, $autocomplete-remove-size);
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: var(--autocomplete-remove-color-default, $autocomplete-remove-color-default);
+  cursor: pointer;
+  transition: color 0.15s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    color: var(--autocomplete-remove-color-hover, $autocomplete-remove-color-hover);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--autocomplete-focus-ringColor, $autocomplete-focus-ringColor);
+    outline-offset: 1px;
+  }
+}
+
+.#{$c}__chip-remove-icon {
+  width: 12px;
+  height: 12px;
+}
+
+// Dropdown
+.#{$c}__dropdown {
+  background-color: var(--autocomplete-dropdown-background, $autocomplete-dropdown-background);
+  border: 1px solid var(--autocomplete-dropdown-border, $autocomplete-dropdown-border);
+  border-radius: var(--autocomplete-dropdown-radius, $autocomplete-dropdown-radius);
+  box-shadow: var(--autocomplete-dropdown-shadow, $autocomplete-dropdown-shadow);
+  max-height: var(--autocomplete-dropdown-maxHeight, $autocomplete-dropdown-maxHeight);
+  overflow-y: auto;
+}
+
+.#{$c}__option {
+  padding: var(--autocomplete-option-padding-y, $autocomplete-option-padding-y) var(--autocomplete-option-padding-x, $autocomplete-option-padding-x);
+  color: var(--autocomplete-option-text-default, $autocomplete-option-text-default);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+
+  &:first-child {
+    border-radius: var(--autocomplete-dropdown-radius, $autocomplete-dropdown-radius) var(--autocomplete-dropdown-radius, $autocomplete-dropdown-radius) 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 0 var(--autocomplete-dropdown-radius, $autocomplete-dropdown-radius) var(--autocomplete-dropdown-radius, $autocomplete-dropdown-radius);
+  }
+}
+
+.#{$c}__option--highlighted {
+  background-color: var(--autocomplete-option-background-hover, $autocomplete-option-background-hover);
+}
+
+.#{$c}__option--selected {
+  background-color: var(--autocomplete-option-background-selected, $autocomplete-option-background-selected);
+  color: var(--autocomplete-option-text-selected, $autocomplete-option-text-selected);
+}
+
+// States
+.#{$c}--focused {
+  .#{$c}__input-wrapper {
+    outline: var(--autocomplete-focus-ringWidth, $autocomplete-focus-ringWidth) solid var(--autocomplete-focus-ringColor, $autocomplete-focus-ringColor);
+    outline-offset: var(--autocomplete-focus-ringOffset, $autocomplete-focus-ringOffset);
+    border-color: var(--autocomplete-border-color-focus, $autocomplete-border-color-focus);
+  }
+}
+
+.#{$c}--disabled {
+  .#{$c}__input-wrapper {
+    cursor: not-allowed;
+    background-color: var(--autocomplete-background-disabled, $autocomplete-background-disabled);
+    border-color: var(--autocomplete-border-color-disabled, $autocomplete-border-color-disabled);
+  }
+
+  .#{$c}__icon {
+    opacity: 0.5;
+  }
+
+  .#{$c}__chip {
+    opacity: 0.6;
+  }
+}
+
+.#{$c}--invalid {
+  .#{$c}__input-wrapper {
+    border-color: var(--autocomplete-border-color-error, $autocomplete-border-color-error);
+  }
+
+  &.#{$c}--focused {
+    .#{$c}__input-wrapper {
+      border-color: var(--autocomplete-border-color-error, $autocomplete-border-color-error);
+    }
+  }
+}
+
+// Sizes
+.#{$c}--size-sm {
+  .#{$c}__input-wrapper {
+    min-height: var(--autocomplete-height-sm, $autocomplete-height-sm);
+  }
+
+  .#{$c}__input {
+    font-size: var(--autocomplete-fontSize-sm, $autocomplete-fontSize-sm);
+  }
+
+  .#{$c}__chip {
+    font-size: 12px;
+  }
+}
+
+.#{$c}--size-md {
+  .#{$c}__input-wrapper {
+    min-height: var(--autocomplete-height-md, $autocomplete-height-md);
+  }
+
+  .#{$c}__input {
+    font-size: var(--autocomplete-fontSize-md, $autocomplete-fontSize-md);
+  }
+}
+
+.#{$c}--size-lg {
+  .#{$c}__input-wrapper {
+    min-height: var(--autocomplete-height-lg, $autocomplete-height-lg);
+  }
+
+  .#{$c}__input {
+    font-size: var(--autocomplete-fontSize-lg, $autocomplete-fontSize-lg);
+  }
+
+  .#{$c}__chip {
+    font-size: 14px;
+    padding: 4px 8px;
+  }
+}

@@ -1,0 +1,164 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: tree;
+
+.#{$c} {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--tree-background-default, $tree-background-default);
+  border: var(--tree-border-width, $tree-border-width) solid var(--tree-border-color-default, $tree-border-color-default);
+  border-radius: var(--tree-radius, $tree-radius);
+  overflow: hidden;
+}
+
+.#{$c}--disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  background-color: var(--tree-background-disabled, $tree-background-disabled);
+  border-color: var(--tree-border-color-disabled, $tree-border-color-disabled);
+}
+
+// Filter
+.#{$c}__filter {
+  padding: var(--tree-filter-padding, $tree-filter-padding);
+  border-bottom: 1px solid var(--tree-border-color-default, $tree-border-color-default);
+}
+
+.#{$c}__filter-input {
+  width: 100%;
+  padding: var(--tree-node-padding-y, $tree-node-padding-y) var(--tree-node-padding-x, $tree-node-padding-x);
+  border: 1px solid var(--tree-border-color-default, $tree-border-color-default);
+  border-radius: var(--tree-node-radius, $tree-node-radius);
+  font-size: 14px;
+
+  &:focus {
+    outline: none;
+    border-color: var(--tree-focus-ringColor, $tree-focus-ringColor);
+  }
+}
+
+// Container
+.#{$c}__container {
+  max-height: var(--tree-maxHeight, $tree-maxHeight);
+  overflow-y: auto;
+  padding: var(--tree-padding, $tree-padding);
+}
+
+// Node wrapper
+.#{$c}__node-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+// Node
+.#{$c}__node {
+  display: flex;
+  align-items: center;
+  gap: var(--tree-node-gap, $tree-node-gap);
+  padding: var(--tree-node-padding-y, $tree-node-padding-y) var(--tree-node-padding-x, $tree-node-padding-x);
+  background-color: var(--tree-node-background-default, $tree-node-background-default);
+  color: var(--tree-node-text-default, $tree-node-text-default);
+  border-radius: var(--tree-node-radius, $tree-node-radius);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: var(--tree-node-background-hover, $tree-node-background-hover);
+  }
+
+  &:focus {
+    outline: none;
+    background-color: var(--tree-node-background-hover, $tree-node-background-hover);
+  }
+
+  &:focus-visible {
+    outline: var(--tree-focus-ringWidth, $tree-focus-ringWidth) solid var(--tree-focus-ringColor, $tree-focus-ringColor);
+    outline-offset: -2px;
+  }
+}
+
+.#{$c}__node--selected {
+  background-color: var(--tree-node-background-selected, $tree-node-background-selected);
+  color: var(--tree-node-text-selected, $tree-node-text-selected);
+
+  &:hover {
+    background-color: var(--tree-node-background-selected, $tree-node-background-selected);
+    filter: brightness(0.95);
+  }
+}
+
+// Toggler
+.#{$c}__toggler {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tree-toggler-size, $tree-toggler-size);
+  height: var(--tree-toggler-size, $tree-toggler-size);
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: var(--tree-toggler-color-default, $tree-toggler-color-default);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    color: var(--tree-toggler-color-hover, $tree-toggler-color-hover);
+  }
+
+  &--expanded {
+    transform: rotate(90deg);
+  }
+}
+
+.#{$c}__toggler-spacer {
+  width: var(--tree-toggler-size, $tree-toggler-size);
+  flex-shrink: 0;
+}
+
+// Checkbox
+.#{$c}__checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tree-checkbox-size, $tree-checkbox-size);
+  height: var(--tree-checkbox-size, $tree-checkbox-size);
+  border: 2px solid var(--tree-checkbox-border, $tree-checkbox-border);
+  border-radius: 3px;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+
+  svg {
+    color: white;
+  }
+
+  &--checked {
+    background-color: var(--tree-checkbox-background-checked, $tree-checkbox-background-checked);
+    border-color: var(--tree-checkbox-background-checked, $tree-checkbox-background-checked);
+  }
+}
+
+// Node label
+.#{$c}__node-label {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Children
+.#{$c}__children {
+  display: flex;
+  flex-direction: column;
+}
+
+// Empty
+.#{$c}__empty {
+  padding: var(--tree-node-padding-y, $tree-node-padding-y) var(--tree-node-padding-x, $tree-node-padding-x);
+  color: var(--tree-node-text-default, $tree-node-text-default);
+  opacity: 0.6;
+  text-align: center;
+  font-size: 14px;
+}

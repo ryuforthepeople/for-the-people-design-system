@@ -1,0 +1,73 @@
+@use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/accent-gradient.scss" as *;
+
+$c: tag;
+
+.#{$c} {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--tag-gap, $tag-gap);
+  padding: var(--tag-padding-y, $tag-padding-y) var(--tag-padding-x, $tag-padding-x);
+  font-size: var(--tag-fontSize, $tag-fontSize);
+  font-weight: var(--tag-fontWeight, $tag-fontWeight);
+  line-height: 1;
+  border-radius: var(--tag-radius-default, $tag-radius-default);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.#{$c}__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--tag-iconSize, $tag-iconSize);
+  width: var(--tag-iconSize, $tag-iconSize);
+  height: var(--tag-iconSize, $tag-iconSize);
+}
+
+.#{$c}__value {
+  display: inline;
+}
+
+// Rounded (pill) variant
+.#{$c}--rounded {
+  border-radius: var(--tag-radius-rounded, $tag-radius-rounded);
+}
+
+// Brand colors
+.#{$c}--color-brand {
+  background-color: var(--tag-background-brand, $tag-background-brand);
+  color: var(--tag-text-brand, $tag-text-brand);
+}
+
+.#{$c}--color-accent {
+  @include accent-gradient();
+  color: var(--tag-text-accent, $tag-text-accent);
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.#{$c}--color-neutral {
+  background-color: var(--tag-background-neutral, $tag-background-neutral);
+  color: var(--tag-text-neutral, $tag-text-neutral);
+}
+
+// Status colors
+.#{$c}--color-success {
+  background-color: var(--tag-background-success, $tag-background-success);
+  color: var(--tag-text-success, $tag-text-success);
+}
+
+.#{$c}--color-warning {
+  background-color: var(--tag-background-warning, $tag-background-warning);
+  color: var(--tag-text-warning, $tag-text-warning);
+}
+
+.#{$c}--color-danger {
+  background-color: var(--tag-background-danger, $tag-background-danger);
+  color: var(--tag-text-danger, $tag-text-danger);
+}
+
+.#{$c}--color-info {
+  background-color: var(--tag-background-info, $tag-background-info);
+  color: var(--tag-text-info, $tag-text-info);
+}

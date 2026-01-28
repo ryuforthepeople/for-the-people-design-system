@@ -1,0 +1,145 @@
+{
+  "menu": {
+    "background": {
+      "value": "{surface.elevated}",
+      "type": "color",
+      "description": "Menu popup background"
+    },
+    "border": {
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Menu border width"
+      },
+      "color": {
+        "value": "{neutral.200}",
+        "type": "color",
+        "description": "Menu border color"
+      }
+    },
+    "radius": {
+      "value": "{radius.default}",
+      "type": "dimension",
+      "description": "Menu border radius"
+    },
+    "shadow": {
+      "value": "{shadow.m}",
+      "type": "shadow",
+      "description": "Menu popup shadow"
+    },
+    "padding": {
+      "value": "{inset.xs}",
+      "type": "dimension",
+      "description": "Menu content padding"
+    },
+    "minWidth": {
+      "value": "180px",
+      "type": "dimension",
+      "description": "Minimum menu width"
+    },
+    "maxHeight": {
+      "value": "320px",
+      "type": "dimension",
+      "description": "Maximum menu height before scrolling"
+    },
+    "zIndex": {
+      "value": "1000",
+      "type": "number",
+      "description": "Z-index for stacking"
+    },
+    "item": {
+      "padding": {
+        "x": {
+          "value": "{inset.m}",
+          "type": "dimension",
+          "description": "Item horizontal padding"
+        },
+        "y": {
+          "value": "{inset.s}",
+          "type": "dimension",
+          "description": "Item vertical padding"
+        }
+      },
+      "gap": {
+        "value": "{inline.s}",
+        "type": "dimension",
+        "description": "Gap between icon and label"
+      },
+      "radius": {
+        "value": "{radius.subtle}",
+        "type": "dimension",
+        "description": "Item border radius"
+      },
+      "background": {
+        "default": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Default item background"
+        },
+        "hover": {
+          "value": "{neutral.100}",
+          "type": "color",
+          "description": "Item hover background"
+        },
+        "active": {
+          "value": "{neutral.200}",
+          "type": "color",
+          "description": "Item active/pressed background"
+        },
+        "disabled": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Disabled item background"
+        }
+      },
+      "text": {
+        "default": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Default item text color"
+        },
+        "disabled": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Disabled item text color"
+        }
+      },
+      "icon": {
+        "size": {
+          "value": "18px",
+          "type": "dimension",
+          "description": "Item icon size"
+        },
+        "color": {
+          "default": {
+            "value": "{text.muted}",
+            "type": "color",
+            "description": "Default icon color"
+          },
+          "disabled": {
+            "value": "{neutral.300}",
+            "type": "color",
+            "description": "Disabled icon color"
+          }
+        }
+      },
+      "fontSize": {
+        "value": "14px",
+        "type": "dimension",
+        "description": "Item font size"
+      }
+    },
+    "separator": {
+      "color": {
+        "value": "{neutral.200}",
+        "type": "color",
+        "description": "Separator line color"
+      },
+      "margin": {
+        "value": "{stack.xs}",
+        "type": "dimension",
+        "description": "Separator vertical margin"
+      }
+    }
+  }
+}

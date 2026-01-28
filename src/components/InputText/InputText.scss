@@ -1,0 +1,61 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: input-text;
+
+.#{$c} {
+  display: block;
+  width: 100%;
+  appearance: none;
+  background-color: var(--input-text-background-default, $input-text-background-default);
+  border: var(--input-text-border-width, $input-text-border-width) solid var(--input-text-border-color-default, $input-text-border-color-default);
+  border-radius: var(--input-text-radius, $input-text-radius);
+  padding: 0 var(--input-text-padding-x, $input-text-padding-x);
+  color: var(--input-text-text-default, $input-text-text-default);
+  transition: all 0.15s ease;
+
+  &::placeholder {
+    color: var(--input-text-text-placeholder, $input-text-text-placeholder);
+  }
+
+  &:hover:not(:disabled) {
+    border-color: var(--input-text-border-color-hover, $input-text-border-color-hover);
+  }
+
+  &:focus {
+    outline: var(--input-text-focus-ringWidth, $input-text-focus-ringWidth) solid var(--input-text-focus-ringColor, $input-text-focus-ringColor);
+    outline-offset: var(--input-text-focus-ringOffset, $input-text-focus-ringOffset);
+    border-color: var(--input-text-border-color-focus, $input-text-border-color-focus);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--input-text-background-disabled, $input-text-background-disabled);
+    border-color: var(--input-text-border-color-disabled, $input-text-border-color-disabled);
+    color: var(--input-text-text-disabled, $input-text-text-disabled);
+  }
+}
+
+// Invalid state
+.#{$c}--invalid {
+  border-color: var(--input-text-border-color-error, $input-text-border-color-error);
+
+  &:focus {
+    border-color: var(--input-text-border-color-error, $input-text-border-color-error);
+  }
+}
+
+// Sizes
+.#{$c}--size-sm {
+  height: var(--input-text-height-sm, $input-text-height-sm);
+  font-size: var(--input-text-fontSize-sm, $input-text-fontSize-sm);
+}
+
+.#{$c}--size-md {
+  height: var(--input-text-height-md, $input-text-height-md);
+  font-size: var(--input-text-fontSize-md, $input-text-fontSize-md);
+}
+
+.#{$c}--size-lg {
+  height: var(--input-text-height-lg, $input-text-height-lg);
+  font-size: var(--input-text-fontSize-lg, $input-text-fontSize-lg);
+}

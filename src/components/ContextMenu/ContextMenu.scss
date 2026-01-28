@@ -1,0 +1,167 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: context-menu;
+
+.#{$c} {
+  position: fixed;
+  min-width: var(--context-menu-minWidth, $context-menu-minWidth);
+  max-width: var(--context-menu-maxWidth, $context-menu-maxWidth);
+  background-color: var(--context-menu-background, $context-menu-background);
+  border: var(--context-menu-border-width, $context-menu-border-width) solid var(--context-menu-border-color, $context-menu-border-color);
+  border-radius: var(--context-menu-radius, $context-menu-radius);
+  box-shadow: var(--context-menu-shadow, $context-menu-shadow);
+  padding: var(--context-menu-padding-y, $context-menu-padding-y) 0;
+  z-index: var(--context-menu-zIndex, $context-menu-zIndex);
+  outline: none;
+}
+
+.#{$c}__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.#{$c}__item {
+  display: flex;
+  align-items: center;
+  gap: var(--context-menu-item-icon-gap, $context-menu-item-icon-gap);
+  padding: var(--context-menu-item-padding-y, $context-menu-item-padding-y) var(--context-menu-item-padding-x, $context-menu-item-padding-x);
+  font-size: var(--context-menu-item-text-fontSize, $context-menu-item-text-fontSize);
+  color: var(--context-menu-item-text-color-default, $context-menu-item-text-color-default);
+  background-color: var(--context-menu-item-background-default, $context-menu-item-background-default);
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background-color: var(--context-menu-item-background-hover, $context-menu-item-background-hover);
+    color: var(--context-menu-item-text-color-hover, $context-menu-item-text-color-hover);
+  }
+}
+
+.#{$c}__item--disabled {
+  color: var(--context-menu-item-text-color-disabled, $context-menu-item-text-color-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.#{$c}__item--has-submenu {
+  > .#{$c}__submenu {
+    position: absolute;
+    left: 100%;
+    top: var(--context-menu-submenu-offset, $context-menu-submenu-offset);
+    min-width: var(--context-menu-minWidth, $context-menu-minWidth);
+    background-color: var(--context-menu-background, $context-menu-background);
+    border: var(--context-menu-border-width, $context-menu-border-width) solid var(--context-menu-border-color, $context-menu-border-color);
+    border-radius: var(--context-menu-radius, $context-menu-radius);
+    box-shadow: var(--context-menu-shadow, $context-menu-shadow);
+    padding: var(--context-menu-padding-y, $context-menu-padding-y) 0;
+    list-style: none;
+    margin: 0;
+    z-index: 1;
+  }
+}
+
+.#{$c}__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--context-menu-item-icon-size, $context-menu-item-icon-size);
+  height: var(--context-menu-item-icon-size, $context-menu-item-icon-size);
+  color: var(--context-menu-item-icon-color, $context-menu-item-icon-color);
+  flex-shrink: 0;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.#{$c}__label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.#{$c}__shortcut {
+  margin-left: auto;
+  padding-left: var(--context-menu-item-icon-gap, $context-menu-item-icon-gap);
+  font-size: var(--context-menu-item-shortcut-fontSize, $context-menu-item-shortcut-fontSize);
+  color: var(--context-menu-item-shortcut-color, $context-menu-item-shortcut-color);
+  white-space: nowrap;
+}
+
+.#{$c}__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--context-menu-submenu-arrow-size, $context-menu-submenu-arrow-size);
+  height: var(--context-menu-submenu-arrow-size, $context-menu-submenu-arrow-size);
+  margin-left: auto;
+  color: var(--context-menu-submenu-arrow-color, $context-menu-submenu-arrow-color);
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.#{$c}__separator {
+  height: 1px;
+  margin: var(--context-menu-separator-margin, $context-menu-separator-margin) 0;
+  background-color: var(--context-menu-separator-color, $context-menu-separator-color);
+}
+
+// Popup mode styles
+.#{$c}--popup {
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease;
+}
+
+// Arrow pointer indicator
+.#{$c}__pointer {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: var(--context-menu-background, $context-menu-background);
+  border: var(--context-menu-border-width, $context-menu-border-width) solid var(--context-menu-border-color, $context-menu-border-color);
+  transform: translateX(-50%) rotate(45deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.#{$c}--below .#{$c}__pointer {
+  top: -7px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.#{$c}--above .#{$c}__pointer {
+  bottom: -7px;
+  border-left: none;
+  border-top: none;
+}
+
+// Transition animations
+.#{$c}-fade-enter-active,
+.#{$c}-fade-leave-active {
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.#{$c}-fade-enter-from,
+.#{$c}-fade-leave-to {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+// Global styles for trigger highlight
+:global(.context-menu-trigger--active) {
+  background-color: var(--context-menu-trigger-background-active, rgba(0, 0, 0, 0.05)) !important;
+  box-shadow: 0 0 0 2px var(--context-menu-trigger-ring-color, currentColor);
+  border-radius: var(--context-menu-trigger-radius, 4px);
+}

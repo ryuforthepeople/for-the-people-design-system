@@ -1,0 +1,65 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: textarea;
+
+.#{$c} {
+  display: block;
+  width: 100%;
+  min-height: var(--textarea-minHeight, $textarea-minHeight);
+  padding: var(--textarea-padding-y, $textarea-padding-y) var(--textarea-padding-x, $textarea-padding-x);
+  font-family: inherit;
+  font-size: var(--textarea-fontSize, $textarea-fontSize);
+  line-height: var(--textarea-lineHeight, $textarea-lineHeight);
+  color: var(--textarea-text-default, $textarea-text-default);
+  background-color: var(--textarea-background-default, $textarea-background-default);
+  border: var(--textarea-border-width, $textarea-border-width) solid var(--textarea-border-color-default, $textarea-border-color-default);
+  border-radius: var(--textarea-radius, $textarea-radius);
+  resize: vertical;
+  transition: border-color 0.15s ease, outline 0.15s ease;
+
+  &::placeholder {
+    color: var(--textarea-text-placeholder, $textarea-text-placeholder);
+  }
+
+  &:hover:not(:disabled) {
+    border-color: var(--textarea-border-color-hover, $textarea-border-color-hover);
+  }
+
+  &:focus {
+    outline: var(--textarea-focus-ringWidth, $textarea-focus-ringWidth) solid var(--textarea-focus-ringColor, $textarea-focus-ringColor);
+    outline-offset: var(--textarea-focus-ringOffset, $textarea-focus-ringOffset);
+    border-color: var(--textarea-border-color-focus, $textarea-border-color-focus);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--textarea-background-disabled, $textarea-background-disabled);
+    border-color: var(--textarea-border-color-disabled, $textarea-border-color-disabled);
+    color: var(--textarea-text-disabled, $textarea-text-disabled);
+    resize: none;
+  }
+}
+
+// Disabled state modifier
+.#{$c}--disabled {
+  cursor: not-allowed;
+  background-color: var(--textarea-background-disabled, $textarea-background-disabled);
+  border-color: var(--textarea-border-color-disabled, $textarea-border-color-disabled);
+  color: var(--textarea-text-disabled, $textarea-text-disabled);
+  resize: none;
+}
+
+// Invalid state modifier
+.#{$c}--invalid {
+  border-color: var(--textarea-border-color-error, $textarea-border-color-error);
+
+  &:focus {
+    border-color: var(--textarea-border-color-error, $textarea-border-color-error);
+  }
+}
+
+// Auto-resize modifier
+.#{$c}--auto-resize {
+  resize: none;
+  overflow: hidden;
+}

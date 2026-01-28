@@ -1,0 +1,83 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: chip;
+
+.#{$c} {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--chip-gap, $chip-gap);
+  padding: var(--chip-padding-y, $chip-padding-y) var(--chip-padding-x, $chip-padding-x);
+  background-color: var(--chip-background-default, $chip-background-default);
+  border-radius: var(--chip-radius, $chip-radius);
+  font-size: var(--chip-text-fontSize, $chip-text-fontSize);
+  color: var(--chip-text-color, $chip-text-color);
+  line-height: 1.4;
+  user-select: none;
+}
+
+.#{$c}--has-image {
+  padding-left: var(--chip-padding-y, $chip-padding-y);
+}
+
+.#{$c}__image {
+  width: var(--chip-image-size, $chip-image-size);
+  height: var(--chip-image-size, $chip-image-size);
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.#{$c}__icon {
+  font-size: var(--chip-icon-size, $chip-icon-size);
+  color: var(--chip-icon-color, $chip-icon-color);
+  flex-shrink: 0;
+}
+
+.#{$c}__label {
+  white-space: nowrap;
+}
+
+.#{$c}__remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--chip-remove-size, $chip-remove-size);
+  height: var(--chip-remove-size, $chip-remove-size);
+  padding: 0;
+  margin-left: var(--chip-gap, $chip-gap);
+  background: transparent;
+  border: none;
+  border-radius: var(--chip-remove-radius, $chip-remove-radius);
+  color: var(--chip-remove-color-default, $chip-remove-color-default);
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+  flex-shrink: 0;
+
+  &:hover {
+    background-color: var(--chip-remove-background-hover, $chip-remove-background-hover);
+    color: var(--chip-remove-color-hover, $chip-remove-color-hover);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--chip-remove-color-hover, $chip-remove-color-hover);
+    outline-offset: 1px;
+  }
+}
+
+.#{$c}__remove-icon {
+  width: 14px;
+  height: 14px;
+}
+
+// Removable chip hover state
+.#{$c}--removable {
+  cursor: default;
+
+  &:hover {
+    background-color: var(--chip-background-hover, $chip-background-hover);
+  }
+}

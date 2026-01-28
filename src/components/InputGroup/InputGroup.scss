@@ -1,0 +1,57 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: input-group;
+
+.#{$c} {
+  display: inline-flex;
+  align-items: stretch;
+
+  // First child gets left border radius
+  > :first-child {
+    border-top-left-radius: var(--input-group-border-radius, $input-group-border-radius);
+    border-bottom-left-radius: var(--input-group-border-radius, $input-group-border-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  // Last child gets right border radius
+  > :last-child {
+    border-top-right-radius: var(--input-group-border-radius, $input-group-border-radius);
+    border-bottom-right-radius: var(--input-group-border-radius, $input-group-border-radius);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  // Middle children have no radius
+  > :not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+
+  // Only child keeps all radii
+  > :only-child {
+    border-radius: var(--input-group-border-radius, $input-group-border-radius);
+  }
+
+  // Remove duplicate borders between adjacent elements
+  > :not(:first-child) {
+    margin-left: -1px;
+  }
+
+  // Ensure focused element appears above siblings
+  > :focus,
+  > :focus-within {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.#{$c}--fluid {
+  display: flex;
+  width: 100%;
+
+  > .input-text,
+  > input {
+    flex: 1;
+    width: auto;
+  }
+}

@@ -1,0 +1,80 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: terminal;
+
+.#{$c} {
+  background-color: var(--terminal-background, $terminal-background);
+  border: var(--terminal-border-width, $terminal-border-width) solid var(--terminal-border-color, $terminal-border-color);
+  border-radius: var(--terminal-border-radius, $terminal-border-radius);
+  padding: var(--terminal-padding, $terminal-padding);
+  font-family: var(--terminal-font-family, $terminal-font-family);
+  font-size: var(--terminal-font-size, $terminal-font-size);
+  line-height: var(--terminal-font-lineHeight, $terminal-font-lineHeight);
+  color: var(--terminal-text-color, $terminal-text-color);
+  cursor: text;
+  overflow: hidden;
+}
+
+.#{$c}__content {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.#{$c}__welcome {
+  color: var(--terminal-welcome-color, $terminal-welcome-color);
+  margin-bottom: var(--terminal-welcome-marginBottom, $terminal-welcome-marginBottom);
+  white-space: pre-wrap;
+}
+
+.#{$c}__command {
+  margin-bottom: var(--terminal-command-gap, $terminal-command-gap);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.#{$c}__line {
+  display: flex;
+  align-items: center;
+  gap: var(--terminal-prompt-gap, $terminal-prompt-gap);
+}
+
+.#{$c}__line--input {
+  margin-top: var(--terminal-command-gap, $terminal-command-gap);
+}
+
+.#{$c}__prompt {
+  color: var(--terminal-prompt-color, $terminal-prompt-color);
+  flex-shrink: 0;
+  font-weight: 600;
+}
+
+.#{$c}__text {
+  color: var(--terminal-text-color, $terminal-text-color);
+}
+
+.#{$c}__response {
+  color: var(--terminal-response-color, $terminal-response-color);
+  padding-left: calc(1ch + var(--terminal-prompt-gap, $terminal-prompt-gap));
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.#{$c}__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--terminal-text-color, $terminal-text-color);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0;
+  margin: 0;
+  caret-color: var(--terminal-input-caretColor, $terminal-input-caretColor);
+
+  &::placeholder {
+    color: var(--terminal-welcome-color, $terminal-welcome-color);
+  }
+}

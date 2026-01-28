@@ -1,0 +1,109 @@
+{
+  "column": {
+    "header": {
+      "background": {
+        "value": "{surface.muted}",
+        "type": "color",
+        "description": "Column header background color"
+      },
+      "color": {
+        "value": "{text.heading}",
+        "type": "color",
+        "description": "Column header text color"
+      },
+      "padding": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Column header padding"
+      },
+      "fontWeight": {
+        "value": "600",
+        "type": "fontWeight",
+        "description": "Column header font weight"
+      },
+      "fontSize": {
+        "value": "13px",
+        "type": "dimension",
+        "description": "Column header font size"
+      },
+      "borderColor": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Column header border color"
+      }
+    },
+    "body": {
+      "background": {
+        "value": "{surface.panel}",
+        "type": "color",
+        "description": "Column body background color"
+      },
+      "color": {
+        "value": "{text.default}",
+        "type": "color",
+        "description": "Column body text color"
+      },
+      "padding": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Column body padding"
+      },
+      "fontSize": {
+        "value": "14px",
+        "type": "dimension",
+        "description": "Column body font size"
+      },
+      "borderColor": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Column body border color"
+      }
+    },
+    "footer": {
+      "background": {
+        "value": "{surface.muted}",
+        "type": "color",
+        "description": "Column footer background color"
+      },
+      "color": {
+        "value": "{text.default}",
+        "type": "color",
+        "description": "Column footer text color"
+      },
+      "padding": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Column footer padding"
+      },
+      "fontWeight": {
+        "value": "600",
+        "type": "fontWeight",
+        "description": "Column footer font weight"
+      },
+      "borderColor": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Column footer border color"
+      }
+    },
+    "sortIcon": {
+      "color": {
+        "default": {
+          "value": "{neutral.400}",
+          "type": "color",
+          "description": "Sort icon default color"
+        },
+        "active": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Sort icon active color"
+        }
+      },
+      "size": {
+        "value": "14px",
+        "type": "dimension",
+        "description": "Sort icon size"
+      }
+    }
+  }
+}

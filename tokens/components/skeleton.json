@@ -1,0 +1,26 @@
+{
+  "skeleton": {
+    "background": {
+      "value": "{neutral.200}",
+      "type": "color",
+      "description": "Base skeleton background color"
+    },
+    "highlight": {
+      "value": "{neutral.300}",
+      "type": "color",
+      "description": "Animation highlight/shimmer color"
+    },
+    "radius": {
+      "value": "{radius.default}",
+      "type": "dimension",
+      "description": "Default border radius for rectangle skeleton"
+    },
+    "animation": {
+      "duration": {
+        "value": "1.5s",
+        "type": "duration",
+        "description": "Wave animation duration"
+      }
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "timeline": {
+    "line": {
+      "width": {
+        "value": "2px",
+        "type": "dimension",
+        "description": "Width of the vertical timeline line"
+      },
+      "color": {
+        "value": "{neutral.300}",
+        "type": "color",
+        "description": "Color of the timeline line"
+      }
+    },
+    "marker": {
+      "size": {
+        "value": "12px",
+        "type": "dimension",
+        "description": "Size of the timeline marker dot"
+      },
+      "background": {
+        "value": "{brand.primary}",
+        "type": "color",
+        "description": "Background color of the marker"
+      },
+      "border": {
+        "width": {
+          "value": "2px",
+          "type": "dimension",
+          "description": "Border width of the marker"
+        },
+        "color": {
+          "value": "{surface.canvas}",
+          "type": "color",
+          "description": "Border color of the marker"
+        }
+      },
+      "ring": {
+        "size": {
+          "value": "24px",
+          "type": "dimension",
+          "description": "Size of the outer ring around the marker"
+        },
+        "color": {
+          "value": "{neutral.100}",
+          "type": "color",
+          "description": "Color of the outer ring"
+        }
+      }
+    },
+    "content": {
+      "gap": {
+        "value": "{stack.m}",
+        "type": "dimension",
+        "description": "Gap between timeline items"
+      },
+      "padding": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Padding around content area"
+      }
+    },
+    "event": {
+      "title": {
+        "color": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Event title color"
+        },
+        "fontSize": {
+          "value": "16px",
+          "type": "dimension",
+          "description": "Event title font size"
+        },
+        "fontWeight": {
+          "value": "600",
+          "type": "fontWeight",
+          "description": "Event title font weight"
+        }
+      },
+      "date": {
+        "color": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Event date color"
+        },
+        "fontSize": {
+          "value": "12px",
+          "type": "dimension",
+          "description": "Event date font size"
+        }
+      },
+      "description": {
+        "color": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Event description color"
+        },
+        "fontSize": {
+          "value": "14px",
+          "type": "dimension",
+          "description": "Event description font size"
+        }
+      }
+    },
+    "colors": {
+      "primary": {
+        "value": "{brand.primary}",
+        "type": "color",
+        "description": "Primary marker color"
+      },
+      "success": {
+        "value": "{feedback.success}",
+        "type": "color",
+        "description": "Success marker color"
+      },
+      "warning": {
+        "value": "{feedback.warning}",
+        "type": "color",
+        "description": "Warning marker color"
+      },
+      "danger": {
+        "value": "{feedback.error}",
+        "type": "color",
+        "description": "Danger marker color"
+      }
+    }
+  }
+}

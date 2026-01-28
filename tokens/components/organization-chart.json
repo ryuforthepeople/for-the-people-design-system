@@ -1,0 +1,188 @@
+{
+  "organizationChart": {
+    "background": {
+      "value": "transparent",
+      "type": "color",
+      "description": "Chart container background"
+    },
+    "padding": {
+      "value": "{inset.l}",
+      "type": "dimension",
+      "description": "Chart container padding"
+    },
+    "node": {
+      "background": {
+        "default": {
+          "value": "{surface.panel}",
+          "type": "color",
+          "description": "Node default background"
+        },
+        "hover": {
+          "value": "{surface.elevated}",
+          "type": "color",
+          "description": "Node hover background"
+        },
+        "selected": {
+          "value": "{surface.accent}",
+          "type": "color",
+          "description": "Node selected background"
+        }
+      },
+      "border": {
+        "width": {
+          "value": "1px",
+          "type": "dimension",
+          "description": "Node border width"
+        },
+        "color": {
+          "default": {
+            "value": "{border.subtle}",
+            "type": "color",
+            "description": "Node default border color"
+          },
+          "hover": {
+            "value": "{border.default}",
+            "type": "color",
+            "description": "Node hover border color"
+          },
+          "selected": {
+            "value": "{brand.primary}",
+            "type": "color",
+            "description": "Node selected border color"
+          }
+        }
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Node border radius"
+      },
+      "padding": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Node content padding"
+      },
+      "shadow": {
+        "default": {
+          "value": "{shadow.xs}",
+          "type": "shadow",
+          "description": "Node default shadow"
+        },
+        "hover": {
+          "value": "{shadow.s}",
+          "type": "shadow",
+          "description": "Node hover shadow"
+        }
+      },
+      "minWidth": {
+        "value": "160px",
+        "type": "dimension",
+        "description": "Node minimum width"
+      }
+    },
+    "nodeContent": {
+      "gap": {
+        "value": "{stack.2xs}",
+        "type": "dimension",
+        "description": "Gap between node content elements"
+      },
+      "title": {
+        "color": {
+          "value": "{text.heading}",
+          "type": "color",
+          "description": "Node title color"
+        },
+        "fontSize": {
+          "value": "14px",
+          "type": "dimension",
+          "description": "Node title font size"
+        },
+        "fontWeight": {
+          "value": "600",
+          "type": "fontWeight",
+          "description": "Node title font weight"
+        }
+      },
+      "subtitle": {
+        "color": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Node subtitle color"
+        },
+        "fontSize": {
+          "value": "12px",
+          "type": "dimension",
+          "description": "Node subtitle font size"
+        },
+        "fontWeight": {
+          "value": "400",
+          "type": "fontWeight",
+          "description": "Node subtitle font weight"
+        }
+      }
+    },
+    "connector": {
+      "color": {
+        "value": "{border.default}",
+        "type": "color",
+        "description": "Connector line color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Connector line width"
+      },
+      "style": {
+        "value": "solid",
+        "type": "string",
+        "description": "Connector line style"
+      }
+    },
+    "spacing": {
+      "horizontal": {
+        "value": "{stack.xl}",
+        "type": "dimension",
+        "description": "Horizontal spacing between nodes"
+      },
+      "vertical": {
+        "value": "{stack.l}",
+        "type": "dimension",
+        "description": "Vertical spacing between levels"
+      }
+    },
+    "toggleButton": {
+      "size": {
+        "value": "20px",
+        "type": "dimension",
+        "description": "Toggle button size"
+      },
+      "background": {
+        "value": "{surface.panel}",
+        "type": "color",
+        "description": "Toggle button background"
+      },
+      "borderColor": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Toggle button border color"
+      },
+      "color": {
+        "value": "{text.muted}",
+        "type": "color",
+        "description": "Toggle button icon color"
+      },
+      "radius": {
+        "value": "9999px",
+        "type": "dimension",
+        "description": "Toggle button border radius"
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "200ms",
+        "type": "duration",
+        "description": "Animation duration"
+      }
+    }
+  }
+}

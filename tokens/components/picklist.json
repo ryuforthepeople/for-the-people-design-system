@@ -1,0 +1,187 @@
+{
+  "picklist": {
+    "padding": {
+      "value": "{inset.m}",
+      "type": "dimension",
+      "description": "Container padding"
+    },
+    "gap": {
+      "value": "{inline.m}",
+      "type": "dimension",
+      "description": "Gap between source, controls, and target"
+    },
+    "radius": {
+      "value": "{radius.default}",
+      "type": "dimension",
+      "description": "Container border radius"
+    },
+    "border": {
+      "width": {
+        "value": "1px",
+        "type": "dimension"
+      },
+      "color": {
+        "default": {
+          "value": "{neutral.300}",
+          "type": "color",
+          "description": "Default border color"
+        },
+        "disabled": {
+          "value": "{neutral.200}",
+          "type": "color",
+          "description": "Disabled border color"
+        }
+      }
+    },
+    "background": {
+      "default": {
+        "value": "{surface.canvas}",
+        "type": "color",
+        "description": "Default background"
+      },
+      "disabled": {
+        "value": "{neutral.100}",
+        "type": "color",
+        "description": "Disabled background"
+      }
+    },
+    "list": {
+      "minHeight": {
+        "value": "200px",
+        "type": "dimension",
+        "description": "Minimum height of list panels"
+      },
+      "maxHeight": {
+        "value": "320px",
+        "type": "dimension",
+        "description": "Maximum height before scrolling"
+      },
+      "padding": {
+        "value": "{inset.xs}",
+        "type": "dimension"
+      }
+    },
+    "header": {
+      "padding": {
+        "x": {
+          "value": "{inset.m}",
+          "type": "dimension"
+        },
+        "y": {
+          "value": "{inset.s}",
+          "type": "dimension"
+        }
+      },
+      "background": {
+        "value": "{neutral.50}",
+        "type": "color"
+      },
+      "text": {
+        "value": "{text.default}",
+        "type": "color"
+      },
+      "borderColor": {
+        "value": "{neutral.200}",
+        "type": "color"
+      }
+    },
+    "item": {
+      "padding": {
+        "x": {
+          "value": "{inset.m}",
+          "type": "dimension"
+        },
+        "y": {
+          "value": "{inset.s}",
+          "type": "dimension"
+        }
+      },
+      "radius": {
+        "value": "{radius.subtle}",
+        "type": "dimension"
+      },
+      "background": {
+        "default": {
+          "value": "transparent",
+          "type": "color"
+        },
+        "hover": {
+          "value": "{neutral.100}",
+          "type": "color"
+        },
+        "selected": {
+          "value": "{brand.primary}",
+          "type": "color"
+        }
+      },
+      "text": {
+        "default": {
+          "value": "{text.default}",
+          "type": "color"
+        },
+        "selected": {
+          "value": "{neutral.0}",
+          "type": "color"
+        }
+      }
+    },
+    "controls": {
+      "gap": {
+        "value": "{stack.xs}",
+        "type": "dimension"
+      },
+      "button": {
+        "size": {
+          "value": "32px",
+          "type": "dimension"
+        },
+        "background": {
+          "default": {
+            "value": "{surface.canvas}",
+            "type": "color"
+          },
+          "hover": {
+            "value": "{neutral.100}",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "{neutral.50}",
+            "type": "color"
+          }
+        },
+        "border": {
+          "value": "{neutral.300}",
+          "type": "color"
+        },
+        "icon": {
+          "default": {
+            "value": "{neutral.600}",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "{neutral.300}",
+            "type": "color"
+          }
+        },
+        "radius": {
+          "value": "{radius.default}",
+          "type": "dimension"
+        }
+      }
+    },
+    "focus": {
+      "ringWidth": {
+        "value": "2px",
+        "type": "dimension"
+      },
+      "ringColor": {
+        "value": "{brand.primary}",
+        "type": "color"
+      },
+      "ringOffset": {
+        "value": "1px",
+        "type": "dimension"
+      }
+    }
+  }
+}

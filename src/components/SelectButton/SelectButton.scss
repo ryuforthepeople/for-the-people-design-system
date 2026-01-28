@@ -1,0 +1,65 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: select-button;
+
+.#{$c} {
+  display: inline-flex;
+  gap: var(--selectButton-gap, $selectButton-gap);
+}
+
+.#{$c}__option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--selectButton-minHeight, $selectButton-minHeight);
+  padding: var(--selectButton-padding-y, $selectButton-padding-y) var(--selectButton-padding-x, $selectButton-padding-x);
+  background-color: var(--selectButton-background-default, $selectButton-background-default);
+  border: var(--selectButton-border-width, $selectButton-border-width) solid var(--selectButton-border-color-default, $selectButton-border-color-default);
+  border-radius: var(--selectButton-radius, $selectButton-radius);
+  color: var(--selectButton-text-default, $selectButton-text-default);
+  font-size: var(--selectButton-fontSize, $selectButton-fontSize);
+  font-weight: var(--selectButton-fontWeight-default, $selectButton-fontWeight-default);
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--selectButton-transition-duration, $selectButton-transition-duration) ease;
+  white-space: nowrap;
+
+  &:hover:not(:disabled):not(.#{$c}__option--selected) {
+    background-color: var(--selectButton-background-hover, $selectButton-background-hover);
+    border-color: var(--selectButton-border-color-hover, $selectButton-border-color-hover);
+    color: var(--selectButton-text-hover, $selectButton-text-hover);
+  }
+
+  &:focus-visible {
+    outline: var(--selectButton-focus-ringWidth, $selectButton-focus-ringWidth) solid var(--selectButton-focus-ringColor, $selectButton-focus-ringColor);
+    outline-offset: var(--selectButton-focus-ringOffset, $selectButton-focus-ringOffset);
+  }
+}
+
+.#{$c}__option--selected {
+  background-color: var(--selectButton-background-selected, $selectButton-background-selected);
+  border-color: var(--selectButton-border-color-selected, $selectButton-border-color-selected);
+  color: var(--selectButton-text-selected, $selectButton-text-selected);
+  font-weight: var(--selectButton-fontWeight-selected, $selectButton-fontWeight-selected);
+}
+
+.#{$c}__option--disabled,
+.#{$c}__option:disabled {
+  background-color: var(--selectButton-background-disabled, $selectButton-background-disabled);
+  border-color: var(--selectButton-border-color-disabled, $selectButton-border-color-disabled);
+  color: var(--selectButton-text-disabled, $selectButton-text-disabled);
+  cursor: not-allowed;
+}
+
+// When both selected and disabled
+.#{$c}__option--selected.#{$c}__option--disabled,
+.#{$c}__option--selected:disabled {
+  background-color: var(--selectButton-border-color-disabled, $selectButton-border-color-disabled);
+  border-color: var(--selectButton-border-color-disabled, $selectButton-border-color-disabled);
+}
+
+// Disabled state for entire component
+.#{$c}--disabled {
+  opacity: 0.7;
+  pointer-events: none;
+}

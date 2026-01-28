@@ -1,0 +1,98 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: select;
+
+.#{$c} {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+}
+
+.#{$c}__input {
+  width: 100%;
+  appearance: none;
+  background-color: var(--select-background-default, $select-background-default);
+  border: var(--select-border-width, $select-border-width) solid var(--select-border-color-default, $select-border-color-default);
+  border-radius: var(--select-radius, $select-radius);
+  padding: 0 calc(var(--select-padding-x, $select-padding-x) + 24px) 0 var(--select-padding-x, $select-padding-x);
+  color: var(--select-text-default, $select-text-default);
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover:not(:disabled) {
+    border-color: var(--select-border-color-hover, $select-border-color-hover);
+  }
+
+  &:focus {
+    outline: var(--select-focus-ringWidth, $select-focus-ringWidth) solid var(--select-focus-ringColor, $select-focus-ringColor);
+    outline-offset: var(--select-focus-ringOffset, $select-focus-ringOffset);
+    border-color: var(--select-border-color-focus, $select-border-color-focus);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--select-background-disabled, $select-background-disabled);
+    border-color: var(--select-border-color-disabled, $select-border-color-disabled);
+    color: var(--select-text-disabled, $select-text-disabled);
+  }
+}
+
+.#{$c}__icon {
+  position: absolute;
+  right: var(--select-padding-x, $select-padding-x);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--select-icon-color-default, $select-icon-color-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+}
+
+// Placeholder state
+.#{$c}--placeholder {
+  .#{$c}__input {
+    color: var(--select-text-placeholder, $select-text-placeholder);
+  }
+}
+
+// Disabled state
+.#{$c}--disabled {
+  .#{$c}__icon {
+    color: var(--select-icon-color-disabled, $select-icon-color-disabled);
+  }
+}
+
+// Invalid state
+.#{$c}--invalid {
+  .#{$c}__input {
+    border-color: var(--select-border-color-error, $select-border-color-error);
+
+    &:focus {
+      border-color: var(--select-border-color-error, $select-border-color-error);
+    }
+  }
+}
+
+// Sizes
+.#{$c}--size-sm {
+  .#{$c}__input {
+    height: var(--select-height-sm, $select-height-sm);
+    font-size: var(--select-fontSize-sm, $select-fontSize-sm);
+  }
+}
+
+.#{$c}--size-md {
+  .#{$c}__input {
+    height: var(--select-height-md, $select-height-md);
+    font-size: var(--select-fontSize-md, $select-fontSize-md);
+  }
+}
+
+.#{$c}--size-lg {
+  .#{$c}__input {
+    height: var(--select-height-lg, $select-height-lg);
+    font-size: var(--select-fontSize-lg, $select-fontSize-lg);
+  }
+}

@@ -1,0 +1,106 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: tabmenu;
+
+.#{$c} {
+  position: relative;
+  background-color: var(--tabmenu-background, $tabmenu-background);
+  border-bottom: var(--tabmenu-border-width, $tabmenu-border-width) solid var(--tabmenu-border-color, $tabmenu-border-color);
+}
+
+.#{$c}__list {
+  display: flex;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 0;
+}
+
+.#{$c}__item {
+  position: relative;
+}
+
+.#{$c}__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--tabmenu-item-gap, $tabmenu-item-gap);
+  padding: var(--tabmenu-item-padding, $tabmenu-item-padding);
+  background-color: var(--tabmenu-item-background-default, $tabmenu-item-background-default);
+  color: var(--tabmenu-item-color-default, $tabmenu-item-color-default);
+  border: none;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--tabmenu-transition-duration, $tabmenu-transition-duration) ease,
+              color var(--tabmenu-transition-duration, $tabmenu-transition-duration) ease;
+
+  &:hover:not(:disabled):not([aria-disabled="true"]) {
+    background-color: var(--tabmenu-item-background-hover, $tabmenu-item-background-hover);
+    color: var(--tabmenu-item-color-hover, $tabmenu-item-color-hover);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--tabmenu-item-color-active, $tabmenu-item-color-active);
+    outline-offset: -2px;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    cursor: not-allowed;
+    color: var(--tabmenu-item-color-disabled, $tabmenu-item-color-disabled);
+    pointer-events: none;
+  }
+}
+
+.#{$c}__item--active .#{$c}__link {
+  background-color: var(--tabmenu-item-background-active, $tabmenu-item-background-active);
+  color: var(--tabmenu-item-color-active, $tabmenu-item-color-active);
+}
+
+.#{$c}__item--disabled .#{$c}__link {
+  cursor: not-allowed;
+  color: var(--tabmenu-item-color-disabled, $tabmenu-item-color-disabled);
+  pointer-events: none;
+}
+
+.#{$c}__icon {
+  width: var(--tabmenu-icon-size, $tabmenu-icon-size);
+  height: var(--tabmenu-icon-size, $tabmenu-icon-size);
+  flex-shrink: 0;
+}
+
+.#{$c}__label {
+  white-space: nowrap;
+}
+
+.#{$c}__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  background-color: var(--tabmenu-item-color-active, $tabmenu-item-color-active);
+  border-radius: 9999px;
+}
+
+.#{$c}__inkbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: var(--tabmenu-inkbar-height, $tabmenu-inkbar-height);
+  background-color: var(--tabmenu-inkbar-color, $tabmenu-inkbar-color);
+  border-radius: var(--tabmenu-inkbar-borderRadius, $tabmenu-inkbar-borderRadius);
+  transition: transform var(--tabmenu-transition-duration, $tabmenu-transition-duration) ease,
+              width var(--tabmenu-transition-duration, $tabmenu-transition-duration) ease;
+}

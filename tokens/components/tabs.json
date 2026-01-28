@@ -1,0 +1,97 @@
+{
+  "tabs": {
+    "nav": {
+      "borderColor": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Border color for tab navigation"
+      },
+      "borderWidth": {
+        "value": "1px",
+        "type": "dimension"
+      }
+    },
+    "tab": {
+      "padding": {
+        "x": {
+          "value": "{inset.m}",
+          "type": "dimension",
+          "description": "Horizontal tab padding"
+        },
+        "y": {
+          "value": "{inset.s}",
+          "type": "dimension",
+          "description": "Vertical tab padding"
+        }
+      },
+      "text": {
+        "default": {
+          "value": "{text.secondary}",
+          "type": "color",
+          "description": "Inactive tab text"
+        },
+        "hover": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Tab text on hover"
+        },
+        "active": {
+          "value": "{orange.500}",
+          "type": "color",
+          "description": "Active tab text - visible accent"
+        },
+        "disabled": {
+          "value": "rgba(255, 255, 255, 0.38)",
+          "type": "color"
+        }
+      },
+      "background": {
+        "default": {
+          "value": "transparent",
+          "type": "color"
+        },
+        "hover": {
+          "value": "rgba(255, 255, 255, 0.05)",
+          "type": "color"
+        },
+        "active": {
+          "value": "transparent",
+          "type": "color"
+        }
+      }
+    },
+    "indicator": {
+      "color": {
+        "value": "{orange.500}",
+        "type": "color",
+        "description": "Active tab indicator - visible accent"
+      },
+      "height": {
+        "value": "2px",
+        "type": "dimension",
+        "description": "Active tab indicator thickness"
+      }
+    },
+    "content": {
+      "padding": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Tab panel content padding"
+      }
+    },
+    "focus": {
+      "ringWidth": {
+        "value": "2px",
+        "type": "dimension"
+      },
+      "ringColor": {
+        "value": "{orange.500}",
+        "type": "color"
+      },
+      "ringOffset": {
+        "value": "2px",
+        "type": "dimension"
+      }
+    }
+  }
+}

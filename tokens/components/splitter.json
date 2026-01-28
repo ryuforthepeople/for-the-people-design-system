@@ -1,0 +1,88 @@
+{
+  "splitter": {
+    "background": {
+      "value": "{surface.canvas}",
+      "type": "color",
+      "description": "Splitter container background"
+    },
+    "border": {
+      "color": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Splitter border color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Splitter border width"
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Splitter border radius"
+      }
+    },
+    "gutter": {
+      "size": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Default gutter width/height"
+      },
+      "background": {
+        "default": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Gutter background color"
+        },
+        "hover": {
+          "value": "{neutral.200}",
+          "type": "color",
+          "description": "Gutter hover background"
+        },
+        "active": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Gutter active/dragging background"
+        }
+      },
+      "handle": {
+        "size": {
+          "value": "24px",
+          "type": "dimension",
+          "description": "Gutter handle indicator size"
+        },
+        "color": {
+          "default": {
+            "value": "{neutral.400}",
+            "type": "color",
+            "description": "Gutter handle color"
+          },
+          "hover": {
+            "value": "{neutral.500}",
+            "type": "color",
+            "description": "Gutter handle hover color"
+          },
+          "active": {
+            "value": "{neutral.0}",
+            "type": "color",
+            "description": "Gutter handle active color"
+          }
+        }
+      }
+    },
+    "panel": {
+      "minSize": {
+        "value": "50px",
+        "type": "dimension",
+        "description": "Minimum panel size"
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "150ms",
+        "type": "duration",
+        "description": "Gutter state transition duration"
+      }
+    }
+  }
+}

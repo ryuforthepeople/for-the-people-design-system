@@ -1,0 +1,43 @@
+@use "../../../dist/scss/tokens" as *;
+
+/// Accent gradient mixin for consistent gradient backgrounds across components
+/// Used for checked states, active indicators, filled tracks, etc.
+/// @param {string} $state - Gradient state: default or hover
+/// @param {number} $angle - Gradient angle in degrees (default: 135deg)
+@mixin accent-gradient($state: "default", $angle: 135deg) {
+  @if $state == "default" {
+    background: linear-gradient(
+      #{$angle},
+      var(--accent-gradient-start, $accent-gradient-start),
+      var(--accent-gradient-end, $accent-gradient-end)
+    );
+  } @else if $state == "hover" {
+    background: linear-gradient(
+      #{$angle},
+      var(--accent-gradient-hoverStart, $accent-gradient-hoverStart),
+      var(--accent-gradient-hoverEnd, $accent-gradient-hoverEnd)
+    );
+  }
+}
+
+/// Accent gradient text for vibrant text elements
+/// @param {string} $state - Gradient state: default or hover
+@mixin accent-gradient-text($state: "default") {
+  @if $state == "default" {
+    background: linear-gradient(
+      135deg,
+      var(--accent-gradient-start, $accent-gradient-start),
+      var(--accent-gradient-end, $accent-gradient-end)
+    );
+  } @else if $state == "hover" {
+    background: linear-gradient(
+      135deg,
+      var(--accent-gradient-hoverStart, $accent-gradient-hoverStart),
+      var(--accent-gradient-hoverEnd, $accent-gradient-hoverEnd)
+    );
+  }
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}

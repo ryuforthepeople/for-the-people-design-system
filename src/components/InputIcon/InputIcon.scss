@@ -1,0 +1,58 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: input-icon;
+
+.#{$c} {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--input-icon-color-default, $input-icon-color-default);
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+// Positions
+.#{$c}--position-left {
+  left: var(--input-icon-offset, $input-icon-offset);
+}
+
+.#{$c}--position-right {
+  right: var(--input-icon-offset, $input-icon-offset);
+}
+
+// Sizes
+.#{$c}--size-sm {
+  width: var(--input-icon-size-sm, $input-icon-size-sm);
+  height: var(--input-icon-size-sm, $input-icon-size-sm);
+  font-size: var(--input-icon-size-sm, $input-icon-size-sm);
+
+  svg {
+    width: var(--input-icon-size-sm, $input-icon-size-sm);
+    height: var(--input-icon-size-sm, $input-icon-size-sm);
+  }
+}
+
+.#{$c}--size-md {
+  width: var(--input-icon-size-md, $input-icon-size-md);
+  height: var(--input-icon-size-md, $input-icon-size-md);
+  font-size: var(--input-icon-size-md, $input-icon-size-md);
+
+  svg {
+    width: var(--input-icon-size-md, $input-icon-size-md);
+    height: var(--input-icon-size-md, $input-icon-size-md);
+  }
+}
+
+.#{$c}--size-lg {
+  width: var(--input-icon-size-lg, $input-icon-size-lg);
+  height: var(--input-icon-size-lg, $input-icon-size-lg);
+  font-size: var(--input-icon-size-lg, $input-icon-size-lg);
+
+  svg {
+    width: var(--input-icon-size-lg, $input-icon-size-lg);
+    height: var(--input-icon-size-lg, $input-icon-size-lg);
+  }
+}

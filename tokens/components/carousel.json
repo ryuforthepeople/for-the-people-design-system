@@ -1,0 +1,154 @@
+{
+  "carousel": {
+    "container": {
+      "background": {
+        "value": "{surface.panel}",
+        "type": "color",
+        "description": "Carousel container background"
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Carousel container border radius"
+      }
+    },
+    "content": {
+      "gap": {
+        "value": "{inline.m}",
+        "type": "dimension",
+        "description": "Gap between carousel items"
+      },
+      "padding": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Content area padding"
+      }
+    },
+    "item": {
+      "background": {
+        "value": "{surface.canvas}",
+        "type": "color",
+        "description": "Carousel item background"
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Carousel item border radius"
+      },
+      "padding": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Carousel item padding"
+      }
+    },
+    "navigator": {
+      "size": {
+        "value": "40px",
+        "type": "dimension",
+        "description": "Navigator button size"
+      },
+      "iconSize": {
+        "value": "20px",
+        "type": "dimension",
+        "description": "Navigator icon size"
+      },
+      "background": {
+        "default": {
+          "value": "{surface.panel}",
+          "type": "color",
+          "description": "Navigator button background"
+        },
+        "hover": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Navigator button hover background"
+        },
+        "disabled": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Navigator button disabled background"
+        }
+      },
+      "color": {
+        "default": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Navigator icon color"
+        },
+        "hover": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Navigator icon hover color"
+        },
+        "disabled": {
+          "value": "{text.subtle}",
+          "type": "color",
+          "description": "Navigator icon disabled color"
+        }
+      },
+      "border": {
+        "color": {
+          "value": "{border.subtle}",
+          "type": "color",
+          "description": "Navigator button border color"
+        },
+        "width": {
+          "value": "1px",
+          "type": "dimension",
+          "description": "Navigator button border width"
+        }
+      },
+      "radius": {
+        "value": "50%",
+        "type": "dimension",
+        "description": "Navigator button border radius"
+      },
+      "shadow": {
+        "value": "{shadow.s}",
+        "type": "boxShadow",
+        "description": "Navigator button shadow"
+      }
+    },
+    "indicator": {
+      "size": {
+        "value": "10px",
+        "type": "dimension",
+        "description": "Indicator dot size"
+      },
+      "gap": {
+        "value": "{inline.xs}",
+        "type": "dimension",
+        "description": "Gap between indicators"
+      },
+      "marginTop": {
+        "value": "{stack.m}",
+        "type": "dimension",
+        "description": "Space above indicators"
+      },
+      "background": {
+        "default": {
+          "value": "{neutral.300}",
+          "type": "color",
+          "description": "Indicator background"
+        },
+        "active": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Active indicator background"
+        },
+        "hover": {
+          "value": "{neutral.400}",
+          "type": "color",
+          "description": "Indicator hover background"
+        }
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "300ms",
+        "type": "duration",
+        "description": "Slide transition duration"
+      }
+    }
+  }
+}

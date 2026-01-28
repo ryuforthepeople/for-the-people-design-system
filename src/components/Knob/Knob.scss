@@ -1,0 +1,92 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: knob;
+
+.#{$c} {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.#{$c}__svg {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  touch-action: none;
+  transition: opacity 150ms ease;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: var(--knob-focus-ringWidth, $knob-focus-ringWidth) solid var(--knob-focus-ringColor, $knob-focus-ringColor);
+    outline-offset: var(--knob-focus-ringOffset, $knob-focus-ringOffset);
+    border-radius: 50%;
+  }
+}
+
+.#{$c}__track {
+  stroke: var(--knob-track-color, $knob-track-color);
+}
+
+.#{$c}__fill {
+  stroke: var(--knob-fill-color-default, $knob-fill-color-default);
+  transition: stroke-dashoffset var(--knob-transition-duration, $knob-transition-duration) ease;
+}
+
+.#{$c}__value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: var(--knob-valueText-fontWeight, $knob-valueText-fontWeight);
+  color: var(--knob-valueText-color-default, $knob-valueText-color-default);
+  pointer-events: none;
+  user-select: none;
+}
+
+// Sizes
+.#{$c}--size-sm {
+  width: var(--knob-size-sm, $knob-size-sm);
+  height: var(--knob-size-sm, $knob-size-sm);
+
+  .#{$c}__value {
+    font-size: var(--knob-valueText-fontSize-sm, $knob-valueText-fontSize-sm);
+  }
+}
+
+.#{$c}--size-md {
+  width: var(--knob-size-md, $knob-size-md);
+  height: var(--knob-size-md, $knob-size-md);
+
+  .#{$c}__value {
+    font-size: var(--knob-valueText-fontSize-md, $knob-valueText-fontSize-md);
+  }
+}
+
+.#{$c}--size-lg {
+  width: var(--knob-size-lg, $knob-size-lg);
+  height: var(--knob-size-lg, $knob-size-lg);
+
+  .#{$c}__value {
+    font-size: var(--knob-valueText-fontSize-lg, $knob-valueText-fontSize-lg);
+  }
+}
+
+// Disabled state
+.#{$c}--disabled {
+  .#{$c}__svg {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  .#{$c}__fill {
+    stroke: var(--knob-fill-color-disabled, $knob-fill-color-disabled);
+  }
+
+  .#{$c}__value {
+    color: var(--knob-valueText-color-disabled, $knob-valueText-color-disabled);
+  }
+}

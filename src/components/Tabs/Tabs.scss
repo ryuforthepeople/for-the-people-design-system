@@ -1,0 +1,82 @@
+@use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/accent-gradient.scss" as *;
+
+$c: tabs;
+
+.#{$c} {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.#{$c}__nav {
+  display: flex;
+  position: relative;
+  border-bottom: var(--tabs-nav-borderWidth, $tabs-nav-borderWidth) solid var(--tabs-nav-borderColor, $tabs-nav-borderColor);
+}
+
+.#{$c}__tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: var(--tabs-tab-padding-y, $tabs-tab-padding-y) var(--tabs-tab-padding-x, $tabs-tab-padding-x);
+  background: var(--tabs-tab-background-default, $tabs-tab-background-default);
+  border: none;
+  color: var(--tabs-tab-text-default, $tabs-tab-text-default);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
+  white-space: nowrap;
+
+  &:hover:not(.#{$c}__tab--disabled) {
+    color: var(--tabs-tab-text-hover, $tabs-tab-text-hover);
+    background: var(--tabs-tab-background-hover, $tabs-tab-background-hover);
+  }
+
+  &:focus-visible {
+    outline: var(--tabs-focus-ringWidth, $tabs-focus-ringWidth) solid var(--tabs-focus-ringColor, $tabs-focus-ringColor);
+    outline-offset: var(--tabs-focus-ringOffset, $tabs-focus-ringOffset);
+    z-index: 1;
+  }
+}
+
+.#{$c}__tab--active {
+  background: linear-gradient(
+    90deg,
+    var(--accent-gradient-start, $accent-gradient-start),
+    var(--accent-gradient-end, $accent-gradient-end)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.#{$c}__tab--disabled {
+  color: var(--tabs-tab-text-disabled, $tabs-tab-text-disabled);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.#{$c}__indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: var(--tabs-indicator-height, $tabs-indicator-height);
+  @include accent-gradient($angle: 90deg);
+  transition: transform 0.2s ease, width 0.2s ease;
+}
+
+.#{$c}__panels {
+  flex: 1;
+}
+
+.#{$c}__panel {
+  padding: var(--tabs-content-padding, $tabs-content-padding);
+
+  &:focus-visible {
+    outline: var(--tabs-focus-ringWidth, $tabs-focus-ringWidth) solid var(--tabs-focus-ringColor, $tabs-focus-ringColor);
+    outline-offset: calc(-1 * var(--tabs-focus-ringOffset, $tabs-focus-ringOffset));
+  }
+}

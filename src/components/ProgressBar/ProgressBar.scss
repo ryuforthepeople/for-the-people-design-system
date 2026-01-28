@@ -1,0 +1,58 @@
+@use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/accent-gradient.scss" as *;
+
+$c: progress-bar;
+
+.#{$c} {
+  display: block;
+  width: 100%;
+}
+
+.#{$c}__track {
+  width: 100%;
+  height: var(--progress-bar-track-height, $progress-bar-track-height);
+  background-color: var(--progress-bar-track-background, $progress-bar-track-background);
+  border-radius: var(--progress-bar-track-radius, $progress-bar-track-radius);
+  overflow: hidden;
+  position: relative;
+}
+
+.#{$c}__fill {
+  height: 100%;
+  @include accent-gradient($angle: 90deg);
+  border-radius: var(--progress-bar-track-radius, $progress-bar-track-radius);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: width 0.3s ease;
+}
+
+.#{$c}__fill--indeterminate {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include accent-gradient($angle: 90deg);
+  animation: progress-bar-indeterminate 1.5s infinite ease-in-out;
+  transform-origin: left center;
+}
+
+.#{$c}__label {
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--progress-bar-label-color, $progress-bar-label-color);
+  white-space: nowrap;
+}
+
+@keyframes progress-bar-indeterminate {
+  0% {
+    transform: translateX(-100%) scaleX(0.3);
+  }
+  50% {
+    transform: translateX(0%) scaleX(0.5);
+  }
+  100% {
+    transform: translateX(100%) scaleX(0.3);
+  }
+}

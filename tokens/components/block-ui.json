@@ -1,0 +1,40 @@
+{
+  "block-ui": {
+    "overlay": {
+      "background": {
+        "value": "{surface.overlay}",
+        "type": "color",
+        "description": "Blocking overlay background"
+      },
+      "zIndex": {
+        "value": "1000",
+        "type": "number",
+        "description": "Overlay z-index"
+      }
+    },
+    "spinner": {
+      "size": {
+        "value": "48px",
+        "type": "dimension",
+        "description": "Loading spinner size"
+      },
+      "color": {
+        "value": "{brand.primary}",
+        "type": "color",
+        "description": "Spinner color"
+      },
+      "borderWidth": {
+        "value": "4px",
+        "type": "dimension",
+        "description": "Spinner border width"
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "200ms",
+        "type": "duration",
+        "description": "Overlay fade transition"
+      }
+    }
+  }
+}

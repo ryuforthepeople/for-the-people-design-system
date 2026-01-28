@@ -1,0 +1,168 @@
+{
+  "context-menu": {
+    "background": {
+      "value": "{surface.elevated}",
+      "type": "color",
+      "description": "Context menu background"
+    },
+    "border": {
+      "color": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Context menu border color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Context menu border width"
+      }
+    },
+    "radius": {
+      "value": "{radius.default}",
+      "type": "dimension",
+      "description": "Context menu border radius"
+    },
+    "shadow": {
+      "value": "{shadow.m}",
+      "type": "shadow",
+      "description": "Context menu elevation shadow"
+    },
+    "padding": {
+      "y": {
+        "value": "{inset.2xs}",
+        "type": "dimension",
+        "description": "Vertical padding"
+      }
+    },
+    "minWidth": {
+      "value": "180px",
+      "type": "dimension",
+      "description": "Minimum menu width"
+    },
+    "maxWidth": {
+      "value": "320px",
+      "type": "dimension",
+      "description": "Maximum menu width"
+    },
+    "zIndex": {
+      "value": "1100",
+      "type": "number",
+      "description": "Z-index for stacking"
+    },
+    "item": {
+      "padding": {
+        "x": {
+          "value": "{inset.m}",
+          "type": "dimension",
+          "description": "Item horizontal padding"
+        },
+        "y": {
+          "value": "{inset.xs}",
+          "type": "dimension",
+          "description": "Item vertical padding"
+        }
+      },
+      "text": {
+        "color": {
+          "default": {
+            "value": "{text.default}",
+            "type": "color",
+            "description": "Item text color"
+          },
+          "hover": {
+            "value": "{text.default}",
+            "type": "color",
+            "description": "Item hover text color"
+          },
+          "disabled": {
+            "value": "{text.subtle}",
+            "type": "color",
+            "description": "Disabled item text color"
+          }
+        },
+        "fontSize": {
+          "value": "14px",
+          "type": "dimension",
+          "description": "Item font size"
+        }
+      },
+      "background": {
+        "default": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Item background"
+        },
+        "hover": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Item hover background"
+        },
+        "active": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Active item background"
+        }
+      },
+      "icon": {
+        "size": {
+          "value": "16px",
+          "type": "dimension",
+          "description": "Item icon size"
+        },
+        "color": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Item icon color"
+        },
+        "gap": {
+          "value": "{inline.s}",
+          "type": "dimension",
+          "description": "Space between icon and label"
+        }
+      },
+      "shortcut": {
+        "color": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Keyboard shortcut color"
+        },
+        "fontSize": {
+          "value": "12px",
+          "type": "dimension",
+          "description": "Shortcut font size"
+        }
+      }
+    },
+    "separator": {
+      "color": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Separator line color"
+      },
+      "margin": {
+        "value": "{inset.2xs}",
+        "type": "dimension",
+        "description": "Separator vertical margin"
+      }
+    },
+    "submenu": {
+      "arrow": {
+        "size": {
+          "value": "10px",
+          "type": "dimension",
+          "description": "Submenu arrow size"
+        },
+        "color": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Submenu arrow color"
+        }
+      },
+      "offset": {
+        "value": "-4px",
+        "type": "dimension",
+        "description": "Submenu position offset"
+      }
+    }
+  }
+}

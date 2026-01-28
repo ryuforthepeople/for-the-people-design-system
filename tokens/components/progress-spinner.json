@@ -1,0 +1,38 @@
+{
+  "progress-spinner": {
+    "size": {
+      "value": "48px",
+      "type": "dimension",
+      "description": "Default spinner size (width and height)"
+    },
+    "strokeWidth": {
+      "value": "4px",
+      "type": "dimension",
+      "description": "Stroke width of the spinner circle"
+    },
+    "color": {
+      "value": "{brand.primary}",
+      "type": "color",
+      "description": "Spinner stroke color"
+    },
+    "fill": {
+      "value": "transparent",
+      "type": "color",
+      "description": "Spinner fill color (typically transparent)"
+    },
+    "animation": {
+      "duration": {
+        "value": "2s",
+        "type": "duration",
+        "description": "Duration of the spinner animation"
+      }
+    },
+    "track": {
+      "color": {
+        "value": "{neutral.200}",
+        "type": "color",
+        "description": "Background track circle color"
+      }
+    }
+  }
+}

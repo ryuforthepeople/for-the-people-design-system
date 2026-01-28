@@ -1,0 +1,132 @@
+{
+  "chart": {
+    "container": {
+      "background": {
+        "value": "{surface.panel}",
+        "type": "color",
+        "description": "Chart container background"
+      },
+      "padding": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Chart container padding"
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Chart container border radius"
+      },
+      "border": {
+        "color": {
+          "value": "{border.subtle}",
+          "type": "color",
+          "description": "Chart container border color"
+        },
+        "width": {
+          "value": "1px",
+          "type": "dimension",
+          "description": "Chart container border width"
+        }
+      }
+    },
+    "title": {
+      "color": {
+        "value": "{text.default}",
+        "type": "color",
+        "description": "Chart title color"
+      },
+      "size": {
+        "value": "16px",
+        "type": "dimension",
+        "description": "Chart title font size"
+      },
+      "weight": {
+        "value": "600",
+        "type": "fontWeight",
+        "description": "Chart title font weight"
+      },
+      "marginBottom": {
+        "value": "{stack.m}",
+        "type": "dimension",
+        "description": "Space below chart title"
+      }
+    },
+    "canvas": {
+      "minHeight": {
+        "value": "300px",
+        "type": "dimension",
+        "description": "Minimum chart canvas height"
+      }
+    },
+    "legend": {
+      "gap": {
+        "value": "{inline.m}",
+        "type": "dimension",
+        "description": "Gap between legend items"
+      },
+      "item": {
+        "gap": {
+          "value": "{inline.xs}",
+          "type": "dimension",
+          "description": "Gap between legend marker and text"
+        },
+        "color": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Legend text color"
+        },
+        "size": {
+          "value": "13px",
+          "type": "dimension",
+          "description": "Legend text font size"
+        }
+      },
+      "marker": {
+        "size": {
+          "value": "12px",
+          "type": "dimension",
+          "description": "Legend marker size"
+        },
+        "radius": {
+          "value": "{radius.subtle}",
+          "type": "dimension",
+          "description": "Legend marker border radius"
+        }
+      }
+    },
+    "loading": {
+      "background": {
+        "value": "{surface.overlay}",
+        "type": "color",
+        "description": "Loading overlay background"
+      },
+      "spinnerColor": {
+        "value": "{brand.primary}",
+        "type": "color",
+        "description": "Loading spinner color"
+      },
+      "spinnerSize": {
+        "value": "32px",
+        "type": "dimension",
+        "description": "Loading spinner size"
+      }
+    },
+    "empty": {
+      "textColor": {
+        "value": "{text.muted}",
+        "type": "color",
+        "description": "Empty state text color"
+      },
+      "iconColor": {
+        "value": "{text.subtle}",
+        "type": "color",
+        "description": "Empty state icon color"
+      },
+      "iconSize": {
+        "value": "48px",
+        "type": "dimension",
+        "description": "Empty state icon size"
+      }
+    }
+  }
+}

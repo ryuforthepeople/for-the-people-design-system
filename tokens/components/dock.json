@@ -1,0 +1,173 @@
+{
+  "dock": {
+    "background": {
+      "value": "{surface.elevated}",
+      "type": "color",
+      "description": "Dock background"
+    },
+    "border": {
+      "color": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Dock border color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Dock border width"
+      }
+    },
+    "radius": {
+      "value": "{radius.large}",
+      "type": "dimension",
+      "description": "Dock border radius"
+    },
+    "shadow": {
+      "value": "{shadow.l}",
+      "type": "shadow",
+      "description": "Dock elevation shadow"
+    },
+    "padding": {
+      "value": "{inset.s}",
+      "type": "dimension",
+      "description": "Dock inner padding"
+    },
+    "gap": {
+      "value": "{inline.2xs}",
+      "type": "dimension",
+      "description": "Gap between dock items"
+    },
+    "zIndex": {
+      "value": "1000",
+      "type": "number",
+      "description": "Z-index for stacking"
+    },
+    "position": {
+      "offset": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Distance from screen edge"
+      }
+    },
+    "item": {
+      "size": {
+        "default": {
+          "value": "48px",
+          "type": "dimension",
+          "description": "Default item size"
+        },
+        "magnified": {
+          "value": "72px",
+          "type": "dimension",
+          "description": "Magnified item size on hover"
+        }
+      },
+      "radius": {
+        "value": "{radius.rounded}",
+        "type": "dimension",
+        "description": "Item border radius"
+      },
+      "background": {
+        "default": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Item background"
+        },
+        "hover": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Item hover background"
+        },
+        "active": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Active item background"
+        }
+      },
+      "icon": {
+        "size": {
+          "default": {
+            "value": "28px",
+            "type": "dimension",
+            "description": "Default icon size"
+          },
+          "magnified": {
+            "value": "42px",
+            "type": "dimension",
+            "description": "Magnified icon size"
+          }
+        },
+        "color": {
+          "default": {
+            "value": "{text.default}",
+            "type": "color",
+            "description": "Icon color"
+          },
+          "hover": {
+            "value": "{brand.primary}",
+            "type": "color",
+            "description": "Icon hover color"
+          }
+        }
+      }
+    },
+    "tooltip": {
+      "offset": {
+        "value": "{inset.xs}",
+        "type": "dimension",
+        "description": "Tooltip distance from dock"
+      },
+      "background": {
+        "value": "{surface.inverse}",
+        "type": "color",
+        "description": "Tooltip background"
+      },
+      "text": {
+        "color": {
+          "value": "{text.inverse}",
+          "type": "color",
+          "description": "Tooltip text color"
+        },
+        "fontSize": {
+          "value": "12px",
+          "type": "dimension",
+          "description": "Tooltip font size"
+        }
+      },
+      "padding": {
+        "x": {
+          "value": "{inset.s}",
+          "type": "dimension",
+          "description": "Tooltip horizontal padding"
+        },
+        "y": {
+          "value": "{inset.2xs}",
+          "type": "dimension",
+          "description": "Tooltip vertical padding"
+        }
+      },
+      "radius": {
+        "value": "{radius.subtle}",
+        "type": "dimension",
+        "description": "Tooltip border radius"
+      }
+    },
+    "indicator": {
+      "size": {
+        "value": "4px",
+        "type": "dimension",
+        "description": "Active indicator dot size"
+      },
+      "color": {
+        "value": "{brand.primary}",
+        "type": "color",
+        "description": "Active indicator color"
+      },
+      "gap": {
+        "value": "{inset.2xs}",
+        "type": "dimension",
+        "description": "Gap between item and indicator"
+      }
+    }
+  }
+}

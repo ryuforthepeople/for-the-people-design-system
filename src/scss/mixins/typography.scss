@@ -1,0 +1,91 @@
+@use "../../dist/scss/tokens" as *;
+@use "./breakpoint.scss" as *;
+
+@mixin heading($name) {
+  font-weight: 500;
+  line-height: 1.25;
+  color: $text-heading;
+  @if ($name == "xs") {
+    font-size: 20px;
+  } @else if ($name == "s") {
+    font-size: 24px;
+  } @else if ($name == "m") {
+    font-size: 32px;
+  } @else if ($name == "l") {
+    font-size: 40px;
+  } @else if ($name == "xl") {
+    font-size: 48px;
+  } @else if ($name == "2xl") {
+    font-size: 64px;
+    line-height: 1.1;
+  }
+}
+
+@mixin text($name, $isStrong: false) {
+  line-height: 1.5;
+
+  @if ($isStrong) {
+    font-weight: 600;
+  }
+
+  @if ($name == "3xs") {
+    font-size: 10px;
+  } @else if ($name == "2xs") {
+    font-size: 12px;
+  } @else if ($name == "xs") {
+    font-size: 14px;
+  } @else if ($name == "s") {
+    font-size: 16px;
+  } @else if ($name == "m") {
+    font-size: 18px;
+  } @else if ($name == "l") {
+    font-size: 20px;
+  } @else if ($name == "xl") {
+    font-size: 24px;
+    line-height: 1.25;
+  } @else if ($name == "2xl") {
+    font-size: 28px;
+    line-height: 1.25;
+  }
+}
+
+@mixin static-typography($category: "heading", $type: "l", $isStrong: false) {
+  @if ($category == "heading") {
+    font-family: Manrope, sans-serif;
+    @include heading($type);
+  } @else {
+    font-family: "DM Sans", sans-serif;
+    @include text($type, $isStrong);
+  }
+}
+
+@mixin typography($category: "heading", $type, $isStrong: false) {
+  @if ($category == "heading") {
+    @if ($type == "2xl") {
+      @include static-typography("heading", "xl");
+
+      @include breakpoint-from(laptop) {
+        @include static-typography($category, $type);
+      }
+    } @else if ($type == "xl") {
+      @include static-typography("heading", "l");
+      @include breakpoint-from(laptop) {
+        @include static-typography($category, $type);
+      }
+    } @else if ($type == "l") {
+      @include static-typography("heading", "m");
+      @include breakpoint-from(laptop) {
+        @include static-typography($category, $type);
+      }
+    } @else if ($type == "m") {
+      @include static-typography("heading", "s");
+      @include breakpoint-from(laptop) {
+        @include static-typography($category, $type);
+      }
+    } @else {
+      @include static-typography($category, $type, $isStrong);
+    }
+  } @else if ($category == "text") {
+    @include static-typography($category, $type, $isStrong);
+  }
+}

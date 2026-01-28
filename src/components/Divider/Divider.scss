@@ -1,0 +1,147 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: divider;
+
+// Base horizontal divider
+.#{$c} {
+  display: flex;
+  align-items: center;
+  margin: var(--divider-margin-horizontal, $divider-margin-horizontal) 0;
+  border: none;
+  position: relative;
+  width: 100%;
+
+  // The line itself (using ::before for horizontal)
+  &::before {
+    content: '';
+    flex: 1;
+    border-top-width: var(--divider-border-width, $divider-border-width);
+    border-top-style: solid;
+    border-top-color: var(--divider-border-color, $divider-border-color);
+  }
+}
+
+// Vertical layout
+.#{$c}--vertical {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+  margin: 0 var(--divider-margin-vertical, $divider-margin-vertical);
+  min-height: 100%;
+  width: auto;
+
+  &::before {
+    border-top: none;
+    border-left-width: var(--divider-border-width, $divider-border-width);
+    border-left-style: solid;
+    border-left-color: var(--divider-border-color, $divider-border-color);
+    height: 100%;
+    min-height: inherit;
+  }
+}
+
+// Border style variants
+.#{$c}--dashed {
+  &::before,
+  &::after {
+    border-style: dashed;
+  }
+}
+
+.#{$c}--dotted {
+  &::before,
+  &::after {
+    border-style: dotted;
+  }
+}
+
+// Content support
+.#{$c}__content {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--divider-content-gap, $divider-content-gap);
+  color: var(--divider-content-color, $divider-content-color);
+  background: var(--divider-content-background, $divider-content-background);
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+// When there's content, add the second line
+.#{$c}--with-content {
+  &::after {
+    content: '';
+    flex: 1;
+    border-top-width: var(--divider-border-width, $divider-border-width);
+    border-top-style: solid;
+    border-top-color: var(--divider-border-color, $divider-border-color);
+  }
+
+  &.#{$c}--dashed::after {
+    border-top-style: dashed;
+  }
+
+  &.#{$c}--dotted::after {
+    border-top-style: dotted;
+  }
+}
+
+// Alignment modifiers (for content)
+.#{$c}--align-left {
+  &::before {
+    flex: 0 0 5%;
+  }
+  &::after {
+    flex: 1;
+  }
+}
+
+.#{$c}--align-right {
+  &::before {
+    flex: 1;
+  }
+  &::after {
+    flex: 0 0 5%;
+  }
+}
+
+.#{$c}--align-center {
+  &::before,
+  &::after {
+    flex: 1;
+  }
+}
+
+// Vertical with content
+.#{$c}--vertical.#{$c}--with-content {
+  .#{$c}__content {
+    padding: var(--divider-content-gap, $divider-content-gap) 0;
+  }
+
+  &::after {
+    border-top: none;
+    border-left-width: var(--divider-border-width, $divider-border-width);
+    border-left-style: solid;
+    border-left-color: var(--divider-border-color, $divider-border-color);
+    height: auto;
+  }
+}
+
+// Vertical alignment (top/bottom only apply to vertical)
+.#{$c}--vertical.#{$c}--align-top {
+  &::before {
+    flex: 0 0 5%;
+  }
+  &::after {
+    flex: 1;
+  }
+}
+
+.#{$c}--vertical.#{$c}--align-bottom {
+  &::before {
+    flex: 1;
+  }
+  &::after {
+    flex: 0 0 5%;
+  }
+}

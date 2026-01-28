@@ -1,0 +1,221 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: dock;
+
+.#{$c} {
+  position: fixed;
+  z-index: var(--dock-zIndex, $dock-zIndex);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Position variants
+.#{$c}--bottom {
+  bottom: var(--dock-position-offset, $dock-position-offset);
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: row;
+
+  .#{$c}__container {
+    flex-direction: row;
+  }
+
+  .#{$c}__tooltip {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: var(--dock-tooltip-offset, $dock-tooltip-offset);
+  }
+
+  .#{$c}__indicator {
+    bottom: calc(-1 * var(--dock-indicator-gap, $dock-indicator-gap) - var(--dock-indicator-size, $dock-indicator-size));
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.#{$c}--top {
+  top: var(--dock-position-offset, $dock-position-offset);
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: row;
+
+  .#{$c}__container {
+    flex-direction: row;
+  }
+
+  .#{$c}__tooltip {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: var(--dock-tooltip-offset, $dock-tooltip-offset);
+  }
+
+  .#{$c}__indicator {
+    top: calc(-1 * var(--dock-indicator-gap, $dock-indicator-gap) - var(--dock-indicator-size, $dock-indicator-size));
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.#{$c}--left {
+  left: var(--dock-position-offset, $dock-position-offset);
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+
+  .#{$c}__container {
+    flex-direction: column;
+  }
+
+  .#{$c}__tooltip {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: var(--dock-tooltip-offset, $dock-tooltip-offset);
+  }
+
+  .#{$c}__indicator {
+    left: calc(-1 * var(--dock-indicator-gap, $dock-indicator-gap) - var(--dock-indicator-size, $dock-indicator-size));
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.#{$c}--right {
+  right: var(--dock-position-offset, $dock-position-offset);
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+
+  .#{$c}__container {
+    flex-direction: column;
+  }
+
+  .#{$c}__tooltip {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: var(--dock-tooltip-offset, $dock-tooltip-offset);
+  }
+
+  .#{$c}__indicator {
+    right: calc(-1 * var(--dock-indicator-gap, $dock-indicator-gap) - var(--dock-indicator-size, $dock-indicator-size));
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.#{$c}__container {
+  display: flex;
+  align-items: center;
+  gap: var(--dock-gap, $dock-gap);
+  padding: var(--dock-padding, $dock-padding);
+  background-color: var(--dock-background, $dock-background);
+  border: var(--dock-border-width, $dock-border-width) solid var(--dock-border-color, $dock-border-color);
+  border-radius: var(--dock-radius, $dock-radius);
+  box-shadow: var(--dock-shadow, $dock-shadow);
+}
+
+.#{$c}__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--dock-item-size-default, $dock-item-size-default);
+  height: var(--dock-item-size-default, $dock-item-size-default);
+  border-radius: var(--dock-item-radius, $dock-item-radius);
+  background-color: var(--dock-item-background-default, $dock-item-background-default);
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.15s ease;
+
+  &:hover {
+    background-color: var(--dock-item-background-hover, $dock-item-background-hover);
+  }
+}
+
+.#{$c}__item--active {
+  background-color: var(--dock-item-background-active, $dock-item-background-active);
+}
+
+.#{$c}__item--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.#{$c}__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--dock-item-icon-size-default, $dock-item-icon-size-default);
+  height: var(--dock-item-icon-size-default, $dock-item-icon-size-default);
+  color: var(--dock-item-icon-color-default, $dock-item-icon-color-default);
+  transition: color 0.15s ease;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .#{$c}__item:hover & {
+    color: var(--dock-item-icon-color-hover, $dock-item-icon-color-hover);
+  }
+}
+
+.#{$c}__tooltip {
+  position: absolute;
+  white-space: nowrap;
+  padding: var(--dock-tooltip-padding-y, $dock-tooltip-padding-y) var(--dock-tooltip-padding-x, $dock-tooltip-padding-x);
+  background-color: var(--dock-tooltip-background, $dock-tooltip-background);
+  color: var(--dock-tooltip-text-color, $dock-tooltip-text-color);
+  font-size: var(--dock-tooltip-text-fontSize, $dock-tooltip-text-fontSize);
+  border-radius: var(--dock-tooltip-radius, $dock-tooltip-radius);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.#{$c}__indicator {
+  position: absolute;
+  width: var(--dock-indicator-size, $dock-indicator-size);
+  height: var(--dock-indicator-size, $dock-indicator-size);
+  background-color: var(--dock-indicator-color, $dock-indicator-color);
+  border-radius: 50%;
+}
+
+// Tooltip transitions
+.dock-tooltip-up-enter-active,
+.dock-tooltip-up-leave-active,
+.dock-tooltip-down-enter-active,
+.dock-tooltip-down-leave-active,
+.dock-tooltip-left-enter-active,
+.dock-tooltip-left-leave-active,
+.dock-tooltip-right-enter-active,
+.dock-tooltip-right-leave-active {
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.dock-tooltip-up-enter-from,
+.dock-tooltip-up-leave-to {
+  opacity: 0;
+  transform: translateX(-50%) translateY(4px);
+}
+
+.dock-tooltip-down-enter-from,
+.dock-tooltip-down-leave-to {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.dock-tooltip-left-enter-from,
+.dock-tooltip-left-leave-to {
+  opacity: 0;
+  transform: translateY(-50%) translateX(-4px);
+}
+
+.dock-tooltip-right-enter-from,
+.dock-tooltip-right-leave-to {
+  opacity: 0;
+  transform: translateY(-50%) translateX(4px);
+}

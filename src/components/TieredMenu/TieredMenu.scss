@@ -1,0 +1,146 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: tieredmenu;
+
+.#{$c} {
+  min-width: var(--tieredmenu-minWidth, $tieredmenu-minWidth);
+  background-color: var(--tieredmenu-background, $tieredmenu-background);
+  padding: var(--tieredmenu-padding, $tieredmenu-padding);
+  border: var(--tieredmenu-border-width, $tieredmenu-border-width) solid var(--tieredmenu-border-color, $tieredmenu-border-color);
+  border-radius: var(--tieredmenu-border-radius, $tieredmenu-border-radius);
+}
+
+.#{$c}--popup {
+  position: absolute;
+  z-index: 1000;
+  box-shadow: var(--tieredmenu-shadow, $tieredmenu-shadow);
+}
+
+.#{$c}__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.#{$c}__item {
+  position: relative;
+}
+
+.#{$c}__link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: var(--tieredmenu-item-gap, $tieredmenu-item-gap);
+  padding: var(--tieredmenu-item-padding, $tieredmenu-item-padding);
+  background-color: var(--tieredmenu-item-background-default, $tieredmenu-item-background-default);
+  color: var(--tieredmenu-item-color-default, $tieredmenu-item-color-default);
+  border: none;
+  border-radius: var(--tieredmenu-item-borderRadius, $tieredmenu-item-borderRadius);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--tieredmenu-transition-duration, $tieredmenu-transition-duration) ease,
+              color var(--tieredmenu-transition-duration, $tieredmenu-transition-duration) ease;
+
+  &:hover:not(:disabled):not([aria-disabled="true"]) {
+    background-color: var(--tieredmenu-item-background-hover, $tieredmenu-item-background-hover);
+    color: var(--tieredmenu-item-color-hover, $tieredmenu-item-color-hover);
+
+    .#{$c}__icon {
+      color: var(--tieredmenu-icon-color-hover, $tieredmenu-icon-color-hover);
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--tieredmenu-item-color-active, $tieredmenu-item-color-active);
+    outline-offset: -2px;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    cursor: not-allowed;
+    color: var(--tieredmenu-item-color-disabled, $tieredmenu-item-color-disabled);
+    pointer-events: none;
+  }
+}
+
+.#{$c}__item--active > .#{$c}__link {
+  background-color: var(--tieredmenu-item-background-active, $tieredmenu-item-background-active);
+  color: var(--tieredmenu-item-color-active, $tieredmenu-item-color-active);
+}
+
+.#{$c}__item--disabled > .#{$c}__link {
+  cursor: not-allowed;
+  color: var(--tieredmenu-item-color-disabled, $tieredmenu-item-color-disabled);
+  pointer-events: none;
+}
+
+.#{$c}__icon {
+  width: var(--tieredmenu-icon-size, $tieredmenu-icon-size);
+  height: var(--tieredmenu-icon-size, $tieredmenu-icon-size);
+  color: var(--tieredmenu-icon-color-default, $tieredmenu-icon-color-default);
+  flex-shrink: 0;
+  transition: color var(--tieredmenu-transition-duration, $tieredmenu-transition-duration) ease;
+}
+
+.#{$c}__label {
+  flex: 1;
+  white-space: nowrap;
+}
+
+.#{$c}__chevron {
+  width: 12px;
+  height: 12px;
+  margin-left: auto;
+  color: var(--tieredmenu-icon-color-default, $tieredmenu-icon-color-default);
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+// Submenu (flyout)
+.#{$c}__submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: var(--tieredmenu-submenu-offset, $tieredmenu-submenu-offset);
+  min-width: var(--tieredmenu-minWidth, $tieredmenu-minWidth);
+  margin: 0;
+  padding: var(--tieredmenu-padding, $tieredmenu-padding);
+  list-style: none;
+  background-color: var(--tieredmenu-background, $tieredmenu-background);
+  border: var(--tieredmenu-border-width, $tieredmenu-border-width) solid var(--tieredmenu-border-color, $tieredmenu-border-color);
+  border-radius: var(--tieredmenu-border-radius, $tieredmenu-border-radius);
+  box-shadow: var(--tieredmenu-shadow, $tieredmenu-shadow);
+  z-index: 1001;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-4px);
+  transition: opacity var(--tieredmenu-transition-duration, $tieredmenu-transition-duration) ease,
+              visibility var(--tieredmenu-transition-duration, $tieredmenu-transition-duration) ease,
+              transform var(--tieredmenu-transition-duration, $tieredmenu-transition-duration) ease;
+}
+
+.#{$c}__submenu--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.#{$c}__item--submenu-open > .#{$c}__submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+// Separator
+.#{$c}__separator {
+  height: 1px;
+  margin: var(--tieredmenu-separator-margin, $tieredmenu-separator-margin) 0;
+  background-color: var(--tieredmenu-separator-color, $tieredmenu-separator-color);
+}

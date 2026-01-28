@@ -1,0 +1,33 @@
+{
+  "progress-bar": {
+    "track": {
+      "height": {
+        "value": "8px",
+        "type": "dimension"
+      },
+      "background": {
+        "value": "rgba(255, 255, 255, 0.15)",
+        "type": "color",
+        "description": "Track background - semi-transparent for dark backgrounds"
+      },
+      "radius": {
+        "value": "{radius.pill}",
+        "type": "dimension"
+      }
+    },
+    "fill": {
+      "background": {
+        "value": "{orange.500}",
+        "type": "color",
+        "description": "Fill color - visible accent"
+      }
+    },
+    "label": {
+      "color": {
+        "value": "{neutral.0}",
+        "type": "color",
+        "description": "Label text on fill"
+      }
+    }
+  }
+}

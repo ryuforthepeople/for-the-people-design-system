@@ -1,0 +1,28 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: input-group-addon;
+
+.#{$c} {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--input-group-addon-background-default, $input-group-addon-background-default);
+  color: var(--input-group-addon-text-default, $input-group-addon-text-default);
+  border: var(--input-group-addon-border-width, $input-group-addon-border-width) solid var(--input-group-addon-border-color, $input-group-addon-border-color);
+  padding: var(--input-group-addon-padding-y, $input-group-addon-padding-y) var(--input-group-addon-padding-x, $input-group-addon-padding-x);
+  font-size: var(--input-group-addon-fontSize, $input-group-addon-fontSize);
+  white-space: nowrap;
+}
+
+// Sizes - match InputText sizes
+.#{$c}--size-sm {
+  height: var(--input-text-height-sm, $input-text-height-sm);
+}
+
+.#{$c}--size-md {
+  height: var(--input-text-height-md, $input-text-height-md);
+}
+
+.#{$c}--size-lg {
+  height: var(--input-text-height-lg, $input-text-height-lg);
+}

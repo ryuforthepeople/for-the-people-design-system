@@ -1,0 +1,103 @@
+@use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/accent-gradient.scss" as *;
+
+$c: slider;
+
+.#{$c} {
+  display: block;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.#{$c}__input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: var(--slider-track-height, $slider-track-height);
+  background: linear-gradient(
+    to right,
+    var(--accent-gradient-start, $accent-gradient-start) 0%,
+    var(--accent-gradient-end, $accent-gradient-end) var(--slider-fill-percentage, 0%),
+    var(--slider-track-background-default, $slider-track-background-default) var(--slider-fill-percentage, 0%),
+    var(--slider-track-background-default, $slider-track-background-default) 100%
+  );
+  border-radius: var(--slider-track-radius, $slider-track-radius);
+  outline: none;
+  cursor: pointer;
+
+  // Webkit thumb (styled like ToggleSwitch)
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: var(--slider-thumb-size, $slider-thumb-size);
+    height: var(--slider-thumb-size, $slider-thumb-size);
+    background-color: var(--toggleSwitch-thumb-color-default, $toggleSwitch-thumb-color-default);
+    border: none;
+    border-radius: 50%;
+    box-shadow: var(--toggleSwitch-thumb-shadow, $toggleSwitch-thumb-shadow);
+    cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+
+  &::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+  }
+
+  // Firefox thumb (styled like ToggleSwitch)
+  &::-moz-range-thumb {
+    width: var(--slider-thumb-size, $slider-thumb-size);
+    height: var(--slider-thumb-size, $slider-thumb-size);
+    background-color: var(--toggleSwitch-thumb-color-default, $toggleSwitch-thumb-color-default);
+    border: none;
+    border-radius: 50%;
+    box-shadow: var(--toggleSwitch-thumb-shadow, $toggleSwitch-thumb-shadow);
+    cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+
+  &::-moz-range-thumb:hover {
+    transform: scale(1.1);
+  }
+
+  // Firefox track
+  &::-moz-range-track {
+    height: var(--slider-track-height, $slider-track-height);
+    background: transparent;
+    border-radius: var(--slider-track-radius, $slider-track-radius);
+  }
+
+  // Focus state
+  &:focus-visible {
+    &::-webkit-slider-thumb {
+      outline: var(--slider-focus-ringWidth, $slider-focus-ringWidth) solid var(--slider-focus-ringColor, $slider-focus-ringColor);
+      outline-offset: var(--slider-focus-ringOffset, $slider-focus-ringOffset);
+    }
+
+    &::-moz-range-thumb {
+      outline: var(--slider-focus-ringWidth, $slider-focus-ringWidth) solid var(--slider-focus-ringColor, $slider-focus-ringColor);
+      outline-offset: var(--slider-focus-ringOffset, $slider-focus-ringOffset);
+    }
+  }
+
+  // Disabled state
+  &:disabled {
+    cursor: not-allowed;
+    background: linear-gradient(
+      to right,
+      var(--slider-track-background-disabled, $slider-track-background-disabled) 0%,
+      var(--slider-track-background-disabled, $slider-track-background-disabled) var(--slider-fill-percentage, 0%),
+      var(--slider-track-background-disabled, $slider-track-background-disabled) var(--slider-fill-percentage, 0%),
+      var(--slider-track-background-disabled, $slider-track-background-disabled) 100%
+    );
+
+    &::-webkit-slider-thumb {
+      background-color: var(--slider-thumb-background-disabled, $slider-thumb-background-disabled);
+      cursor: not-allowed;
+    }
+
+    &::-moz-range-thumb {
+      background-color: var(--slider-thumb-background-disabled, $slider-thumb-background-disabled);
+      cursor: not-allowed;
+    }
+  }
+}

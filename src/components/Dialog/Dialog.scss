@@ -1,0 +1,157 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: dialog;
+
+// Overlay backdrop
+.#{$c}__overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--dialog-zIndex-overlay, $dialog-zIndex-overlay);
+}
+
+.#{$c}__overlay--modal {
+  background-color: var(--dialog-overlay-background, $dialog-overlay-background);
+}
+
+// Dialog container
+.#{$c} {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dialog-background-default, $dialog-background-default);
+  border-radius: var(--dialog-radius, $dialog-radius);
+  box-shadow: var(--dialog-shadow, $dialog-shadow);
+  border: var(--dialog-border-width, $dialog-border-width) solid var(--dialog-border-color, $dialog-border-color);
+  max-height: var(--dialog-maxHeight, $dialog-maxHeight);
+  max-width: 95vw;
+  z-index: var(--dialog-zIndex-dialog, $dialog-zIndex-dialog);
+  overflow: hidden;
+}
+
+// Size variants
+.#{$c}--size-sm {
+  width: var(--dialog-width-sm, $dialog-width-sm);
+}
+
+.#{$c}--size-md {
+  width: var(--dialog-width-md, $dialog-width-md);
+}
+
+.#{$c}--size-lg {
+  width: var(--dialog-width-lg, $dialog-width-lg);
+}
+
+.#{$c}--size-xl {
+  width: var(--dialog-width-xl, $dialog-width-xl);
+}
+
+// Draggable variant
+.#{$c}--draggable {
+  .#{$c}__header {
+    cursor: move;
+    user-select: none;
+  }
+}
+
+// Header section
+.#{$c}__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--inset-m, $inset-m);
+  padding: var(--dialog-padding-header, $dialog-padding-header);
+  background-color: var(--dialog-header-background, $dialog-header-background);
+  border-bottom: 1px solid var(--dialog-header-borderColor, $dialog-header-borderColor);
+  flex-shrink: 0;
+}
+
+.#{$c}__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dialog-header-title-color, $dialog-header-title-color);
+  margin: 0;
+  line-height: 1.4;
+}
+
+// Close button
+.#{$c}__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--dialog-closeButton-size, $dialog-closeButton-size);
+  height: var(--dialog-closeButton-size, $dialog-closeButton-size);
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  border-radius: var(--dialog-closeButton-radius, $dialog-closeButton-radius);
+  color: var(--dialog-closeButton-color-default, $dialog-closeButton-color-default);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    background-color: var(--dialog-closeButton-background-hover, $dialog-closeButton-background-hover);
+    color: var(--dialog-closeButton-color-hover, $dialog-closeButton-color-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring, $focus-ring);
+    outline-offset: 2px;
+  }
+}
+
+.#{$c}__close-icon {
+  width: var(--dialog-closeButton-iconSize, $dialog-closeButton-iconSize);
+  height: var(--dialog-closeButton-iconSize, $dialog-closeButton-iconSize);
+}
+
+// Content section
+.#{$c}__content {
+  flex: 1 1 auto;
+  padding: var(--dialog-padding-content, $dialog-padding-content);
+  overflow-y: auto;
+}
+
+// Footer section
+.#{$c}__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--inset-s, $inset-s);
+  padding: var(--dialog-padding-footer, $dialog-padding-footer);
+  border-top: 1px solid var(--dialog-header-borderColor, $dialog-header-borderColor);
+  flex-shrink: 0;
+}
+
+// Transition animations
+.dialog-fade-enter-active,
+.dialog-fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.dialog-fade-enter-from,
+.dialog-fade-leave-to {
+  opacity: 0;
+}
+
+.dialog-scale-enter-active {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.dialog-scale-leave-active {
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.dialog-scale-enter-from {
+  transform: scale(0.95);
+  opacity: 0;
+}
+
+.dialog-scale-leave-to {
+  transform: scale(0.95);
+  opacity: 0;
+}

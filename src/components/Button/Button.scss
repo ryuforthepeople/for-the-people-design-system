@@ -1,0 +1,254 @@
+@use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/accent-gradient.scss" as *;
+
+$c: button;
+
+.#{$c} {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+  border-width: var(--button-border-width, $button-border-width);
+  border-radius: var(--button-radius-default, $button-radius-default);
+  font-weight: var(--button-fontWeight, $button-fontWeight);
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color var(--button-transition-duration, $button-transition-duration) ease,
+    border-color var(--button-transition-duration, $button-transition-duration) ease,
+    color var(--button-transition-duration, $button-transition-duration) ease;
+
+  &:focus-visible {
+    outline: var(--button-focus-ringWidth, $button-focus-ringWidth) solid var(--button-focus-ringColor, $button-focus-ringColor);
+    outline-offset: var(--button-focus-ringOffset, $button-focus-ringOffset);
+  }
+}
+
+.#{$c}__label {
+  display: inline-block;
+}
+
+.#{$c}__icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.#{$c}__spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.#{$c}__spinner-icon {
+  animation: button-spin 1s linear infinite;
+}
+
+@keyframes button-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Sizes
+.#{$c}--size-sm {
+  height: var(--button-size-sm-height, $button-size-sm-height);
+  padding: var(--button-size-sm-paddingY, $button-size-sm-paddingY) var(--button-size-sm-paddingX, $button-size-sm-paddingX);
+  font-size: var(--button-size-sm-fontSize, $button-size-sm-fontSize);
+  gap: var(--button-size-sm-gap, $button-size-sm-gap);
+
+  .#{$c}__icon {
+    font-size: var(--button-size-sm-iconSize, $button-size-sm-iconSize);
+    width: var(--button-size-sm-iconSize, $button-size-sm-iconSize);
+    height: var(--button-size-sm-iconSize, $button-size-sm-iconSize);
+  }
+
+  .#{$c}__spinner-icon {
+    width: var(--button-size-sm-iconSize, $button-size-sm-iconSize);
+    height: var(--button-size-sm-iconSize, $button-size-sm-iconSize);
+  }
+}
+
+.#{$c}--size-md {
+  height: var(--button-size-md-height, $button-size-md-height);
+  padding: var(--button-size-md-paddingY, $button-size-md-paddingY) var(--button-size-md-paddingX, $button-size-md-paddingX);
+  font-size: var(--button-size-md-fontSize, $button-size-md-fontSize);
+  gap: var(--button-size-md-gap, $button-size-md-gap);
+
+  .#{$c}__icon {
+    font-size: var(--button-size-md-iconSize, $button-size-md-iconSize);
+    width: var(--button-size-md-iconSize, $button-size-md-iconSize);
+    height: var(--button-size-md-iconSize, $button-size-md-iconSize);
+  }
+
+  .#{$c}__spinner-icon {
+    width: var(--button-size-md-iconSize, $button-size-md-iconSize);
+    height: var(--button-size-md-iconSize, $button-size-md-iconSize);
+  }
+}
+
+.#{$c}--size-lg {
+  height: var(--button-size-lg-height, $button-size-lg-height);
+  padding: var(--button-size-lg-paddingY, $button-size-lg-paddingY) var(--button-size-lg-paddingX, $button-size-lg-paddingX);
+  font-size: var(--button-size-lg-fontSize, $button-size-lg-fontSize);
+  gap: var(--button-size-lg-gap, $button-size-lg-gap);
+
+  .#{$c}__icon {
+    font-size: var(--button-size-lg-iconSize, $button-size-lg-iconSize);
+    width: var(--button-size-lg-iconSize, $button-size-lg-iconSize);
+    height: var(--button-size-lg-iconSize, $button-size-lg-iconSize);
+  }
+
+  .#{$c}__spinner-icon {
+    width: var(--button-size-lg-iconSize, $button-size-lg-iconSize);
+    height: var(--button-size-lg-iconSize, $button-size-lg-iconSize);
+  }
+}
+
+// Variants
+.#{$c}--variant-primary {
+  @include accent-gradient();
+  border-color: transparent;
+  color: var(--button-text-primary-default, $button-text-primary-default);
+  text-shadow: var(--button-text-primary-shadow, $button-text-primary-shadow);
+
+  &:hover:not(:disabled) {
+    @include accent-gradient("hover");
+  }
+
+  &:active:not(:disabled) {
+    background: linear-gradient(
+      135deg,
+      var(--button-background-gradient-activeStart, $button-background-gradient-activeStart),
+      var(--button-background-gradient-activeEnd, $button-background-gradient-activeEnd)
+    );
+  }
+
+  &:disabled,
+  &.#{$c}--disabled {
+    background: var(--button-background-primary-disabled, $button-background-primary-disabled);
+    border-color: var(--button-border-primary-disabled, $button-border-primary-disabled);
+    color: var(--button-text-primary-disabled, $button-text-primary-disabled);
+    text-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
+.#{$c}--variant-secondary {
+  position: relative;
+  background-color: var(--button-background-secondary-default, $button-background-secondary-default);
+  border-color: transparent;
+  color: var(--button-text-secondary-default, $button-text-secondary-default);
+
+  // Gradient border via pseudo-element
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: var(--button-border-width, $button-border-width);
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      var(--accent-gradient-start, $accent-gradient-start),
+      var(--accent-gradient-end, $accent-gradient-end)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--button-background-secondary-hover, $button-background-secondary-hover);
+
+    &::before {
+      background: linear-gradient(
+        135deg,
+        var(--accent-gradient-hoverStart, $accent-gradient-hoverStart),
+        var(--accent-gradient-hoverEnd, $accent-gradient-hoverEnd)
+      );
+    }
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--button-background-secondary-active, $button-background-secondary-active);
+  }
+
+  &:disabled,
+  &.#{$c}--disabled {
+    background-color: var(--button-background-secondary-disabled, $button-background-secondary-disabled);
+    border-color: var(--button-border-secondary-disabled, $button-border-secondary-disabled);
+    color: var(--button-text-secondary-disabled, $button-text-secondary-disabled);
+    cursor: not-allowed;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.#{$c}--variant-outlined {
+  background-color: var(--button-background-outlined-default, $button-background-outlined-default);
+  border-color: var(--button-border-outlined-default, $button-border-outlined-default);
+  color: var(--button-text-outlined-default, $button-text-outlined-default);
+
+  &:hover:not(:disabled) {
+    background-color: var(--button-background-outlined-hover, $button-background-outlined-hover);
+    border-color: var(--button-border-outlined-hover, $button-border-outlined-hover);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--button-background-outlined-active, $button-background-outlined-active);
+    border-color: var(--button-border-outlined-active, $button-border-outlined-active);
+  }
+
+  &:disabled,
+  &.#{$c}--disabled {
+    background-color: var(--button-background-outlined-disabled, $button-background-outlined-disabled);
+    border-color: var(--button-border-outlined-disabled, $button-border-outlined-disabled);
+    color: var(--button-text-outlined-disabled, $button-text-outlined-disabled);
+    cursor: not-allowed;
+  }
+}
+
+.#{$c}--variant-text {
+  background-color: var(--button-background-text-default, $button-background-text-default);
+  border-color: var(--button-border-text-default, $button-border-text-default);
+  color: var(--button-text-text-default, $button-text-text-default);
+
+  &:hover:not(:disabled) {
+    background-color: var(--button-background-text-hover, $button-background-text-hover);
+    border-color: var(--button-border-text-hover, $button-border-text-hover);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--button-background-text-active, $button-background-text-active);
+    border-color: var(--button-border-text-active, $button-border-text-active);
+  }
+
+  &:disabled,
+  &.#{$c}--disabled {
+    background-color: var(--button-background-text-disabled, $button-background-text-disabled);
+    border-color: var(--button-border-text-disabled, $button-border-text-disabled);
+    color: var(--button-text-text-disabled, $button-text-text-disabled);
+    cursor: not-allowed;
+  }
+}
+
+// Loading state
+.#{$c}--loading {
+  cursor: wait;
+  pointer-events: none;
+}
+
+// Pill shape
+.#{$c}--pill {
+  border-radius: var(--button-radius-pill, $button-radius-pill);
+}

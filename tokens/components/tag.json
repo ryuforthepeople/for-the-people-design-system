@@ -1,0 +1,122 @@
+{
+  "tag": {
+    "padding": {
+      "x": {
+        "value": "{inset.xs}",
+        "type": "dimension",
+        "description": "Horizontal padding"
+      },
+      "y": {
+        "value": "{inset.2xs}",
+        "type": "dimension",
+        "description": "Vertical padding"
+      }
+    },
+    "gap": {
+      "value": "{inline.2xs}",
+      "type": "dimension",
+      "description": "Gap between icon and text"
+    },
+    "radius": {
+      "default": {
+        "value": "{radius.subtle}",
+        "type": "dimension",
+        "description": "Default border radius"
+      },
+      "rounded": {
+        "value": "{radius.pill}",
+        "type": "dimension",
+        "description": "Fully rounded (pill) border radius"
+      }
+    },
+    "fontSize": {
+      "value": "12px",
+      "type": "dimension",
+      "description": "Tag font size"
+    },
+    "fontWeight": {
+      "value": "600",
+      "type": "fontWeight",
+      "description": "Tag font weight"
+    },
+    "iconSize": {
+      "value": "12px",
+      "type": "dimension",
+      "description": "Icon size inside tag"
+    },
+    "background": {
+      "brand": {
+        "value": "{orange.500}",
+        "type": "color",
+        "description": "Brand color tag"
+      },
+      "accent": {
+        "value": "{amber.500}",
+        "type": "color",
+        "description": "Accent color tag"
+      },
+      "neutral": {
+        "value": "rgba(255, 255, 255, 0.12)",
+        "type": "color",
+        "description": "Neutral/muted tag"
+      },
+      "success": {
+        "value": "{feedback.success}",
+        "type": "color",
+        "description": "Success status tag"
+      },
+      "warning": {
+        "value": "{feedback.warning}",
+        "type": "color",
+        "description": "Warning status tag"
+      },
+      "danger": {
+        "value": "{feedback.error}",
+        "type": "color",
+        "description": "Danger/error status tag"
+      },
+      "info": {
+        "value": "{feedback.info}",
+        "type": "color",
+        "description": "Info status tag"
+      }
+    },
+    "text": {
+      "brand": {
+        "value": "{neutral.0}",
+        "type": "color",
+        "description": "Text on brand background"
+      },
+      "accent": {
+        "value": "{neutral.900}",
+        "type": "color",
+        "description": "Text on accent background (dark for contrast)"
+      },
+      "neutral": {
+        "value": "{text.default}",
+        "type": "color",
+        "description": "Text on neutral background"
+      },
+      "success": {
+        "value": "{neutral.0}",
+        "type": "color",
+        "description": "Text on success background"
+      },
+      "warning": {
+        "value": "{neutral.900}",
+        "type": "color",
+        "description": "Text on warning background (dark for contrast)"
+      },
+      "danger": {
+        "value": "{neutral.0}",
+        "type": "color",
+        "description": "Text on danger background"
+      },
+      "info": {
+        "value": "{neutral.0}",
+        "type": "color",
+        "description": "Text on info background"
+      }
+    }
+  }
+}

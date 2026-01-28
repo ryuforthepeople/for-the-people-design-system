@@ -1,0 +1,74 @@
+{
+  "image-compare": {
+    "background": {
+      "value": "{surface.panel}",
+      "type": "color",
+      "description": "Container background color"
+    },
+    "border": {
+      "color": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Border color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Border width"
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Border radius"
+      }
+    },
+    "handle": {
+      "width": {
+        "value": "4px",
+        "type": "dimension",
+        "description": "Handle divider width"
+      },
+      "color": {
+        "default": {
+          "value": "{neutral.0}",
+          "type": "color",
+          "description": "Handle color"
+        },
+        "hover": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Handle hover color"
+        }
+      },
+      "shadow": {
+        "value": "{shadow.m}",
+        "type": "shadow",
+        "description": "Handle shadow"
+      }
+    },
+    "icon": {
+      "size": {
+        "value": "32px",
+        "type": "dimension",
+        "description": "Handle icon container size"
+      },
+      "color": {
+        "value": "{neutral.700}",
+        "type": "color",
+        "description": "Handle icon color"
+      },
+      "background": {
+        "value": "{neutral.0}",
+        "type": "color",
+        "description": "Handle icon background"
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "150ms",
+        "type": "duration",
+        "description": "Handle state transition duration"
+      }
+    }
+  }
+}

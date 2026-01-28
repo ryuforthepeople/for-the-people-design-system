@@ -1,0 +1,172 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: treetable;
+
+.#{$c} {
+  width: 100%;
+  background-color: var(--treetable-background-default, $treetable-background-default);
+  border: var(--treetable-border-width, $treetable-border-width) solid var(--treetable-border-color-default, $treetable-border-color-default);
+  border-radius: var(--treetable-radius, $treetable-radius);
+  overflow: hidden;
+}
+
+.#{$c}--disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.#{$c}__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+// Header
+.#{$c}__head {
+  background-color: var(--treetable-header-background, $treetable-header-background);
+}
+
+.#{$c}__row--header {
+  .#{$c}__cell {
+    padding: var(--treetable-header-padding-y, $treetable-header-padding-y) var(--treetable-header-padding-x, $treetable-header-padding-x);
+    color: var(--treetable-header-text, $treetable-header-text);
+    font-weight: var(--treetable-header-fontWeight, $treetable-header-fontWeight);
+    text-align: left;
+    border-bottom: 1px solid var(--treetable-header-borderColor, $treetable-header-borderColor);
+  }
+}
+
+// Body
+.#{$c}__body {
+  .#{$c}__row {
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+
+    &:hover {
+      background-color: var(--treetable-row-background-hover, $treetable-row-background-hover);
+    }
+
+    &:focus {
+      outline: none;
+      background-color: var(--treetable-row-background-hover, $treetable-row-background-hover);
+    }
+
+    &:focus-visible {
+      outline: var(--treetable-focus-ringWidth, $treetable-focus-ringWidth) solid var(--treetable-focus-ringColor, $treetable-focus-ringColor);
+      outline-offset: -2px;
+    }
+  }
+}
+
+// Row
+.#{$c}__row {
+  background-color: var(--treetable-row-background-default, $treetable-row-background-default);
+
+  &:not(:last-child) {
+    .#{$c}__cell {
+      border-bottom: 1px solid var(--treetable-row-borderColor, $treetable-row-borderColor);
+    }
+  }
+}
+
+.#{$c}__row--selected {
+  background-color: var(--treetable-row-background-selected, $treetable-row-background-selected);
+  color: var(--treetable-row-text-selected, $treetable-row-text-selected);
+
+  &:hover {
+    background-color: var(--treetable-row-background-selected, $treetable-row-background-selected);
+    filter: brightness(0.95);
+  }
+}
+
+// Striped
+.#{$c}--striped {
+  .#{$c}__body .#{$c}__row:nth-child(even):not(.#{$c}__row--selected) {
+    background-color: var(--treetable-row-background-stripe, $treetable-row-background-stripe);
+  }
+}
+
+// Cell
+.#{$c}__cell {
+  padding: var(--treetable-cell-padding-y, $treetable-cell-padding-y) var(--treetable-cell-padding-x, $treetable-cell-padding-x);
+  color: var(--treetable-row-text-default, $treetable-row-text-default);
+  vertical-align: middle;
+
+  &:first-child {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.#{$c}__cell-content {
+  flex: 1;
+  min-width: 0;
+}
+
+// Indent
+.#{$c}__indent {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+// Toggler
+.#{$c}__toggler {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--treetable-toggler-size, $treetable-toggler-size);
+  height: var(--treetable-toggler-size, $treetable-toggler-size);
+  margin-right: var(--treetable-toggler-marginRight, $treetable-toggler-marginRight);
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: var(--treetable-toggler-color-default, $treetable-toggler-color-default);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    color: var(--treetable-toggler-color-hover, $treetable-toggler-color-hover);
+  }
+
+  &--expanded {
+    transform: rotate(90deg);
+  }
+}
+
+.#{$c}__toggler-spacer {
+  display: inline-block;
+  width: var(--treetable-toggler-size, $treetable-toggler-size);
+  margin-right: var(--treetable-toggler-marginRight, $treetable-toggler-marginRight);
+  flex-shrink: 0;
+}
+
+// Checkbox
+.#{$c}__checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--treetable-checkbox-size, $treetable-checkbox-size);
+  height: var(--treetable-checkbox-size, $treetable-checkbox-size);
+  margin-right: var(--treetable-checkbox-marginRight, $treetable-checkbox-marginRight);
+  border: 2px solid var(--treetable-border-color-default, $treetable-border-color-default);
+  border-radius: 3px;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+
+  svg {
+    color: white;
+  }
+
+  &--checked {
+    background-color: var(--treetable-focus-ringColor, $treetable-focus-ringColor);
+    border-color: var(--treetable-focus-ringColor, $treetable-focus-ringColor);
+  }
+}
+
+// Empty
+.#{$c}__empty {
+  padding: var(--treetable-cell-padding-y, $treetable-cell-padding-y) var(--treetable-cell-padding-x, $treetable-cell-padding-x);
+  color: var(--treetable-row-text-default, $treetable-row-text-default);
+  opacity: 0.6;
+  text-align: center;
+}

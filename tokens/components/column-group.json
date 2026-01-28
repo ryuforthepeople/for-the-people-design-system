@@ -1,0 +1,45 @@
+{
+  "column-group": {
+    "header": {
+      "background": {
+        "value": "{surface.muted}",
+        "type": "color",
+        "description": "Column group header background"
+      },
+      "borderColor": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Column group header border color"
+      },
+      "borderWidth": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Column group header border width"
+      }
+    },
+    "footer": {
+      "background": {
+        "value": "{surface.muted}",
+        "type": "color",
+        "description": "Column group footer background"
+      },
+      "borderColor": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Column group footer border color"
+      },
+      "borderWidth": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Column group footer border width"
+      }
+    },
+    "row": {
+      "borderColor": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Row border color within group"
+      }
+    }
+  }
+}

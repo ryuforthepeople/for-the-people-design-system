@@ -1,0 +1,98 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: menu;
+
+.#{$c} {
+  background-color: var(--menu-background, $menu-background);
+  border: var(--menu-border-width, $menu-border-width) solid var(--menu-border-color, $menu-border-color);
+  border-radius: var(--menu-radius, $menu-radius);
+  min-width: var(--menu-minWidth, $menu-minWidth);
+  max-height: var(--menu-maxHeight, $menu-maxHeight);
+  overflow-y: auto;
+  padding: var(--menu-padding, $menu-padding);
+}
+
+.#{$c}--popup {
+  position: fixed;
+  z-index: var(--menu-zIndex, $menu-zIndex);
+  box-shadow: var(--menu-shadow, $menu-shadow);
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease;
+}
+
+.#{$c}--popup.#{$c}--visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.#{$c}__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.#{$c}__item {
+  display: flex;
+  align-items: center;
+  gap: var(--menu-item-gap, $menu-item-gap);
+  padding: var(--menu-item-padding-y, $menu-item-padding-y) var(--menu-item-padding-x, $menu-item-padding-x);
+  background-color: var(--menu-item-background-default, $menu-item-background-default);
+  color: var(--menu-item-text-default, $menu-item-text-default);
+  font-size: var(--menu-item-fontSize, $menu-item-fontSize);
+  border-radius: var(--menu-item-radius, $menu-item-radius);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+
+  &:hover:not(.#{$c}__item--disabled) {
+    background-color: var(--menu-item-background-hover, $menu-item-background-hover);
+  }
+
+  &:active:not(.#{$c}__item--disabled) {
+    background-color: var(--menu-item-background-active, $menu-item-background-active);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--menu-item-text-default, $menu-item-text-default);
+    outline-offset: -2px;
+  }
+}
+
+.#{$c}__item--disabled {
+  cursor: not-allowed;
+  color: var(--menu-item-text-disabled, $menu-item-text-disabled);
+
+  .#{$c}__item-icon {
+    color: var(--menu-item-icon-color-disabled, $menu-item-icon-color-disabled);
+  }
+}
+
+.#{$c}__item-icon {
+  flex-shrink: 0;
+  width: var(--menu-item-icon-size, $menu-item-icon-size);
+  height: var(--menu-item-icon-size, $menu-item-icon-size);
+  font-size: var(--menu-item-icon-size, $menu-item-icon-size);
+  color: var(--menu-item-icon-color-default, $menu-item-icon-color-default);
+}
+
+.#{$c}__item-label {
+  flex: 1;
+  white-space: nowrap;
+}
+
+.#{$c}__separator {
+  height: 1px;
+  background-color: var(--menu-separator-color, $menu-separator-color);
+  margin: var(--menu-separator-margin, $menu-separator-margin) 0;
+}

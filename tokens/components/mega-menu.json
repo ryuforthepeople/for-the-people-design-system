@@ -1,0 +1,283 @@
+{
+  "mega-menu": {
+    "root": {
+      "background": {
+        "value": "{surface.canvas}",
+        "type": "color",
+        "description": "Menu bar background"
+      },
+      "padding": {
+        "x": {
+          "value": "{inset.m}",
+          "type": "dimension",
+          "description": "Menu bar horizontal padding"
+        },
+        "y": {
+          "value": "{inset.xs}",
+          "type": "dimension",
+          "description": "Menu bar vertical padding"
+        }
+      },
+      "gap": {
+        "value": "{inline.2xs}",
+        "type": "dimension",
+        "description": "Gap between root items"
+      }
+    },
+    "rootItem": {
+      "padding": {
+        "x": {
+          "value": "{inset.m}",
+          "type": "dimension",
+          "description": "Root item horizontal padding"
+        },
+        "y": {
+          "value": "{inset.s}",
+          "type": "dimension",
+          "description": "Root item vertical padding"
+        }
+      },
+      "text": {
+        "color": {
+          "default": {
+            "value": "{text.default}",
+            "type": "color",
+            "description": "Root item text color"
+          },
+          "hover": {
+            "value": "{brand.primary}",
+            "type": "color",
+            "description": "Root item hover text color"
+          },
+          "active": {
+            "value": "{brand.primary}",
+            "type": "color",
+            "description": "Active root item text color"
+          }
+        },
+        "fontSize": {
+          "value": "14px",
+          "type": "dimension",
+          "description": "Root item font size"
+        },
+        "fontWeight": {
+          "default": {
+            "value": "500",
+            "type": "number",
+            "description": "Root item font weight"
+          },
+          "active": {
+            "value": "600",
+            "type": "number",
+            "description": "Active root item font weight"
+          }
+        }
+      },
+      "background": {
+        "default": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Root item background"
+        },
+        "hover": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Root item hover background"
+        },
+        "active": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Active root item background"
+        }
+      },
+      "radius": {
+        "value": "{radius.subtle}",
+        "type": "dimension",
+        "description": "Root item border radius"
+      },
+      "indicator": {
+        "height": {
+          "value": "2px",
+          "type": "dimension",
+          "description": "Active indicator height"
+        },
+        "color": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Active indicator color"
+        }
+      }
+    },
+    "panel": {
+      "background": {
+        "value": "{surface.elevated}",
+        "type": "color",
+        "description": "Dropdown panel background"
+      },
+      "border": {
+        "color": {
+          "value": "{border.subtle}",
+          "type": "color",
+          "description": "Panel border color"
+        },
+        "width": {
+          "value": "1px",
+          "type": "dimension",
+          "description": "Panel border width"
+        }
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Panel border radius"
+      },
+      "shadow": {
+        "value": "{shadow.m}",
+        "type": "shadow",
+        "description": "Panel shadow"
+      },
+      "padding": {
+        "value": "{inset.l}",
+        "type": "dimension",
+        "description": "Panel padding"
+      },
+      "gap": {
+        "value": "{inline.l}",
+        "type": "dimension",
+        "description": "Gap between columns"
+      },
+      "maxWidth": {
+        "value": "960px",
+        "type": "dimension",
+        "description": "Maximum panel width"
+      },
+      "zIndex": {
+        "value": "1050",
+        "type": "number",
+        "description": "Panel z-index"
+      }
+    },
+    "column": {
+      "minWidth": {
+        "value": "200px",
+        "type": "dimension",
+        "description": "Minimum column width"
+      },
+      "gap": {
+        "value": "{stack.xs}",
+        "type": "dimension",
+        "description": "Gap between column items"
+      }
+    },
+    "category": {
+      "text": {
+        "color": {
+          "value": "{text.heading}",
+          "type": "color",
+          "description": "Category heading color"
+        },
+        "fontSize": {
+          "value": "12px",
+          "type": "dimension",
+          "description": "Category heading font size"
+        },
+        "fontWeight": {
+          "value": "600",
+          "type": "number",
+          "description": "Category heading font weight"
+        },
+        "textTransform": {
+          "value": "uppercase",
+          "type": "string",
+          "description": "Category text transform"
+        },
+        "letterSpacing": {
+          "value": "0.5px",
+          "type": "dimension",
+          "description": "Category letter spacing"
+        }
+      },
+      "margin": {
+        "bottom": {
+          "value": "{stack.s}",
+          "type": "dimension",
+          "description": "Space below category heading"
+        }
+      }
+    },
+    "item": {
+      "padding": {
+        "x": {
+          "value": "{inset.s}",
+          "type": "dimension",
+          "description": "Item horizontal padding"
+        },
+        "y": {
+          "value": "{inset.xs}",
+          "type": "dimension",
+          "description": "Item vertical padding"
+        }
+      },
+      "text": {
+        "color": {
+          "default": {
+            "value": "{text.default}",
+            "type": "color",
+            "description": "Item text color"
+          },
+          "hover": {
+            "value": "{brand.primary}",
+            "type": "color",
+            "description": "Item hover text color"
+          }
+        },
+        "fontSize": {
+          "value": "14px",
+          "type": "dimension",
+          "description": "Item font size"
+        }
+      },
+      "background": {
+        "hover": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Item hover background"
+        }
+      },
+      "radius": {
+        "value": "{radius.subtle}",
+        "type": "dimension",
+        "description": "Item border radius"
+      },
+      "icon": {
+        "size": {
+          "value": "16px",
+          "type": "dimension",
+          "description": "Item icon size"
+        },
+        "color": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Item icon color"
+        },
+        "gap": {
+          "value": "{inline.s}",
+          "type": "dimension",
+          "description": "Gap between icon and text"
+        }
+      },
+      "description": {
+        "color": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Item description color"
+        },
+        "fontSize": {
+          "value": "12px",
+          "type": "dimension",
+          "description": "Item description font size"
+        }
+      }
+    }
+  }
+}

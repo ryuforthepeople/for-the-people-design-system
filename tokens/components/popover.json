@@ -1,0 +1,65 @@
+{
+  "popover": {
+    "padding": {
+      "x": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Horizontal padding"
+      },
+      "y": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Vertical padding"
+      }
+    },
+    "background": {
+      "value": "{surface.canvas}",
+      "type": "color",
+      "description": "Popover background color"
+    },
+    "radius": {
+      "value": "{radius.default}",
+      "type": "dimension",
+      "description": "Popover border radius"
+    },
+    "shadow": {
+      "value": "{shadow.m}",
+      "type": "shadow",
+      "description": "Popover elevation shadow"
+    },
+    "border": {
+      "color": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Popover border color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Popover border width"
+      }
+    },
+    "arrow": {
+      "size": {
+        "value": "8px",
+        "type": "dimension",
+        "description": "Arrow/pointer size"
+      }
+    },
+    "offset": {
+      "value": "10px",
+      "type": "dimension",
+      "description": "Distance from trigger element"
+    },
+    "maxWidth": {
+      "value": "350px",
+      "type": "dimension",
+      "description": "Maximum width"
+    },
+    "zIndex": {
+      "value": "1100",
+      "type": "number",
+      "description": "Z-index for stacking"
+    }
+  }
+}

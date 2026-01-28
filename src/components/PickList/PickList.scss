@@ -1,0 +1,126 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: picklist;
+
+.#{$c} {
+  display: flex;
+  align-items: stretch;
+  gap: var(--picklist-gap, $picklist-gap);
+}
+
+.#{$c}--disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+// List panels (source and target)
+.#{$c}__list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  background-color: var(--picklist-background-default, $picklist-background-default);
+  border: var(--picklist-border-width, $picklist-border-width) solid var(--picklist-border-color-default, $picklist-border-color-default);
+  border-radius: var(--picklist-radius, $picklist-radius);
+  overflow: hidden;
+}
+
+.#{$c}__header {
+  padding: var(--picklist-header-padding-y, $picklist-header-padding-y) var(--picklist-header-padding-x, $picklist-header-padding-x);
+  background-color: var(--picklist-header-background, $picklist-header-background);
+  color: var(--picklist-header-text, $picklist-header-text);
+  border-bottom: 1px solid var(--picklist-header-borderColor, $picklist-header-borderColor);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.#{$c}__items {
+  flex: 1;
+  min-height: var(--picklist-list-minHeight, $picklist-list-minHeight);
+  max-height: var(--picklist-list-maxHeight, $picklist-list-maxHeight);
+  overflow-y: auto;
+  padding: var(--picklist-list-padding, $picklist-list-padding);
+}
+
+.#{$c}__item {
+  display: flex;
+  align-items: center;
+  padding: var(--picklist-item-padding-y, $picklist-item-padding-y) var(--picklist-item-padding-x, $picklist-item-padding-x);
+  background-color: var(--picklist-item-background-default, $picklist-item-background-default);
+  color: var(--picklist-item-text-default, $picklist-item-text-default);
+  border-radius: var(--picklist-item-radius, $picklist-item-radius);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: var(--picklist-item-background-hover, $picklist-item-background-hover);
+  }
+
+  &:focus {
+    outline: none;
+    background-color: var(--picklist-item-background-hover, $picklist-item-background-hover);
+  }
+
+  &:focus-visible {
+    outline: var(--picklist-focus-ringWidth, $picklist-focus-ringWidth) solid var(--picklist-focus-ringColor, $picklist-focus-ringColor);
+    outline-offset: -2px;
+  }
+}
+
+.#{$c}__item--selected {
+  background-color: var(--picklist-item-background-selected, $picklist-item-background-selected);
+  color: var(--picklist-item-text-selected, $picklist-item-text-selected);
+
+  &:hover {
+    background-color: var(--picklist-item-background-selected, $picklist-item-background-selected);
+    filter: brightness(0.95);
+  }
+}
+
+.#{$c}__empty {
+  padding: var(--picklist-item-padding-y, $picklist-item-padding-y) var(--picklist-item-padding-x, $picklist-item-padding-x);
+  color: var(--picklist-item-text-default, $picklist-item-text-default);
+  opacity: 0.6;
+  text-align: center;
+  font-size: 14px;
+}
+
+// Transfer controls
+.#{$c}__controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--picklist-controls-gap, $picklist-controls-gap);
+}
+
+.#{$c}__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--picklist-controls-button-size, $picklist-controls-button-size);
+  height: var(--picklist-controls-button-size, $picklist-controls-button-size);
+  padding: 0;
+  background-color: var(--picklist-controls-button-background-default, $picklist-controls-button-background-default);
+  border: 1px solid var(--picklist-controls-button-border, $picklist-controls-button-border);
+  border-radius: var(--picklist-controls-button-radius, $picklist-controls-button-radius);
+  color: var(--picklist-controls-button-icon-default, $picklist-controls-button-icon-default);
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover:not(:disabled) {
+    background-color: var(--picklist-controls-button-background-hover, $picklist-controls-button-background-hover);
+  }
+
+  &:focus-visible {
+    outline: var(--picklist-focus-ringWidth, $picklist-focus-ringWidth) solid var(--picklist-focus-ringColor, $picklist-focus-ringColor);
+    outline-offset: var(--picklist-focus-ringOffset, $picklist-focus-ringOffset);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--picklist-controls-button-background-disabled, $picklist-controls-button-background-disabled);
+    color: var(--picklist-controls-button-icon-disabled, $picklist-controls-button-icon-disabled);
+    border-color: var(--picklist-controls-button-icon-disabled, $picklist-controls-button-icon-disabled);
+  }
+}

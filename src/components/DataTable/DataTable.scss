@@ -1,0 +1,162 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: data-table;
+
+.#{$c} {
+  background-color: var(--dataTable-background, $dataTable-background);
+  border: var(--dataTable-border-width, $dataTable-border-width) solid var(--dataTable-border-color, $dataTable-border-color);
+  border-radius: var(--dataTable-radius, $dataTable-radius);
+  overflow: hidden;
+}
+
+.#{$c}__header {
+  padding: var(--dataTable-header-padding, $dataTable-header-padding);
+  background-color: var(--dataTable-header-background, $dataTable-header-background);
+  border-bottom: var(--dataTable-border-width, $dataTable-border-width) solid var(--dataTable-header-borderColor, $dataTable-header-borderColor);
+}
+
+.#{$c}__wrapper {
+  overflow-x: auto;
+}
+
+.#{$c}__table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.#{$c}__thead {
+  background-color: var(--dataTable-header-background, $dataTable-header-background);
+}
+
+.#{$c}__th {
+  padding: var(--dataTable-header-padding, $dataTable-header-padding);
+  text-align: left;
+  font-size: var(--dataTable-header-fontSize, $dataTable-header-fontSize);
+  font-weight: var(--dataTable-header-fontWeight, $dataTable-header-fontWeight);
+  color: var(--dataTable-header-color, $dataTable-header-color);
+  border-bottom: var(--dataTable-border-width, $dataTable-border-width) solid var(--dataTable-header-borderColor, $dataTable-header-borderColor);
+  white-space: nowrap;
+}
+
+.#{$c}__th--sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--dataTable-transition-duration, $dataTable-transition-duration) ease;
+
+  &:hover {
+    background-color: var(--dataTable-body-background-hover, $dataTable-body-background-hover);
+  }
+}
+
+.#{$c}__th-content {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--inset-xs, $inset-xs);
+}
+
+.#{$c}__sort-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: var(--dataTable-sortIcon-size, $dataTable-sortIcon-size);
+    height: var(--dataTable-sortIcon-size, $dataTable-sortIcon-size);
+    color: var(--dataTable-sortIcon-color-active, $dataTable-sortIcon-color-active);
+    transition: transform var(--dataTable-transition-duration, $dataTable-transition-duration) ease;
+  }
+
+  &--neutral svg {
+    color: var(--dataTable-sortIcon-color-default, $dataTable-sortIcon-color-default);
+  }
+
+  &--desc svg {
+    transform: rotate(180deg);
+  }
+}
+
+.#{$c}__tbody {
+  background-color: var(--dataTable-body-background-default, $dataTable-body-background-default);
+}
+
+.#{$c}__row {
+  transition: background-color var(--dataTable-transition-duration, $dataTable-transition-duration) ease;
+
+  &--striped {
+    background-color: var(--dataTable-body-background-striped, $dataTable-body-background-striped);
+  }
+}
+
+.#{$c}--hoverable .#{$c}__row:hover {
+  background-color: var(--dataTable-body-background-hover, $dataTable-body-background-hover);
+}
+
+.#{$c}__td {
+  padding: var(--dataTable-body-padding, $dataTable-body-padding);
+  font-size: var(--dataTable-body-fontSize, $dataTable-body-fontSize);
+  color: var(--dataTable-body-color, $dataTable-body-color);
+  border-bottom: var(--dataTable-border-width, $dataTable-border-width) solid var(--dataTable-body-borderColor, $dataTable-body-borderColor);
+}
+
+.#{$c}__empty-row {
+  &:hover {
+    background-color: transparent !important;
+  }
+}
+
+.#{$c}__empty {
+  padding: var(--dataTable-empty-padding, $dataTable-empty-padding);
+  text-align: center;
+  color: var(--dataTable-empty-color, $dataTable-empty-color);
+}
+
+.#{$c}__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--dataTable-pagination-gap, $dataTable-pagination-gap);
+  padding: var(--dataTable-pagination-padding, $dataTable-pagination-padding);
+  background-color: var(--dataTable-pagination-background, $dataTable-pagination-background);
+  border-top: var(--dataTable-border-width, $dataTable-border-width) solid var(--dataTable-pagination-borderColor, $dataTable-pagination-borderColor);
+}
+
+.#{$c}__page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--radius-subtle, 4px);
+  transition: background-color var(--dataTable-transition-duration, $dataTable-transition-duration) ease;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    color: var(--dataTable-body-color, $dataTable-body-color);
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--dataTable-body-background-hover, $dataTable-body-background-hover);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.#{$c}__page-info {
+  font-size: var(--dataTable-body-fontSize, $dataTable-body-fontSize);
+  color: var(--dataTable-body-color, $dataTable-body-color);
+}
+
+.#{$c}__footer {
+  padding: var(--dataTable-header-padding, $dataTable-header-padding);
+  background-color: var(--dataTable-header-background, $dataTable-header-background);
+  border-top: var(--dataTable-border-width, $dataTable-border-width) solid var(--dataTable-header-borderColor, $dataTable-header-borderColor);
+}

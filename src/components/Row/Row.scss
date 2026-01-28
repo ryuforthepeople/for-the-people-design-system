@@ -1,0 +1,38 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: row;
+
+.#{$c} {
+  background-color: var(--row-background-default, $row-background-default);
+  color: var(--row-text-default, $row-text-default);
+  border-bottom: var(--row-border-width, $row-border-width) solid var(--row-border-color, $row-border-color);
+  min-height: var(--row-height, $row-height);
+  transition: background-color 0.15s ease;
+
+  > td,
+  > th {
+    padding: var(--row-padding-y, $row-padding-y) var(--row-padding-x, $row-padding-x);
+  }
+}
+
+.#{$c}--hoverable {
+  &:hover {
+    background-color: var(--row-background-hover, $row-background-hover);
+  }
+}
+
+.#{$c}--selected {
+  background-color: var(--row-background-selected, $row-background-selected);
+
+  &:hover {
+    background-color: var(--row-background-selected, $row-background-selected);
+  }
+}
+
+.#{$c}--striped {
+  background-color: var(--row-background-striped, $row-background-striped);
+
+  &:hover {
+    background-color: var(--row-background-hover, $row-background-hover);
+  }
+}

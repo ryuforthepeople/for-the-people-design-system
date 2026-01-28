@@ -1,0 +1,84 @@
+@use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/accent-gradient.scss" as *;
+
+$c: badge;
+
+.#{$c} {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--badge-fontWeight, $badge-fontWeight);
+  border-radius: var(--badge-radius, $badge-radius);
+  white-space: nowrap;
+  vertical-align: baseline;
+  line-height: 1;
+}
+
+// Sizes
+.#{$c}--size-sm {
+  min-height: var(--badge-size-sm, $badge-size-sm);
+  min-width: var(--badge-size-sm, $badge-size-sm);
+  padding: 0 var(--badge-padding-sm, $badge-padding-sm);
+  font-size: var(--badge-fontSize-sm, $badge-fontSize-sm);
+}
+
+.#{$c}--size-md {
+  min-height: var(--badge-size-md, $badge-size-md);
+  min-width: var(--badge-size-md, $badge-size-md);
+  padding: 0 var(--badge-padding-md, $badge-padding-md);
+  font-size: var(--badge-fontSize-md, $badge-fontSize-md);
+}
+
+.#{$c}--size-lg {
+  min-height: var(--badge-size-lg, $badge-size-lg);
+  min-width: var(--badge-size-lg, $badge-size-lg);
+  padding: 0 var(--badge-padding-lg, $badge-padding-lg);
+  font-size: var(--badge-fontSize-lg, $badge-fontSize-lg);
+}
+
+// Circle modifier for single characters
+.#{$c}--circle {
+  padding: 0;
+
+  &.#{$c}--size-sm {
+    width: var(--badge-size-sm, $badge-size-sm);
+    height: var(--badge-size-sm, $badge-size-sm);
+  }
+
+  &.#{$c}--size-md {
+    width: var(--badge-size-md, $badge-size-md);
+    height: var(--badge-size-md, $badge-size-md);
+  }
+
+  &.#{$c}--size-lg {
+    width: var(--badge-size-lg, $badge-size-lg);
+    height: var(--badge-size-lg, $badge-size-lg);
+  }
+}
+
+// Severities
+.#{$c}--severity-primary {
+  @include accent-gradient();
+  color: var(--badge-text-primary, $badge-text-primary);
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.#{$c}--severity-success {
+  background-color: var(--badge-background-success, $badge-background-success);
+  color: var(--badge-text-success, $badge-text-success);
+}
+
+.#{$c}--severity-warning {
+  background-color: var(--badge-background-warning, $badge-background-warning);
+  color: var(--badge-text-warning, $badge-text-warning);
+}
+
+.#{$c}--severity-danger {
+  background-color: var(--badge-background-danger, $badge-background-danger);
+  color: var(--badge-text-danger, $badge-text-danger);
+}
+
+.#{$c}--severity-info {
+  background-color: var(--badge-background-info, $badge-background-info);
+  color: var(--badge-text-info, $badge-text-info);
+}

@@ -1,0 +1,133 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: order-list;
+
+.#{$c} {
+  display: flex;
+  gap: var(--inset-m, $inset-m);
+}
+
+.#{$c}__controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--orderList-controls-gap, $orderList-controls-gap);
+  padding: var(--orderList-controls-padding, $orderList-controls-padding);
+}
+
+.#{$c}__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--orderList-button-size, $orderList-button-size);
+  height: var(--orderList-button-size, $orderList-button-size);
+  padding: 0;
+  border: none;
+  background-color: var(--orderList-button-background-default, $orderList-button-background-default);
+  border-radius: var(--orderList-button-radius, $orderList-button-radius);
+  cursor: pointer;
+  transition: background-color var(--orderList-transition-duration, $orderList-transition-duration) ease;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    color: var(--orderList-button-color-default, $orderList-button-color-default);
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--orderList-button-background-hover, $orderList-button-background-hover);
+  }
+
+  &:disabled {
+    background-color: var(--orderList-button-background-disabled, $orderList-button-background-disabled);
+    cursor: not-allowed;
+
+    svg {
+      color: var(--orderList-button-color-disabled, $orderList-button-color-disabled);
+    }
+  }
+}
+
+.#{$c}__container {
+  flex: 1;
+  background-color: var(--orderList-background, $orderList-background);
+  border: var(--orderList-border-width, $orderList-border-width) solid var(--orderList-border-color, $orderList-border-color);
+  border-radius: var(--orderList-radius, $orderList-radius);
+  overflow: hidden;
+}
+
+.#{$c}__header {
+  padding: var(--orderList-header-padding, $orderList-header-padding);
+  background-color: var(--orderList-header-background, $orderList-header-background);
+  border-bottom: var(--orderList-border-width, $orderList-border-width) solid var(--orderList-header-borderColor, $orderList-header-borderColor);
+  font-size: var(--orderList-header-fontSize, $orderList-header-fontSize);
+  font-weight: var(--orderList-header-fontWeight, $orderList-header-fontWeight);
+  color: var(--orderList-header-color, $orderList-header-color);
+}
+
+.#{$c}__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--orderList-list-gap, $orderList-list-gap);
+  padding: var(--orderList-list-padding, $orderList-list-padding);
+  min-height: 200px;
+}
+
+.#{$c}__item {
+  display: flex;
+  align-items: center;
+  gap: var(--inset-s, $inset-s);
+  padding: var(--orderList-item-padding, $orderList-item-padding);
+  background-color: var(--orderList-item-background-default, $orderList-item-background-default);
+  border: 1px solid var(--orderList-item-borderColor-default, $orderList-item-borderColor-default);
+  border-radius: var(--orderList-item-radius, $orderList-item-radius);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--orderList-transition-duration, $orderList-transition-duration) ease,
+              border-color var(--orderList-transition-duration, $orderList-transition-duration) ease;
+
+  &:hover {
+    background-color: var(--orderList-item-background-hover, $orderList-item-background-hover);
+  }
+
+  &--selected {
+    background-color: var(--orderList-item-background-selected, $orderList-item-background-selected);
+    border-color: var(--orderList-item-borderColor-selected, $orderList-item-borderColor-selected);
+  }
+
+  &--dragging {
+    opacity: 0.5;
+    background-color: var(--orderList-item-background-dragging, $orderList-item-background-dragging);
+  }
+}
+
+.#{$c}__drag-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  flex-shrink: 0;
+
+  svg {
+    width: var(--orderList-dragHandle-size, $orderList-dragHandle-size);
+    height: var(--orderList-dragHandle-size, $orderList-dragHandle-size);
+    color: var(--orderList-dragHandle-color, $orderList-dragHandle-color);
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.#{$c}__item-content {
+  flex: 1;
+  color: var(--orderList-item-color, $orderList-item-color);
+}
+
+.#{$c}__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--inset-xl, $inset-xl);
+  color: var(--text-muted, $text-muted);
+  font-size: 14px;
+}

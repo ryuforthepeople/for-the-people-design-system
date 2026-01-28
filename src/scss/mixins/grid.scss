@@ -1,0 +1,23 @@
+@use "./breakpoint.scss" as *;
+@use "./container.scss" as *;
+@use "../../dist/scss/tokens" as *;
+
+@mixin grid() {
+  display: grid;
+  gap: $inline-l;
+  grid-template-columns: 1fr;
+
+  @include breakpoint-from(tablet) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: $inline-xl;
+  }
+
+  @include breakpoint-from(laptop) {
+    grid-template-columns: repeat(6, 1fr);
+    gap: $inline-2xl;
+  }
+
+  @include breakpoint-from(laptop) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}

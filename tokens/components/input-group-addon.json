@@ -1,0 +1,47 @@
+{
+  "input-group-addon": {
+    "background": {
+      "default": {
+        "value": "{surface.panel}",
+        "type": "color",
+        "description": "Addon background color"
+      }
+    },
+    "text": {
+      "default": {
+        "value": "{text.muted}",
+        "type": "color",
+        "description": "Addon text color"
+      }
+    },
+    "border": {
+      "color": {
+        "value": "{border.default}",
+        "type": "color",
+        "description": "Addon border color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Addon border width"
+      }
+    },
+    "padding": {
+      "x": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Horizontal padding"
+      },
+      "y": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Vertical padding"
+      }
+    },
+    "fontSize": {
+      "value": "14px",
+      "type": "dimension",
+      "description": "Addon font size"
+    }
+  }
+}

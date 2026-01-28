@@ -1,0 +1,97 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: field-set;
+
+.#{$c} {
+  margin: 0;
+  padding: 0;
+  background: var(--field-set-background, $field-set-background);
+  border: var(--field-set-border-width, $field-set-border-width) solid var(--field-set-border-color, $field-set-border-color);
+  border-radius: var(--field-set-border-radius, $field-set-border-radius);
+}
+
+.#{$c}__legend {
+  padding: 0;
+  margin-left: var(--field-set-legend-padding-x, $field-set-legend-padding-x);
+}
+
+.#{$c}__legend-text,
+.#{$c}__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--field-set-toggle-gap, $field-set-toggle-gap);
+  padding: var(--field-set-legend-padding-y, $field-set-legend-padding-y) var(--field-set-legend-padding-x, $field-set-legend-padding-x);
+  background: var(--field-set-legend-background, $field-set-legend-background);
+  color: var(--field-set-legend-color, $field-set-legend-color);
+  font-size: var(--field-set-legend-fontSize, $field-set-legend-fontSize);
+  font-weight: var(--field-set-legend-fontWeight, $field-set-legend-fontWeight);
+  border: var(--field-set-legend-border-width, $field-set-legend-border-width) solid var(--field-set-legend-border-color, $field-set-legend-border-color);
+  border-radius: var(--field-set-legend-border-radius, $field-set-legend-border-radius);
+}
+
+.#{$c}__toggle {
+  cursor: pointer;
+  font-family: inherit;
+  transition: color var(--field-set-transition-duration, $field-set-transition-duration) ease;
+
+  &:hover {
+    .#{$c}__toggle-icon {
+      color: var(--field-set-toggle-icon-color-hover, $field-set-toggle-icon-color-hover);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--field-set-border-color, $field-set-border-color);
+    outline-offset: 2px;
+  }
+}
+
+.#{$c}__toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--field-set-toggle-icon-size, $field-set-toggle-icon-size);
+  height: var(--field-set-toggle-icon-size, $field-set-toggle-icon-size);
+  color: var(--field-set-toggle-icon-color-default, $field-set-toggle-icon-color-default);
+  transition: transform var(--field-set-transition-duration, $field-set-transition-duration) ease,
+              color var(--field-set-transition-duration, $field-set-transition-duration) ease;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.#{$c}__content-wrapper {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows var(--field-set-transition-duration, $field-set-transition-duration) ease;
+}
+
+.#{$c}__content {
+  padding: var(--field-set-padding, $field-set-padding);
+  overflow: hidden;
+}
+
+// Toggleable variant
+.#{$c}--toggleable {
+  .#{$c}__legend {
+    margin-bottom: 0;
+  }
+}
+
+// Collapsed state
+.#{$c}--collapsed {
+  .#{$c}__toggle-icon {
+    transform: rotate(-90deg);
+  }
+
+  .#{$c}__content-wrapper {
+    grid-template-rows: 0fr;
+  }
+
+  .#{$c}__content {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

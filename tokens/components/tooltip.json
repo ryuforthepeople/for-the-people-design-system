@@ -1,0 +1,60 @@
+{
+  "tooltip": {
+    "padding": {
+      "x": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Horizontal padding"
+      },
+      "y": {
+        "value": "{inset.xs}",
+        "type": "dimension",
+        "description": "Vertical padding"
+      }
+    },
+    "background": {
+      "value": "{surface.inverse}",
+      "type": "color",
+      "description": "Tooltip background color (dark)"
+    },
+    "text": {
+      "color": {
+        "value": "{text.inverse}",
+        "type": "color",
+        "description": "Tooltip text color (light on dark)"
+      },
+      "fontSize": {
+        "value": "13px",
+        "type": "dimension",
+        "description": "Tooltip font size"
+      }
+    },
+    "radius": {
+      "value": "{radius.subtle}",
+      "type": "dimension",
+      "description": "Border radius"
+    },
+    "arrow": {
+      "size": {
+        "value": "6px",
+        "type": "dimension",
+        "description": "Arrow/pointer size"
+      }
+    },
+    "offset": {
+      "value": "8px",
+      "type": "dimension",
+      "description": "Distance from trigger element"
+    },
+    "maxWidth": {
+      "value": "250px",
+      "type": "dimension",
+      "description": "Maximum width before wrapping"
+    },
+    "zIndex": {
+      "value": "1100",
+      "type": "number",
+      "description": "Z-index for stacking"
+    }
+  }
+}

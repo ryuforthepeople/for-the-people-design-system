@@ -1,0 +1,130 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: paginator;
+
+.#{$c} {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--paginator-gap, $paginator-gap);
+  padding: var(--paginator-padding, $paginator-padding);
+  background-color: var(--paginator-background, $paginator-background);
+  border: var(--paginator-border-width, $paginator-border-width) solid var(--paginator-border-color, $paginator-border-color);
+  border-radius: var(--paginator-border-radius, $paginator-border-radius);
+}
+
+.#{$c}__info {
+  font-size: var(--paginator-info-fontSize, $paginator-info-fontSize);
+  color: var(--paginator-info-color, $paginator-info-color);
+  white-space: nowrap;
+}
+
+.#{$c}__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--paginator-gap, $paginator-gap);
+}
+
+.#{$c}__pages {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.#{$c}__nav,
+.#{$c}__page {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--paginator-transition-duration, $paginator-transition-duration) ease,
+    color var(--paginator-transition-duration, $paginator-transition-duration) ease;
+
+  &:focus-visible {
+    outline: var(--paginator-focus-ringWidth, $paginator-focus-ringWidth) solid var(--paginator-focus-ringColor, $paginator-focus-ringColor);
+    outline-offset: var(--paginator-focus-ringOffset, $paginator-focus-ringOffset);
+  }
+}
+
+.#{$c}__nav {
+  width: var(--paginator-nav-size, $paginator-nav-size);
+  height: var(--paginator-nav-size, $paginator-nav-size);
+  background-color: var(--paginator-nav-background-default, $paginator-nav-background-default);
+  border-radius: var(--paginator-nav-radius, $paginator-nav-radius);
+  color: var(--paginator-nav-icon-color-default, $paginator-nav-icon-color-default);
+
+  &:hover:not(:disabled) {
+    background-color: var(--paginator-nav-background-hover, $paginator-nav-background-hover);
+    color: var(--paginator-nav-icon-color-hover, $paginator-nav-icon-color-hover);
+  }
+
+  &:disabled {
+    background-color: var(--paginator-nav-background-disabled, $paginator-nav-background-disabled);
+    color: var(--paginator-nav-icon-color-disabled, $paginator-nav-icon-color-disabled);
+    cursor: not-allowed;
+  }
+}
+
+.#{$c}__icon {
+  width: var(--paginator-nav-icon-size, $paginator-nav-icon-size);
+  height: var(--paginator-nav-icon-size, $paginator-nav-icon-size);
+  flex-shrink: 0;
+}
+
+.#{$c}__page {
+  min-width: var(--paginator-page-size, $paginator-page-size);
+  height: var(--paginator-page-size, $paginator-page-size);
+  padding: 0 8px;
+  background-color: var(--paginator-page-background-default, $paginator-page-background-default);
+  border-radius: var(--paginator-page-radius, $paginator-page-radius);
+  color: var(--paginator-page-text-default, $paginator-page-text-default);
+  font-size: var(--paginator-page-fontSize, $paginator-page-fontSize);
+  font-weight: var(--paginator-page-fontWeight, $paginator-page-fontWeight);
+
+  &:hover:not(:disabled):not(.#{$c}__page--active) {
+    background-color: var(--paginator-page-background-hover, $paginator-page-background-hover);
+    color: var(--paginator-page-text-hover, $paginator-page-text-hover);
+  }
+
+  &--active {
+    background-color: var(--paginator-page-background-active, $paginator-page-background-active);
+    color: var(--paginator-page-text-active, $paginator-page-text-active);
+    cursor: default;
+  }
+
+  &--ellipsis {
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+.#{$c}__rows-per-page {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.#{$c}__rows-label {
+  font-size: var(--paginator-info-fontSize, $paginator-info-fontSize);
+  color: var(--paginator-info-color, $paginator-info-color);
+  white-space: nowrap;
+}
+
+.#{$c}__rows-select {
+  padding: 6px 12px;
+  border: var(--paginator-border-width, $paginator-border-width) solid var(--paginator-border-color, $paginator-border-color);
+  border-radius: var(--paginator-page-radius, $paginator-page-radius);
+  background-color: var(--paginator-background, $paginator-background);
+  font-size: var(--paginator-page-fontSize, $paginator-page-fontSize);
+  color: var(--paginator-page-text-default, $paginator-page-text-default);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: var(--paginator-focus-ringWidth, $paginator-focus-ringWidth) solid var(--paginator-focus-ringColor, $paginator-focus-ringColor);
+    outline-offset: var(--paginator-focus-ringOffset, $paginator-focus-ringOffset);
+  }
+}

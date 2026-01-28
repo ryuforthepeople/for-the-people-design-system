@@ -1,0 +1,127 @@
+{
+  "accordion": {
+    "header": {
+      "padding": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Header padding"
+      },
+      "background": {
+        "default": {
+          "value": "{surface.panel}",
+          "type": "color",
+          "description": "Header background"
+        },
+        "hover": {
+          "value": "rgba(255, 255, 255, 0.05)",
+          "type": "color",
+          "description": "Header hover background - semi-transparent for dark mode"
+        },
+        "active": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Header active/expanded background"
+        }
+      },
+      "color": {
+        "default": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Header text color"
+        },
+        "hover": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Header text color on hover"
+        },
+        "disabled": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Header text color when disabled"
+        }
+      }
+    },
+    "content": {
+      "padding": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Content padding"
+      },
+      "background": {
+        "value": "{surface.canvas}",
+        "type": "color",
+        "description": "Content background"
+      },
+      "color": {
+        "value": "{text.default}",
+        "type": "color",
+        "description": "Content text color"
+      }
+    },
+    "border": {
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Border width"
+      },
+      "color": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Border color"
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Border radius"
+      }
+    },
+    "icon": {
+      "size": {
+        "value": "16px",
+        "type": "dimension",
+        "description": "Toggle icon size"
+      },
+      "color": {
+        "default": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Icon color"
+        },
+        "hover": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Icon color on hover"
+        },
+        "disabled": {
+          "value": "rgba(255, 255, 255, 0.25)",
+          "type": "color",
+          "description": "Icon color when disabled"
+        }
+      },
+      "rotation": {
+        "collapsed": {
+          "value": "0deg",
+          "type": "dimension",
+          "description": "Icon rotation when collapsed"
+        },
+        "expanded": {
+          "value": "180deg",
+          "type": "dimension",
+          "description": "Icon rotation when expanded"
+        }
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "200ms",
+        "type": "duration",
+        "description": "Animation duration"
+      }
+    },
+    "gap": {
+      "value": "0px",
+      "type": "dimension",
+      "description": "Gap between accordion tabs"
+    }
+  }
+}

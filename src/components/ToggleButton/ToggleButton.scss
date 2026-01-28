@@ -1,0 +1,99 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: toggle-button;
+
+.#{$c} {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--toggleButton-gap, $toggleButton-gap);
+  border: var(--toggleButton-border-width, $toggleButton-border-width) solid var(--toggleButton-border-off-default, $toggleButton-border-off-default);
+  border-radius: var(--toggleButton-radius, $toggleButton-radius);
+  background-color: var(--toggleButton-background-off-default, $toggleButton-background-off-default);
+  color: var(--toggleButton-text-off-default, $toggleButton-text-off-default);
+  font-weight: var(--toggleButton-fontWeight, $toggleButton-fontWeight);
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--toggleButton-transition-duration, $toggleButton-transition-duration) ease;
+}
+
+.#{$c}__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.#{$c}__label {
+  white-space: nowrap;
+}
+
+// Hover state (off)
+.#{$c}:hover:not(.#{$c}--disabled):not(.#{$c}--checked) {
+  background-color: var(--toggleButton-background-off-hover, $toggleButton-background-off-hover);
+  border-color: var(--toggleButton-border-off-hover, $toggleButton-border-off-hover);
+}
+
+// Focus state
+.#{$c}:focus-visible {
+  outline: var(--toggleButton-focus-ringWidth, $toggleButton-focus-ringWidth) solid var(--toggleButton-focus-ringColor, $toggleButton-focus-ringColor);
+  outline-offset: var(--toggleButton-focus-ringOffset, $toggleButton-focus-ringOffset);
+}
+
+// Checked state
+.#{$c}--checked {
+  background-color: var(--toggleButton-background-on-default, $toggleButton-background-on-default);
+  border-color: var(--toggleButton-border-on-default, $toggleButton-border-on-default);
+  color: var(--toggleButton-text-on-default, $toggleButton-text-on-default);
+}
+
+// Hover state (on)
+.#{$c}--checked:hover:not(.#{$c}--disabled) {
+  background-color: var(--toggleButton-background-on-hover, $toggleButton-background-on-hover);
+  border-color: var(--toggleButton-border-on-hover, $toggleButton-border-on-hover);
+}
+
+// Disabled state
+.#{$c}--disabled {
+  cursor: not-allowed;
+  background-color: var(--toggleButton-background-disabled, $toggleButton-background-disabled);
+  border-color: var(--toggleButton-border-disabled, $toggleButton-border-disabled);
+  color: var(--toggleButton-text-disabled, $toggleButton-text-disabled);
+}
+
+// Sizes
+.#{$c}--size-sm {
+  height: var(--toggleButton-height-sm, $toggleButton-height-sm);
+  padding: var(--toggleButton-padding-sm-y, $toggleButton-padding-sm-y) var(--toggleButton-padding-sm-x, $toggleButton-padding-sm-x);
+  font-size: var(--toggleButton-fontSize-sm, $toggleButton-fontSize-sm);
+
+  .#{$c}__icon {
+    width: var(--toggleButton-iconSize-sm, $toggleButton-iconSize-sm);
+    height: var(--toggleButton-iconSize-sm, $toggleButton-iconSize-sm);
+    font-size: var(--toggleButton-iconSize-sm, $toggleButton-iconSize-sm);
+  }
+}
+
+.#{$c}--size-md {
+  height: var(--toggleButton-height-md, $toggleButton-height-md);
+  padding: var(--toggleButton-padding-md-y, $toggleButton-padding-md-y) var(--toggleButton-padding-md-x, $toggleButton-padding-md-x);
+  font-size: var(--toggleButton-fontSize-md, $toggleButton-fontSize-md);
+
+  .#{$c}__icon {
+    width: var(--toggleButton-iconSize-md, $toggleButton-iconSize-md);
+    height: var(--toggleButton-iconSize-md, $toggleButton-iconSize-md);
+    font-size: var(--toggleButton-iconSize-md, $toggleButton-iconSize-md);
+  }
+}
+
+.#{$c}--size-lg {
+  height: var(--toggleButton-height-lg, $toggleButton-height-lg);
+  padding: var(--toggleButton-padding-lg-y, $toggleButton-padding-lg-y) var(--toggleButton-padding-lg-x, $toggleButton-padding-lg-x);
+  font-size: var(--toggleButton-fontSize-lg, $toggleButton-fontSize-lg);
+
+  .#{$c}__icon {
+    width: var(--toggleButton-iconSize-lg, $toggleButton-iconSize-lg);
+    height: var(--toggleButton-iconSize-lg, $toggleButton-iconSize-lg);
+    font-size: var(--toggleButton-iconSize-lg, $toggleButton-iconSize-lg);
+  }
+}

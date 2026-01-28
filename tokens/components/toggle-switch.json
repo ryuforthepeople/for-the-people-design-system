@@ -1,0 +1,95 @@
+{
+  "toggleSwitch": {
+    "width": {
+      "sm": {
+        "value": "36px",
+        "type": "dimension"
+      },
+      "md": {
+        "value": "44px",
+        "type": "dimension"
+      },
+      "lg": {
+        "value": "52px",
+        "type": "dimension"
+      }
+    },
+    "height": {
+      "sm": {
+        "value": "20px",
+        "type": "dimension"
+      },
+      "md": {
+        "value": "24px",
+        "type": "dimension"
+      },
+      "lg": {
+        "value": "28px",
+        "type": "dimension"
+      }
+    },
+    "thumb": {
+      "size": {
+        "sm": {
+          "value": "16px",
+          "type": "dimension"
+        },
+        "md": {
+          "value": "20px",
+          "type": "dimension"
+        },
+        "lg": {
+          "value": "24px",
+          "type": "dimension"
+        }
+      },
+      "offset": {
+        "value": "2px",
+        "type": "dimension"
+      },
+      "color": {
+        "default": {
+          "value": "{neutral.0}",
+          "type": "color"
+        }
+      },
+      "shadow": {
+        "value": "0 1px 3px rgba(0, 0, 0, 0.2)",
+        "type": "shadow"
+      }
+    },
+    "track": {
+      "background": {
+        "off": {
+          "value": "rgba(255, 255, 255, 0.15)",
+          "type": "color",
+          "description": "Off state - semi-transparent for dark backgrounds"
+        },
+        "on": {
+          "value": "{orange.500}",
+          "type": "color",
+          "description": "On state - visible accent color"
+        },
+        "disabled": {
+          "value": "rgba(255, 255, 255, 0.08)",
+          "type": "color",
+          "description": "Disabled state - subtle semi-transparent"
+        }
+      }
+    },
+    "focus": {
+      "ringWidth": {
+        "value": "2px",
+        "type": "dimension"
+      },
+      "ringColor": {
+        "value": "{orange.500}",
+        "type": "color"
+      },
+      "ringOffset": {
+        "value": "2px",
+        "type": "dimension"
+      }
+    }
+  }
+}

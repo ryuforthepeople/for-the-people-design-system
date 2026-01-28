@@ -1,0 +1,68 @@
+@use "../../../dist/scss/tokens" as *;
+@use "../../scss/mixins/accent-gradient.scss" as *;
+
+$c: toggle-switch;
+
+.#{$c} {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.#{$c}__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.#{$c}__track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: var(--toggleSwitch-width-md, $toggleSwitch-width-md);
+  height: var(--toggleSwitch-height-md, $toggleSwitch-height-md);
+  background-color: var(--toggleSwitch-track-background-off, $toggleSwitch-track-background-off);
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+.#{$c}__thumb {
+  position: absolute;
+  left: var(--toggleSwitch-thumb-offset, $toggleSwitch-thumb-offset);
+  width: var(--toggleSwitch-thumb-size-md, $toggleSwitch-thumb-size-md);
+  height: var(--toggleSwitch-thumb-size-md, $toggleSwitch-thumb-size-md);
+  background-color: var(--toggleSwitch-thumb-color-default, $toggleSwitch-thumb-color-default);
+  border-radius: 50%;
+  box-shadow: var(--toggleSwitch-thumb-shadow, $toggleSwitch-thumb-shadow);
+  transition: transform 0.2s ease;
+}
+
+// Focus state
+.#{$c}__input:focus-visible ~ .#{$c}__track {
+  outline: var(--toggleSwitch-focus-ringWidth, $toggleSwitch-focus-ringWidth) solid var(--toggleSwitch-focus-ringColor, $toggleSwitch-focus-ringColor);
+  outline-offset: var(--toggleSwitch-focus-ringOffset, $toggleSwitch-focus-ringOffset);
+}
+
+// Checked state
+.#{$c}--checked {
+  .#{$c}__track {
+    @include accent-gradient($angle: 90deg);
+  }
+
+  .#{$c}__thumb {
+    transform: translateX(calc(var(--toggleSwitch-width-md, $toggleSwitch-width-md) - var(--toggleSwitch-thumb-size-md, $toggleSwitch-thumb-size-md) - var(--toggleSwitch-thumb-offset, $toggleSwitch-thumb-offset) * 2));
+  }
+}
+
+// Disabled state
+.#{$c}--disabled {
+  cursor: not-allowed;
+
+  .#{$c}__track {
+    background-color: var(--toggleSwitch-track-background-disabled, $toggleSwitch-track-background-disabled);
+  }
+}

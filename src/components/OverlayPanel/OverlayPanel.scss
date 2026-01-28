@@ -1,0 +1,65 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: overlay-panel;
+
+.#{$c} {
+  position: fixed;
+  z-index: var(--overlayPanel-zIndex, $overlayPanel-zIndex);
+  padding: var(--overlayPanel-padding-y, $overlayPanel-padding-y) var(--overlayPanel-padding-x, $overlayPanel-padding-x);
+  background-color: var(--overlayPanel-background, $overlayPanel-background);
+  border-radius: var(--overlayPanel-radius, $overlayPanel-radius);
+  box-shadow: var(--overlayPanel-shadow, $overlayPanel-shadow);
+  border: var(--overlayPanel-border-width, $overlayPanel-border-width) solid var(--overlayPanel-border-color, $overlayPanel-border-color);
+  max-width: var(--overlayPanel-maxWidth, $overlayPanel-maxWidth);
+}
+
+.#{$c}__content {
+  display: block;
+}
+
+// Close button
+.#{$c}__close {
+  position: absolute;
+  top: var(--inset-xs, $inset-xs);
+  right: var(--inset-xs, $inset-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--overlayPanel-closeButton-size, $overlayPanel-closeButton-size);
+  height: var(--overlayPanel-closeButton-size, $overlayPanel-closeButton-size);
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  border-radius: var(--overlayPanel-closeButton-radius, $overlayPanel-closeButton-radius);
+  color: var(--overlayPanel-closeButton-color-default, $overlayPanel-closeButton-color-default);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background-color: var(--overlayPanel-closeButton-background-hover, $overlayPanel-closeButton-background-hover);
+    color: var(--overlayPanel-closeButton-color-hover, $overlayPanel-closeButton-color-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring, $focus-ring);
+    outline-offset: 2px;
+  }
+}
+
+.#{$c}__close-icon {
+  width: var(--overlayPanel-closeButton-iconSize, $overlayPanel-closeButton-iconSize);
+  height: var(--overlayPanel-closeButton-iconSize, $overlayPanel-closeButton-iconSize);
+}
+
+// Transition animation
+.#{$c}-fade-enter-active,
+.#{$c}-fade-leave-active {
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.#{$c}-fade-enter-from,
+.#{$c}-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}

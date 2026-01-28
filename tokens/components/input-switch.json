@@ -1,0 +1,108 @@
+{
+  "inputSwitch": {
+    "width": {
+      "sm": {
+        "value": "36px",
+        "type": "dimension"
+      },
+      "md": {
+        "value": "44px",
+        "type": "dimension"
+      },
+      "lg": {
+        "value": "52px",
+        "type": "dimension"
+      }
+    },
+    "height": {
+      "sm": {
+        "value": "20px",
+        "type": "dimension"
+      },
+      "md": {
+        "value": "24px",
+        "type": "dimension"
+      },
+      "lg": {
+        "value": "28px",
+        "type": "dimension"
+      }
+    },
+    "thumb": {
+      "size": {
+        "sm": {
+          "value": "16px",
+          "type": "dimension"
+        },
+        "md": {
+          "value": "20px",
+          "type": "dimension"
+        },
+        "lg": {
+          "value": "24px",
+          "type": "dimension"
+        }
+      },
+      "offset": {
+        "value": "2px",
+        "type": "dimension"
+      },
+      "color": {
+        "default": {
+          "value": "{neutral.0}",
+          "type": "color"
+        }
+      },
+      "shadow": {
+        "value": "0 1px 3px rgba(0, 0, 0, 0.2)",
+        "type": "shadow"
+      }
+    },
+    "track": {
+      "background": {
+        "off": {
+          "value": "{neutral.300}",
+          "type": "color"
+        },
+        "on": {
+          "value": "{brand.primary}",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "{neutral.200}",
+          "type": "color"
+        }
+      }
+    },
+    "label": {
+      "gap": {
+        "value": "{inset.s}",
+        "type": "dimension"
+      },
+      "color": {
+        "default": {
+          "value": "{text.default}",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "{text.muted}",
+          "type": "color"
+        }
+      }
+    },
+    "focus": {
+      "ringWidth": {
+        "value": "2px",
+        "type": "dimension"
+      },
+      "ringColor": {
+        "value": "{brand.primary}",
+        "type": "color"
+      },
+      "ringOffset": {
+        "value": "2px",
+        "type": "dimension"
+      }
+    }
+  }
+}

@@ -1,0 +1,126 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: message;
+
+.#{$c} {
+  display: flex;
+  align-items: flex-start;
+  padding: var(--message-padding-y, $message-padding-y) var(--message-padding-x, $message-padding-x);
+  border-radius: var(--message-radius, $message-radius);
+  border-width: var(--message-borderWidth, $message-borderWidth);
+  border-style: solid;
+  font-size: var(--message-fontSize, $message-fontSize);
+  font-weight: var(--message-fontWeight, $message-fontWeight);
+}
+
+.#{$c}__content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--message-gap, $message-gap);
+  width: 100%;
+}
+
+.#{$c}__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--message-iconSize, $message-iconSize);
+  height: var(--message-iconSize, $message-iconSize);
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.#{$c}__text {
+  flex: 1;
+  line-height: 1.5;
+  padding-top: 1px; // Optical alignment with icon
+}
+
+.#{$c}__close {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--message-closeButtonSize, $message-closeButtonSize);
+  height: var(--message-closeButtonSize, $message-closeButtonSize);
+  padding: 0;
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  border-radius: var(--message-radius, $message-radius);
+  cursor: pointer;
+  color: var(--message-closeButton-color, $message-closeButton-color);
+  transition: color 0.15s ease, background-color 0.15s ease;
+
+  &:hover {
+    color: var(--message-closeButton-hoverColor, $message-closeButton-hoverColor);
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  &:focus {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+// Severity variants
+.#{$c}--success {
+  background-color: var(--message-background-success, $message-background-success);
+  border-color: var(--message-border-success, $message-border-success);
+  color: var(--message-text-success, $message-text-success);
+
+  .#{$c}__icon {
+    color: var(--message-icon-success, $message-icon-success);
+  }
+}
+
+.#{$c}--info {
+  background-color: var(--message-background-info, $message-background-info);
+  border-color: var(--message-border-info, $message-border-info);
+  color: var(--message-text-info, $message-text-info);
+
+  .#{$c}__icon {
+    color: var(--message-icon-info, $message-icon-info);
+  }
+}
+
+.#{$c}--warn {
+  background-color: var(--message-background-warn, $message-background-warn);
+  border-color: var(--message-border-warn, $message-border-warn);
+  color: var(--message-text-warn, $message-text-warn);
+
+  .#{$c}__icon {
+    color: var(--message-icon-warn, $message-icon-warn);
+  }
+}
+
+.#{$c}--error {
+  background-color: var(--message-background-error, $message-background-error);
+  border-color: var(--message-border-error, $message-border-error);
+  color: var(--message-text-error, $message-text-error);
+
+  .#{$c}__icon {
+    color: var(--message-icon-error, $message-icon-error);
+  }
+}
+
+// Transition animations
+.#{$c}-enter-active,
+.#{$c}-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.#{$c}-enter-from,
+.#{$c}-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}

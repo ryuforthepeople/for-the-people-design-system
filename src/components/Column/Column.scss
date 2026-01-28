@@ -1,0 +1,87 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: column;
+
+// Column styles are typically applied via DataTable
+// These classes can be used standalone or by a parent table component
+
+.#{$c} {
+  // Base column cell styling
+}
+
+.#{$c}__header {
+  background-color: var(--column-header-background, $column-header-background);
+  color: var(--column-header-color, $column-header-color);
+  padding: var(--column-header-padding, $column-header-padding);
+  font-weight: var(--column-header-fontWeight, $column-header-fontWeight);
+  font-size: var(--column-header-fontSize, $column-header-fontSize);
+  border-bottom: 1px solid var(--column-header-borderColor, $column-header-borderColor);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.#{$c}__header--sortable {
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    background-color: var(--column-body-background, $column-body-background);
+  }
+}
+
+.#{$c}__header-content {
+  display: flex;
+  align-items: center;
+  gap: var(--column-sortIcon-size, $column-sortIcon-size);
+}
+
+.#{$c}__sort-icon {
+  width: var(--column-sortIcon-size, $column-sortIcon-size);
+  height: var(--column-sortIcon-size, $column-sortIcon-size);
+  color: var(--column-sortIcon-color-default, $column-sortIcon-color-default);
+  flex-shrink: 0;
+}
+
+.#{$c}__sort-icon--active {
+  color: var(--column-sortIcon-color-active, $column-sortIcon-color-active);
+}
+
+.#{$c}__body {
+  background-color: var(--column-body-background, $column-body-background);
+  color: var(--column-body-color, $column-body-color);
+  padding: var(--column-body-padding, $column-body-padding);
+  font-size: var(--column-body-fontSize, $column-body-fontSize);
+  border-bottom: 1px solid var(--column-body-borderColor, $column-body-borderColor);
+}
+
+.#{$c}__footer {
+  background-color: var(--column-footer-background, $column-footer-background);
+  color: var(--column-footer-color, $column-footer-color);
+  padding: var(--column-footer-padding, $column-footer-padding);
+  font-weight: var(--column-footer-fontWeight, $column-footer-fontWeight);
+  border-top: 1px solid var(--column-footer-borderColor, $column-footer-borderColor);
+}
+
+// Alignment modifiers
+.#{$c}--align-left {
+  text-align: left;
+}
+
+.#{$c}--align-center {
+  text-align: center;
+}
+
+.#{$c}--align-right {
+  text-align: right;
+}
+
+// Frozen column
+.#{$c}--frozen {
+  position: sticky;
+  z-index: 1;
+}
+
+// Hidden column
+.#{$c}--hidden {
+  display: none;
+}

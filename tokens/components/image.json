@@ -1,0 +1,71 @@
+{
+  "image": {
+    "radius": {
+      "value": "{radius.default}",
+      "type": "dimension",
+      "description": "Image border radius"
+    },
+    "placeholder": {
+      "background": {
+        "value": "{surface.muted}",
+        "type": "color",
+        "description": "Placeholder background color while loading"
+      }
+    },
+    "preview": {
+      "icon": {
+        "size": {
+          "value": "24px",
+          "type": "dimension",
+          "description": "Preview indicator icon size"
+        },
+        "color": {
+          "value": "{text.inverse}",
+          "type": "color",
+          "description": "Preview indicator icon color"
+        },
+        "background": {
+          "value": "rgba(0, 0, 0, 0.5)",
+          "type": "color",
+          "description": "Preview indicator background"
+        }
+      },
+      "overlay": {
+        "background": {
+          "value": "{surface.overlay}",
+          "type": "color",
+          "description": "Preview overlay background"
+        },
+        "zIndex": {
+          "value": "1100",
+          "type": "number",
+          "description": "Preview overlay z-index"
+        }
+      },
+      "closeButton": {
+        "size": {
+          "value": "40px",
+          "type": "dimension",
+          "description": "Close button size in preview"
+        },
+        "color": {
+          "value": "{text.inverse}",
+          "type": "color",
+          "description": "Close button color"
+        },
+        "hoverBackground": {
+          "value": "rgba(255, 255, 255, 0.1)",
+          "type": "color",
+          "description": "Close button hover background"
+        }
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "200ms",
+        "type": "duration",
+        "description": "Transition duration for hover effects"
+      }
+    }
+  }
+}

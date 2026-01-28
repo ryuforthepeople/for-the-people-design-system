@@ -1,0 +1,62 @@
+{
+  "row": {
+    "background": {
+      "default": {
+        "value": "{surface.canvas}",
+        "type": "color",
+        "description": "Default row background"
+      },
+      "hover": {
+        "value": "{surface.muted}",
+        "type": "color",
+        "description": "Row background on hover"
+      },
+      "selected": {
+        "value": "{brand.subtle}",
+        "type": "color",
+        "description": "Selected row background"
+      },
+      "striped": {
+        "value": "{surface.panel}",
+        "type": "color",
+        "description": "Striped row background (alternate)"
+      }
+    },
+    "text": {
+      "default": {
+        "value": "{text.default}",
+        "type": "color",
+        "description": "Row text color"
+      }
+    },
+    "border": {
+      "color": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Row border color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Row border width"
+      }
+    },
+    "padding": {
+      "x": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Horizontal cell padding"
+      },
+      "y": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Vertical cell padding"
+      }
+    },
+    "height": {
+      "value": "48px",
+      "type": "dimension",
+      "description": "Minimum row height"
+    }
+  }
+}

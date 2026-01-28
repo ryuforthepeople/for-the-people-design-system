@@ -1,0 +1,119 @@
+{
+  "badge": {
+    "background": {
+      "primary": {
+        "value": "{orange.500}",
+        "type": "color",
+        "description": "Primary badge background - visible accent color"
+      },
+      "success": {
+        "value": "{feedback.success}",
+        "type": "color",
+        "description": "Success badge background"
+      },
+      "warning": {
+        "value": "{feedback.warning}",
+        "type": "color",
+        "description": "Warning badge background"
+      },
+      "danger": {
+        "value": "{feedback.error}",
+        "type": "color",
+        "description": "Danger badge background"
+      },
+      "info": {
+        "value": "{feedback.info}",
+        "type": "color",
+        "description": "Info badge background"
+      }
+    },
+    "text": {
+      "primary": {
+        "value": "{neutral.0}",
+        "type": "color",
+        "description": "Text on primary badge - white"
+      },
+      "success": {
+        "value": "{text.inverse}",
+        "type": "color",
+        "description": "Text on success badge"
+      },
+      "warning": {
+        "value": "{neutral.900}",
+        "type": "color",
+        "description": "Text on warning badge (dark for contrast)"
+      },
+      "danger": {
+        "value": "{text.inverse}",
+        "type": "color",
+        "description": "Text on danger badge"
+      },
+      "info": {
+        "value": "{text.inverse}",
+        "type": "color",
+        "description": "Text on info badge"
+      }
+    },
+    "size": {
+      "sm": {
+        "value": "16px",
+        "type": "dimension",
+        "description": "Small badge min height"
+      },
+      "md": {
+        "value": "20px",
+        "type": "dimension",
+        "description": "Medium badge min height"
+      },
+      "lg": {
+        "value": "24px",
+        "type": "dimension",
+        "description": "Large badge min height"
+      }
+    },
+    "fontSize": {
+      "sm": {
+        "value": "10px",
+        "type": "dimension",
+        "description": "Small badge font size"
+      },
+      "md": {
+        "value": "12px",
+        "type": "dimension",
+        "description": "Medium badge font size"
+      },
+      "lg": {
+        "value": "14px",
+        "type": "dimension",
+        "description": "Large badge font size"
+      }
+    },
+    "padding": {
+      "sm": {
+        "value": "{inset.2xs}",
+        "type": "dimension",
+        "description": "Small badge horizontal padding"
+      },
+      "md": {
+        "value": "{inset.xs}",
+        "type": "dimension",
+        "description": "Medium badge horizontal padding"
+      },
+      "lg": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Large badge horizontal padding"
+      }
+    },
+    "radius": {
+      "value": "{radius.pill}",
+      "type": "dimension",
+      "description": "Badge border radius (pill shape)"
+    },
+    "fontWeight": {
+      "value": "600",
+      "type": "fontWeight",
+      "description": "Badge font weight"
+    }
+  }
+}

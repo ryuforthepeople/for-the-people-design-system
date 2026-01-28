@@ -1,0 +1,109 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: chart;
+
+.#{$c} {
+  display: flex;
+  flex-direction: column;
+  background: var(--chart-container-background, $chart-container-background);
+  padding: var(--chart-container-padding, $chart-container-padding);
+  border-radius: var(--chart-container-radius, $chart-container-radius);
+  border: var(--chart-container-border-width, $chart-container-border-width) solid
+          var(--chart-container-border-color, $chart-container-border-color);
+}
+
+.#{$c}__title {
+  color: var(--chart-title-color, $chart-title-color);
+  font-size: var(--chart-title-size, $chart-title-size);
+  font-weight: var(--chart-title-weight, $chart-title-weight);
+  margin-bottom: var(--chart-title-marginBottom, $chart-title-marginBottom);
+}
+
+.#{$c}__wrapper {
+  position: relative;
+  flex: 1;
+  min-height: var(--chart-canvas-minHeight, $chart-canvas-minHeight);
+}
+
+.#{$c}__canvas {
+  width: 100%;
+  height: 100%;
+
+  canvas {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+// Loading state
+.#{$c}__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--chart-loading-background, $chart-loading-background);
+  border-radius: inherit;
+}
+
+.#{$c}__spinner {
+  width: var(--chart-loading-spinnerSize, $chart-loading-spinnerSize);
+  height: var(--chart-loading-spinnerSize, $chart-loading-spinnerSize);
+  color: var(--chart-loading-spinnerColor, $chart-loading-spinnerColor);
+  animation: chart-spin 1s linear infinite;
+}
+
+@keyframes chart-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Empty state
+.#{$c}__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 100%;
+  min-height: var(--chart-canvas-minHeight, $chart-canvas-minHeight);
+}
+
+.#{$c}__empty-icon {
+  width: var(--chart-empty-iconSize, $chart-empty-iconSize);
+  height: var(--chart-empty-iconSize, $chart-empty-iconSize);
+  color: var(--chart-empty-iconColor, $chart-empty-iconColor);
+}
+
+.#{$c}__empty-text {
+  font-size: 14px;
+  color: var(--chart-empty-textColor, $chart-empty-textColor);
+}
+
+// Legend
+.#{$c}__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--chart-legend-gap, $chart-legend-gap);
+  margin-top: 16px;
+  justify-content: center;
+}
+
+// Legend item helper classes (for custom legend slot content)
+.#{$c}__legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--chart-legend-item-gap, $chart-legend-item-gap);
+  font-size: var(--chart-legend-item-size, $chart-legend-item-size);
+  color: var(--chart-legend-item-color, $chart-legend-item-color);
+}
+
+.#{$c}__legend-marker {
+  width: var(--chart-legend-marker-size, $chart-legend-marker-size);
+  height: var(--chart-legend-marker-size, $chart-legend-marker-size);
+  border-radius: var(--chart-legend-marker-radius, $chart-legend-marker-radius);
+}

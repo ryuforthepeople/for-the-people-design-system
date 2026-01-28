@@ -1,0 +1,108 @@
+{
+  "meter-group": {
+    "track": {
+      "height": {
+        "value": "8px",
+        "type": "dimension",
+        "description": "Height of the meter track"
+      },
+      "background": {
+        "value": "{neutral.200}",
+        "type": "color",
+        "description": "Background color of the meter track"
+      },
+      "radius": {
+        "value": "{radius.pill}",
+        "type": "dimension",
+        "description": "Border radius of the meter track"
+      }
+    },
+    "meter": {
+      "gap": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Gap between meters in the group"
+      },
+      "radius": {
+        "value": "{radius.pill}",
+        "type": "dimension",
+        "description": "Border radius of individual meters"
+      }
+    },
+    "label": {
+      "color": {
+        "value": "{text.default}",
+        "type": "color",
+        "description": "Label text color"
+      },
+      "fontSize": {
+        "value": "14px",
+        "type": "dimension",
+        "description": "Label font size"
+      },
+      "fontWeight": {
+        "value": "500",
+        "type": "fontWeight",
+        "description": "Label font weight"
+      },
+      "gap": {
+        "value": "{stack.xs}",
+        "type": "dimension",
+        "description": "Gap between label and meter"
+      }
+    },
+    "valueText": {
+      "color": {
+        "value": "{text.muted}",
+        "type": "color",
+        "description": "Value text color"
+      },
+      "fontSize": {
+        "value": "12px",
+        "type": "dimension",
+        "description": "Value font size"
+      }
+    },
+    "legend": {
+      "gap": {
+        "value": "{inline.m}",
+        "type": "dimension",
+        "description": "Gap between legend items"
+      },
+      "marker": {
+        "size": {
+          "value": "8px",
+          "type": "dimension",
+          "description": "Size of the legend color marker"
+        },
+        "radius": {
+          "value": "{radius.pill}",
+          "type": "dimension",
+          "description": "Border radius of the legend marker"
+        }
+      }
+    },
+    "colors": {
+      "primary": {
+        "value": "{brand.primary}",
+        "type": "color",
+        "description": "Primary meter color"
+      },
+      "success": {
+        "value": "{feedback.success}",
+        "type": "color",
+        "description": "Success meter color"
+      },
+      "warning": {
+        "value": "{feedback.warning}",
+        "type": "color",
+        "description": "Warning meter color"
+      },
+      "danger": {
+        "value": "{feedback.error}",
+        "type": "color",
+        "description": "Danger meter color"
+      }
+    }
+  }
+}

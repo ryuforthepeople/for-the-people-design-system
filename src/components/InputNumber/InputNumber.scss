@@ -1,0 +1,122 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: input-number;
+
+.#{$c} {
+  display: inline-flex;
+  position: relative;
+  width: 100%;
+}
+
+.#{$c}__input {
+  width: 100%;
+  flex: 1;
+  background-color: var(--inputNumber-background-default, $inputNumber-background-default);
+  border: var(--inputNumber-border-width, $inputNumber-border-width) solid var(--inputNumber-border-color-default, $inputNumber-border-color-default);
+  border-radius: var(--inputNumber-radius, $inputNumber-radius);
+  padding: 0 var(--inputNumber-padding-x, $inputNumber-padding-x);
+  color: var(--inputNumber-text-default, $inputNumber-text-default);
+  text-align: center;
+  transition: all 0.15s ease;
+
+  &::placeholder {
+    color: var(--inputNumber-text-placeholder, $inputNumber-text-placeholder);
+  }
+
+  &:hover:not(:disabled) {
+    border-color: var(--inputNumber-border-color-hover, $inputNumber-border-color-hover);
+  }
+
+  &:focus {
+    outline: var(--inputNumber-focus-ringWidth, $inputNumber-focus-ringWidth) solid var(--inputNumber-focus-ringColor, $inputNumber-focus-ringColor);
+    outline-offset: var(--inputNumber-focus-ringOffset, $inputNumber-focus-ringOffset);
+    border-color: var(--inputNumber-border-color-focus, $inputNumber-border-color-focus);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--inputNumber-background-disabled, $inputNumber-background-disabled);
+    border-color: var(--inputNumber-border-color-disabled, $inputNumber-border-color-disabled);
+    color: var(--inputNumber-text-disabled, $inputNumber-text-disabled);
+  }
+}
+
+.#{$c}__button {
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  width: var(--inputNumber-button-width, $inputNumber-button-width);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--inputNumber-button-background-default, $inputNumber-button-background-default);
+  border: none;
+  cursor: pointer;
+  color: var(--inputNumber-button-icon-color-default, $inputNumber-button-icon-color-default);
+  transition: all 0.15s ease;
+
+  &:hover:not(:disabled) {
+    background-color: var(--inputNumber-button-background-hover, $inputNumber-button-background-hover);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--inputNumber-button-background-active, $inputNumber-button-background-active);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--inputNumber-button-background-disabled, $inputNumber-button-background-disabled);
+    color: var(--inputNumber-button-icon-color-disabled, $inputNumber-button-icon-color-disabled);
+  }
+
+  &--decrement {
+    left: 1px;
+    border-radius: calc(var(--inputNumber-radius, $inputNumber-radius) - 1px) 0 0 calc(var(--inputNumber-radius, $inputNumber-radius) - 1px);
+  }
+
+  &--increment {
+    right: 1px;
+    border-radius: 0 calc(var(--inputNumber-radius, $inputNumber-radius) - 1px) calc(var(--inputNumber-radius, $inputNumber-radius) - 1px) 0;
+  }
+}
+
+// With buttons
+.#{$c}--with-buttons {
+  .#{$c}__input {
+    padding-left: calc(var(--inputNumber-button-width, $inputNumber-button-width) + var(--inputNumber-padding-x, $inputNumber-padding-x));
+    padding-right: calc(var(--inputNumber-button-width, $inputNumber-button-width) + var(--inputNumber-padding-x, $inputNumber-padding-x));
+  }
+}
+
+// Invalid state
+.#{$c}--invalid {
+  .#{$c}__input {
+    border-color: var(--inputNumber-border-color-error, $inputNumber-border-color-error);
+
+    &:focus {
+      border-color: var(--inputNumber-border-color-error, $inputNumber-border-color-error);
+    }
+  }
+}
+
+// Sizes
+.#{$c}--size-sm {
+  .#{$c}__input {
+    height: var(--inputNumber-height-sm, $inputNumber-height-sm);
+    font-size: var(--inputNumber-fontSize-sm, $inputNumber-fontSize-sm);
+  }
+}
+
+.#{$c}--size-md {
+  .#{$c}__input {
+    height: var(--inputNumber-height-md, $inputNumber-height-md);
+    font-size: var(--inputNumber-fontSize-md, $inputNumber-fontSize-md);
+  }
+}
+
+.#{$c}--size-lg {
+  .#{$c}__input {
+    height: var(--inputNumber-height-lg, $inputNumber-height-lg);
+    font-size: var(--inputNumber-fontSize-lg, $inputNumber-fontSize-lg);
+  }
+}

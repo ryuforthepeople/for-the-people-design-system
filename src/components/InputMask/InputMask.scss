@@ -1,0 +1,65 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: input-mask;
+
+.#{$c} {
+  display: block;
+  width: 100%;
+  appearance: none;
+  background-color: var(--input-mask-background-default, $input-mask-background-default);
+  border: var(--input-mask-border-width, $input-mask-border-width) solid var(--input-mask-border-color-default, $input-mask-border-color-default);
+  border-radius: var(--input-mask-radius, $input-mask-radius);
+  padding: 0 var(--input-mask-padding-x, $input-mask-padding-x);
+  color: var(--input-mask-text-default, $input-mask-text-default);
+  font-family: monospace;
+  letter-spacing: 0.05em;
+  transition: all 0.15s ease;
+
+  &::placeholder {
+    color: var(--input-mask-text-placeholder, $input-mask-text-placeholder);
+    font-family: inherit;
+    letter-spacing: normal;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: var(--input-mask-border-color-hover, $input-mask-border-color-hover);
+  }
+
+  &:focus {
+    outline: var(--input-mask-focus-ringWidth, $input-mask-focus-ringWidth) solid var(--input-mask-focus-ringColor, $input-mask-focus-ringColor);
+    outline-offset: var(--input-mask-focus-ringOffset, $input-mask-focus-ringOffset);
+    border-color: var(--input-mask-border-color-focus, $input-mask-border-color-focus);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--input-mask-background-disabled, $input-mask-background-disabled);
+    border-color: var(--input-mask-border-color-disabled, $input-mask-border-color-disabled);
+    color: var(--input-mask-text-disabled, $input-mask-text-disabled);
+  }
+}
+
+// Invalid state
+.#{$c}--invalid {
+  border-color: var(--input-mask-border-color-error, $input-mask-border-color-error);
+
+  &:focus {
+    border-color: var(--input-mask-border-color-error, $input-mask-border-color-error);
+  }
+}
+
+// Sizes
+.#{$c}--size-sm {
+  height: var(--input-mask-height-sm, $input-mask-height-sm);
+  font-size: var(--input-mask-fontSize-sm, $input-mask-fontSize-sm);
+}
+
+.#{$c}--size-md {
+  height: var(--input-mask-height-md, $input-mask-height-md);
+  font-size: var(--input-mask-fontSize-md, $input-mask-fontSize-md);
+}
+
+.#{$c}--size-lg {
+  height: var(--input-mask-height-lg, $input-mask-height-lg);
+  font-size: var(--input-mask-fontSize-lg, $input-mask-fontSize-lg);
+}

@@ -1,0 +1,180 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: confirm-popup;
+
+.#{$c} {
+  position: fixed;
+  z-index: var(--confirmPopup-zIndex, $confirmPopup-zIndex);
+  padding: var(--confirmPopup-padding-y, $confirmPopup-padding-y) var(--confirmPopup-padding-x, $confirmPopup-padding-x);
+  background-color: var(--confirmPopup-background, $confirmPopup-background);
+  border-radius: var(--confirmPopup-radius, $confirmPopup-radius);
+  box-shadow: var(--confirmPopup-shadow, $confirmPopup-shadow);
+  border: var(--confirmPopup-border-width, $confirmPopup-border-width) solid var(--confirmPopup-border-color, $confirmPopup-border-color);
+  max-width: var(--confirmPopup-maxWidth, $confirmPopup-maxWidth);
+}
+
+.#{$c}__content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--inline-s, $inline-s);
+  margin-bottom: var(--confirmPopup-gap-content, $confirmPopup-gap-content);
+}
+
+.#{$c}__icon {
+  flex-shrink: 0;
+  width: var(--confirmPopup-icon-size, $confirmPopup-icon-size);
+  height: var(--confirmPopup-icon-size, $confirmPopup-icon-size);
+  color: var(--confirmPopup-icon-color, $confirmPopup-icon-color);
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.#{$c}__message {
+  color: var(--confirmPopup-message-color, $confirmPopup-message-color);
+  font-size: var(--confirmPopup-message-fontSize, $confirmPopup-message-fontSize);
+  line-height: 1.4;
+}
+
+.#{$c}__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--confirmPopup-gap-buttons, $confirmPopup-gap-buttons);
+}
+
+// Buttons
+.#{$c}__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--inset-2xs, $inset-2xs) var(--inset-s, $inset-s);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--radius-subtle, $radius-subtle);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring, $focus-ring);
+    outline-offset: 2px;
+  }
+}
+
+.#{$c}__button--reject {
+  background-color: transparent;
+  border-color: var(--border-default, $border-default);
+  color: var(--text-default, $text-default);
+
+  &:hover {
+    background-color: var(--surface-muted, $surface-muted);
+  }
+
+  &:active {
+    background-color: var(--surface-muted, $surface-muted);
+  }
+}
+
+.#{$c}__button--accept {
+  background-color: var(--intent-action-default, $intent-action-default);
+  border-color: var(--intent-action-default, $intent-action-default);
+  color: var(--text-inverse, $text-inverse);
+
+  &:hover {
+    background-color: var(--intent-action-hover, $intent-action-hover);
+    border-color: var(--intent-action-hover, $intent-action-hover);
+  }
+
+  &:active {
+    background-color: var(--intent-action-active, $intent-action-active);
+    border-color: var(--intent-action-active, $intent-action-active);
+  }
+}
+
+// Arrow
+.#{$c}__arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+$arrow-size: var(--confirmPopup-arrow-size, $confirmPopup-arrow-size);
+
+// Position: Top (arrow points down)
+.#{$c}--top {
+  .#{$c}__arrow {
+    bottom: calc(-1 * #{$arrow-size});
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: #{$arrow-size} #{$arrow-size} 0 #{$arrow-size};
+    border-color: var(--confirmPopup-background, $confirmPopup-background) transparent transparent transparent;
+  }
+}
+
+// Position: Bottom (arrow points up)
+.#{$c}--bottom {
+  .#{$c}__arrow {
+    top: calc(-1 * #{$arrow-size});
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 #{$arrow-size} #{$arrow-size} #{$arrow-size};
+    border-color: transparent transparent var(--confirmPopup-background, $confirmPopup-background) transparent;
+  }
+}
+
+// Position: Left (arrow points right)
+.#{$c}--left {
+  .#{$c}__arrow {
+    right: calc(-1 * #{$arrow-size});
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: #{$arrow-size} 0 #{$arrow-size} #{$arrow-size};
+    border-color: transparent transparent transparent var(--confirmPopup-background, $confirmPopup-background);
+  }
+}
+
+// Position: Right (arrow points left)
+.#{$c}--right {
+  .#{$c}__arrow {
+    left: calc(-1 * #{$arrow-size});
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: #{$arrow-size} #{$arrow-size} #{$arrow-size} 0;
+    border-color: transparent var(--confirmPopup-background, $confirmPopup-background) transparent transparent;
+  }
+}
+
+// Transition animation
+.#{$c}-fade-enter-active,
+.#{$c}-fade-leave-active {
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.#{$c}-fade-enter-from,
+.#{$c}-fade-leave-to {
+  opacity: 0;
+}
+
+.#{$c}-fade-enter-from.#{$c}--top,
+.#{$c}-fade-leave-to.#{$c}--top {
+  transform: translateY(4px);
+}
+
+.#{$c}-fade-enter-from.#{$c}--bottom,
+.#{$c}-fade-leave-to.#{$c}--bottom {
+  transform: translateY(-4px);
+}
+
+.#{$c}-fade-enter-from.#{$c}--left,
+.#{$c}-fade-leave-to.#{$c}--left {
+  transform: translateX(4px);
+}
+
+.#{$c}-fade-enter-from.#{$c}--right,
+.#{$c}-fade-leave-to.#{$c}--right {
+  transform: translateX(-4px);
+}

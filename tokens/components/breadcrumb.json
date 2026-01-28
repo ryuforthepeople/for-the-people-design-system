@@ -1,0 +1,57 @@
+{
+  "breadcrumb": {
+    "gap": {
+      "value": "{inline.xs}",
+      "type": "dimension",
+      "description": "Gap between breadcrumb items and separators"
+    },
+    "separator": {
+      "color": {
+        "value": "{text.muted}",
+        "type": "color",
+        "description": "Separator icon/text color"
+      },
+      "size": {
+        "value": "12px",
+        "type": "dimension",
+        "description": "Separator icon size"
+      }
+    },
+    "link": {
+      "color": {
+        "default": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Default link color"
+        },
+        "hover": {
+          "value": "{text.link}",
+          "type": "color",
+          "description": "Link hover color"
+        },
+        "current": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Current/active item color"
+        }
+      }
+    },
+    "icon": {
+      "size": {
+        "value": "16px",
+        "type": "dimension",
+        "description": "Icon size in breadcrumb items"
+      },
+      "gap": {
+        "value": "{inline.2xs}",
+        "type": "dimension",
+        "description": "Gap between icon and label"
+      }
+    },
+    "fontSize": {
+      "value": "14px",
+      "type": "dimension",
+      "description": "Breadcrumb text size"
+    }
+  }
+}

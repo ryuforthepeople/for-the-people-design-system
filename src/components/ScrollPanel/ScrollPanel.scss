@@ -1,0 +1,90 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: scroll-panel;
+
+.#{$c} {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--scroll-panel-background, $scroll-panel-background);
+}
+
+// Content area (hides native scrollbars)
+.#{$c}__content {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+
+  // Hide native scrollbars
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // IE/Edge
+
+  &::-webkit-scrollbar {
+    display: none; // Chrome/Safari/Opera
+  }
+}
+
+// Scrollbar track
+.#{$c}__bar {
+  position: absolute;
+  opacity: 0;
+  transition: opacity var(--scroll-panel-transition-duration, $scroll-panel-transition-duration) ease;
+  z-index: 1;
+  background-color: var(--scroll-panel-scrollbar-track-background, $scroll-panel-scrollbar-track-background);
+
+  // Show on hover or when dragging
+  .#{$c}:hover &,
+  &--dragging {
+    opacity: 1;
+  }
+}
+
+.#{$c}__bar--vertical {
+  top: var(--scroll-panel-scrollbar-padding, $scroll-panel-scrollbar-padding);
+  right: var(--scroll-panel-scrollbar-padding, $scroll-panel-scrollbar-padding);
+  bottom: var(--scroll-panel-scrollbar-padding, $scroll-panel-scrollbar-padding);
+  width: var(--scroll-panel-scrollbar-size, $scroll-panel-scrollbar-size);
+  border-radius: var(--scroll-panel-scrollbar-track-radius, $scroll-panel-scrollbar-track-radius);
+}
+
+.#{$c}__bar--horizontal {
+  left: var(--scroll-panel-scrollbar-padding, $scroll-panel-scrollbar-padding);
+  right: var(--scroll-panel-scrollbar-padding, $scroll-panel-scrollbar-padding);
+  bottom: var(--scroll-panel-scrollbar-padding, $scroll-panel-scrollbar-padding);
+  height: var(--scroll-panel-scrollbar-size, $scroll-panel-scrollbar-size);
+  border-radius: var(--scroll-panel-scrollbar-track-radius, $scroll-panel-scrollbar-track-radius);
+}
+
+// Scrollbar thumb
+.#{$c}__thumb {
+  position: absolute;
+  background-color: var(--scroll-panel-scrollbar-thumb-background-default, $scroll-panel-scrollbar-thumb-background-default);
+  border-radius: var(--scroll-panel-scrollbar-thumb-radius, $scroll-panel-scrollbar-thumb-radius);
+  cursor: pointer;
+  transition: background-color var(--scroll-panel-transition-duration, $scroll-panel-transition-duration) ease;
+
+  &:hover {
+    background-color: var(--scroll-panel-scrollbar-thumb-background-hover, $scroll-panel-scrollbar-thumb-background-hover);
+  }
+
+  &:active {
+    background-color: var(--scroll-panel-scrollbar-thumb-background-active, $scroll-panel-scrollbar-thumb-background-active);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring, $focus-ring);
+    outline-offset: 2px;
+  }
+
+  // Vertical thumb
+  .#{$c}__bar--vertical & {
+    width: 100%;
+    min-height: var(--scroll-panel-scrollbar-thumb-minSize, $scroll-panel-scrollbar-thumb-minSize);
+  }
+
+  // Horizontal thumb
+  .#{$c}__bar--horizontal & {
+    height: 100%;
+    min-width: var(--scroll-panel-scrollbar-thumb-minSize, $scroll-panel-scrollbar-thumb-minSize);
+  }
+}

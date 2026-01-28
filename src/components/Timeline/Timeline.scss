@@ -1,0 +1,190 @@
+@use "../../../dist/scss/tokens" as *;
+
+$c: timeline;
+
+.#{$c} {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.#{$c}__item {
+  display: flex;
+  position: relative;
+  min-height: 70px;
+}
+
+.#{$c}__opposite {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  padding: var(--timeline-content-padding, $timeline-content-padding);
+}
+
+.#{$c}__separator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.#{$c}__connector {
+  width: var(--timeline-line-width, $timeline-line-width);
+  background-color: var(--timeline-line-color, $timeline-line-color);
+  flex-grow: 1;
+}
+
+.#{$c}__connector--before {
+  min-height: 16px;
+}
+
+.#{$c}__connector--after {
+  min-height: 16px;
+}
+
+.#{$c}__marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--timeline-marker-ring-size, $timeline-marker-ring-size);
+  height: var(--timeline-marker-ring-size, $timeline-marker-ring-size);
+  border-radius: 50%;
+  background-color: var(--timeline-marker-ring-color, $timeline-marker-ring-color);
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.#{$c}__marker-dot {
+  width: var(--timeline-marker-size, $timeline-marker-size);
+  height: var(--timeline-marker-size, $timeline-marker-size);
+  border-radius: 50%;
+  background-color: var(--timeline-marker-color, var(--timeline-marker-background, $timeline-marker-background));
+  border: var(--timeline-marker-border-width, $timeline-marker-border-width) solid var(--timeline-marker-border-color, $timeline-marker-border-color);
+}
+
+.#{$c}__content {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  padding: var(--timeline-content-padding, $timeline-content-padding);
+}
+
+.#{$c}__event {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.#{$c}__title {
+  margin: 0;
+  font-size: var(--timeline-event-title-fontSize, $timeline-event-title-fontSize);
+  font-weight: var(--timeline-event-title-fontWeight, $timeline-event-title-fontWeight);
+  color: var(--timeline-event-title-color, $timeline-event-title-color);
+  line-height: 1.4;
+}
+
+.#{$c}__date {
+  font-size: var(--timeline-event-date-fontSize, $timeline-event-date-fontSize);
+  color: var(--timeline-event-date-color, $timeline-event-date-color);
+}
+
+.#{$c}__description {
+  margin: 0;
+  font-size: var(--timeline-event-description-fontSize, $timeline-event-description-fontSize);
+  color: var(--timeline-event-description-color, $timeline-event-description-color);
+  line-height: 1.5;
+}
+
+// Align left - content on right, opposite hidden
+.#{$c}--align-left {
+  .#{$c}__opposite {
+    display: none;
+  }
+
+  .#{$c}__content {
+    text-align: left;
+  }
+}
+
+// Align right - content on left, opposite hidden
+.#{$c}--align-right {
+  .#{$c}__item {
+    flex-direction: row-reverse;
+  }
+
+  .#{$c}__opposite {
+    display: none;
+  }
+
+  .#{$c}__content {
+    text-align: right;
+    justify-content: flex-end;
+  }
+}
+
+// Alternate - alternating sides
+.#{$c}--align-alternate {
+  .#{$c}__opposite {
+    display: flex;
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  .#{$c}__content {
+    text-align: left;
+  }
+
+  .#{$c}__item--right {
+    flex-direction: row-reverse;
+
+    .#{$c}__opposite {
+      justify-content: flex-start;
+      text-align: left;
+    }
+
+    .#{$c}__content {
+      text-align: right;
+      justify-content: flex-end;
+    }
+  }
+}
+
+// Horizontal layout
+.#{$c}--layout-horizontal {
+  flex-direction: row;
+  overflow-x: auto;
+
+  .#{$c}__item {
+    flex-direction: column;
+    min-width: 150px;
+    min-height: auto;
+  }
+
+  .#{$c}__separator {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .#{$c}__connector {
+    width: auto;
+    height: var(--timeline-line-width, $timeline-line-width);
+    flex-grow: 1;
+  }
+
+  .#{$c}__connector--before,
+  .#{$c}__connector--after {
+    min-height: auto;
+    min-width: 16px;
+  }
+
+  .#{$c}__opposite {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .#{$c}__content {
+    justify-content: center;
+    text-align: center;
+  }
+}

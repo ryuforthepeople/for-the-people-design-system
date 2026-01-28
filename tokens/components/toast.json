@@ -1,0 +1,281 @@
+{
+  "toast": {
+    "container": {
+      "gap": {
+        "value": "{stack.s}",
+        "type": "dimension",
+        "description": "Gap between stacked toasts"
+      },
+      "padding": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Container padding from screen edge"
+      },
+      "zIndex": {
+        "value": "1200",
+        "type": "number",
+        "description": "Toast container z-index"
+      },
+      "maxWidth": {
+        "value": "400px",
+        "type": "dimension",
+        "description": "Maximum toast width"
+      }
+    },
+    "background": {
+      "default": {
+        "value": "{surface.elevated}",
+        "type": "color",
+        "description": "Default toast background"
+      },
+      "success": {
+        "value": "{feedback.successSubtle}",
+        "type": "color",
+        "description": "Success toast background"
+      },
+      "info": {
+        "value": "{feedback.infoSubtle}",
+        "type": "color",
+        "description": "Info toast background"
+      },
+      "warning": {
+        "value": "{feedback.warningSubtle}",
+        "type": "color",
+        "description": "Warning toast background"
+      },
+      "error": {
+        "value": "{feedback.errorSubtle}",
+        "type": "color",
+        "description": "Error toast background"
+      }
+    },
+    "border": {
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Toast border width"
+      },
+      "color": {
+        "default": {
+          "value": "{border.subtle}",
+          "type": "color",
+          "description": "Default border color"
+        },
+        "success": {
+          "value": "{feedback.success}",
+          "type": "color",
+          "description": "Success border color"
+        },
+        "info": {
+          "value": "{feedback.info}",
+          "type": "color",
+          "description": "Info border color"
+        },
+        "warning": {
+          "value": "{feedback.warning}",
+          "type": "color",
+          "description": "Warning border color"
+        },
+        "error": {
+          "value": "{feedback.error}",
+          "type": "color",
+          "description": "Error border color"
+        }
+      }
+    },
+    "radius": {
+      "value": "{radius.default}",
+      "type": "dimension",
+      "description": "Toast border radius"
+    },
+    "shadow": {
+      "value": "{shadow.l}",
+      "type": "shadow",
+      "description": "Toast elevation shadow"
+    },
+    "padding": {
+      "x": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Horizontal padding"
+      },
+      "y": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Vertical padding"
+      }
+    },
+    "icon": {
+      "size": {
+        "value": "20px",
+        "type": "dimension",
+        "description": "Icon size"
+      },
+      "color": {
+        "default": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Default icon color"
+        },
+        "success": {
+          "value": "{feedback.success}",
+          "type": "color",
+          "description": "Success icon color"
+        },
+        "info": {
+          "value": "{feedback.info}",
+          "type": "color",
+          "description": "Info icon color"
+        },
+        "warning": {
+          "value": "{feedback.warning}",
+          "type": "color",
+          "description": "Warning icon color"
+        },
+        "error": {
+          "value": "{feedback.error}",
+          "type": "color",
+          "description": "Error icon color"
+        }
+      },
+      "gap": {
+        "value": "{inline.s}",
+        "type": "dimension",
+        "description": "Gap between icon and content"
+      }
+    },
+    "content": {
+      "gap": {
+        "value": "{stack.2xs}",
+        "type": "dimension",
+        "description": "Gap between summary and detail"
+      }
+    },
+    "summary": {
+      "color": {
+        "default": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Summary text color"
+        },
+        "success": {
+          "value": "{feedback.successEmphasis}",
+          "type": "color",
+          "description": "Success summary color"
+        },
+        "info": {
+          "value": "{feedback.infoEmphasis}",
+          "type": "color",
+          "description": "Info summary color"
+        },
+        "warning": {
+          "value": "{feedback.warningEmphasis}",
+          "type": "color",
+          "description": "Warning summary color"
+        },
+        "error": {
+          "value": "{feedback.errorEmphasis}",
+          "type": "color",
+          "description": "Error summary color"
+        }
+      },
+      "fontSize": {
+        "value": "14px",
+        "type": "dimension",
+        "description": "Summary font size"
+      },
+      "fontWeight": {
+        "value": "600",
+        "type": "number",
+        "description": "Summary font weight"
+      }
+    },
+    "detail": {
+      "color": {
+        "value": "{text.muted}",
+        "type": "color",
+        "description": "Detail text color"
+      },
+      "fontSize": {
+        "value": "13px",
+        "type": "dimension",
+        "description": "Detail font size"
+      }
+    },
+    "closeButton": {
+      "size": {
+        "value": "28px",
+        "type": "dimension",
+        "description": "Close button size"
+      },
+      "iconSize": {
+        "value": "14px",
+        "type": "dimension",
+        "description": "Close icon size"
+      },
+      "color": {
+        "default": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Close button color"
+        },
+        "hover": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Close button hover color"
+        }
+      },
+      "background": {
+        "hover": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Close button hover background"
+        }
+      },
+      "radius": {
+        "value": "{radius.subtle}",
+        "type": "dimension",
+        "description": "Close button border radius"
+      }
+    },
+    "progress": {
+      "height": {
+        "value": "3px",
+        "type": "dimension",
+        "description": "Progress bar height"
+      },
+      "background": {
+        "value": "{surface.muted}",
+        "type": "color",
+        "description": "Progress bar track background"
+      },
+      "fill": {
+        "default": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Default progress fill"
+        },
+        "success": {
+          "value": "{feedback.success}",
+          "type": "color",
+          "description": "Success progress fill"
+        },
+        "info": {
+          "value": "{feedback.info}",
+          "type": "color",
+          "description": "Info progress fill"
+        },
+        "warning": {
+          "value": "{feedback.warning}",
+          "type": "color",
+          "description": "Warning progress fill"
+        },
+        "error": {
+          "value": "{feedback.error}",
+          "type": "color",
+          "description": "Error progress fill"
+        }
+      }
+    }
+  }
+}

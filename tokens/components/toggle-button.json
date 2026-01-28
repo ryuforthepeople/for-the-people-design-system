@@ -1,0 +1,220 @@
+{
+  "toggleButton": {
+    "height": {
+      "sm": {
+        "value": "32px",
+        "type": "dimension",
+        "description": "Small toggle button height"
+      },
+      "md": {
+        "value": "40px",
+        "type": "dimension",
+        "description": "Medium toggle button height"
+      },
+      "lg": {
+        "value": "48px",
+        "type": "dimension",
+        "description": "Large toggle button height"
+      }
+    },
+    "padding": {
+      "sm": {
+        "x": {
+          "value": "{inset.s}",
+          "type": "dimension",
+          "description": "Small toggle button horizontal padding"
+        },
+        "y": {
+          "value": "{inset.2xs}",
+          "type": "dimension",
+          "description": "Small toggle button vertical padding"
+        }
+      },
+      "md": {
+        "x": {
+          "value": "{inset.m}",
+          "type": "dimension",
+          "description": "Medium toggle button horizontal padding"
+        },
+        "y": {
+          "value": "{inset.xs}",
+          "type": "dimension",
+          "description": "Medium toggle button vertical padding"
+        }
+      },
+      "lg": {
+        "x": {
+          "value": "{inset.l}",
+          "type": "dimension",
+          "description": "Large toggle button horizontal padding"
+        },
+        "y": {
+          "value": "{inset.s}",
+          "type": "dimension",
+          "description": "Large toggle button vertical padding"
+        }
+      }
+    },
+    "gap": {
+      "value": "{inline.xs}",
+      "type": "dimension",
+      "description": "Gap between icon and label"
+    },
+    "background": {
+      "off": {
+        "default": {
+          "value": "{neutral.200}",
+          "type": "color",
+          "description": "Toggle button off state background"
+        },
+        "hover": {
+          "value": "{neutral.300}",
+          "type": "color",
+          "description": "Toggle button off state hover background"
+        }
+      },
+      "on": {
+        "default": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Toggle button on state background"
+        },
+        "hover": {
+          "value": "{navy.800}",
+          "type": "color",
+          "description": "Toggle button on state hover background"
+        }
+      },
+      "disabled": {
+        "value": "{neutral.100}",
+        "type": "color",
+        "description": "Toggle button disabled background"
+      }
+    },
+    "text": {
+      "off": {
+        "default": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Toggle button off state text color"
+        }
+      },
+      "on": {
+        "default": {
+          "value": "{text.inverse}",
+          "type": "color",
+          "description": "Toggle button on state text color"
+        }
+      },
+      "disabled": {
+        "value": "{neutral.400}",
+        "type": "color",
+        "description": "Toggle button disabled text color"
+      }
+    },
+    "border": {
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Toggle button border width"
+      },
+      "off": {
+        "default": {
+          "value": "{neutral.300}",
+          "type": "color",
+          "description": "Toggle button off state border color"
+        },
+        "hover": {
+          "value": "{neutral.400}",
+          "type": "color",
+          "description": "Toggle button off state hover border color"
+        }
+      },
+      "on": {
+        "default": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Toggle button on state border color"
+        },
+        "hover": {
+          "value": "{navy.800}",
+          "type": "color",
+          "description": "Toggle button on state hover border color"
+        }
+      },
+      "disabled": {
+        "value": "{neutral.200}",
+        "type": "color",
+        "description": "Toggle button disabled border color"
+      }
+    },
+    "radius": {
+      "value": "{radius.default}",
+      "type": "dimension",
+      "description": "Toggle button border radius"
+    },
+    "fontSize": {
+      "sm": {
+        "value": "14px",
+        "type": "dimension",
+        "description": "Small toggle button font size"
+      },
+      "md": {
+        "value": "16px",
+        "type": "dimension",
+        "description": "Medium toggle button font size"
+      },
+      "lg": {
+        "value": "18px",
+        "type": "dimension",
+        "description": "Large toggle button font size"
+      }
+    },
+    "iconSize": {
+      "sm": {
+        "value": "16px",
+        "type": "dimension",
+        "description": "Small toggle button icon size"
+      },
+      "md": {
+        "value": "18px",
+        "type": "dimension",
+        "description": "Medium toggle button icon size"
+      },
+      "lg": {
+        "value": "20px",
+        "type": "dimension",
+        "description": "Large toggle button icon size"
+      }
+    },
+    "fontWeight": {
+      "value": "500",
+      "type": "fontWeight",
+      "description": "Toggle button font weight"
+    },
+    "focus": {
+      "ringColor": {
+        "value": "{focus.ring}",
+        "type": "color",
+        "description": "Toggle button focus ring color"
+      },
+      "ringWidth": {
+        "value": "2px",
+        "type": "dimension",
+        "description": "Toggle button focus ring width"
+      },
+      "ringOffset": {
+        "value": "2px",
+        "type": "dimension",
+        "description": "Toggle button focus ring offset"
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "150ms",
+        "type": "duration",
+        "description": "Toggle button transition duration"
+      }
+    }
+  }
+}

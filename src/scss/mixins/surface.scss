@@ -1,0 +1,19 @@
+@use "../../../dist/scss/tokens" as *;
+
+/// Surface mixin for background treatments
+/// @param {string} $type - Surface type: canvas, panel, elevated, muted, accent, or gradient
+@mixin surface($type: "canvas") {
+  @if $type == "canvas" {
+    background-color: $surface-canvas;
+  } @else if $type == "panel" {
+    background-color: $surface-panel;
+  } @else if $type == "elevated" {
+    background-color: $surface-elevated;
+  } @else if $type == "muted" {
+    background-color: $surface-muted;
+  } @else if $type == "accent" {
+    background-color: $surface-accent;
+  } @else if $type == "gradient" {
+    background: linear-gradient(180deg, $surface-gradient-start, $surface-gradient-end);
+  }
+}

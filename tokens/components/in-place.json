@@ -1,0 +1,100 @@
+{
+  "in-place": {
+    "display": {
+      "paddingX": {
+        "value": "{inset.m}",
+        "type": "dimension",
+        "description": "Display element horizontal padding"
+      },
+      "paddingY": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Display element vertical padding"
+      },
+      "background": {
+        "default": {
+          "value": "transparent",
+          "type": "color",
+          "description": "Display background"
+        },
+        "hover": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Display hover background"
+        }
+      },
+      "color": {
+        "default": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Display text color"
+        },
+        "hover": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Display hover text color"
+        },
+        "disabled": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Display disabled text color"
+        }
+      },
+      "border": {
+        "radius": {
+          "value": "{radius.default}",
+          "type": "dimension",
+          "description": "Display border radius"
+        }
+      }
+    },
+    "closeButton": {
+      "size": {
+        "value": "28px",
+        "type": "dimension",
+        "description": "Close button size"
+      },
+      "iconSize": {
+        "value": "14px",
+        "type": "dimension",
+        "description": "Close icon size"
+      },
+      "color": {
+        "default": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Close button color"
+        },
+        "hover": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Close button hover color"
+        }
+      },
+      "background": {
+        "hover": {
+          "value": "{surface.muted}",
+          "type": "color",
+          "description": "Close button hover background"
+        }
+      },
+      "radius": {
+        "value": "{radius.default}",
+        "type": "dimension",
+        "description": "Close button border radius"
+      },
+      "gap": {
+        "value": "{inset.s}",
+        "type": "dimension",
+        "description": "Gap between content and close button"
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "150ms",
+        "type": "duration",
+        "description": "State transition duration"
+      }
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "knob": {
+    "size": {
+      "sm": {
+        "value": "80px",
+        "type": "dimension",
+        "description": "Small knob size"
+      },
+      "md": {
+        "value": "120px",
+        "type": "dimension",
+        "description": "Medium knob size"
+      },
+      "lg": {
+        "value": "160px",
+        "type": "dimension",
+        "description": "Large knob size"
+      }
+    },
+    "strokeWidth": {
+      "sm": {
+        "value": "6px",
+        "type": "dimension",
+        "description": "Small stroke width"
+      },
+      "md": {
+        "value": "8px",
+        "type": "dimension",
+        "description": "Medium stroke width"
+      },
+      "lg": {
+        "value": "10px",
+        "type": "dimension",
+        "description": "Large stroke width"
+      }
+    },
+    "track": {
+      "color": {
+        "value": "{neutral.200}",
+        "type": "color",
+        "description": "Background track color"
+      }
+    },
+    "fill": {
+      "color": {
+        "default": {
+          "value": "{brand.primary}",
+          "type": "color",
+          "description": "Default fill color"
+        },
+        "disabled": {
+          "value": "{neutral.300}",
+          "type": "color",
+          "description": "Disabled fill color"
+        }
+      }
+    },
+    "valueText": {
+      "fontSize": {
+        "sm": {
+          "value": "16px",
+          "type": "dimension",
+          "description": "Small value font size"
+        },
+        "md": {
+          "value": "20px",
+          "type": "dimension",
+          "description": "Medium value font size"
+        },
+        "lg": {
+          "value": "28px",
+          "type": "dimension",
+          "description": "Large value font size"
+        }
+      },
+      "fontWeight": {
+        "value": "600",
+        "type": "fontWeight",
+        "description": "Value font weight"
+      },
+      "color": {
+        "default": {
+          "value": "{text.default}",
+          "type": "color",
+          "description": "Default value color"
+        },
+        "disabled": {
+          "value": "{text.muted}",
+          "type": "color",
+          "description": "Disabled value color"
+        }
+      }
+    },
+    "focus": {
+      "ringWidth": {
+        "value": "2px",
+        "type": "dimension",
+        "description": "Focus ring width"
+      },
+      "ringColor": {
+        "value": "{focus.ring}",
+        "type": "color",
+        "description": "Focus ring color"
+      },
+      "ringOffset": {
+        "value": "2px",
+        "type": "dimension",
+        "description": "Focus ring offset"
+      }
+    },
+    "transition": {
+      "duration": {
+        "value": "100ms",
+        "type": "duration",
+        "description": "Value change transition"
+      }
+    }
+  }
+}

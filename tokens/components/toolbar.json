@@ -1,0 +1,41 @@
+{
+  "toolbar": {
+    "background": {
+      "value": "{surface.panel}",
+      "type": "color",
+      "description": "Toolbar background color"
+    },
+    "border": {
+      "color": {
+        "value": "{border.subtle}",
+        "type": "color",
+        "description": "Toolbar border color"
+      },
+      "width": {
+        "value": "1px",
+        "type": "dimension",
+        "description": "Toolbar border width"
+      }
+    },
+    "radius": {
+      "value": "{radius.default}",
+      "type": "dimension",
+      "description": "Toolbar border radius"
+    },
+    "padding": {
+      "value": "{inset.m}",
+      "type": "dimension",
+      "description": "Toolbar inner padding"
+    },
+    "gap": {
+      "value": "{inline.m}",
+      "type": "dimension",
+      "description": "Gap between toolbar items"
+    },
+    "minHeight": {
+      "value": "48px",
+      "type": "dimension",
+      "description": "Minimum toolbar height"
+    }
+  }
+}

@@ -1,0 +1,263 @@
+<template>
+  <div class="data-table" :class="additionalClasses">
+    <div v-if="$slots.header" class="data-table__header">
+      <slot name="header" />
+    </div>
+
+    <div class="data-table__wrapper">
+      <table class="data-table__table">
+        <thead class="data-table__thead">
+          <tr>
+            <th
+              v-for="col in columns"
+              :key="col.field"
+              class="data-table__th"
+              :class="{ 'data-table__th--sortable': col.sortable }"
+              :style="col.width ? { width: col.width } : {}"
+              @click="col.sortable ? onSort(col.field) : null"
+            >
+              <span class="data-table__th-content">
+                {{ col.header }}
+                <span v-if="col.sortable" class="data-table__sort-icon">
+                  <svg
+                    v-if="sortField === col.field"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    :class="{ 'data-table__sort-icon--desc': sortOrder === -1 }"
+                  >
+                    <polyline points="18 15 12 9 6 15" />
+                  </svg>
+                  <svg
+                    v-else
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    class="data-table__sort-icon--neutral"
+                  >
+                    <polyline points="7 10 12 5 17 10" />
+                    <polyline points="7 14 12 19 17 14" />
+                  </svg>
+                </span>
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="data-table__tbody">
+          <tr
+            v-for="(row, rowIndex) in paginatedData"
+            :key="rowIndex"
+            class="data-table__row"
+            :class="{ 'data-table__row--striped': striped && rowIndex % 2 === 1 }"
+          >
+            <td
+              v-for="col in columns"
+              :key="col.field"
+              class="data-table__td"
+            >
+              <slot :name="`column-${col.field}`" :data="row" :field="col.field">
+                {{ getFieldValue(row, col.field) }}
+              </slot>
+            </td>
+          </tr>
+          <tr v-if="paginatedData.length === 0" class="data-table__empty-row">
+            <td :colspan="columns.length" class="data-table__empty">
+              <slot name="empty">
+                No records found
+              </slot>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div v-if="paginator && totalPages > 1" class="data-table__pagination">
+      <button
+        class="data-table__page-btn"
+        :disabled="currentPage === 1"
+        @click="goToPage(1)"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="11 17 6 12 11 7" />
+          <polyline points="18 17 13 12 18 7" />
+        </svg>
+      </button>
+      <button
+        class="data-table__page-btn"
+        :disabled="currentPage === 1"
+        @click="goToPage(currentPage - 1)"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      <span class="data-table__page-info">
+        Page {{ currentPage }} of {{ totalPages }}
+      </span>
+      <button
+        class="data-table__page-btn"
+        :disabled="currentPage === totalPages"
+        @click="goToPage(currentPage + 1)"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
+      <button
+        class="data-table__page-btn"
+        :disabled="currentPage === totalPages"
+        @click="goToPage(totalPages)"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="13 17 18 12 13 7" />
+          <polyline points="6 17 11 12 6 7" />
+        </svg>
+      </button>
+    </div>
+
+    <div v-if="$slots.footer" class="data-table__footer">
+      <slot name="footer" />
+    </div>
+  </div>
+</template>
+
+<style src="./DataTable.scss"></style>
+
+<script setup>
+import { ref, computed, watch } from "vue";
+
+const props = defineProps({
+  /**
+   * Array of data objects to display in the table.
+   */
+  value: {
+    type: Array,
+    default: () => [],
+  },
+  /**
+   * Array of column definitions with field, header, sortable, and width properties.
+   */
+  columns: {
+    type: Array,
+    default: () => [],
+    validator: (cols) => cols.every((c) => c.field && c.header),
+  },
+  /**
+   * Whether to show striped rows.
+   */
+  striped: {
+    type: Boolean,
+    default: false,
+  },
+  /**
+   * Whether to show hover effect on rows.
+   */
+  hoverable: {
+    type: Boolean,
+    default: true,
+  },
+  /**
+   * Enable pagination.
+   */
+  paginator: {
+    type: Boolean,
+    default: false,
+  },
+  /**
+   * Number of rows per page when paginator is enabled.
+   */
+  rows: {
+    type: Number,
+    default: 10,
+  },
+  /**
+   * Default sort field.
+   */
+  sortField: {
+    type: String,
+    default: null,
+  },
+  /**
+   * Default sort order: 1 for ascending, -1 for descending.
+   */
+  sortOrder: {
+    type: Number,
+    default: 1,
+  },
+});
+
+const emit = defineEmits(["sort", "page"]);
+
+defineOptions({
+  name: "DataTable",
+});
+
+const currentPage = ref(1);
+const internalSortField = ref(props.sortField);
+const internalSortOrder = ref(props.sortOrder);
+
+watch(
+  () => props.sortField,
+  (val) => {
+    internalSortField.value = val;
+  }
+);
+
+watch(
+  () => props.sortOrder,
+  (val) => {
+    internalSortOrder.value = val;
+  }
+);
+
+const sortField = computed(() => internalSortField.value);
+const sortOrder = computed(() => internalSortOrder.value);
+
+const sortedData = computed(() => {
+  if (!internalSortField.value) return props.value;
+  return [...props.value].sort((a, b) => {
+    const aVal = getFieldValue(a, internalSortField.value);
+    const bVal = getFieldValue(b, internalSortField.value);
+    if (aVal < bVal) return -1 * internalSortOrder.value;
+    if (aVal > bVal) return 1 * internalSortOrder.value;
+    return 0;
+  });
+});
+
+const totalPages = computed(() => {
+  if (!props.paginator || props.rows <= 0) return 1;
+  return Math.ceil(sortedData.value.length / props.rows);
+});
+
+const paginatedData = computed(() => {
+  if (!props.paginator) return sortedData.value;
+  const start = (currentPage.value - 1) * props.rows;
+  return sortedData.value.slice(start, start + props.rows);
+});
+
+const additionalClasses = computed(() =>
+  [props.hoverable && "data-table--hoverable"].filter(Boolean).join(" ")
+);
+
+const getFieldValue = (obj, field) => {
+  return field.split(".").reduce((o, k) => (o ? o[k] : undefined), obj);
+};
+
+const onSort = (field) => {
+  if (internalSortField.value === field) {
+    internalSortOrder.value = internalSortOrder.value * -1;
+  } else {
+    internalSortField.value = field;
+    internalSortOrder.value = 1;
+  }
+  emit("sort", { sortField: internalSortField.value, sortOrder: internalSortOrder.value });
+};
+
+const goToPage = (page) => {
+  if (page < 1 || page > totalPages.value) return;
+  currentPage.value = page;
+  emit("page", { page: currentPage.value });
+};
+</script>
