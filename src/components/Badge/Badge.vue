@@ -1,5 +1,5 @@
 <template>
-  <span v-if="!isEmpty" class="badge" :class="additionalClasses">
+  <span v-if="!isEmpty" class="badge" :class="additionalClasses" :aria-label="ariaLabel || (value !== null ? `${value}` : undefined)">
     <slot>{{ value }}</slot>
   </span>
 </template>
@@ -23,6 +23,10 @@ const props = defineProps({
     type: String,
     default: "primary",
     validator: (v) => ["primary", "success", "warning", "danger", "info"].includes(v),
+  },
+  ariaLabel: {
+    type: String,
+    default: undefined,
   },
 });
 

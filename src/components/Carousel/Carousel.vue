@@ -1,5 +1,5 @@
 <template>
-  <div class="carousel" :class="additionalClasses">
+  <div class="carousel" :class="additionalClasses" role="region" aria-roledescription="carousel" :aria-label="ariaLabel || 'Carousel'" @keydown="onKeydown">
     <div class="carousel__container">
       <!-- Previous button -->
       <button
@@ -26,6 +26,9 @@
             :key="index"
             class="carousel__item"
             :class="{ 'carousel__item--active': index === currentIndex }"
+            role="group"
+            :aria-roledescription="'slide'"
+            :aria-label="`Slide ${index + 1} of ${items.length}`"
           >
             <slot name="item" :data="item" :index="index">
               {{ item }}
@@ -127,6 +130,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  ariaLabel: {
+    type: String,
+    default: undefined,
+  },
   /**
    * Orientation of the carousel
    */
@@ -192,6 +199,19 @@ const startAutoplay = () => {
     autoplayTimer.value = setInterval(() => {
       next();
     }, props.autoplayInterval);
+  }
+};
+
+const onKeydown = (event) => {
+  switch (event.key) {
+    case "ArrowLeft":
+      event.preventDefault();
+      prev();
+      break;
+    case "ArrowRight":
+      event.preventDefault();
+      next();
+      break;
   }
 };
 

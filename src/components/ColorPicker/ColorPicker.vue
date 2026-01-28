@@ -7,6 +7,8 @@
       class="color-picker__trigger"
       :disabled="isDisabled"
       :aria-expanded="isPanelOpen"
+      aria-label="Choose color"
+      aria-haspopup="true"
       @click="togglePanel"
     >
       <span
@@ -29,7 +31,14 @@
           ref="gradientRef"
           class="color-picker__gradient"
           :style="{ backgroundColor: `hsl(${hue}, 100%, 50%)` }"
+          role="slider"
+          tabindex="0"
+          aria-label="Color saturation and brightness"
+          :aria-valuenow="Math.round(saturation)"
+          aria-valuemin="0"
+          aria-valuemax="100"
           @mousedown="onGradientMouseDown"
+          @keydown="onGradientKeydown"
         >
           <div
             class="color-picker__gradient-pointer"
@@ -41,7 +50,14 @@
         <div
           ref="hueRef"
           class="color-picker__hue"
+          role="slider"
+          tabindex="0"
+          aria-label="Hue"
+          :aria-valuenow="Math.round(hue)"
+          aria-valuemin="0"
+          aria-valuemax="360"
           @mousedown="onHueMouseDown"
+          @keydown="onHueKeydown"
         >
           <div
             class="color-picker__hue-pointer"
@@ -71,6 +87,7 @@
             class="color-picker__preset"
             :class="{ 'color-picker__preset--selected': modelValue === color }"
             :style="{ backgroundColor: color }"
+            :aria-label="`Select color ${color}`"
             @click="selectPreset(color)"
           />
         </div>
@@ -224,6 +241,52 @@ const gradientPointerStyle = computed(() => ({
   left: `${saturation.value}%`,
   top: `${100 - brightness.value}%`,
 }));
+
+// Gradient keyboard handling
+const onGradientKeydown = (event) => {
+  const step = event.shiftKey ? 10 : 2;
+  switch (event.key) {
+    case "ArrowRight":
+      event.preventDefault();
+      saturation.value = Math.min(100, saturation.value + step);
+      updateColor();
+      break;
+    case "ArrowLeft":
+      event.preventDefault();
+      saturation.value = Math.max(0, saturation.value - step);
+      updateColor();
+      break;
+    case "ArrowUp":
+      event.preventDefault();
+      brightness.value = Math.min(100, brightness.value + step);
+      updateColor();
+      break;
+    case "ArrowDown":
+      event.preventDefault();
+      brightness.value = Math.max(0, brightness.value - step);
+      updateColor();
+      break;
+  }
+};
+
+// Hue keyboard handling
+const onHueKeydown = (event) => {
+  const step = event.shiftKey ? 10 : 2;
+  switch (event.key) {
+    case "ArrowRight":
+    case "ArrowUp":
+      event.preventDefault();
+      hue.value = Math.min(360, hue.value + step);
+      updateColor();
+      break;
+    case "ArrowLeft":
+    case "ArrowDown":
+      event.preventDefault();
+      hue.value = Math.max(0, hue.value - step);
+      updateColor();
+      break;
+  }
+};
 
 // Gradient mouse handling
 const onGradientMouseDown = (event) => {

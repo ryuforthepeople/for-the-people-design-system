@@ -44,6 +44,7 @@
           <button
             type="button"
             class="calendar__nav calendar__nav--prev"
+            aria-label="Previous month"
             @click="navigateMonth(-1)"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -60,6 +61,7 @@
           <button
             type="button"
             class="calendar__nav calendar__nav--next"
+            aria-label="Next month"
             @click="navigateMonth(1)"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -69,9 +71,9 @@
         </div>
 
         <!-- Day view -->
-        <div v-if="currentView === 'day'" class="calendar__body">
-          <div class="calendar__weekdays">
-            <span v-for="day in weekdayNames" :key="day" class="calendar__weekday">
+        <div v-if="currentView === 'day'" class="calendar__body" role="grid" aria-label="Calendar">
+          <div class="calendar__weekdays" role="row">
+            <span v-for="day in weekdayNames" :key="day" class="calendar__weekday" role="columnheader">
               {{ day }}
             </span>
           </div>
@@ -83,6 +85,8 @@
               class="calendar__day"
               :class="getDayClasses(day)"
               :disabled="!day.currentMonth"
+              :aria-label="day.currentMonth ? formatFullDate(day.date) : undefined"
+              :aria-selected="isSelected(day.date) || undefined"
               @click="selectDate(day)"
             >
               {{ day.day }}
@@ -215,6 +219,11 @@ const formatDate = (date) => {
     .replace("dd", day)
     .replace("mm", month)
     .replace("yyyy", year);
+};
+
+const formatFullDate = (date) => {
+  if (!date) return "";
+  return date.toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
 };
 
 const displayValue = computed(() => {

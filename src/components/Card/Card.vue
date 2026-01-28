@@ -1,11 +1,11 @@
 <template>
-  <div class="card" :class="additionalClasses">
+  <article class="card" :class="additionalClasses" :aria-labelledby="$slots.title ? cardTitleId : undefined">
     <div v-if="$slots.header" class="card__header">
       <slot name="header" />
     </div>
     <div class="card__body">
       <div v-if="$slots.title || $slots.subtitle" class="card__caption">
-        <div v-if="$slots.title" class="card__title">
+        <div v-if="$slots.title" :id="cardTitleId" class="card__title">
           <slot name="title" />
         </div>
         <div v-if="$slots.subtitle" class="card__subtitle">
@@ -21,7 +21,7 @@
     <div v-if="$slots.footer" class="card__footer">
       <slot name="footer" />
     </div>
-  </div>
+  </article>
 </template>
 
 <style src="./Card.scss"></style>
@@ -32,6 +32,8 @@ import { computed } from "vue";
 defineOptions({
   name: 'Card'
 });
+
+const cardTitleId = `card-title-${Math.random().toString(36).substring(2, 9)}`;
 
 const props = defineProps({
   variant: {

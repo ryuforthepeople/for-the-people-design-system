@@ -10,7 +10,8 @@
       class="dropdown__trigger"
       :disabled="isDisabled"
       :aria-expanded="isOpen"
-      :aria-haspopup="true"
+      aria-haspopup="listbox"
+      :aria-describedby="ariaDescribedby || undefined"
       @click="toggle"
       @keydown="onTriggerKeydown"
     >
@@ -145,6 +146,10 @@ const props = defineProps({
   isInvalid: {
     type: Boolean,
     default: false,
+  },
+  ariaDescribedby: {
+    type: String,
+    default: undefined,
   },
 });
 

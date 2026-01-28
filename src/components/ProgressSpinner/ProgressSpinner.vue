@@ -3,6 +3,7 @@
     class="progress-spinner"
     :class="additionalClasses"
     role="progressbar"
+    aria-label="Loading"
     aria-valuemin="0"
     aria-valuemax="100"
     :style="spinnerStyle"

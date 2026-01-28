@@ -9,6 +9,7 @@
     :placeholder="placeholder"
     :disabled="isDisabled"
     :aria-invalid="isInvalid || undefined"
+    :aria-describedby="ariaDescribedby || undefined"
     @input="onInput"
   ></textarea>
 </template>
@@ -46,6 +47,10 @@ const props = defineProps({
   autoResize: {
     type: Boolean,
     default: false,
+  },
+  ariaDescribedby: {
+    type: String,
+    default: undefined,
   },
 });
 

@@ -9,6 +9,7 @@
     :disabled="isDisabled"
     :name="name"
     :aria-invalid="isInvalid || undefined"
+    :aria-describedby="ariaDescribedby || undefined"
     @input="onInput"
     @change="onChange"
     @focus="onFocus"
@@ -45,6 +46,10 @@ const props = defineProps({
   isInvalid: {
     type: Boolean,
     default: false,
+  },
+  ariaDescribedby: {
+    type: String,
+    default: undefined,
   },
 });
 

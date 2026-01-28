@@ -45,7 +45,10 @@
         :disabled="isDisabled"
         :aria-invalid="isInvalid || undefined"
         :aria-expanded="isOpen"
+        :aria-describedby="ariaDescribedby || undefined"
+        :aria-activedescendant="highlightedIndex >= 0 ? `${autocompleteId}-option-${highlightedIndex}` : undefined"
         aria-autocomplete="list"
+        :aria-controls="`${autocompleteId}-listbox`"
         role="combobox"
         @input="onInput"
         @focus="onFocus"
@@ -115,10 +118,12 @@
         class="autocomplete__dropdown"
         :style="dropdownStyle"
         role="listbox"
+        :id="`${autocompleteId}-listbox`"
       >
         <div
           v-for="(suggestion, index) in filteredSuggestions"
           :key="`suggestion-${index}`"
+          :id="`${autocompleteId}-option-${index}`"
           class="autocomplete__option"
           :class="{
             'autocomplete__option--highlighted': index === highlightedIndex,
@@ -193,6 +198,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  ariaDescribedby: {
+    type: String,
+    default: undefined,
+  },
   dropdown: {
     type: Boolean,
     default: false,
@@ -213,6 +222,7 @@ const emit = defineEmits([
   "clear",
 ]);
 
+const autocompleteId = `autocomplete-${Math.random().toString(36).substring(2, 9)}`;
 const containerRef = ref(null);
 const inputRef = ref(null);
 const dropdownRef = ref(null);

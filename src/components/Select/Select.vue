@@ -7,6 +7,7 @@
       :disabled="isDisabled"
       :name="name"
       :aria-invalid="isInvalid || undefined"
+      :aria-describedby="ariaDescribedby || undefined"
       @change="onChange"
     >
       <option v-if="placeholder" value="" disabled :selected="!modelValue">
@@ -77,6 +78,10 @@ const props = defineProps({
   isInvalid: {
     type: Boolean,
     default: false,
+  },
+  ariaDescribedby: {
+    type: String,
+    default: undefined,
   },
 });
 

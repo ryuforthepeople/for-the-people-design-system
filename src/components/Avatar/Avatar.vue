@@ -1,5 +1,5 @@
 <template>
-  <div class="avatar" :class="additionalClasses">
+  <div class="avatar" :class="additionalClasses" role="img" :aria-label="ariaLabel || label || 'Avatar'">
     <img
       v-if="image && !imageError"
       :src="image"

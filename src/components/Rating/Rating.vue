@@ -1,5 +1,5 @@
 <template>
-  <div class="rating" :class="additionalClasses">
+  <div class="rating" :class="additionalClasses" role="radiogroup" :aria-label="ariaLabel || 'Rating'">
     <button
       v-if="cancel && !readonly && !isDisabled"
       type="button"
@@ -33,12 +33,15 @@
       }"
       :tabindex="readonly || isDisabled ? -1 : 0"
       :disabled="isDisabled"
+      role="radio"
+      :aria-checked="star === currentValue"
       :aria-label="`${star} of ${stars} stars`"
       @click="onStarClick(star)"
       @mouseenter="onStarHover(star)"
       @mouseleave="onStarLeave"
       @keydown.enter.prevent="onStarClick(star)"
       @keydown.space.prevent="onStarClick(star)"
+      @keydown="onStarKeydown($event, star)"
     >
       <svg
         class="rating__star-icon"
@@ -82,6 +85,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  ariaLabel: {
+    type: String,
+    default: undefined,
+  },
 });
 
 const emit = defineEmits(["update:modelValue", "change"]);
@@ -103,6 +110,27 @@ const onCancelClick = () => {
   if (props.readonly || props.isDisabled) return;
   emit("update:modelValue", null);
   emit("change", { value: null });
+};
+
+const onStarKeydown = (event, star) => {
+  if (props.readonly || props.isDisabled) return;
+  let newValue = star;
+  switch (event.key) {
+    case "ArrowRight":
+    case "ArrowUp":
+      event.preventDefault();
+      newValue = Math.min(star + 1, props.stars);
+      break;
+    case "ArrowLeft":
+    case "ArrowDown":
+      event.preventDefault();
+      newValue = Math.max(star - 1, 1);
+      break;
+    default:
+      return;
+  }
+  emit("update:modelValue", newValue);
+  emit("change", { value: newValue });
 };
 
 const onStarHover = (value) => {

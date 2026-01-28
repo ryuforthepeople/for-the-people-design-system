@@ -10,6 +10,8 @@
       :step="step"
       :disabled="isDisabled"
       :name="name"
+      :aria-label="ariaLabel || 'Slider'"
+      :aria-describedby="ariaDescribedby || undefined"
       :style="trackStyle"
       @input="onInput"
       @change="onChange"
@@ -40,6 +42,8 @@ const props = defineProps({
     default: 1,
   },
   name: String,
+  ariaLabel: String,
+  ariaDescribedby: String,
   isDisabled: {
     type: Boolean,
     default: false,
