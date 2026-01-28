@@ -37,22 +37,6 @@ const props = withDefaults(defineProps<OrganizationChartProps>(), {
   selectedKeys: () => ({}),
   expandedKeys: () => ({}),
   collapsible: false,
-});,
-  },
-  /**
-   * Object of expanded node keys.
-   */
-  expandedKeys: {
-    type: Object,
-    default: () => ({}),
-  },
-  /**
-   * Whether all nodes are collapsible.
-   */
-  collapsible: {
-    type: Boolean,
-    default: false,
-  },
 });
 
 const emit = defineEmits([
